@@ -129,7 +129,7 @@ function setAllMap(circleObjects, map){
 function updateAllColor(circleObjects, sliderValue, year){
   let data = get_year_data(year);
   for (i = 0; i < circleObjects.length; i++){
-    var color = get_color_string((sliderValue*data[i].inequality_utility + (100-sliderValue)*sliderValue*data[i].population_utility)/100);
+    var color = get_color_string((sliderValue*data[i].inequality_utility + (100-sliderValue)*data[i].population_utility)/100);
     circleObjects[i].setOptions({
       fillColor: color,
       strokeColor: color,
