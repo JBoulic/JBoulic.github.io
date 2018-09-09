@@ -1,37 +1,4 @@
 var raw_data = {};
-var citymap = {data: [{
-  lat: -41.878,
-  long: 87.629,
-  population: 2714856,
-  utility: 55,
-  suburb: "lisgflieg"
-},
-{
-  lat: -40.714,
-  long: 94.005,
-  population: 8405837,
-  utility: 40
-},
-{
-  lat: -34.052,
-  long: 118.243,
-  population: 3857799,
-  utility: 80
-},
-{
-  lat: -49.25,
-  long: 123.1,
-  population: 603502,
-  utility: 20
-}
-],
-helpCenters:[
-{
-  lat: -35,
-  long: 130,
-
-}]
-};
 
 
 var map;
@@ -41,7 +8,7 @@ var circles = {year2006: [],
               year2016: [],
               year2021: []};
 
-var currentData = citymap.data;
+var currentData;
 var slider = 50;
 var low_color = 107;
 var high_color = 1;
@@ -91,19 +58,6 @@ function get_year_data(year){
   return data;
 }
 
-function add_legend(){
-  var legend = document.getElementById('legend');
-  var div = document.createElement('div');
-  div.innerHTML = '<img src="' + iconBase + 'red-dot.png"> ' + 'existing help center';
-  legend.appendChild(div);
-
-  div = document.createElement('div');
-  div.innerHTML = '<img src="' + iconBase + 'pink-dot.png"> ' + 'potential location';
-  legend.appendChild(div);
-}
-function get_color_string(value){
-  return "hsl(" + get_color(value)+ ", 99%, 50%)";
-}
   
 
 function createCircle(postCode){
