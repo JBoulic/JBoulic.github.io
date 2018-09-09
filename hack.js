@@ -58,6 +58,9 @@ function get_year_data(year){
   return data;
 }
 
+function get_color_string(value){
+  return "hsl(" + get_color(value)+ ", 99%, 50%)";
+}
   
 
 function createCircle(postCode){
