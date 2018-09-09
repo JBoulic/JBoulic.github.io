@@ -1,8 +1,82 @@
-
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html<!DOCTYPE 
+    <head>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- Replace the value of the key parameter with your own API key. -->
+        
+        
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>                        
+                </ul>
+            </div>
+        </nav>
+        <div class="wrap">
+            <div class="container">
+                <br>
+                <section id="vision">
+                    <h2>Our vision</h2>
+                    <br>
+                    <p>
+                        We belive in a data-driven approach to decision-making, we think it can improve the quality of public service and reduce inequalities.<br>
+                        However, data can be used to do more than simply mesure past actions, it can predict the future!<br>
+                        This challenge focuses on helping the ATO (Australian Taxation Office) identify high-potential locations for new tax help centres.
+                        In this project we have used data from the ATO to predict the distribution of income in Australia postcode by postcode in 2021.
+                        We have then used this data to determine locations that will benefit the most from a new tax help centre.
+                        Our results are displayed in an interactive map where the ATO can adjust parameters to balance two concerns: bringing their services to the highest number of australians and focus on low income suburbs.
+                    </p>
+                </section> <!--END vision-->
+                <section id="map-control">
+                    <h2>Interactive Map</h2><br>
+                    <p>Use the slider to combine two optimization approaches</p>
+                    <br>
+                    <form id="map-control-form">
+                        <div class="form-group">
+                            <label for="yearChoice">Financial year</label>
+                            <select name="year" id="yearSelector" class="form-control">
+                                <option value="2006">2006</option>
+                                <option value="2011">2011</option>
+                                <option value="2016" selected='selected'>2016</option>
+                                <option value="2021">2021 (predicted)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-2" for="slider">Population</label>
+                                <label class="col-sm-2 offset-sm-8">Reduce inequalities</label>
+                            </div>
+                            <input type="range" class="form-control-range" id="slider">
+                        </div>
+                        <input type="submit" class="btn btn-primary">
+                    </form>
+                    <br><br>
+                </section><!--END map-controls-->
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+                <br><br>
+                <section id="top-10">
+                    <h2>Suburbs most in need</h2>
+                </section><!--END dataset used-->
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+        <script src="/hack.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzpUHcPeuvjoO5XT3fC96CIa0ovYPaJkc&callback=initMap"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
