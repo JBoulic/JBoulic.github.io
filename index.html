@@ -9,7 +9,7 @@
         
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@
                 </li>                        
                 </ul>
             </div>
-        </nav>
+        </nav> -->
         <div class="wrap">
             <div class="container">
                 <br>
@@ -40,8 +40,6 @@
                 </section> <!--END vision-->
                 <section id="map-control">
                     <h2>Interactive Map</h2><br>
-                    <p>Use the slider to combine two optimization approaches</p>
-                    <br>
                     <form id="map-control-form">
                         <div class="form-group">
                             <label for="yearChoice">Financial year</label>
@@ -52,11 +50,13 @@
                                 <option value="2021">2021 (predicted)</option>
                             </select>
                         </div>
-
+                        
+                    <h4>Use the slider to combine two optimization approaches</h4>
+                    <br>
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-sm-2" for="slider">Population</label>
-                                <label class="col-sm-2 offset-sm-8">Reduce inequalities</label>
+                                <label class="col-sm-3" for="slider"><b>Greater population access</b></label>
+                                <label class="col-sm-2 offset-sm-7"><b>Reduce inequalities</b></label>
                             </div>
                             <input type="range" class="form-control-range" id="slider">
                         </div>
@@ -69,13 +69,18 @@
                 </div>
                 <br><br>
                 <section id="top-10">
-                    <h2>Suburbs most in need</h2>
-                    <ul class="list-group" id="top-population">
-
-                    </ul>
-                    <ul class="list-group" id="top-inequality">
-
-                    </ul>
+                        <h1 class="text-center">Find the suburbs with</h1><br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="text-center">Lowest access to ATO help centres</h3>
+                            <div class="list-group" id="top-population"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3 class="text-center">Lowest income</h3>
+                            <div class="list-group" id="top-inequality"></div>
+                        </div>
+                    </div>
+                    
                 </section><!--END dataset used-->
             </div>
         </div>

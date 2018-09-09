@@ -31,6 +31,8 @@ html, body {
 #vision, #dataset-used{
 	background-color: #dbe9ff;
     border-radius: 10px;
+}
+section{
     padding:20px;
     margin: 20px;
 }
@@ -38,3 +40,7 @@ html, body {
 #yearSelector{
     width: 150px;
 }
+
+/*#top-10 li:hover{
+    background-color: rgb(100, 100, 248);
+}*/

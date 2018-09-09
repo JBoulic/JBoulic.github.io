@@ -147,6 +147,39 @@ function initMap() {
     center: {lat: -25, lng: 133},
     mapTypeId: 'terrain'
   });
+  $.ajax({url: "/top10_population.json", success: function(data){
+    var list = document.getElementById("top-population");
+    data.data.forEach(function(item){
+        var innerElement = document.createElement("button");
+        innerElement.classList = "list-group-item list-group-item-action";
+        innerElement.setAttribute('type', "button");
+        innerElement.setAttribute('data-lat', String(item.lat));
+        innerElement.setAttribute('data-long', String(item.long));
+        innerElement.innerHTML = "<strong>" + item.suburb + ", "+ item.state + '</strong>';
+        list.appendChild(innerElement);
+    });
+    $("#top-10 .list-group-item-action").click(function(event){
+      map.setCenter(new google.maps.LatLng($(event.currentTarget).data('lat'), $(event.currentTarget).data('long')));
+    });
+  }});
+
+    $.ajax({url: "/top10_inequality.json", success: function(data){
+      var list = document.getElementById("top-inequality");
+      data.data.forEach(function(item){
+          var innerElement = document.createElement("button");
+          innerElement.classList = "list-group-item list-group-item-action";
+          innerElement.setAttribute('data-lat', String(item.lat));
+          innerElement.setAttribute('type', "button");
+          innerElement.setAttribute('data-long', String(item.long));
+          innerElement.innerHTML = "<strong>" + item.suburb + ", "+ item.state + '</strong>';
+          list.appendChild(innerElement);
+      });
+      $("#top-10 .list-group-item-action").click(function(event){
+        map.setCenter(new google.maps.LatLng($(event.currentTarget).data('lat'), $(event.currentTarget).data('long')));
+        map.setZoom(10);
+      });
+
+  }});
   $.ajax({url: "/data.json",
   success: function(dataObject){
     raw_data = dataObject;
@@ -200,3 +233,4 @@ $("#map-control-form").submit(function(event){
   updateAllColor(currentData, slider, year);
   setAllMap(currentData, map);
 });
+
