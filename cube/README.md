@@ -4,9 +4,9 @@ https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
 ### TODO
 
 Implement different modes:
-- F1 -> solving mode
-- F2 -> BLD corner practice mode
-- F3 -> BLD edge practice mode
+- 1 -> solving mode
+- 2 -> BLD corner practice mode
+- 3 -> BLD edge practice mode
 Interface:
 - Indicate different modes, just text
 - Display current mode
@@ -43,4 +43,5 @@ Code:
 
 - Update code to use ES6 classes
 - Remove opaque attribute for each piece
-
+Implement different modes:
+- Display plain stickers for mode 1

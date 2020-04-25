@@ -5,10 +5,12 @@ class Controller {
     static handleKeyDown(event) {
         switch(event.key) {
             case "1":
-                this.mode = 1;
+                Controller.mode = 1;
+                gl.uniform1i(Renderer.programInfo.uniformLocations.solveMode, Controller.mode);
                 break;
             case "2":
-                this.mode = 2;
+                Controller.mode = 2;
+                gl.uniform1i(Renderer.programInfo.uniformLocations.solveMode, Controller.mode);
                 break;
             case "Escape":
                 Animation.resetCube();

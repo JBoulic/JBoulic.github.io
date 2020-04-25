@@ -47,6 +47,8 @@ class Renderer {
         const fsSource = `
             precision mediump float;
 
+            uniform int uSolveMode;
+
             varying vec4 vColor;
             varying vec2 vTexCoord;
             varying float fill;
@@ -60,6 +62,10 @@ class Renderer {
             }
 
             void main() {
+                if (uSolveMode == 1) {
+                    gl_FragColor = vColor;
+                    return;
+                }
                 float alpha = borders(vTexCoord, 0.1);
                 float r = vColor.x > 0.0 ? vColor.x * (1.0 - alpha) : 0.0;
                 float g = vColor.y > 0.0 ? vColor.y * (1.0 - alpha) : 0.0;
@@ -103,6 +109,7 @@ class Renderer {
             uniformLocations: {
                 projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
                 modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
+                solveMode: gl.getUniformLocation(shaderProgram, 'uSolveMode'),
             },
         };
     }
@@ -147,6 +154,8 @@ class Renderer {
                         modelViewMatrix,     // matrix to translate
                         [0.0, -3.8, -8.0]);  // amount to translate
         gl.uniformMatrix4fv(this.programInfo.uniformLocations.modelViewMatrix, false, modelViewMatrix);
+
+        gl.uniform1i(Renderer.programInfo.uniformLocations.solveMode, Controller.mode);
     }
     
     static initBufferData() {
