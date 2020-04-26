@@ -9,12 +9,17 @@ function start() {
     Renderer.initScene();
     Model.init();
     Renderer.initBufferData();
+    Controller.updateMode();
     Model.updateCornerSticker("J", 1.0);
     requestAnimationFrame(render);
 }
 
 // Time control
 var then = 0;
+var nSamples = 100;
+var firstFrameTime = 0;
+var frame = 0;
+var fps = 0;
 
 // Loop
 function render(now) {
@@ -30,16 +35,35 @@ function render(now) {
     Renderer.updateScene();
 
     // Fps
-    fpsCounter.update();
+    if (frame == 0) {
+        firstFrameTime = now;
+    }
+    if (frame < nSamples) {
+        frame++;
+    } else {
+        document.getElementById("fps").innerHTML = Math.round(nSamples / (now - firstFrameTime)) + " fps";
+        frame = 0;
+    }
 
     // Loop
     requestAnimationFrame(render);
 }
 
+function resize() {
+    canvas = document.querySelector('#glcanvas');
+    let quality = 0.6;
+    canvas.width = canvas.offsetWidth * quality;
+    canvas.height = canvas.offsetHeight * quality;
+}
 
 function main() {
-    // Initialize context.
+    // Map canvas to window size.
+    resize();
+    window.onresize = resize;
+
     canvas = document.querySelector('#glcanvas');
+
+    // Initialize context.
     gl = canvas.getContext('webgl');
     if (!gl) {
         alert('Unable to initialize WebGL. Your browser or machine may not support it.');
@@ -64,12 +88,6 @@ function main() {
 
     // Add event listener.
     document.addEventListener("keydown", Controller.handleKeyDown, false);
-
-    // Initialize fps counter.
-    var fps = document.getElementById("fps");
-    if (fps) {
-        fpsCounter = new FPSCounter(fps);
-    }
 
     start();
 }

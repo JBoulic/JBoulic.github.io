@@ -1,0 +1,20 @@
+body {
+    border: 0px;
+    margin: 0px;
+}
+
+.container {
+    position: relative;
+}
+
+#overlay {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: white;
+}
+
+canvas {
+    width: 100vw;
+    height: 100vh;
+}
