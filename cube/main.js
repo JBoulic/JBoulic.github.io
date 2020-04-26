@@ -10,7 +10,6 @@ function start() {
     Model.init();
     Renderer.initBufferData();
     Controller.updateMode();
-    Model.updateCornerSticker("J", 1.0);
     requestAnimationFrame(render);
 }
 
@@ -41,7 +40,7 @@ function render(now) {
     if (frame < nSamples) {
         frame++;
     } else {
-        document.getElementById("fps").innerHTML = Math.round(nSamples / (now - firstFrameTime)) + " fps";
+        document.getElementById("fps").innerHTML = "<br>" + Math.round(nSamples / (now - firstFrameTime)) + " fps";
         frame = 0;
     }
 
