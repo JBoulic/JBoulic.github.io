@@ -6,11 +6,15 @@ class Controller {
         switch(event.key) {
             case "1":
                 Controller.mode = 1;
-                gl.uniform1i(Renderer.programInfo.uniformLocations.solveMode, Controller.mode);
+                Controller.updateMode();
                 break;
             case "2":
                 Controller.mode = 2;
-                gl.uniform1i(Renderer.programInfo.uniformLocations.solveMode, Controller.mode);
+                Controller.updateMode();
+                break;
+            case "3":
+                Controller.mode = 3;
+                Controller.updateMode();
                 break;
             case "Escape":
                 Animation.resetCube();
@@ -18,9 +22,24 @@ class Controller {
             default:
                 if (Controller.mode == 1) {
                     SolveInputHandler.handleInput(event.key);
-                } else if (Controller.mode == 2) {
+                } else {
                     BLDPracticeInputHanler.handleInput(event.key);
                 }
+                break;
+        }
+    }
+
+    static updateMode() {
+        gl.uniform1i(Renderer.programInfo.uniformLocations.solveMode, Controller.mode);
+        switch(Controller.mode) {
+            case 1:
+                document.getElementById("mode").innerHTML = "Solve mode";
+                break;
+            case 2:
+                document.getElementById("mode").innerHTML = "BLD corner practice mode";
+                break;
+            case 3:
+                document.getElementById("mode").innerHTML = "BLD edge practice mode";
                 break;
         }
     }
@@ -127,12 +146,35 @@ class SolveInputHandler {
 
 // Input handling in BLD practice mode
 class BLDPracticeInputHanler {
-    handleInput(key) {
+    static letterPair = "";
+
+    static handleInput(key) {
         switch(key) {
             case " ":
                 scramble();
                 break;
             default:
+                let letter = key.toUpperCase();
+                // Reject invalid input.
+                if (letter in Model.CORNER_NAME_TO_POSITION == false) {
+                    document.getElementById("letterPair").innerHTML = "Letter pair: invalid input";
+                    this.letterPair = "";
+                    Renderer.clearOpaqueBufferData();   
+                    break;
+                }
+                // Update letterPair and model.
+                if (this.letterPair.length < 2) {
+                    this.letterPair += key.toUpperCase();
+                } else {
+                    this.letterPair = key.toUpperCase();
+                    Renderer.clearOpaqueBufferData();
+                }
+                Model.updateCornerSticker(key.toUpperCase(), 1.0);
+                document.getElementById("letterPair").innerHTML = "Letter pair: " + this.letterPair;
+                // Apply algorithm.
+                if (this.letterPair.length == 2) {
+                    
+                }
                 break;
         }
     }

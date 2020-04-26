@@ -175,6 +175,17 @@ class Renderer {
         this.populatePositionBufferData();
     }
 
+    static clearOpaqueBufferData() {
+        this.opaqueBufferData = [];
+        for (var p = 0; p < Model.pieces.length; p++) {
+            let nSquares = Model.pieces[p].squares.length;
+            this.opaqueBufferData.push([]);
+            for (var s = 0; s < nSquares; s++) {
+                this.opaqueBufferData[p].push(new Float32Array([0.0, 0.0, 0.0, 0.0]));
+            }
+        }
+    }
+
     static populatePositionBufferData() {
         for (var p = 0; p < Model.pieces.length; p++) {
             let nSquares = Model.pieces[p].squares.length;
