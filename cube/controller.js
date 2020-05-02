@@ -11,6 +11,7 @@ class Controller {
                 document.getElementById("letterPairWord").innerHTML = "";
                 document.getElementById("cornerAlg").innerHTML = "";
                 document.getElementById("edgeAlg").innerHTML = "";
+                document.getElementById("processedAlg").innerHTML = "";
                 break;
             case "2":
                 Controller.mode = 2;
@@ -19,6 +20,7 @@ class Controller {
                 document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
                 document.getElementById("cornerAlg").innerHTML = "Corner algorithm: ";
                 document.getElementById("edgeAlg").innerHTML = "";
+                document.getElementById("processedAlg").innerHTML = "Processed: ";
                 break;
             case "3":
                 Controller.mode = 3;
@@ -27,6 +29,7 @@ class Controller {
                 document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
                 document.getElementById("cornerAlg").innerHTML = "";
                 document.getElementById("edgeAlg").innerHTML = "Edge algorithm: ";
+                document.getElementById("processedAlg").innerHTML = "Processed: ";
                 break;
             case "Escape":
                 Animation.resetCube();
@@ -160,13 +163,27 @@ class SolveInputHandler {
 class BLDPracticeInputHanler {
     static currentLetterPair = "";
     static letterPairData = JSON.parse(json_data);
+    static currentAlgorithm = [];
+    static currentAlgorithmIndex = -1;
 
     static handleInput(key) {
         switch(key) {
             case " ":
-                scramble();
+                break;
+            case "ArrowRight":
+                this.executeNextSequence();
+                break;
+            case "ArrowLeft":
+                this.reversePreviousSequence();
                 break;
             default:
+                if (key.length != 1 || !/[a-zA-Z]/.test(key) || key == "y" || key == "z") {
+                    break;
+                }
+                if (this.currentAlgorithmIndex != -1) {
+                    Animation.resetCube();
+                    this.currentAlgorithmIndex = -1;
+                }
                 // Clear letter pair word and algorithm.
                 document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
                 if (Controller.mode == 2) {
@@ -207,25 +224,195 @@ class BLDPracticeInputHanler {
                 if (Controller.mode == 2) {
                     if ("corner_alg" in currentLetterPairData) {
                         document.getElementById("cornerAlg").innerHTML = "Corner algorithm: " + currentLetterPairData["corner_alg"];
+                        document.getElementById("processedAlg").innerHTML = "Processed: " + this.processAlg(currentLetterPairData["corner_alg"]);
                     } else if ("corner_twist_alg" in currentLetterPairData) {
                         document.getElementById("cornerAlg").innerHTML = "Corner twist algorithm: " + currentLetterPairData["corner_twist_alg"];
+                        document.getElementById("processedAlg").innerHTML = "Processed: " + this.processAlg(currentLetterPairData["corner_twist_alg"]);
                     } else {
                         document.getElementById("cornerAlg").innerHTML = "No algorithm";
                     }
-                    // Apply algorithm.
-
                 } else if (Controller.mode == 3) {
                     if ("edge_alg" in currentLetterPairData) {
                         document.getElementById("edgeAlg").innerHTML = "Edge algorithm: " + currentLetterPairData["edge_alg"];
+                        document.getElementById("processedAlg").innerHTML = "Processed: " + this.processAlg(currentLetterPairData["edge_alg"]);
                     } else if ("edge_flip_alg" in currentLetterPairData) {
                         document.getElementById("edgeAlg").innerHTML = "Edge flip algorithm: " + currentLetterPairData["edge_flip_alg"];
+                        document.getElementById("processedAlg").innerHTML = "Processed: " + this.processAlg(currentLetterPairData["edge_flip_alg"]);
                     } else {
                         document.getElementById("edgeAlg").innerHTML = "No algorithm";
                     }
-                    // Apply algorithm.
-
                 }
                 break;
+        }
+    }
+
+    static processAlg(algorithm) {
+        // Create groups of letters.
+        let groups = []
+        let currentGroup = []
+        let currentLetter = ""
+        for (var i = 0; i < algorithm.length; i++) {
+            let char = algorithm.charAt(i)
+            if (char == "[") {
+                if (currentLetter.length > 0) {
+                    currentGroup.push(currentLetter)
+                }
+                if (currentGroup.length > 0) {
+                    groups.push(currentGroup.slice())
+                }
+                currentGroup = [];
+                currentLetter = ""
+                continue
+            } else if (char == "]" || char == ":") {
+                continue;
+            } else if (char == ",") {
+                currentGroup.push(currentLetter)
+                groups.push(currentGroup.slice())
+                currentGroup = [];
+                currentLetter = ""
+            } else if (char == " ") {
+                if (currentLetter.length > 0) {
+                    currentGroup.push(currentLetter);
+                }
+                currentLetter = "";
+            } else {
+                currentLetter += char;
+            }
+        }
+        if (currentLetter.length > 0) {
+            currentGroup.push(currentLetter)
+        }
+        if (currentGroup.length > 0) {
+            groups.push(currentGroup.slice())
+        }
+        
+        // Decompose algorithm
+        this.currentAlgorithm = []
+        let setup_sequence;
+        let sequence_1;
+        let sequence_2;
+        switch (groups.length) {
+            case 1:
+                // Algorithm already processed
+                this.currentAlgorithm = [groups];
+                break;
+            case 2:
+                // Ex: corner AG
+                sequence_1 = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? groups[0] : groups[1];
+                sequence_2 = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? groups[1] : groups[0];
+                this.currentAlgorithm.push(this.decomposeSequence(sequence_1));
+                this.currentAlgorithm.push(this.decomposeSequence(sequence_2));
+                this.currentAlgorithm.push(this.invertSequence(sequence_1));
+                this.currentAlgorithm.push(this.invertSequence(sequence_2));
+                break;
+            case 3:
+                // Ex: corner
+                setup_sequence = groups[0]
+                sequence_1 = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? groups[1] : groups[2];
+                sequence_2 = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? groups[2] : groups[1];
+                this.currentAlgorithm.push(this.decomposeSequence(setup_sequence));
+                this.currentAlgorithm.push(this.decomposeSequence(sequence_1));
+                this.currentAlgorithm.push(this.decomposeSequence(sequence_2));
+                this.currentAlgorithm.push(this.invertSequence(sequence_1));
+                this.currentAlgorithm.push(this.invertSequence(sequence_2));
+                this.currentAlgorithm.push(this.invertSequence(setup_sequence));
+                break;
+            default:
+                return "Malformed parsed algorithm: " + groups.toString();
+        }
+        this.currentAlgorithmIndex = 0;
+        this.simplifyCurrentAlgorithm();
+        for (var i = this.currentAlgorithm.length - 1; i >= 0; i--) {
+            Animation.applySequenceWithoutAnimation(this.invertSequence(this.currentAlgorithm[i]));
+        }
+        return this.currentAlgorithm;
+    }
+
+    static decomposeSequence(sequence) {
+        let decomposedSequence = [];
+        for (var i in sequence) {
+            // Decompose half turns.
+            if (sequence[i].length > 1 && sequence[i].charAt(1) == "2") {
+                let turn = sequence[i].replace("2", "");
+                decomposedSequence.push(turn);
+                decomposedSequence.push(turn);
+                continue;
+            }
+            decomposedSequence.push(sequence[i]);
+        }
+        return decomposedSequence;
+    }
+
+    static invertSequence(sequence) {
+        let invertedSequence = []
+        for (var i = sequence.length - 1; i >= 0; i--) {
+            let invertedMove = sequence[i];
+            if (invertedMove.length == 0) {
+                alert("Oops, empty move")
+            } else if (invertedMove.charAt(invertedMove.length - 1) == "'") {
+                invertedMove = invertedMove.slice(0, -1);
+            } else {
+                invertedMove += "'";
+            }
+            // Decompose half turns.
+            if (invertedMove.length > 1 && invertedMove.charAt(1) == "2") {
+                invertedMove = invertedMove.replace("2", "");
+                // Apply first time.
+                invertedSequence.push(invertedMove);
+            }
+            invertedSequence.push(invertedMove);
+        }
+        return invertedSequence;
+    }
+
+    static simplifyCurrentAlgorithm() {
+        for (var i = 1; i < this.currentAlgorithm.length; i++) {
+            let sequence_1 = this.currentAlgorithm[i - 1];
+            let sequence_2 = this.currentAlgorithm[i];
+            while (sequence_1[sequence_1.length - 1].charAt(0) == sequence_2[0].charAt(0) && sequence_1[sequence_1.length - 1].length != sequence_2[0].length) {
+                sequence_1.pop();
+                sequence_2.shift();
+                if (sequence_1.length == 0 || sequence_2.length == 0) {
+                    break;
+                }
+            }
+            // Remove empty sequences.
+            if (sequence_1.length == 0) {
+                this.currentAlgorithm.splice(i - 1, 1);
+                i--;
+            }
+            if (sequence_2.length == 0) {
+                this.currentAlgorithm.splice(i, 1);
+                i--;
+            }
+            if (sequence_1.length == 0 && sequence_2.length == 0) {
+                // This probably never happens.
+                i++;
+            }
+        }
+    }
+
+    static executeNextSequence() {
+        if (this.currentAlgorithmIndex == -1 || this.currentAlgorithmIndex == this.currentAlgorithm.length) {
+            return;
+        }
+        // Execute sequence and increment currentAlgorithmIndex.
+        let sequence = this.currentAlgorithm[this.currentAlgorithmIndex];
+        for (var i in sequence) {
+            Animation.addMove(sequence[i]);
+        }
+        this.currentAlgorithmIndex++;
+    }
+
+    static reversePreviousSequence() {
+        if (this.currentAlgorithmIndex <= 0) {
+            return;
+        }
+        this.currentAlgorithmIndex--;
+        // Decrement currentAlgorithmIndex and execute inverted sequence.
+        let sequence = this.invertSequence(this.currentAlgorithm[this.currentAlgorithmIndex]);
+        for (var i in sequence) {
+            Animation.addMove(sequence[i]);
         }
     }
 }

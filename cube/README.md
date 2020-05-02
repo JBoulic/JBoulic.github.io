@@ -3,18 +3,16 @@ https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
 
 ### TODO
 
+Bugs:
 BLD practice mode:
-- Animate cube, ignoring the "[", "]"
-- Create list of moves taking the brackets into account
-- Cancel cancellable moves
-- Implement step by step when pressing arrows
-- Implement reverse step by step when pressing ctrl + space
-- Apply moves in reverse direction to get initial state to solve
-- Implement random letter-pair/algorithm selection
+- Check if the input is a letter before doing something with the BLDPracticeInputHanler
+- Implement E, S, M, r, l, u, f
 - Finish implementing all the sticker letters
-- Implement l, r, E, S
-- Same for edges
+- Color buffer sticker by default
+- Implement random letter-pair/algorithm selection
+- For corner algs, convert lowercase to uppercase letters
 - Implement mobile version: click to select random letter pair, click to show the solution
+- Remove letter pair words for twists and flips
 Solving mode:
 - Implement timer
 - Save best times
@@ -45,5 +43,15 @@ BLD practice mode:
 - Generate JSON to map letter-pair to word
 - Add letter-pair word to UI
 - Display algorithm on interface
+- Animate cube, ignoring the "[", "]"
+- Create list of moves taking the brackets into account
+- Generate alternate algorithm with first letter > second one in alphabetical order
+- Implement step by step (or rather group by group) when pressing arrows
+- Cancel cancellable moves (example: corner GH)
+- Apply moves in reverse direction to get initial state to solve
 Code:
 - Create own fps counter
+Bugs:
+- AW: empty move
+- SA or AN: issue when 2 letters without space (UD and variants). Add space in data processing  
+- SA: algorithm not simplifiied
