@@ -4,9 +4,9 @@ class Animation {
 
     // Moves
     static currentRotation = {
-        component: 0,
-        direction: 0,  // The direction is used to select the face to rotate. If 0, the entire cube is rotated.
-        multiplier: 0,
+        component: 0,  // 0, 1, 2 -> x, y, z.
+        layers: [],  // layers to rotate, 0 being the inner layer and -1, 1 the outer ones.
+        direction: 0,   // 1 is clockwise, -1 is anti-clockwise.
     };
     static currentRotationAngle = 0.0;
     static piecesInRotation = [];
@@ -35,96 +35,109 @@ class Animation {
     }
 
     static updateNextMove(move) {
+
+        function updateRotation(component, layers, direction) {
+            Animation.currentRotation.component = component;
+            Animation.currentRotation.layers = layers;
+            Animation.currentRotation.direction = direction;
+        }
+
         switch(move) {
             case "R":
-                this.currentRotation.component = 0;
-                this.currentRotation.direction = 1;
-                this.currentRotation.multiplier = -1;
+                updateRotation(0, [1], -1);
                 break;
             case "R'":
-                this.currentRotation.component = 0;
-                this.currentRotation.direction = 1;
-                this.currentRotation.multiplier = 1;
+                updateRotation(0, [1], 1);
+                break;
+            case "M":
+                updateRotation(0, [0], 1);
+                break;
+            case "M'":
+                updateRotation(0, [0], -1);
                 break;
             case "L":
-                this.currentRotation.component = 0;
-                this.currentRotation.direction = -1;
-                this.currentRotation.multiplier = 1;
+                updateRotation(0, [-1], 1);
                 break;
             case "L'":
-                this.currentRotation.component = 0;
-                this.currentRotation.direction = -1;
-                this.currentRotation.multiplier = -1;
+                updateRotation(0, [-1], -1);
                 break;
             case "U":
-                this.currentRotation.component = 1;
-                this.currentRotation.direction = 1;
-                this.currentRotation.multiplier = 1;
+                updateRotation(1, [1], -1);
                 break;
             case "U'":
-                this.currentRotation.component = 1;
-                this.currentRotation.direction = 1;
-                this.currentRotation.multiplier = -1;
+                updateRotation(1, [1], 1);
+                break;
+            case "E":
+                updateRotation(1, [0], 1);
+                break;
+            case "E'":
+                updateRotation(1, [0], -1);
                 break;
             case "D":
-                this.currentRotation.component = 1;
-                this.currentRotation.direction = -1;
-                this.currentRotation.multiplier = -1;
+                updateRotation(1, [-1], 1);
                 break;
             case "D'":
-                this.currentRotation.component = 1;
-                this.currentRotation.direction = -1;
-                this.currentRotation.multiplier = 1;
+                updateRotation(1, [-1], -1);
                 break;
             case "F":
-                this.currentRotation.component = 2;
-                this.currentRotation.direction = 1;
-                this.currentRotation.multiplier = -1;
+                updateRotation(2, [1], -1);
                 break;
             case "F'":
-                this.currentRotation.component = 2;
-                this.currentRotation.direction = 1;
-                this.currentRotation.multiplier = 1;
+                updateRotation(2, [1], 1);
+                break;
+            case "S":
+                updateRotation(2, [0], -1);
+                break;
+            case "S'":
+                updateRotation(2, [0], 1);
                 break;
             case "B":
-                this.currentRotation.component = 2;
-                this.currentRotation.direction = -1;
-                this.currentRotation.multiplier = 1;
+                updateRotation(2, [-1], 1);
                 break;
             case "B'":
-                this.currentRotation.component = 2;
-                this.currentRotation.direction = -1;
-                this.currentRotation.multiplier = -1;
+                updateRotation(2, [-1], -1);
                 break;
-            case "X":
-                this.currentRotation.component = 0;
-                this.currentRotation.direction = 0;
-                this.currentRotation.multiplier = 1;
+            case "r":
+                updateRotation(0, [0, 1], -1);
                 break;
-            case "X'":
-                this.currentRotation.component = 0;
-                this.currentRotation.direction = 0;
-                this.currentRotation.multiplier = -1;
+            case "r'":
+                updateRotation(0, [0, 1], 1);
                 break;
-            case "Y":
-                this.currentRotation.component = 1;
-                this.currentRotation.direction = 0;
-                this.currentRotation.multiplier = 1;
+            case "l":
+                updateRotation(0, [-1, 0], 1);
                 break;
-            case "Y'":
-                this.currentRotation.component = 1;
-                this.currentRotation.direction = 0;
-                this.currentRotation.multiplier = -1;
+            case "l'":
+                updateRotation(0, [-1, 0], -1);
                 break;
-            case "Z":
-                this.currentRotation.component = 2;
-                this.currentRotation.direction = 0;
-                this.currentRotation.multiplier = 1;
+            case "u":
+                updateRotation(1, [0, 1], -1);
                 break;
-            case "Z'":
-                this.currentRotation.component = 2;
-                this.currentRotation.direction = 0;
-                this.currentRotation.multiplier = -1;
+            case "u'":
+                updateRotation(1, [0, 1], 1);
+                break;
+            case "d":
+                updateRotation(1, [-1, 0], 1);
+                break;
+            case "d'":
+                updateRotation(1, [-1, 0], -1);
+                break;
+            case "x":
+                updateRotation(0, [-1, 0, 1], 1);
+                break;
+            case "x'":
+                updateRotation(0, [-1, 0, 1], -1);
+                break;
+            case "y":
+                updateRotation(1, [-1, 0, 1], 1);
+                break;
+            case "y'":
+                updateRotation(1, [-1, 0, 1], -1);
+                break;
+            case "z":
+                updateRotation(2, [-1, 0, 1], 1);
+                break;
+            case "z'":
+                updateRotation(2, [-1, 0, 1], -1);
                 break;
             default:
                 return;
@@ -137,7 +150,7 @@ class Animation {
         if (component === 0) {
             rotationMatrix = mat3.fromValues(1, 0, 0, 0, c, s, 0, -s, c);
         } else if (component === 1) {
-            rotationMatrix = mat3.fromValues(c, 0, s, 0, 1, 0, -s, 0, c);
+            rotationMatrix = mat3.fromValues(c, 0, -s, 0, 1, 0, s, 0, c);
         } else if (component === 2) {
             rotationMatrix = mat3.fromValues(c, s, 0, -s, c, 0, 0, 0, 1);
         }
@@ -157,7 +170,7 @@ class Animation {
         for (var sequenceIndex in sequence) {
             this.updateNextMove(sequence[sequenceIndex]);
             let cos = 0; // Math.cos(90 * Math.PI / 180);
-            let sin = 1 * this.currentRotation.multiplier; // Math.sin(90 * Math.PI / 180);
+            let sin = 1 * this.currentRotation.direction; // Math.sin(90 * Math.PI / 180);
             const rotationMatrix = this.createRotationMatrix(this.currentRotation.component, cos, sin);
             for (var i = 0; i < this.piecesInRotation.length; i++) {
                 let p = this.piecesInRotation[i];
@@ -181,7 +194,7 @@ class Animation {
         
         // Define pieces to be rotated during animation
         for (var p = 0; p < Model.pieces.length; p++) {
-            if (this.currentRotation.direction === 0 || this.currentRotation.direction === Model.pieces[p].position[this.currentRotation.component]) {
+            if (this.currentRotation.layers.includes(Model.pieces[p].position[this.currentRotation.component])) {
                 this.piecesInRotation.push(p);
             }
         }
@@ -189,8 +202,8 @@ class Animation {
     
     static applyMove() {
         // Only update positionBufferData.
-        let cos = Math.cos(this.currentRotationAngle * this.currentRotation.multiplier);
-        let sin = Math.sin(this.currentRotationAngle * this.currentRotation.multiplier);
+        let cos = Math.cos(this.currentRotationAngle * this.currentRotation.direction);
+        let sin = Math.sin(this.currentRotationAngle * this.currentRotation.direction);
         let temp = vec3.create();
         const rotationMatrix = this.createRotationMatrix(this.currentRotation.component, cos, sin);
     
@@ -211,7 +224,7 @@ class Animation {
     static endMove() {
         // Update pieces[p].position and positionBufferData.
         let cos = 0; // Math.cos(90 * Math.PI / 180);
-        let sin = 1 * this.currentRotation.multiplier; // Math.sin(90 * Math.PI / 180);
+        let sin = 1 * this.currentRotation.direction; // Math.sin(90 * Math.PI / 180);
         const rotationMatrix = this.createRotationMatrix(this.currentRotation.component, cos, sin);
     
         for (var i = 0; i < this.piecesInRotation.length; i++) {

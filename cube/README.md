@@ -3,16 +3,12 @@ https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
 
 ### TODO
 
-Bugs:
 BLD practice mode:
-- Check if the input is a letter before doing something with the BLDPracticeInputHanler
-- Implement E, S, M, r, l, u, f
-- Finish implementing all the sticker letters
-- Color buffer sticker by default
 - Implement random letter-pair/algorithm selection
-- For corner algs, convert lowercase to uppercase letters
 - Implement mobile version: click to select random letter pair, click to show the solution
 - Remove letter pair words for twists and flips
+- Remove processed alg line
+- Improve visuals?
 Solving mode:
 - Implement timer
 - Save best times
@@ -49,9 +45,14 @@ BLD practice mode:
 - Implement step by step (or rather group by group) when pressing arrows
 - Cancel cancellable moves (example: corner GH)
 - Apply moves in reverse direction to get initial state to solve
+- Check if the input is a letter before doing something with the BLDPracticeInputHanler
+- Implement E, S, M, r, l, u, d
+- Finish implementing all the sticker letters
+- Color buffer sticker by default
 Code:
 - Create own fps counter
 Bugs:
 - AW: empty move
 - SA or AN: issue when 2 letters without space (UD and variants). Add space in data processing  
 - SA: algorithm not simplifiied
+- AG (edge): 3 times the same move.

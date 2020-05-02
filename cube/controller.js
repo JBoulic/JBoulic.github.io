@@ -21,6 +21,8 @@ class Controller {
                 document.getElementById("cornerAlg").innerHTML = "Corner algorithm: ";
                 document.getElementById("edgeAlg").innerHTML = "";
                 document.getElementById("processedAlg").innerHTML = "Processed: ";
+                Renderer.clearOpaqueBufferData();
+                Model.updateCornerSticker("C", 1.0);
                 break;
             case "3":
                 Controller.mode = 3;
@@ -30,6 +32,8 @@ class Controller {
                 document.getElementById("cornerAlg").innerHTML = "";
                 document.getElementById("edgeAlg").innerHTML = "Edge algorithm: ";
                 document.getElementById("processedAlg").innerHTML = "Processed: ";
+                Renderer.clearOpaqueBufferData();
+                Model.updateEdgeSticker("C", 1.0);
                 break;
             case "Escape":
                 Animation.resetCube();
@@ -103,29 +107,41 @@ class SolveInputHandler {
             case "w":
                 Animation.addMove("B");
                 break;
+            case "u":
+                Animation.addMove("r");
+                break;
+            case "m":
+                Animation.addMove("r'");
+                break;
+            case "r":
+                Animation.addMove("l'");
+                break;
+            case "v":
+                Animation.addMove("l");
+                break;
             case "b":
-                Animation.addMove("X");
+                Animation.addMove("x");
                 break;
             case "n":
-                Animation.addMove("X");
+                Animation.addMove("x");
                 break;
             case "t":
-                Animation.addMove("X'");
+                Animation.addMove("x'");
                 break;
             case "y":
-                Animation.addMove("X'");
-                break;
-            case ";":
-                Animation.addMove("Y");
+                Animation.addMove("x'");
                 break;
             case "a":
-                Animation.addMove("Y'");
+                Animation.addMove("y");
+                break;
+            case ";":
+                Animation.addMove("y'");
                 break;
             case "q":
-                Animation.addMove("Z");
+                Animation.addMove("z");
                 break;
             case "p":
-                Animation.addMove("Z'");
+                Animation.addMove("z'");
                 break;
             case " ":
                 this.scramble();
@@ -198,6 +214,11 @@ class BLDPracticeInputHanler {
                 } else {
                     this.currentLetterPair = letter;
                     Renderer.clearOpaqueBufferData();
+                    if (Controller.mode == 2) {
+                        Model.updateCornerSticker("C", 1.0);
+                    } else if (Controller.mode == 3) {
+                        Model.updateEdgeSticker("C", 1.0);
+                    }
                 }
                 // Reject invalid input if we have a pair of letters.
                 if (this.currentLetterPair.length == 2 && this.currentLetterPair in this.letterPairData == false) {
@@ -205,14 +226,17 @@ class BLDPracticeInputHanler {
                     break;
                 }
                 // Update sticker.
-                if (letter in Model.CORNER_NAME_TO_POSITION == false) {
-                    document.getElementById("letterPair").innerHTML = "Letter pair: " + this.currentLetterPair + " (invalid input or associated sticker not enabled yet)";
-                } else {
-                    document.getElementById("letterPair").innerHTML = "Letter pair: " + this.currentLetterPair;
-                    if (Controller.mode == 2) {
-                        Model.updateCornerSticker(letter, 1.0);
+                if (Controller.mode == 2) {
+                    if (letter in Model.CORNER_NAME_TO_POSITION == false) {
+                        document.getElementById("letterPair").innerHTML = "Letter pair: " + this.currentLetterPair + " (invalid input or associated sticker not enabled yet)";
                     } else {
-                        // Model.updateEdgeSticker
+                        Model.updateCornerSticker(letter, 1.0);
+                    }
+                } else if (Controller.mode == 3) {
+                    if (letter in Model.EDGE_NAME_TO_POSITION == false) {
+                        document.getElementById("letterPair").innerHTML = "Letter pair: " + this.currentLetterPair + " (invalid input or associated sticker not enabled yet)";
+                    } else {
+                        Model.updateEdgeSticker(letter, 1.0);
                     }
                 }
                 // Continue only if we have a valid letter pair word.
@@ -369,9 +393,37 @@ class BLDPracticeInputHanler {
         for (var i = 1; i < this.currentAlgorithm.length; i++) {
             let sequence_1 = this.currentAlgorithm[i - 1];
             let sequence_2 = this.currentAlgorithm[i];
-            while (sequence_1[sequence_1.length - 1].charAt(0) == sequence_2[0].charAt(0) && sequence_1[sequence_1.length - 1].length != sequence_2[0].length) {
-                sequence_1.pop();
-                sequence_2.shift();
+            while (sequence_1[sequence_1.length - 1].charAt(0) == sequence_2[0].charAt(0)) {
+                if (sequence_1[sequence_1.length - 1].length != sequence_2[0].length) {
+                    // Moves that cancel each other (e.g. U and U').
+                    sequence_1.pop();
+                    sequence_2.shift();
+                } else if (sequence_1.length > 1 && sequence_1[sequence_1.length - 2].charAt(0) == sequence_1[sequence_1.length - 1].charAt(0)) {
+                    // 3 times the same turn (e.g. U, U, U becomes U').
+                    sequence_1.pop();
+                    sequence_2.shift();
+                    // Invert last move of sequence_1.
+                    let move = sequence_1[sequence_1.length - 1];
+                    if (move.charAt(move.length - 1) == "'") {
+                        move = move.slice(0, -1);
+                    } else {
+                        move += "'";
+                    }
+                    sequence_1[sequence_1.length - 1] = move;
+                } else if (sequence_2.length > 1 && sequence_2[sequence_2.length - 2].charAt(0) == sequence_2[sequence_2.length - 1].charAt(0)) {
+                    sequence_1.pop();
+                    sequence_2.shift();
+                    // Invert last move of sequence_2.
+                    let move = sequence_2[sequence_2.length - 1];
+                    if (move.charAt(move.length - 1) == "'") {
+                        move = move.slice(0, -1);
+                    } else {
+                        move += "'";
+                    }
+                    sequence_2[sequence_2.length - 1] = move;
+                } else {
+                    break;
+                }
                 if (sequence_1.length == 0 || sequence_2.length == 0) {
                     break;
                 }
