@@ -1,17 +1,17 @@
 // This class handles user input 
 class Controller {
-    static mode = 1;
+    static mode = 2;
 
     static handleKeyDown(event) {
         switch(event.key) {
             case "1":
-                this.switchMode(1);
+                Controller.switchMode(1);
                 break;
             case "2":
-                this.switchMode(2);
+                Controller.switchMode(2);
                 break;
             case "3":
-                this.switchMode(3);
+                Controller.switchMode(3);
                 break;
             case "Escape":
                 Animation.resetCube();
@@ -30,6 +30,7 @@ class Controller {
         switch(mode) {
             case 2:
                 Controller.mode = 2;
+                Animation.animationSpeed = 5;
                 Animation.resetCube();
                 Controller.updateMode();
                 document.getElementById("letterPair").innerHTML = "Letter pair: ";
@@ -42,6 +43,7 @@ class Controller {
                 break;
             case 3:
                 Controller.mode = 3;
+                Animation.animationSpeed = 5;
                 Animation.resetCube();
                 Controller.updateMode();
                 document.getElementById("letterPair").innerHTML = "Letter pair: ";
@@ -54,6 +56,7 @@ class Controller {
                 break;
             default:
                 Controller.mode = 1;
+                Animation.animationSpeed = 15;
                 Controller.updateMode();
                 document.getElementById("letterPair").innerHTML = "";
                 document.getElementById("letterPairWord").innerHTML = "";
@@ -65,12 +68,12 @@ class Controller {
     }
 
     static handleTouch(event) {
-        if ((this.mode == 2 || this.mode == 3) && BLDPracticeInputHanler.currentAlgorithmIndex != -1 && (BLDPracticeInputHanler.currentAlgorithmIndex < BLDPracticeInputHanler.currentAlgorithm.length)) {
-            this.executeNextSequence();
+        if ((Controller.mode == 2 || Controller.mode == 3) && BLDPracticeInputHanler.currentAlgorithmIndex != -1 && (BLDPracticeInputHanler.currentAlgorithmIndex < BLDPracticeInputHanler.currentAlgorithm.length)) {
+            BLDPracticeInputHanler.executeNextSequence();
         } else {
-            mode = Math.random() > 0.5 ? 3 : 2;
-            this.switchMode(mode);
-            this.selectRandomAlgorithm();
+            let mode = Math.random() > 0.5 ? 3 : 2;
+            Controller.switchMode(mode);
+            BLDPracticeInputHanler.selectRandomAlgorithm();
         }
     }
 

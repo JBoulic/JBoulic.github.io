@@ -2,7 +2,7 @@
 // The positions are updated in the Animation class
 // The Scene renders the model
 class Model {
-    static spacing = 0.05;
+    static spacing = 0.01;
     static pieces = [];
     // {
     //     squares: squares,  --> Vertices of the square of the piece

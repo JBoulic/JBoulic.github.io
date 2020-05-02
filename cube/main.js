@@ -50,7 +50,7 @@ function render(now) {
 
 function resize() {
     canvas = document.querySelector('#glcanvas');
-    let quality = 0.6;
+    let quality = 1.0;
     canvas.width = canvas.offsetWidth * quality;
     canvas.height = canvas.offsetHeight * quality;
 }
@@ -88,6 +88,7 @@ function main() {
     // Add event listener.
     document.addEventListener("keydown", Controller.handleKeyDown, false);
     document.addEventListener("touchstart", Controller.handleTouch, false);
+    document.addEventListener("click", Controller.handleTouch, false);
 
     start();
 }
