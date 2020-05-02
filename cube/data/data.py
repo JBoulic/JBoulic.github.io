@@ -1,12 +1,14 @@
 import csv
 import json
+import os
 
+data_dir = os.path.dirname(__file__)
 data = {}
 LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X"]
 
 def generate_letter_pair_words():
     print("--Letter pair words started--")
-    with open('letter_pair_words.csv', encoding="utf8", mode='r') as csv_file:
+    with open(os.path.join(data_dir, 'letter_pair_words.csv'), encoding="utf8", mode='r') as csv_file:
         for row in csv.reader(csv_file):
             letter_pair = row[0] + row[1]
             # Handle first invisible character
@@ -20,7 +22,7 @@ def generate_letter_pair_words():
 
 def generate_corner_algs():
     print("--Corner algs started--")
-    with open('corner_algs.csv', encoding="utf8", mode='r') as csv_file:
+    with open(os.path.join(data_dir, 'corner_algs.csv'), encoding="utf8", mode='r') as csv_file:
         rows = [row for row in csv.reader(csv_file)]
         for i in range(len(rows)):
             for j in range(len(rows[i])):
@@ -36,13 +38,16 @@ def generate_corner_algs():
                     if letter_pair_1 not in data or letter_pair_2 not in data:
                         print("Oops, corner " + letter_pair_1 + " or " + letter_pair_2 + " have not letter_pair entry")
                         continue
-                    data[letter_pair_1]["corner_alg"] = rows[i][j].replace("'", "\\u0027")
-                    data[letter_pair_2]["corner_alg"] = rows[i][j].replace("'", "\\u0027")
+                    alg = rows[i][j].replace("'", "\\u0027").replace("DU", "D U").replace("UD", "U D").replace("D\\u0027U", "D\\u0027 U").replace("U\\u0027D", "U\\u0027 D")
+                    data[letter_pair_1]["corner_alg"] = alg
+                    data[letter_pair_2]["corner_alg"] = alg
+                    if letter_pair_1 == "SA":
+                        print(alg)
     print("--Corner algs processed--")
 
 def generate_corner_twist_algs():
     print("--Corner twist algs started--")
-    with open('corner_twist_algs.csv', encoding="utf8", mode='r') as csv_file:
+    with open(os.path.join(data_dir, 'corner_twist_algs.csv'), encoding="utf8", mode='r') as csv_file:
         for row in csv.reader(csv_file):
             if '\ufeff' in row[0]:
                 row[0] = row[0].strip('\ufeff')
@@ -60,7 +65,7 @@ def generate_corner_twist_algs():
 
 def generate_edge_algs():
     print("--Edge algs started--")
-    with open('edge_algs.csv', encoding="utf8", mode='r') as csv_file:
+    with open(os.path.join(data_dir, 'edge_algs.csv'), encoding="utf8", mode='r') as csv_file:
         rows = [row for row in csv.reader(csv_file)]
         for i in range(len(rows)):
             for j in range(len(rows[i])):
@@ -82,7 +87,7 @@ def generate_edge_algs():
 
 def generate_edge_flip_algs():
     print("--Edge flip algs started--")
-    with open('edge_flip_algs.csv', encoding="utf8", mode='r') as csv_file:
+    with open(os.path.join(data_dir, 'edge_flip_algs.csv'), encoding="utf8", mode='r') as csv_file:
         for row in csv.reader(csv_file):
             if '\ufeff' in row[0]:
                 row[0] = row[0].strip('\ufeff')
@@ -107,6 +112,7 @@ generate_edge_flip_algs()
 # Dump json
 json_dump = json. dumps(data)
 # print(json_dump)
-f = open("data.json", "w")
+f = open(os.path.join(data_dir, "data.json"), "w")
 f.write("json_data = '" + json_dump + "';")
 f.close()
+print("Data saved in data.json")
