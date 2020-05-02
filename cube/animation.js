@@ -1,6 +1,6 @@
 // This class handles the animation of the cube
 class Animation {
-    static animationSpeed = 15;
+    static animationSpeed = 5;
 
     // Moves
     static currentRotation = {

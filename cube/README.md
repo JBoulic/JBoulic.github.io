@@ -3,12 +3,15 @@ https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
 
 ### TODO
 
+Bugs:
+- Edges data is a mess, clean it up
 BLD practice mode:
-- Implement random letter-pair/algorithm selection
 - Implement mobile version: click to select random letter pair, click to show the solution
-- Remove letter pair words for twists and flips
 - Remove processed alg line
+- Improve UI: Letter pair word bigger and at the top
 - Improve visuals?
+- Remove letter pair words for twists and flips
+- For corner twists, only color white sticker
 Solving mode:
 - Implement timer
 - Save best times
@@ -49,10 +52,16 @@ BLD practice mode:
 - Implement E, S, M, r, l, u, d
 - Finish implementing all the sticker letters
 - Color buffer sticker by default
+- Implement random letter-pair/algorithm selection
 Code:
 - Create own fps counter
 Bugs:
 - AW: empty move
 - SA or AN: issue when 2 letters without space (UD and variants). Add space in data processing  
 - SA: algorithm not simplifiied
-- AG (edge): 3 times the same move.
+- AG (edge): 3 times the same move
+- QP: malformed because of special character in original spreadsheet
+- GS (edge): (...)*2 notation not supported
+- GA: wrong stickers colors
+- VS: FB not supported
+- JP (edge flip): no U2 decomposition

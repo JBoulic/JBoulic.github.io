@@ -15,6 +15,7 @@ class Controller {
                 break;
             case "2":
                 Controller.mode = 2;
+                Animation.resetCube();
                 Controller.updateMode();
                 document.getElementById("letterPair").innerHTML = "Letter pair: ";
                 document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
@@ -26,6 +27,7 @@ class Controller {
                 break;
             case "3":
                 Controller.mode = 3;
+                Animation.resetCube();
                 Controller.updateMode();
                 document.getElementById("letterPair").innerHTML = "Letter pair: ";
                 document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
@@ -46,6 +48,13 @@ class Controller {
                 }
                 break;
         }
+    }
+
+    static handleTouch(event) {
+        // Choose edge or corner.
+        // Switch mode accordingly.
+        // Choose random algorithm.
+        Animation.addMove("R");
     }
 
     static updateMode() {
@@ -185,6 +194,7 @@ class BLDPracticeInputHanler {
     static handleInput(key) {
         switch(key) {
             case " ":
+                this.selectRandomAlgorithm();
                 break;
             case "ArrowRight":
                 this.executeNextSequence();
@@ -270,6 +280,25 @@ class BLDPracticeInputHanler {
         }
     }
 
+    static selectRandomAlgorithm() {
+        let keys = Object.keys(this.letterPairData);
+        let letterPair = keys[Math.floor(Math.random() * keys.length)];
+        let data = this.letterPairData[letterPair];
+        if (Controller.mode == 2 && !data.hasOwnProperty("corner_alg") && !data.hasOwnProperty("corner_twist_alg") ||
+            Controller.mode == 3 && !data.hasOwnProperty("edge_alg") && !data.hasOwnProperty("edge_flip_alg")) {
+                return this.selectRandomAlgorithm();
+        }
+        this.currentLetterPair = "";
+        Renderer.clearOpaqueBufferData();
+        if (Controller.mode == 2) {
+            Model.updateCornerSticker("C", 1.0);
+        } else if (Controller.mode == 3) {
+            Model.updateEdgeSticker("C", 1.0);
+        }
+        this.handleInput(letterPair.charAt(0));
+        this.handleInput(letterPair.charAt(1));
+    }
+
     static processAlg(algorithm) {
         // Create groups of letters.
         let groups = []
@@ -277,21 +306,21 @@ class BLDPracticeInputHanler {
         let currentLetter = ""
         for (var i = 0; i < algorithm.length; i++) {
             let char = algorithm.charAt(i)
-            if (char == "[") {
+            if (char == "[" || char == "(") {
                 if (currentLetter.length > 0) {
-                    currentGroup.push(currentLetter)
+                    currentGroup.push(currentLetter);
                 }
                 if (currentGroup.length > 0) {
-                    groups.push(currentGroup.slice())
+                    groups.push(currentGroup.slice());
                 }
                 currentGroup = [];
-                currentLetter = ""
+                currentLetter = "";
                 continue
-            } else if (char == "]" || char == ":") {
+            } else if (char == "]" || char == ":" || char == ")" || char == "*") {
                 continue;
             } else if (char == ",") {
-                currentGroup.push(currentLetter)
-                groups.push(currentGroup.slice())
+                currentGroup.push(currentLetter);
+                groups.push(currentGroup.slice());
                 currentGroup = [];
                 currentLetter = ""
             } else if (char == " ") {
@@ -299,26 +328,37 @@ class BLDPracticeInputHanler {
                     currentGroup.push(currentLetter);
                 }
                 currentLetter = "";
+            } else if (char == "2" && algorithm.charAt(i - 1) == "*") {
+                if (currentLetter.length > 0) {
+                    currentGroup.push(currentLetter);
+                }
+                if (currentGroup.length > 0) {
+                    currentGroup = currentGroup.concat(currentGroup);
+                    groups.push(currentGroup.slice());
+                    currentGroup = [];
+                    currentLetter = ""
+                }
+                continue;
             } else {
                 currentLetter += char;
             }
         }
         if (currentLetter.length > 0) {
-            currentGroup.push(currentLetter)
+            currentGroup.push(currentLetter);
         }
         if (currentGroup.length > 0) {
-            groups.push(currentGroup.slice())
+            groups.push(currentGroup.slice());
         }
         
         // Decompose algorithm
-        this.currentAlgorithm = []
+        this.currentAlgorithm = [];
         let setup_sequence;
         let sequence_1;
         let sequence_2;
         switch (groups.length) {
             case 1:
                 // Algorithm already processed
-                this.currentAlgorithm = [groups];
+                this.currentAlgorithm = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? [this.decomposeSequence(groups[0])] : [this.invertSequence(groups[0])];
                 break;
             case 2:
                 // Ex: corner AG

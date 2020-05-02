@@ -66,7 +66,7 @@ class Renderer {
                     gl_FragColor = vColor;
                     return;
                 }
-                float alpha = borders(vTexCoord, 0.1);
+                float alpha = borders(vTexCoord, 0.05);
                 float r = vColor.x > 0.0 ? vColor.x * (1.0 - alpha) : 0.0;
                 float g = vColor.y > 0.0 ? vColor.y * (1.0 - alpha) : 0.0;
                 float b = vColor.z > 0.0 ? vColor.z * (1.0 - alpha) : 0.0;
