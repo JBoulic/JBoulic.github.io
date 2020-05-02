@@ -65,13 +65,14 @@ class Controller {
     }
 
     static handleTouch(event) {
-        if ((this.mode == 2 || this.mode == 3) && BLDPracticeInputHanler.currentAlgorithmIndex != -1 && (BLDPracticeInputHanler.currentAlgorithmIndex < BLDPracticeInputHanler.currentAlgorithm.length)) {
-            this.executeNextSequence();
-        } else {
-            mode = Math.random() > 0.5 ? 3 : 2;
-            this.switchMode(mode);
-            this.selectRandomAlgorithm();
-        }
+        // if ((this.mode == 2 || this.mode == 3) && BLDPracticeInputHanler.currentAlgorithmIndex != -1 && (BLDPracticeInputHanler.currentAlgorithmIndex < BLDPracticeInputHanler.currentAlgorithm.length)) {
+        //     this.executeNextSequence();
+        // } else {
+        //     mode = Math.random() > 0.5 ? 3 : 2;
+        //     this.switchMode(mode);
+        //     this.selectRandomAlgorithm();
+        // }
+        Animation.addMove("M");
     }
 
     static updateMode() {
