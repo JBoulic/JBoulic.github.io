@@ -20,102 +20,8 @@ class Animation {
     static updateState(deltaTime) {
         // Initialize or end move if needed.
         if (!this.busy && this.nextMoves.length !== 0) {
-            const nextMove = this.nextMoves.shift();  // Retrieve next move from the nextMoves FIFO
-            switch(nextMove) {
-                case "R":
-                    this.currentRotation.component = 0;
-                    this.currentRotation.direction = 1;
-                    this.currentRotation.multiplier = -1;
-                    break;
-                case "R'":
-                    this.currentRotation.component = 0;
-                    this.currentRotation.direction = 1;
-                    this.currentRotation.multiplier = 1;
-                    break;
-                case "L":
-                    this.currentRotation.component = 0;
-                    this.currentRotation.direction = -1;
-                    this.currentRotation.multiplier = 1;
-                    break;
-                case "L'":
-                    this.currentRotation.component = 0;
-                    this.currentRotation.direction = -1;
-                    this.currentRotation.multiplier = -1;
-                    break;
-                case "U":
-                    this.currentRotation.component = 1;
-                    this.currentRotation.direction = 1;
-                    this.currentRotation.multiplier = 1;
-                    break;
-                case "U'":
-                    this.currentRotation.component = 1;
-                    this.currentRotation.direction = 1;
-                    this.currentRotation.multiplier = -1;
-                    break;
-                case "D":
-                    this.currentRotation.component = 1;
-                    this.currentRotation.direction = -1;
-                    this.currentRotation.multiplier = -1;
-                    break;
-                case "D'":
-                    this.currentRotation.component = 1;
-                    this.currentRotation.direction = -1;
-                    this.currentRotation.multiplier = 1;
-                    break;
-                case "F":
-                    this.currentRotation.component = 2;
-                    this.currentRotation.direction = 1;
-                    this.currentRotation.multiplier = -1;
-                    break;
-                case "F'":
-                    this.currentRotation.component = 2;
-                    this.currentRotation.direction = 1;
-                    this.currentRotation.multiplier = 1;
-                    break;
-                case "B":
-                    this.currentRotation.component = 2;
-                    this.currentRotation.direction = -1;
-                    this.currentRotation.multiplier = 1;
-                    break;
-                case "B'":
-                    this.currentRotation.component = 2;
-                    this.currentRotation.direction = -1;
-                    this.currentRotation.multiplier = -1;
-                    break;
-                case "X":
-                    this.currentRotation.component = 0;
-                    this.currentRotation.direction = 0;
-                    this.currentRotation.multiplier = 1;
-                    break;
-                case "X'":
-                    this.currentRotation.component = 0;
-                    this.currentRotation.direction = 0;
-                    this.currentRotation.multiplier = -1;
-                    break;
-                case "Y":
-                    this.currentRotation.component = 1;
-                    this.currentRotation.direction = 0;
-                    this.currentRotation.multiplier = 1;
-                    break;
-                case "Y'":
-                    this.currentRotation.component = 1;
-                    this.currentRotation.direction = 0;
-                    this.currentRotation.multiplier = -1;
-                    break;
-                case "Z":
-                    this.currentRotation.component = 2;
-                    this.currentRotation.direction = 0;
-                    this.currentRotation.multiplier = 1;
-                    break;
-                case "Z'":
-                    this.currentRotation.component = 2;
-                    this.currentRotation.direction = 0;
-                    this.currentRotation.multiplier = -1;
-                    break;
-                default:
-                    break;
-            }
-            this.initializeMove();
+            this.updateNextMove(this.nextMoves.shift());  // Retrieve next move from the nextMoves FIFO and update next move.
+            this.busy = true;
         }
         if (this.busy && this.currentRotationAngle + this.animationSpeed * deltaTime > Math.PI / 2) {
             this.endMove();
@@ -126,6 +32,104 @@ class Animation {
             this.currentRotationAngle += this.animationSpeed * deltaTime;
             this.applyMove();
         }
+    }
+
+    static updateNextMove(move) {
+        switch(move) {
+            case "R":
+                this.currentRotation.component = 0;
+                this.currentRotation.direction = 1;
+                this.currentRotation.multiplier = -1;
+                break;
+            case "R'":
+                this.currentRotation.component = 0;
+                this.currentRotation.direction = 1;
+                this.currentRotation.multiplier = 1;
+                break;
+            case "L":
+                this.currentRotation.component = 0;
+                this.currentRotation.direction = -1;
+                this.currentRotation.multiplier = 1;
+                break;
+            case "L'":
+                this.currentRotation.component = 0;
+                this.currentRotation.direction = -1;
+                this.currentRotation.multiplier = -1;
+                break;
+            case "U":
+                this.currentRotation.component = 1;
+                this.currentRotation.direction = 1;
+                this.currentRotation.multiplier = 1;
+                break;
+            case "U'":
+                this.currentRotation.component = 1;
+                this.currentRotation.direction = 1;
+                this.currentRotation.multiplier = -1;
+                break;
+            case "D":
+                this.currentRotation.component = 1;
+                this.currentRotation.direction = -1;
+                this.currentRotation.multiplier = -1;
+                break;
+            case "D'":
+                this.currentRotation.component = 1;
+                this.currentRotation.direction = -1;
+                this.currentRotation.multiplier = 1;
+                break;
+            case "F":
+                this.currentRotation.component = 2;
+                this.currentRotation.direction = 1;
+                this.currentRotation.multiplier = -1;
+                break;
+            case "F'":
+                this.currentRotation.component = 2;
+                this.currentRotation.direction = 1;
+                this.currentRotation.multiplier = 1;
+                break;
+            case "B":
+                this.currentRotation.component = 2;
+                this.currentRotation.direction = -1;
+                this.currentRotation.multiplier = 1;
+                break;
+            case "B'":
+                this.currentRotation.component = 2;
+                this.currentRotation.direction = -1;
+                this.currentRotation.multiplier = -1;
+                break;
+            case "X":
+                this.currentRotation.component = 0;
+                this.currentRotation.direction = 0;
+                this.currentRotation.multiplier = 1;
+                break;
+            case "X'":
+                this.currentRotation.component = 0;
+                this.currentRotation.direction = 0;
+                this.currentRotation.multiplier = -1;
+                break;
+            case "Y":
+                this.currentRotation.component = 1;
+                this.currentRotation.direction = 0;
+                this.currentRotation.multiplier = 1;
+                break;
+            case "Y'":
+                this.currentRotation.component = 1;
+                this.currentRotation.direction = 0;
+                this.currentRotation.multiplier = -1;
+                break;
+            case "Z":
+                this.currentRotation.component = 2;
+                this.currentRotation.direction = 0;
+                this.currentRotation.multiplier = 1;
+                break;
+            case "Z'":
+                this.currentRotation.component = 2;
+                this.currentRotation.direction = 0;
+                this.currentRotation.multiplier = -1;
+                break;
+            default:
+                return;
+        }
+        this.initializeMove();
     }
 
     static createRotationMatrix(component, c, s) {
@@ -148,10 +152,32 @@ class Animation {
         );
     }
 
+    static applySequenceWithoutAnimation(sequence) {
+        // Update pieces[p].position.
+        for (var sequenceIndex in sequence) {
+            this.updateNextMove(sequence[sequenceIndex]);
+            let cos = 0; // Math.cos(90 * Math.PI / 180);
+            let sin = 1 * this.currentRotation.multiplier; // Math.sin(90 * Math.PI / 180);
+            const rotationMatrix = this.createRotationMatrix(this.currentRotation.component, cos, sin);
+            for (var i = 0; i < this.piecesInRotation.length; i++) {
+                let p = this.piecesInRotation[i];
+                Model.pieces[p].position = this.applyRotation(rotationMatrix, Model.pieces[p].position);
+                let nSquares = Model.pieces[p].squares.length;
+                for (var s = 0; s < nSquares; s++) {  // number of squares per corner/edge/center
+                    for (var v = 0; v < 4; v++) {  // 4 vertices per square
+                        Model.pieces[p].squares[s][v] = this.applyRotation(rotationMatrix, Model.pieces[p].squares[s][v]);
+                        for (var c = 0; c < 3; c++) {  // 3 components per vertex
+                            Renderer.positionBufferData[p][s][v * 3 + c] = Model.pieces[p].squares[s][v][c];
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     static initializeMove() {
         this.currentRotationAngle = 0.0;
         this.piecesInRotation = [];
-        this.busy = true;
         
         // Define pieces to be rotated during animation
         for (var p = 0; p < Model.pieces.length; p++) {
