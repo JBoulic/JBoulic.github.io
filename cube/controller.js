@@ -5,37 +5,13 @@ class Controller {
     static handleKeyDown(event) {
         switch(event.key) {
             case "1":
-                Controller.mode = 1;
-                Controller.updateMode();
-                document.getElementById("letterPair").innerHTML = "";
-                document.getElementById("letterPairWord").innerHTML = "";
-                document.getElementById("cornerAlg").innerHTML = "";
-                document.getElementById("edgeAlg").innerHTML = "";
-                document.getElementById("processedAlg").innerHTML = "";
+                this.switchMode(1);
                 break;
             case "2":
-                Controller.mode = 2;
-                Animation.resetCube();
-                Controller.updateMode();
-                document.getElementById("letterPair").innerHTML = "Letter pair: ";
-                document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
-                document.getElementById("cornerAlg").innerHTML = "Corner algorithm: ";
-                document.getElementById("edgeAlg").innerHTML = "";
-                document.getElementById("processedAlg").innerHTML = "Processed: ";
-                Renderer.clearOpaqueBufferData();
-                Model.updateCornerSticker("C", 1.0);
+                this.switchMode(2);
                 break;
             case "3":
-                Controller.mode = 3;
-                Animation.resetCube();
-                Controller.updateMode();
-                document.getElementById("letterPair").innerHTML = "Letter pair: ";
-                document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
-                document.getElementById("cornerAlg").innerHTML = "";
-                document.getElementById("edgeAlg").innerHTML = "Edge algorithm: ";
-                document.getElementById("processedAlg").innerHTML = "Processed: ";
-                Renderer.clearOpaqueBufferData();
-                Model.updateEdgeSticker("C", 1.0);
+                this.switchMode(3);
                 break;
             case "Escape":
                 Animation.resetCube();
@@ -50,11 +26,52 @@ class Controller {
         }
     }
 
+    static switchMode(mode) {
+        switch(mode) {
+            case 2:
+                Controller.mode = 2;
+                Animation.resetCube();
+                Controller.updateMode();
+                document.getElementById("letterPair").innerHTML = "Letter pair: ";
+                document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
+                document.getElementById("cornerAlg").innerHTML = "Corner algorithm: ";
+                document.getElementById("edgeAlg").innerHTML = "";
+                document.getElementById("processedAlg").innerHTML = "Processed: ";
+                Renderer.clearOpaqueBufferData();
+                Model.updateCornerSticker("C", 1.0);
+                break;
+            case 3:
+                Controller.mode = 3;
+                Animation.resetCube();
+                Controller.updateMode();
+                document.getElementById("letterPair").innerHTML = "Letter pair: ";
+                document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
+                document.getElementById("cornerAlg").innerHTML = "";
+                document.getElementById("edgeAlg").innerHTML = "Edge algorithm: ";
+                document.getElementById("processedAlg").innerHTML = "Processed: ";
+                Renderer.clearOpaqueBufferData();
+                Model.updateEdgeSticker("C", 1.0);
+                break;
+            default:
+                Controller.mode = 1;
+                Controller.updateMode();
+                document.getElementById("letterPair").innerHTML = "";
+                document.getElementById("letterPairWord").innerHTML = "";
+                document.getElementById("cornerAlg").innerHTML = "";
+                document.getElementById("edgeAlg").innerHTML = "";
+                document.getElementById("processedAlg").innerHTML = "";
+                break;
+        }
+    }
+
     static handleTouch(event) {
-        // Choose edge or corner.
-        // Switch mode accordingly.
-        // Choose random algorithm.
-        Animation.addMove("R");
+        if ((this.mode == 2 || this.mode == 3) && BLDPracticeInputHanler.currentAlgorithmIndex != -1 && (BLDPracticeInputHanler.currentAlgorithmIndex < BLDPracticeInputHanler.currentAlgorithm.length)) {
+            this.executeNextSequence();
+        } else {
+            mode = Math.random() > 0.5 ? 3 : 2;
+            this.switchMode(mode);
+            this.selectRandomAlgorithm();
+        }
     }
 
     static updateMode() {
