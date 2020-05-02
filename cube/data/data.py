@@ -81,8 +81,9 @@ def generate_edge_algs():
                     if letter_pair_1 not in data or letter_pair_2 not in data:
                         print("Oops, edge " + letter_pair_1 + " or " + letter_pair_2 + " have not letter_pair entry")
                         continue
-                    data[letter_pair_1]["edge_alg"] = rows[i][j].replace("'", "\\u0027")
-                    data[letter_pair_2]["edge_alg"] = rows[i][j].replace("'", "\\u0027")
+                    alg = rows[i][j].replace("'", "\\u0027").replace("BF", "B F").replace("FB", "F B").replace("B\\u0027F", "B\\u0027 F").replace("F\\u0027B", "F\\u0027 B")
+                    data[letter_pair_1]["edge_alg"] = alg
+                    data[letter_pair_2]["edge_alg"] = alg
     print("--Edge algs processed--")
 
 def generate_edge_flip_algs():
