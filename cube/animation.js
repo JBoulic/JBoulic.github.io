@@ -121,6 +121,18 @@ class Animation {
             case "d'":
                 updateRotation(1, [-1, 0], -1);
                 break;
+            case "f":
+                updateRotation(2, [1, 0], -1);
+                break;
+            case "f'":
+                updateRotation(2, [1, 0], 1);
+                break; 
+            case "b":
+                updateRotation(2, [-1, 0], 1);
+                break;
+            case "b'":
+                updateRotation(2, [-1, 0], -1);
+                break;    
             case "x":
                 updateRotation(0, [-1, 0, 1], 1);
                 break;
