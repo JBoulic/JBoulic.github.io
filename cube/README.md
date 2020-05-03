@@ -6,9 +6,8 @@ https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
 Bugs:
 - Edges data is a mess, clean it up
 BLD practice mode:
-- Remove processed alg line
 - Improve UI: Letter pair word bigger and at the top
-- Improve visuals?
+- Delete processing steps for DU, FB etc... and update spreadsheet instead
 - Remove letter pair words for twists and flips
 - For corner twists, only color white sticker
 Solving mode:
@@ -53,6 +52,9 @@ BLD practice mode:
 - Color buffer sticker by default
 - Implement random letter-pair/algorithm selection
 - Implement mobile version: click to select random letter pair, click to show the solution
+- Remove processed alg line
+- Implement backspace to get to initial state of alg
+- Improve visuals
 Code:
 - Create own fps counter
 Bugs:
@@ -65,3 +67,4 @@ Bugs:
 - GA: wrong stickers colors
 - VS: FB not supported
 - JP (edge flip): no U2 decomposition
+- Corner twists: Shouldn't check whether charAt(0) > charAt(1), since we have 2 algs provided, cw and ccw

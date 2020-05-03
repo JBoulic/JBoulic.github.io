@@ -244,4 +244,11 @@ class Model {
         const position = this.EDGE_NAME_TO_POSITION[sticker];
         Renderer.opaqueBufferData[position[0]][position[1]] = new Float32Array([value, value, value, value]);
     }
+
+    static displayCornerWhiteYellowSticker(sticker) {
+        const position = this.CORNER_NAME_TO_POSITION[sticker];
+        Renderer.opaqueBufferData[position[0]][0] = new Float32Array([1.0, 1.0, 1.0, 1.0]);
+        Renderer.opaqueBufferData[position[0]][1] = new Float32Array([0.0, 0.0, 0.0, 0.0]);
+        Renderer.opaqueBufferData[position[0]][2] = new Float32Array([0.0, 0.0, 0.0, 0.0]);
+    }
 }

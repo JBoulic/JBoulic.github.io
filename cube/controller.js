@@ -1,6 +1,6 @@
 // This class handles user input 
 class Controller {
-    static mode = 2;
+    static mode = 1;
 
     static handleKeyDown(event) {
         switch(event.key) {
@@ -31,40 +31,38 @@ class Controller {
             case 2:
                 Controller.mode = 2;
                 Animation.animationSpeed = 5;
+                document.getElementById("mode").innerHTML = "BLD corner practice mode<br><br>";
                 Animation.resetCube();
-                Controller.updateMode();
                 document.getElementById("letterPair").innerHTML = "Letter pair: ";
                 document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
                 document.getElementById("cornerAlg").innerHTML = "Corner algorithm: ";
                 document.getElementById("edgeAlg").innerHTML = "";
-                document.getElementById("processedAlg").innerHTML = "Processed: ";
                 Renderer.clearOpaqueBufferData();
                 Model.updateCornerSticker("C", 1.0);
                 break;
             case 3:
                 Controller.mode = 3;
                 Animation.animationSpeed = 5;
+                document.getElementById("mode").innerHTML = "BLD edge practice mode<br><br>";
                 Animation.resetCube();
-                Controller.updateMode();
                 document.getElementById("letterPair").innerHTML = "Letter pair: ";
                 document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
                 document.getElementById("cornerAlg").innerHTML = "";
                 document.getElementById("edgeAlg").innerHTML = "Edge algorithm: ";
-                document.getElementById("processedAlg").innerHTML = "Processed: ";
                 Renderer.clearOpaqueBufferData();
                 Model.updateEdgeSticker("C", 1.0);
                 break;
             default:
                 Controller.mode = 1;
                 Animation.animationSpeed = 15;
-                Controller.updateMode();
+                document.getElementById("mode").innerHTML = "Solve mode<br><br>";
                 document.getElementById("letterPair").innerHTML = "";
                 document.getElementById("letterPairWord").innerHTML = "";
                 document.getElementById("cornerAlg").innerHTML = "";
                 document.getElementById("edgeAlg").innerHTML = "";
-                document.getElementById("processedAlg").innerHTML = "";
                 break;
         }
+        gl.uniform1i(Renderer.programInfo.uniformLocations.solveMode, Controller.mode);
     }
 
     static handleTouch(event) {
@@ -76,22 +74,6 @@ class Controller {
             BLDPracticeInputHanler.selectRandomAlgorithm();
         }
     }
-
-    static updateMode() {
-        gl.uniform1i(Renderer.programInfo.uniformLocations.solveMode, Controller.mode);
-        switch(Controller.mode) {
-            case 1:
-                document.getElementById("mode").innerHTML = "Solve mode<br><br>";
-                break;
-            case 2:
-                document.getElementById("mode").innerHTML = "BLD corner practice mode<br><br>";
-                break;
-            case 3:
-                document.getElementById("mode").innerHTML = "BLD edge practice mode<br><br>";
-                break;
-        }
-    }
-
 }
 
 
@@ -208,6 +190,9 @@ class SolveInputHandler {
 class BLDPracticeInputHanler {
     static currentLetterPair = "";
     static letterPairData = JSON.parse(json_data);
+
+    static ALGORITHM_TYPES = ["Corners", "Corner twist", "No corner alg", "Edges", "Edge flip", "No edge alg"];
+    static algorithmType = "";
     static currentAlgorithm = [];
     static currentAlgorithmIndex = -1;
 
@@ -221,6 +206,9 @@ class BLDPracticeInputHanler {
                 break;
             case "ArrowLeft":
                 this.reversePreviousSequence();
+                break;
+            case "Backspace":
+                this.resetAlg();
                 break;
             default:
                 if (key.length != 1 || !/[a-zA-Z]/.test(key) || key == "y" || key == "z") {
@@ -256,18 +244,11 @@ class BLDPracticeInputHanler {
                     break;
                 }
                 // Update sticker.
+                document.getElementById("letterPair").innerHTML = "Letter pair: " + this.currentLetterPair;
                 if (Controller.mode == 2) {
-                    if (letter in Model.CORNER_NAME_TO_POSITION == false) {
-                        document.getElementById("letterPair").innerHTML = "Letter pair: " + this.currentLetterPair + " (invalid input or associated sticker not enabled yet)";
-                    } else {
-                        Model.updateCornerSticker(letter, 1.0);
-                    }
+                    Model.updateCornerSticker(letter, 1.0);
                 } else if (Controller.mode == 3) {
-                    if (letter in Model.EDGE_NAME_TO_POSITION == false) {
-                        document.getElementById("letterPair").innerHTML = "Letter pair: " + this.currentLetterPair + " (invalid input or associated sticker not enabled yet)";
-                    } else {
-                        Model.updateEdgeSticker(letter, 1.0);
-                    }
+                    Model.updateEdgeSticker(letter, 1.0);
                 }
                 // Continue only if we have a valid letter pair word.
                 if (this.currentLetterPair.length != 2) break;
@@ -277,22 +258,29 @@ class BLDPracticeInputHanler {
                 document.getElementById("letterPairWord").innerHTML = "Letter pair word: " + s + "<br><br>";
                 if (Controller.mode == 2) {
                     if ("corner_alg" in currentLetterPairData) {
+                        this.algorithmType = this.ALGORITHM_TYPES[0];
                         document.getElementById("cornerAlg").innerHTML = "Corner algorithm: " + currentLetterPairData["corner_alg"];
-                        document.getElementById("processedAlg").innerHTML = "Processed: " + this.processAlg(currentLetterPairData["corner_alg"]);
+                        this.processAlg(currentLetterPairData["corner_alg"]);
                     } else if ("corner_twist_alg" in currentLetterPairData) {
+                        this.algorithmType = this.ALGORITHM_TYPES[1];
                         document.getElementById("cornerAlg").innerHTML = "Corner twist algorithm: " + currentLetterPairData["corner_twist_alg"];
-                        document.getElementById("processedAlg").innerHTML = "Processed: " + this.processAlg(currentLetterPairData["corner_twist_alg"]);
+                        Model.displayCornerWhiteYellowSticker(this.currentLetterPair.charAt(0));
+                        this.processAlg(currentLetterPairData["corner_twist_alg"]);
                     } else {
+                        this.algorithmType = this.ALGORITHM_TYPES[2];
                         document.getElementById("cornerAlg").innerHTML = "No algorithm";
                     }
                 } else if (Controller.mode == 3) {
                     if ("edge_alg" in currentLetterPairData) {
+                        this.algorithmType = this.ALGORITHM_TYPES[3];
                         document.getElementById("edgeAlg").innerHTML = "Edge algorithm: " + currentLetterPairData["edge_alg"];
-                        document.getElementById("processedAlg").innerHTML = "Processed: " + this.processAlg(currentLetterPairData["edge_alg"]);
+                        this.processAlg(currentLetterPairData["edge_alg"]);
                     } else if ("edge_flip_alg" in currentLetterPairData) {
+                        this.algorithmType = this.ALGORITHM_TYPES[4];
                         document.getElementById("edgeAlg").innerHTML = "Edge flip algorithm: " + currentLetterPairData["edge_flip_alg"];
-                        document.getElementById("processedAlg").innerHTML = "Processed: " + this.processAlg(currentLetterPairData["edge_flip_alg"]);
+                        this.processAlg(currentLetterPairData["edge_flip_alg"]);
                     } else {
+                        this.algorithmType = this.ALGORITHM_TYPES[5];
                         document.getElementById("edgeAlg").innerHTML = "No algorithm";
                     }
                 }
@@ -384,6 +372,10 @@ class BLDPracticeInputHanler {
                 // Ex: corner AG
                 sequence_1 = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? groups[0] : groups[1];
                 sequence_2 = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? groups[1] : groups[0];
+                if (this.algorithmType == this.ALGORITHM_TYPES[1]) {
+                    sequence_1 = groups[0];
+                    sequence_2 = groups[1];
+                }
                 this.currentAlgorithm.push(this.decomposeSequence(sequence_1));
                 this.currentAlgorithm.push(this.decomposeSequence(sequence_2));
                 this.currentAlgorithm.push(this.invertSequence(sequence_1));
@@ -394,6 +386,10 @@ class BLDPracticeInputHanler {
                 setup_sequence = groups[0]
                 sequence_1 = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? groups[1] : groups[2];
                 sequence_2 = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? groups[2] : groups[1];
+                if (this.algorithmType == this.ALGORITHM_TYPES[1]) {
+                    sequence_1 = groups[1];
+                    sequence_2 = groups[2];
+                }
                 this.currentAlgorithm.push(this.decomposeSequence(setup_sequence));
                 this.currentAlgorithm.push(this.decomposeSequence(sequence_1));
                 this.currentAlgorithm.push(this.decomposeSequence(sequence_2));
@@ -409,7 +405,6 @@ class BLDPracticeInputHanler {
         for (var i = this.currentAlgorithm.length - 1; i >= 0; i--) {
             Animation.applySequenceWithoutAnimation(this.invertSequence(this.currentAlgorithm[i]));
         }
-        return this.currentAlgorithm;
     }
 
     static decomposeSequence(sequence) {
@@ -525,6 +520,15 @@ class BLDPracticeInputHanler {
         let sequence = this.invertSequence(this.currentAlgorithm[this.currentAlgorithmIndex]);
         for (var i in sequence) {
             Animation.addMove(sequence[i]);
+        }
+    }
+
+    static resetAlg() {
+        if (this.currentAlgorithmIndex == -1) return;
+        while (this.currentAlgorithmIndex > 0) {
+            this.currentAlgorithmIndex--;
+            let sequence = this.invertSequence(this.currentAlgorithm[this.currentAlgorithmIndex]);
+            Animation.applySequenceWithoutAnimation(sequence);
         }
     }
 }

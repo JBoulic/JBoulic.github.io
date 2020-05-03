@@ -1,6 +1,7 @@
 var gl = null;
 var canvas = null;
 var fpsCounter = null;
+var defaultMode = 2;
 
 // Start
 function start() {
@@ -9,7 +10,7 @@ function start() {
     Renderer.initScene();
     Model.init();
     Renderer.initBufferData();
-    Controller.updateMode();
+    Controller.switchMode(defaultMode);
     requestAnimationFrame(render);
 }
 
