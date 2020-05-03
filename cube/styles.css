@@ -17,7 +17,7 @@ body {
 #letterPairWord {
     position: absolute;
     color: white;
-    font-size: 40;
+    font-size: 20;
 }
 
 #algorithm {
@@ -32,13 +32,13 @@ body {
     left: 10px;
     top: 10px;
     color: white;
-    font-size: 40;
+    font-size: 20;
 }
 
 #fps {
     position: absolute;
     left: 10px;
-    top: 50px;
+    top: 30px;
     color: white;
     font-size: 20;
 }

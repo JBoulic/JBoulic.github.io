@@ -70,3 +70,4 @@ Bugs:
 - Corner twists: Shouldn't check whether charAt(0) > charAt(1), since we have 2 algs provided, cw and ccw
 - IU: Empty move
 - IU/UI: algs are swaped, update spreadsheet
+- LG (edge): undefined

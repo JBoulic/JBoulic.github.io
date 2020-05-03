@@ -31,7 +31,7 @@ class Controller {
             case 2:
                 Controller.mode = 2;
                 Animation.animationSpeed = 5;
-                document.getElementById("mode").innerHTML = "BLD corner practice mode<br><br>";
+                document.getElementById("mode").innerHTML = "BLD corners";
                 Animation.resetCube();
                 updateLetterPair("");
                 updateLetterPairWord("");
@@ -42,7 +42,7 @@ class Controller {
             case 3:
                 Controller.mode = 3;
                 Animation.animationSpeed = 5;
-                document.getElementById("mode").innerHTML = "BLD edge practice mode<br><br>";
+                document.getElementById("mode").innerHTML = "BLD edges";
                 Animation.resetCube();
                 updateLetterPair("");
                 updateLetterPairWord("");
@@ -53,7 +53,7 @@ class Controller {
             default:
                 Controller.mode = 1;
                 Animation.animationSpeed = 15;
-                document.getElementById("mode").innerHTML = "Solve mode<br><br>";
+                document.getElementById("mode").innerHTML = "Solve mode";
                 updateLetterPair("");
                 updateLetterPairWord("");
                 updateAlgorithm("");
@@ -288,7 +288,7 @@ class BLDPracticeInputHanler {
                 } else if (Controller.mode == 3) {
                     if ("edge_alg" in currentLetterPairData) {
                         this.algorithmType = this.ALGORITHM_TYPES[3];
-                        updateAlgorithm(currentLetterPairData["corner_alg"]);
+                        updateAlgorithm(currentLetterPairData["edge_alg"]);
                         this.processAlg(currentLetterPairData["edge_alg"]);
                     } else if ("edge_flip_alg" in currentLetterPairData) {
                         this.algorithmType = this.ALGORITHM_TYPES[4];
