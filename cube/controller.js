@@ -74,7 +74,13 @@ class Controller {
                 if (X < 0.5) {
                     BLDPracticeInputHanler.resetAlg();
                 } else {
-                    BLDPracticeInputHanler.applyAlg();
+                    if (BLDPracticeInputHanler.currentAlgorithmIndex < BLDPracticeInputHanler.currentAlgorithm.length) {
+                        BLDPracticeInputHanler.applyAlg();
+                    } else if (!Animation.busy) {
+                        let mode = Math.random() > 0.5 ? 3 : 2;
+                        Controller.switchMode(mode);
+                        BLDPracticeInputHanler.selectRandomAlgorithm();
+                    }
                 }
             } else {
                 if (X > 0.5) {
