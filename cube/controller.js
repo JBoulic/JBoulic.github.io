@@ -33,10 +33,9 @@ class Controller {
                 Animation.animationSpeed = 5;
                 document.getElementById("mode").innerHTML = "BLD corner practice mode<br><br>";
                 Animation.resetCube();
-                document.getElementById("letterPair").innerHTML = "Letter pair: ";
-                document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
-                document.getElementById("cornerAlg").innerHTML = "Corner algorithm: ";
-                document.getElementById("edgeAlg").innerHTML = "";
+                updateLetterPair("");
+                updateLetterPairWord("");
+                updateAlgorithm("");
                 Renderer.clearOpaqueBufferData();
                 Model.updateCornerSticker("C", 1.0);
                 break;
@@ -45,10 +44,9 @@ class Controller {
                 Animation.animationSpeed = 5;
                 document.getElementById("mode").innerHTML = "BLD edge practice mode<br><br>";
                 Animation.resetCube();
-                document.getElementById("letterPair").innerHTML = "Letter pair: ";
-                document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
-                document.getElementById("cornerAlg").innerHTML = "";
-                document.getElementById("edgeAlg").innerHTML = "Edge algorithm: ";
+                updateLetterPair("");
+                updateLetterPairWord("");
+                updateAlgorithm("");
                 Renderer.clearOpaqueBufferData();
                 Model.updateEdgeSticker("C", 1.0);
                 break;
@@ -56,10 +54,9 @@ class Controller {
                 Controller.mode = 1;
                 Animation.animationSpeed = 15;
                 document.getElementById("mode").innerHTML = "Solve mode<br><br>";
-                document.getElementById("letterPair").innerHTML = "";
-                document.getElementById("letterPairWord").innerHTML = "";
-                document.getElementById("cornerAlg").innerHTML = "";
-                document.getElementById("edgeAlg").innerHTML = "";
+                updateLetterPair("");
+                updateLetterPairWord("");
+                updateAlgorithm("");
                 break;
         }
         gl.uniform1i(Renderer.programInfo.uniformLocations.solveMode, Controller.mode);
@@ -219,12 +216,8 @@ class BLDPracticeInputHanler {
                     this.currentAlgorithmIndex = -1;
                 }
                 // Clear letter pair word and algorithm.
-                document.getElementById("letterPairWord").innerHTML = "Letter pair word: <br><br>";
-                if (Controller.mode == 2) {
-                    document.getElementById("cornerAlg").innerHTML = "Corner algorithm: ";   
-                } else {
-                    document.getElementById("edgeAlg").innerHTML = "Edge algorithm: ";
-                }
+                updateLetterPairWord("");
+                updateAlgorithm("");
                 let letter = key.toUpperCase();
                 // Update letterPair.
                 if (this.currentLetterPair.length < 2) {
@@ -240,11 +233,11 @@ class BLDPracticeInputHanler {
                 }
                 // Reject invalid input if we have a pair of letters.
                 if (this.currentLetterPair.length == 2 && this.currentLetterPair in this.letterPairData == false) {
-                    document.getElementById("letterPair").innerHTML = "Letter pair " + this.currentLetterPair + ": invalid input";
+                    updateLetterPair(this.currentLetterPair + ": invalid input");
                     break;
                 }
                 // Update sticker.
-                document.getElementById("letterPair").innerHTML = "Letter pair: " + this.currentLetterPair;
+                updateLetterPair(this.currentLetterPair);
                 if (Controller.mode == 2) {
                     Model.updateCornerSticker(letter, 1.0);
                 } else if (Controller.mode == 3) {
@@ -255,33 +248,36 @@ class BLDPracticeInputHanler {
                 // Update UI.
                 let currentLetterPairData = this.letterPairData[this.currentLetterPair];
                 let s = currentLetterPairData["word"].length > 0 ? currentLetterPairData["word"] : " *Need to find a word*";
-                document.getElementById("letterPairWord").innerHTML = "Letter pair word: " + s + "<br><br>";
+                updateLetterPairWord(s);
                 if (Controller.mode == 2) {
                     if ("corner_alg" in currentLetterPairData) {
                         this.algorithmType = this.ALGORITHM_TYPES[0];
-                        document.getElementById("cornerAlg").innerHTML = "Corner algorithm: " + currentLetterPairData["corner_alg"];
+                        updateAlgorithm(currentLetterPairData["corner_alg"]);
                         this.processAlg(currentLetterPairData["corner_alg"]);
                     } else if ("corner_twist_alg" in currentLetterPairData) {
                         this.algorithmType = this.ALGORITHM_TYPES[1];
-                        document.getElementById("cornerAlg").innerHTML = "Corner twist algorithm: " + currentLetterPairData["corner_twist_alg"];
+                        updateLetterPairWord(this.algorithmType);
+                        updateAlgorithm(currentLetterPairData["corner_twist_alg"]);
                         Model.displayCornerWhiteYellowSticker(this.currentLetterPair.charAt(0));
                         this.processAlg(currentLetterPairData["corner_twist_alg"]);
                     } else {
                         this.algorithmType = this.ALGORITHM_TYPES[2];
-                        document.getElementById("cornerAlg").innerHTML = "No algorithm";
+                        updateLetterPairWord(this.algorithmType);
+                        updateAlgorithm("");
                     }
                 } else if (Controller.mode == 3) {
                     if ("edge_alg" in currentLetterPairData) {
                         this.algorithmType = this.ALGORITHM_TYPES[3];
-                        document.getElementById("edgeAlg").innerHTML = "Edge algorithm: " + currentLetterPairData["edge_alg"];
+                        updateAlgorithm(currentLetterPairData["corner_alg"]);
                         this.processAlg(currentLetterPairData["edge_alg"]);
                     } else if ("edge_flip_alg" in currentLetterPairData) {
                         this.algorithmType = this.ALGORITHM_TYPES[4];
-                        document.getElementById("edgeAlg").innerHTML = "Edge flip algorithm: " + currentLetterPairData["edge_flip_alg"];
+                        updateLetterPairWord(this.algorithmType);
+                        updateAlgorithm(currentLetterPairData["edge_flip_alg"]);
                         this.processAlg(currentLetterPairData["edge_flip_alg"]);
                     } else {
                         this.algorithmType = this.ALGORITHM_TYPES[5];
-                        document.getElementById("edgeAlg").innerHTML = "No algorithm";
+                        updateLetterPairWord(this.algorithmType);
                     }
                 }
                 break;
@@ -327,8 +323,12 @@ class BLDPracticeInputHanler {
             } else if (char == "]" || char == ":" || char == ")" || char == "*") {
                 continue;
             } else if (char == ",") {
-                currentGroup.push(currentLetter);
-                groups.push(currentGroup.slice());
+                if (currentLetter.length > 0) {
+                    currentGroup.push(currentLetter);
+                }
+                if (currentGroup.length > 0) {
+                    groups.push(currentGroup.slice());
+                }
                 currentGroup = [];
                 currentLetter = ""
             } else if (char == " ") {

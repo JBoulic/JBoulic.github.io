@@ -56,6 +56,24 @@ function resize() {
     canvas.height = canvas.offsetHeight * quality;
 }
 
+function updateLetterPair(text) {
+    letterPair = document.querySelector('#letterPair');
+    letterPair.innerHTML = text;
+    letterPair.style.left = (canvas.offsetWidth - letterPair.offsetWidth) / 2;
+}
+
+function updateLetterPairWord(text) {
+    letterPairWord = document.getElementById("letterPairWord");
+    letterPairWord.innerHTML = text;
+    letterPairWord.style.left = (canvas.offsetWidth - letterPairWord.offsetWidth) / 2;
+}
+
+function updateAlgorithm(text) {
+    algorithm = document.getElementById("algorithm");
+    algorithm.innerHTML = text;
+    algorithm.style.left = (canvas.offsetWidth - algorithm.offsetWidth) / 2;
+}
+
 function main() {
     // Map canvas to window size.
     resize();
@@ -89,6 +107,9 @@ function main() {
     // Add event listener.
     document.addEventListener("keydown", Controller.handleKeyDown, false);
     document.addEventListener("touchstart", Controller.handleTouch, false);
+
+    // Update letter Pair Word position relative to letter pair.
+    document.getElementById("letterPairWord").style.top = document.getElementById("letterPair").style.top + 150;
 
     start();
 }

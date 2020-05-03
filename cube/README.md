@@ -3,18 +3,15 @@ https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
 
 ### TODO
 
-Bugs:
+Data:
 - Edges data is a mess, clean it up
-BLD practice mode:
-- Improve UI: Letter pair word bigger and at the top
-- Delete processing steps for DU, FB etc... and update spreadsheet instead
 - Remove letter pair words for twists and flips
-- For corner twists, only color white sticker
+- Delete processing steps for DU, FB etc... and update spreadsheet instead
 Solving mode:
 - Implement timer
 - Save best times
 Code:
-- Create own matrix classes
+- Create own matrix data types with no dependency on matrix.js
 
 ### DONE
 
@@ -55,6 +52,8 @@ BLD practice mode:
 - Remove processed alg line
 - Implement backspace to get to initial state of alg
 - Improve visuals
+- Improve UI: Letter pair word bigger and at the top
+- For corner twists, only color white sticker
 Code:
 - Create own fps counter
 Bugs:
@@ -68,3 +67,5 @@ Bugs:
 - VS: FB not supported
 - JP (edge flip): no U2 decomposition
 - Corner twists: Shouldn't check whether charAt(0) > charAt(1), since we have 2 algs provided, cw and ccw
+- IU: Empty move
+- IU/UI: algs are swaped, update spreadsheet
