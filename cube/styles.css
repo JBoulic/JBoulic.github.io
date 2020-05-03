@@ -17,14 +17,14 @@ body {
 #letterPairWord {
     position: absolute;
     color: white;
-    font-size: 20;
+    font-size: 40;
 }
 
 #algorithm {
     position: absolute;
-    top: 90vh;
+    top: 85vh;
     color: white;
-    font-size: 20;
+    font-size: 40;
 }
 
 #mode {
@@ -32,13 +32,13 @@ body {
     left: 10px;
     top: 10px;
     color: white;
-    font-size: 20;
+    font-size: 40;
 }
 
 #fps {
     position: absolute;
     left: 10px;
-    top: 20px;
+    top: 50px;
     color: white;
     font-size: 20;
 }

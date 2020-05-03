@@ -109,7 +109,7 @@ function main() {
     document.addEventListener("touchstart", Controller.handleTouch, false);
 
     // Update letter Pair Word position relative to letter pair.
-    document.getElementById("letterPairWord").style.top = document.getElementById("letterPair").style.top + 150;
+    document.getElementById("letterPairWord").style.top = document.getElementById("letterPair").style.top + 160;
 
     start();
 }

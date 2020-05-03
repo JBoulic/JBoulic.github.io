@@ -63,8 +63,28 @@ class Controller {
     }
 
     static handleTouch(event) {
-        if ((Controller.mode == 2 || Controller.mode == 3) && BLDPracticeInputHanler.currentAlgorithmIndex != -1 && (BLDPracticeInputHanler.currentAlgorithmIndex < BLDPracticeInputHanler.currentAlgorithm.length)) {
-            BLDPracticeInputHanler.executeNextSequence();
+        let X = event.touches[0].pageX / canvas.offsetWidth;
+        let Y = event.touches[0].pageY / canvas.offsetHeight;
+
+        // Top half: Reset algorithm.
+        // Bottom left corner: reverse previous sequence of current algorithm. If we're at the end of the current one, generate new algorithm.
+        // Bottom right corner: execute next sequence of current algorithm.
+        if ((Controller.mode == 2 || Controller.mode == 3) && BLDPracticeInputHanler.currentAlgorithmIndex != -1) {
+            if (Y < 0.5) {
+                BLDPracticeInputHanler.resetAlg();
+            } else {
+                if (X > 0.5) {
+                    if (BLDPracticeInputHanler.currentAlgorithmIndex < BLDPracticeInputHanler.currentAlgorithm.length) {
+                        BLDPracticeInputHanler.executeNextSequence();
+                    } else if (!Animation.busy) {
+                        let mode = Math.random() > 0.5 ? 3 : 2;
+                        Controller.switchMode(mode);
+                        BLDPracticeInputHanler.selectRandomAlgorithm();
+                    }
+                } else {
+                    BLDPracticeInputHanler.reversePreviousSequence();
+                }
+            }
         } else if (!Animation.busy) {
             let mode = Math.random() > 0.5 ? 3 : 2;
             Controller.switchMode(mode);

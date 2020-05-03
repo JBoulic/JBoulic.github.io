@@ -54,6 +54,7 @@ BLD practice mode:
 - Improve visuals
 - Improve UI: Letter pair word bigger and at the top
 - For corner twists, only color white sticker
+- Mobile mode: implement actions depending on touch location
 Code:
 - Create own fps counter
 Bugs:
