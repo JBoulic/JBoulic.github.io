@@ -71,7 +71,11 @@ class Controller {
         // Bottom right corner: execute next sequence of current algorithm.
         if ((Controller.mode == 2 || Controller.mode == 3) && BLDPracticeInputHanler.currentAlgorithmIndex != -1) {
             if (Y < 0.5) {
-                BLDPracticeInputHanler.resetAlg();
+                if (X < 0.5) {
+                    BLDPracticeInputHanler.resetAlg();
+                } else {
+                    BLDPracticeInputHanler.applyAlg();
+                }
             } else {
                 if (X > 0.5) {
                     if (BLDPracticeInputHanler.currentAlgorithmIndex < BLDPracticeInputHanler.currentAlgorithm.length) {
@@ -267,8 +271,9 @@ class BLDPracticeInputHanler {
                 if (this.currentLetterPair.length != 2) break;
                 // Update UI.
                 let currentLetterPairData = this.letterPairData[this.currentLetterPair];
-                let s = currentLetterPairData["word"].length > 0 ? currentLetterPairData["word"] : " *Need to find a word*";
-                updateLetterPairWord(s);
+                if (currentLetterPairData.hasOwnProperty("word") && currentLetterPairData["word"].length > 0) {
+                    updateLetterPairWord(currentLetterPairData["word"]);
+                }
                 if (Controller.mode == 2) {
                     if ("corner_alg" in currentLetterPairData) {
                         this.algorithmType = this.ALGORITHM_TYPES[0];
@@ -544,11 +549,20 @@ class BLDPracticeInputHanler {
     }
 
     static resetAlg() {
-        if (this.currentAlgorithmIndex == -1) return;
+        if (this.currentAlgorithmIndex == -1 || Animation.busy) return;
         while (this.currentAlgorithmIndex > 0) {
             this.currentAlgorithmIndex--;
             let sequence = this.invertSequence(this.currentAlgorithm[this.currentAlgorithmIndex]);
             Animation.applySequenceWithoutAnimation(sequence);
+        }
+    }
+
+    static applyAlg() {
+        if (this.currentAlgorithmIndex == -1 || Animation.busy) return;
+        while (this.currentAlgorithmIndex < this.currentAlgorithm.length) {
+            let sequence = this.currentAlgorithm[this.currentAlgorithmIndex];
+            Animation.applySequenceWithoutAnimation(sequence);
+            this.currentAlgorithmIndex++;
         }
     }
 }

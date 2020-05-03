@@ -1,4 +1,4 @@
-﻿A,B,
+﻿A,B,abs
 A,D,ad
 A,E,Lea
 A,F,baffe
@@ -20,7 +20,7 @@ A,U,tau
 A,V,Rav
 A,W,aw
 A,X,axe
-B,A,
+B,A,ban
 B,D,bed
 B,E,belt
 B,F,bœuf
@@ -48,7 +48,6 @@ D,E,deaf
 D,F,duff
 D,G,dog
 D,H,dash
-D,I,dit
 D,J,dodge
 D,K,duck
 D,L,doll
@@ -67,13 +66,13 @@ D,X,docks
 E,A,head
 E,B,ebb
 E,D,Ed
-E,F,
+E,F,elf
 E,G,egg
 E,H,Eche
 E,I,ein
 E,J,edge
 E,K,heck
-E,L,elfe
+E,L,elle
 E,M,aime
 E,N,ten
 E,O,feoff
@@ -89,10 +88,9 @@ E,X,ex
 F,A,fa
 F,B,fab
 F,D,food
-F,E,
+F,E,feux
 F,G,fige
 F,H,fâche
-F,I,phi
 F,J,fudge
 F,K,fake
 F,L,fly
@@ -113,7 +111,7 @@ G,B,gob
 G,D,God
 G,E,gel
 G,F,gaffe
-G,H,
+G,H,glyphe
 G,I,gin
 G,J,gauge
 G,K,geeks
@@ -135,7 +133,7 @@ H,B,hob
 H,D,hide
 H,E,he
 H,F,huff
-H,G,
+H,G,hug
 H,I,hi
 H,J,hedge
 H,K,hook
@@ -154,9 +152,7 @@ H,W,how
 H,X,thanks
 I,A,Mia
 I,B,bib
-I,D,lid
 I,E,ice
-I,F,if
 I,G,gig
 I,H,ich
 I,K,ink
@@ -184,7 +180,6 @@ J,L,Jill
 J,M,jam
 J,N,John
 J,O,Joe
-J,P,jupe
 J,Q,Jack
 J,R,jar
 J,S,jest
@@ -202,7 +197,7 @@ K,G,Kong
 K,H,quiche
 K,I,kite
 K,J,krage
-K,L,
+K,L,Kal
 K,M,came
 K,N,knight
 K,O,clos
@@ -224,7 +219,7 @@ L,G,leg
 L,H,light
 L,I,lit
 L,J,lodge
-L,K,
+L,K,lake
 L,M,lame
 L,N,LAN
 L,O,lot
@@ -238,7 +233,6 @@ L,V,love
 L,W,law
 L,X,lax
 M,A,ma
-M,B,mob
 M,D,made
 M,E,me
 M,F,Maaf
@@ -247,7 +241,7 @@ M,H,mâche
 M,J,Merge
 M,K,make
 M,L,mol
-M,N,
+M,N,moon
 M,O,mot
 M,P,map
 M,Q,Mac
@@ -269,7 +263,7 @@ N,I,Nice
 N,J,nudge
 N,K,neck
 N,L,nail
-N,M,
+N,M,nom (nom nom)
 N,O,no
 N,P,nap
 N,Q,knock
@@ -293,7 +287,7 @@ O,K,mock
 O,L,old
 O,M,om
 O,N,on
-O,P,
+O,P,op (opus)
 O,Q,oak
 O,R,or
 O,S,os
@@ -310,12 +304,11 @@ P,F,paf
 P,G,pig
 P,H,phat
 P,I,pi
-P,J,page
 P,K,pack
 P,L,pli
 P,M,plume
 P,N,Pan
-P,O,
+P,O,pot
 P,Q,pique
 P,R,pro
 P,S,psi
@@ -338,8 +331,8 @@ Q,L,quail
 Q,M,comme
 Q,N,qu un
 Q,O,Ko
-Q,P,
-Q,R,
+Q,P,cop
+Q,R,car
 Q,S,quest
 Q,T,quit
 Q,U,queue
@@ -360,8 +353,8 @@ R,L,rôle
 R,M,rame
 R,N,Ron
 R,O,rhô
-R,P,
-R,Q,
+R,P,rap
+R,Q,rack
 R,S,rase
 R,T,rite
 R,U,rue
@@ -385,7 +378,7 @@ S,O,sol
 S,P,spa
 S,Q,squash
 S,R,sur
-S,T,
+S,T,slot
 S,U,su
 S,V,save
 S,W,saw
@@ -407,7 +400,7 @@ T,O,tôt
 T,P,tap
 T,Q,tack
 T,R,trop
-T,S,
+T,S,toss
 T,U,tu
 T,V,trouve
 T,W,tow
@@ -477,7 +470,7 @@ W,S,was
 W,T,wet
 W,U,who
 W,V,weave
-W,X,
+W,X,wax
 X,A,xa
 X,B,bitch
 X,D,damn
@@ -499,4 +492,4 @@ X,S,slut
 X,T,tramp
 X,U,Zool
 X,V,veal
-X,W,
+X,W,wimp

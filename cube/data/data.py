@@ -17,7 +17,7 @@ def generate_letter_pair_words():
             data[letter_pair] = {}
             data[letter_pair]["word"] = row[2].replace("'", "\\u0027")
             if len(row[2]) == 0:
-                print("Missing letter pair words: " + letter_pair)
+                print("Missing letter pair word: " + letter_pair)
     print("--Letter pair words processed--")
 
 def generate_corner_algs():
@@ -36,13 +36,12 @@ def generate_corner_algs():
                     print("Twist: " + letter_pair_1 + " " + letter_pair_2)
                 else:
                     if letter_pair_1 not in data or letter_pair_2 not in data:
-                        print("Oops, corner " + letter_pair_1 + " or " + letter_pair_2 + " have not letter_pair entry")
-                        continue
-                    alg = rows[i][j].replace("'", "\\u0027").replace("DU", "D U").replace("UD", "U D").replace("D\\u0027U", "D\\u0027 U").replace("U\\u0027D", "U\\u0027 D")
+                        print("Creating entry for " + letter_pair_1 + " and " + letter_pair_2 + " (corners)")
+                        data[letter_pair_1] = {}
+                        data[letter_pair_2] = {}
+                    alg = rows[i][j].replace("'", "\\u0027")
                     data[letter_pair_1]["corner_alg"] = alg
                     data[letter_pair_2]["corner_alg"] = alg
-                    if letter_pair_1 == "SA":
-                        print(alg)
     print("--Corner algs processed--")
 
 def generate_corner_twist_algs():
@@ -57,8 +56,9 @@ def generate_corner_twist_algs():
                 letter_pair_2 = letters[(i + 1) % 3] + letters[i]
                 print(letter_pair_1 + " " + letter_pair_2)
                 if letter_pair_1 not in data or letter_pair_2 not in data:
-                    print("Oops, corner twist " + letter_pair_1 + " or " + letter_pair_2 + " have not letter_pair entry")
-                    continue
+                    print("Creating entry for " + letter_pair_1 + " and " + letter_pair_2 + " (corner twist)")
+                    data[letter_pair_1] = {}
+                    data[letter_pair_2] = {}
                 data[letter_pair_1]["corner_twist_alg"] = row[1].replace("'", "\\u0027")
                 data[letter_pair_2]["corner_twist_alg"] = row[2].replace("'", "\\u0027")
     print("--Corner twist algs processed--")
@@ -79,9 +79,10 @@ def generate_edge_algs():
                     print("Flip: " + letter_pair_1 + " " + letter_pair_2)
                 else:
                     if letter_pair_1 not in data or letter_pair_2 not in data:
-                        print("Oops, edge " + letter_pair_1 + " or " + letter_pair_2 + " have not letter_pair entry")
-                        continue
-                    alg = rows[i][j].replace("'", "\\u0027").replace("BF", "B F").replace("FB", "F B").replace("B\\u0027F", "B\\u0027 F").replace("F\\u0027B", "F\\u0027 B")
+                        print("Creating entry for " + letter_pair_1 + " and " + letter_pair_2 + " (edges)")
+                        data[letter_pair_1] = {}
+                        data[letter_pair_2] = {}
+                    alg = rows[i][j].replace("'", "\\u0027")
                     data[letter_pair_1]["edge_alg"] = alg
                     data[letter_pair_2]["edge_alg"] = alg
     print("--Edge algs processed--")
@@ -97,8 +98,9 @@ def generate_edge_flip_algs():
             letter_pair_2 = letters[1] + letters[0]
             print(letter_pair_1 + " " + letter_pair_2)
             if letter_pair_1 not in data or letter_pair_2 not in data:
-                print("Oops, edge flip " + letter_pair_1 + " or " + letter_pair_2 + " have not letter_pair entry")
-                continue
+                print("Creating entry for " + letter_pair_1 + " and " + letter_pair_2 + " (edge flip)")
+                data[letter_pair_1] = {}
+                data[letter_pair_2] = {}
             data[letter_pair_1]["edge_flip_alg"] = row[1].replace("'", "\\u0027")
             data[letter_pair_2]["edge_flip_alg"] = row[1].replace("'", "\\u0027")
     print("--Edge flip algs processed--")

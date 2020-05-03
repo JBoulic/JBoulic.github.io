@@ -3,10 +3,6 @@ https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
 
 ### TODO
 
-Data:
-- Edges data is a mess, clean it up
-- Remove letter pair words for twists and flips
-- Delete processing steps for DU, FB etc... and update spreadsheet instead
 Solving mode:
 - Implement timer
 - Save best times
@@ -55,8 +51,14 @@ BLD practice mode:
 - Improve UI: Letter pair word bigger and at the top
 - For corner twists, only color white sticker
 - Mobile mode: implement actions depending on touch location
+- Mobile mode: add location to go to the end of alg
 Code:
 - Create own fps counter
+Data:
+- Edges data is a mess, clean it up
+- Remove letter pair words for twists and flips
+- Delete processing steps for DU, FB etc... and update spreadsheet instead
+- One edge algorithm is broken
 Bugs:
 - AW: empty move
 - SA or AN: issue when 2 letters without space (UD and variants). Add space in data processing  
@@ -71,3 +73,4 @@ Bugs:
 - IU: Empty move
 - IU/UI: algs are swaped, update spreadsheet
 - LG (edge): undefined
+- Should prevent resetAlg while busy
