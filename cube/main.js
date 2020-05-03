@@ -88,7 +88,6 @@ function main() {
     // Add event listener.
     document.addEventListener("keydown", Controller.handleKeyDown, false);
     document.addEventListener("touchstart", Controller.handleTouch, false);
-    document.addEventListener("click", Controller.handleTouch, false);
 
     start();
 }

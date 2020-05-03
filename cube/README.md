@@ -6,7 +6,6 @@ https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
 Bugs:
 - Edges data is a mess, clean it up
 BLD practice mode:
-- Implement mobile version: click to select random letter pair, click to show the solution
 - Remove processed alg line
 - Improve UI: Letter pair word bigger and at the top
 - Improve visuals?
@@ -53,6 +52,7 @@ BLD practice mode:
 - Finish implementing all the sticker letters
 - Color buffer sticker by default
 - Implement random letter-pair/algorithm selection
+- Implement mobile version: click to select random letter pair, click to show the solution
 Code:
 - Create own fps counter
 Bugs:

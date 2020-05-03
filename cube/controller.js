@@ -70,7 +70,7 @@ class Controller {
     static handleTouch(event) {
         if ((Controller.mode == 2 || Controller.mode == 3) && BLDPracticeInputHanler.currentAlgorithmIndex != -1 && (BLDPracticeInputHanler.currentAlgorithmIndex < BLDPracticeInputHanler.currentAlgorithm.length)) {
             BLDPracticeInputHanler.executeNextSequence();
-        } else {
+        } else if (!Animation.busy) {
             let mode = Math.random() > 0.5 ? 3 : 2;
             Controller.switchMode(mode);
             BLDPracticeInputHanler.selectRandomAlgorithm();
