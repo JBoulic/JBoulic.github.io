@@ -38,7 +38,7 @@ B,Q,banque
 B,R,barre
 B,S,boss
 B,T,boot
-B,U,bu
+B,U,bus
 B,V,bave
 B,W,bow
 B,X,box
@@ -200,7 +200,7 @@ K,J,krage
 K,L,Kal
 K,M,came
 K,N,knight
-K,O,clos
+K,O,Ko
 K,P,keep
 K,Q,clic
 K,R,krist
@@ -222,7 +222,7 @@ L,J,lodge
 L,K,lake
 L,M,lame
 L,N,LAN
-L,O,lot
+L,O,Loh
 L,P,leap
 L,Q,leak
 L,R,lard
@@ -330,11 +330,11 @@ Q,K,quark
 Q,L,quail
 Q,M,comme
 Q,N,qu un
-Q,O,Ko
+Q,O,clos
 Q,P,cop
-Q,R,car
+Q,R,queer
 Q,S,quest
-Q,T,quit
+Q,T,cute
 Q,U,queue
 Q,V,quiv
 Q,W,crow
@@ -432,7 +432,7 @@ V,B,vibe
 V,D,vide
 V,E,vœux
 V,F,vif
-V,G,vogue
+V,G,vague
 V,H,vache
 V,I,vit
 V,J,verge
