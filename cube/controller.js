@@ -336,29 +336,34 @@ class BLDPracticeInputHanler {
 
     static processAlg(algorithm) {
         // Create groups of letters.
-        let groups = []
-        let currentGroup = []
-        let currentLetter = ""
+        let setup = null;
+        let permutation_1 = null;
+        let permutation_2 = null;
+        let currentGroup = [];
+        let currentLetter = "";
         for (var i = 0; i < algorithm.length; i++) {
-            let char = algorithm.charAt(i)
-            if (char == "[" || char == "(") {
+            let char = algorithm.charAt(i);
+            if (char == "[" || char == "(" || char == "]" || char == ")" || char == "*") {
+                continue;
+            } else if (char == ":") {
                 if (currentLetter.length > 0) {
                     currentGroup.push(currentLetter);
                 }
                 if (currentGroup.length > 0) {
-                    groups.push(currentGroup.slice());
+                    setup = currentGroup.slice();
                 }
                 currentGroup = [];
-                currentLetter = "";
-                continue
-            } else if (char == "]" || char == ":" || char == ")" || char == "*") {
-                continue;
+                currentLetter = ""
             } else if (char == ",") {
                 if (currentLetter.length > 0) {
                     currentGroup.push(currentLetter);
                 }
                 if (currentGroup.length > 0) {
-                    groups.push(currentGroup.slice());
+                    if (permutation_1) {
+                        permutation_2 = currentGroup.slice();
+                    } else {
+                        permutation_1 = currentGroup.slice();
+                    }
                 }
                 currentGroup = [];
                 currentLetter = ""
@@ -372,8 +377,12 @@ class BLDPracticeInputHanler {
                     currentGroup.push(currentLetter);
                 }
                 if (currentGroup.length > 0) {
-                    currentGroup = currentGroup.concat(currentGroup);
-                    groups.push(currentGroup.slice());
+                    if (permutation_1) {
+                        alert("Parsing error: Setup + permutation 1 + permutation 2 including '*2'")
+                    } else {
+                        currentGroup = currentGroup.concat(currentGroup);
+                        permutation_1 = currentGroup.slice();
+                    }
                     currentGroup = [];
                     currentLetter = ""
                 }
@@ -386,56 +395,57 @@ class BLDPracticeInputHanler {
             currentGroup.push(currentLetter);
         }
         if (currentGroup.length > 0) {
-            groups.push(currentGroup.slice());
+            if (!permutation_1) {
+                permutation_1 = currentGroup.slice();
+            } else if (!permutation_2) {
+                permutation_2 = currentGroup.slice();
+            } else {
+                alert("Parsing error: more than 2 permutation groups")
+            }
         }
         
         // Decompose algorithm
         this.currentAlgorithm = [];
-        let setup_sequence;
-        let sequence_1;
-        let sequence_2;
-        switch (groups.length) {
-            case 1:
-                // Algorithm already processed
-                this.currentAlgorithm = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? [this.decomposeSequence(groups[0])] : [this.invertSequence(groups[0])];
-                break;
-            case 2:
-                // Ex: corner AG
-                sequence_1 = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? groups[0] : groups[1];
-                sequence_2 = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? groups[1] : groups[0];
-                if (this.algorithmType == this.ALGORITHM_TYPES[1]) {
-                    sequence_1 = groups[0];
-                    sequence_2 = groups[1];
-                }
-                this.currentAlgorithm.push(this.decomposeSequence(sequence_1));
-                this.currentAlgorithm.push(this.decomposeSequence(sequence_2));
-                this.currentAlgorithm.push(this.invertSequence(sequence_1));
-                this.currentAlgorithm.push(this.invertSequence(sequence_2));
-                break;
-            case 3:
-                // Ex: corner
-                setup_sequence = groups[0]
-                sequence_1 = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? groups[1] : groups[2];
-                sequence_2 = this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? groups[2] : groups[1];
-                if (this.algorithmType == this.ALGORITHM_TYPES[1]) {
-                    sequence_1 = groups[1];
-                    sequence_2 = groups[2];
-                }
-                this.currentAlgorithm.push(this.decomposeSequence(setup_sequence));
-                this.currentAlgorithm.push(this.decomposeSequence(sequence_1));
-                this.currentAlgorithm.push(this.decomposeSequence(sequence_2));
-                this.currentAlgorithm.push(this.invertSequence(sequence_1));
-                this.currentAlgorithm.push(this.invertSequence(sequence_2));
-                this.currentAlgorithm.push(this.invertSequence(setup_sequence));
-                break;
-            default:
-                return "Malformed parsed algorithm: " + groups.toString();
+
+        // Apply setup if applicable
+        if (setup) {
+            this.currentAlgorithm.push(this.decomposeSequence(setup));
         }
-        this.currentAlgorithmIndex = 0;
+
+        // Apply permutations
+        if (!permutation_2) {
+            if (!permutation_1) {
+                alert("Parsing error: no permutation");
+                return;
+            }
+            this.currentAlgorithm.push(this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? this.decomposeSequence(permutation_1) : this.invertSequence(permutation_1));
+        } else {
+            let sequence_1;
+            let sequence_2;
+            if (this.algorithmType == this.ALGORITHM_TYPES[1] || this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1)) {
+                sequence_1 = permutation_1;
+                sequence_2 = permutation_2;
+            } else {
+                sequence_1 = permutation_2;
+                sequence_2 = permutation_1;
+            }
+            this.currentAlgorithm.push(this.decomposeSequence(sequence_1));
+            this.currentAlgorithm.push(this.decomposeSequence(sequence_2));
+            this.currentAlgorithm.push(this.invertSequence(sequence_1));
+            this.currentAlgorithm.push(this.invertSequence(sequence_2));
+        }
+
+        // Cancel setup if applicable
+        if (setup) {
+            this.currentAlgorithm.push(this.invertSequence(setup));
+        }
+
         this.simplifyCurrentAlgorithm();
+
         for (var i = this.currentAlgorithm.length - 1; i >= 0; i--) {
             Animation.applySequenceWithoutAnimation(this.invertSequence(this.currentAlgorithm[i]));
         }
+        this.currentAlgorithmIndex = 0;
     }
 
     static decomposeSequence(sequence) {
