@@ -3,6 +3,8 @@ https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
 
 ### TODO
 
+Bugs:
+- Edges JU, LU: Reimplement alg parsing algorithm
 Solving mode:
 - Implement timer
 - Save best times
@@ -74,3 +76,4 @@ Bugs:
 - IU/UI: algs are swaped, update spreadsheet
 - LG (edge): undefined
 - Should prevent resetAlg while busy
+- VJ edges
