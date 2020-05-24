@@ -134,22 +134,22 @@ class Animation {
                 updateRotation(2, [-1, 0], -1);
                 break;    
             case "x":
-                updateRotation(0, [-1, 0, 1], 1);
-                break;
-            case "x'":
                 updateRotation(0, [-1, 0, 1], -1);
                 break;
-            case "y":
-                updateRotation(1, [-1, 0, 1], 1);
+            case "x'":
+                updateRotation(0, [-1, 0, 1], 1);
                 break;
-            case "y'":
+            case "y":
                 updateRotation(1, [-1, 0, 1], -1);
                 break;
+            case "y'":
+                updateRotation(1, [-1, 0, 1], 1);
+                break;
             case "z":
-                updateRotation(2, [-1, 0, 1], 1);
+                updateRotation(2, [-1, 0, 1], -1);
                 break;
             case "z'":
-                updateRotation(2, [-1, 0, 1], -1);
+                updateRotation(2, [-1, 0, 1], 1);
                 break;
             default:
                 return;

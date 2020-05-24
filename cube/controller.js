@@ -157,28 +157,28 @@ class SolveInputHandler {
             case "v":
                 Animation.addMove("l");
                 break;
-            case "b":
-                Animation.addMove("x");
-                break;
-            case "n":
-                Animation.addMove("x");
-                break;
             case "t":
-                Animation.addMove("x'");
+                Animation.addMove("x");
                 break;
             case "y":
+                Animation.addMove("x");
+                break;
+            case "b":
                 Animation.addMove("x'");
                 break;
-            case "a":
-                Animation.addMove("y");
+            case "n":
+                Animation.addMove("x'");
                 break;
             case ";":
+                Animation.addMove("y");
+                break;
+            case "a":
                 Animation.addMove("y'");
                 break;
-            case "q":
+            case "p":
                 Animation.addMove("z");
                 break;
-            case "p":
+            case "q":
                 Animation.addMove("z'");
                 break;
             case " ":
@@ -418,10 +418,12 @@ class BLDPracticeInputHanler {
                 alert("Parsing error: no permutation");
                 return;
             }
-            this.currentAlgorithm.push(this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? this.decomposeSequence(permutation_1) : this.invertSequence(permutation_1));
+            // Edge flip algorithms do not need to be inverted
+            this.currentAlgorithm.push(this.algorithmType == this.ALGORITHM_TYPES[4] || this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? this.decomposeSequence(permutation_1) : this.invertSequence(permutation_1));
         } else {
             let sequence_1;
             let sequence_2;
+            // Corner twists already predefine cw and ccw algorithms
             if (this.algorithmType == this.ALGORITHM_TYPES[1] || this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1)) {
                 sequence_1 = permutation_1;
                 sequence_2 = permutation_2;

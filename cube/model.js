@@ -7,7 +7,7 @@ class Model {
     // {
     //     squares: squares,  --> Vertices of the square of the piece
     //     colors: colors,  --> Color of each square
-    //     position: position,   --> Which layer, according to each component (ex: [0, 0, 1] for the front face)
+    //     position: position,   --> Which layer (1, 0 or -1), according to each component (ex: [0, 0, 1] for the front face)
     // }
 
     static CORNER_SQUARE_PATTERN = [
