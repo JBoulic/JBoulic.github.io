@@ -9,7 +9,7 @@ A,J,age
 A,K,hack
 A,L,Al
 A,M,âme
-A,N,âne
+A,N,Anne
 A,O,Yao
 A,P,app
 A,Q,bac
@@ -74,7 +74,7 @@ E,J,edge
 E,K,heck
 E,L,elle
 E,M,aime
-E,N,ten
+E,N,嗯
 E,O,feoff
 E,P,hep
 E,Q,cheek
@@ -100,7 +100,7 @@ F,O,faux
 F,P,fap
 F,Q,freak
 F,R,frais
-F,S,fish
+F,S,fuse
 F,T,Fett
 F,U,fus
 F,V,fauve
@@ -114,13 +114,13 @@ G,F,gaffe
 G,H,glyphe
 G,I,gin
 G,J,gauge
-G,K,gleek
+G,K,geek
 G,L,globe
 G,M,game
 G,N,gun
 G,O,go
 G,P,gap
-G,Q,geek
+G,Q,gleek
 G,R,gris
 G,S,gas
 G,T,goût
@@ -136,13 +136,13 @@ H,F,huff
 H,G,hug
 H,I,hi
 H,J,hedge
-H,K,hook
+H,K,hike
 H,L,hell
 H,M,harm
 H,N,hon
 H,O,hose
 H,P,hip
-H,Q,hock
+H,Q,hook
 H,R,her
 H,S,his
 H,T,hit
@@ -249,7 +249,7 @@ M,R,more
 M,S,miss
 M,T,mate
 M,U,mu
-M,V,move
+M,V,mauve
 M,W,mow
 M,X,max
 N,A,nah
@@ -277,7 +277,7 @@ N,X,nicks
 O,A,ow
 O,B,robe
 O,D,Aude
-O,E,eau
+O,E,oeil
 O,F,bof
 O,G,ogre
 O,H,oh
@@ -301,7 +301,7 @@ P,B,pub
 P,D,pod
 P,E,peu
 P,F,paf
-P,G,pig
+P,G,page
 P,H,phat
 P,I,pi
 P,K,pack
@@ -388,7 +388,7 @@ T,B,tab
 T,D,toad
 T,E,te
 T,F,taf
-T,G,tag
+T,G,桐
 T,H,tâche
 T,I,ti
 T,J,tredge
@@ -449,7 +449,7 @@ V,T,vite
 V,U,vu
 V,W,vow
 V,X,vexe
-W,A,ouah
+W,A,哇
 W,B,web
 W,D,wide
 W,E,we
@@ -491,5 +491,5 @@ X,R,Rogue
 X,S,slut
 X,T,tramp
 X,U,Zool
-X,V,veal
+X,V,Xev
 X,W,wimp
