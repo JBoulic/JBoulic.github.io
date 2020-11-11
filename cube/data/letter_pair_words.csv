@@ -1,13 +1,13 @@
 ﻿A,B,abs
 A,D,ad
-A,E,Lea
+A,E,ale
 A,F,baffe
 A,G,age
 A,H,ah
 A,I,aïe
 A,J,age
 A,K,hack
-A,L,Al
+A,L,all
 A,M,âme
 A,N,Anne
 A,O,Yao
@@ -24,7 +24,7 @@ B,A,ban
 B,D,bad
 B,E,belt
 B,F,bœuf
-B,G,bug
+B,G,bag
 B,H,bash
 B,I,bi
 B,J,badge
@@ -115,7 +115,7 @@ G,H,glyphe
 G,I,gin
 G,J,gauge
 G,K,geek
-G,L,globe
+G,L,goal
 G,M,game
 G,N,gun
 G,O,go
@@ -126,7 +126,7 @@ G,S,gas
 G,T,goût
 G,U,gull
 G,V,gave
-G,W,gown
+G,W,glow
 G,X,geeks
 H,A,hard
 H,B,hob
@@ -169,7 +169,7 @@ I,V,I've
 I,W,yow
 I,X,yaks
 J,A,ja
-J,B,jab
+J,B,job
 J,D,Jeade
 J,E,je
 J,F,Jeff
@@ -178,7 +178,7 @@ J,H,jah
 J,K,Jake
 J,L,Jill
 J,M,jam
-J,N,Jane
+J,N,June
 J,O,Joe
 J,Q,Jack
 J,R,jar
@@ -189,15 +189,15 @@ J,V,jive
 J,W,jaw
 J,X,jacks
 K,A,Kah
-K,B,Krebs
+K,B,knob
 K,D,kid
 K,E,key
 K,F,kraft
 K,G,Kong
 K,H,quiche
 K,I,kite
-K,J,krage
-K,L,Kal
+K,J,Kedge
+K,L,Kyle
 K,M,came
 K,N,knight
 K,O,Ko
@@ -283,12 +283,12 @@ O,G,ogre
 O,H,oh
 O,I,oie
 O,J,moj
-O,K,mock
+O,K,oak
 O,L,old
 O,M,om
 O,N,on
 O,P,op (opus)
-O,Q,oak
+O,Q,coq
 O,R,or
 O,S,os
 O,T,hotte
@@ -302,9 +302,9 @@ P,D,pod
 P,E,peu
 P,F,paf
 P,G,page
-P,H,phat
+P,H,phi
 P,I,pi
-P,K,pack
+P,K,peak
 P,L,pli
 P,M,plume
 P,N,pan
@@ -326,12 +326,12 @@ Q,G,quag
 Q,H,quaich
 Q,I,qui
 Q,J,squeedge
-Q,K,quark
+Q,K,quick
 Q,L,quail
-Q,M,comme
+Q,M,cam
 Q,N,qu un
 Q,O,clos
-Q,P,cop
+Q,P,quip
 Q,R,queer
 Q,S,quest
 Q,T,cute
@@ -343,8 +343,8 @@ R,A,rat
 R,B,RIB
 R,D,road
 R,E,ré
-R,F,rough
-R,G,rage
+R,F,Raf (Rafael)
+R,G,rug
 R,H,riche
 R,I,riz
 R,J,rage
@@ -373,7 +373,7 @@ S,J,sludge
 S,K,ski
 S,L,sel
 S,M,Sam
-S,N,sans
+S,N,sun
 S,O,sol
 S,P,spa
 S,Q,squash
@@ -418,7 +418,7 @@ U,K,muck
 U,L,bulle
 U,M,Ulm
 U,N,un
-U,O,sous
+U,O,错
 U,P,up
 U,Q,Chuck
 U,R,urne
@@ -468,7 +468,7 @@ W,Q,wok
 W,R,war
 W,S,was
 W,T,wet
-W,U,who
+W,U,吴
 W,V,wave
 W,X,wax
 X,A,xa
