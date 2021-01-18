@@ -238,7 +238,7 @@ class BLDPracticeInputHanler {
                 this.resetAlg();
                 break;
             default:
-                if (key.length != 1 || !/[a-zA-Z]/.test(key) || key == "y" || key == "z") {
+                if (key.length != 1 || !/[a-zA-Z]/.test(key)) {
                     break;
                 }
                 if (this.currentAlgorithmIndex != -1) {
@@ -261,13 +261,20 @@ class BLDPracticeInputHanler {
                         Model.updateEdgeSticker("C", 1.0);
                     }
                 }
+                // Save user input for UI display.
+                let uiLetterPair = this.currentLetterPair
+                // Replace Z with X when relevant.
+                letter = letter.replace('Z', 'X')
+                if (this.currentLetterPair.length == 2) {
+                    this.currentLetterPair = this.currentLetterPair.replace('Z', 'X')
+                }
                 // Reject invalid input if we have a pair of letters.
                 if (this.currentLetterPair.length == 2 && this.currentLetterPair in this.letterPairData == false) {
-                    updateLetterPair(this.currentLetterPair + ": invalid input");
+                    updateLetterPair(uiLetterPair + ": invalid input");
                     break;
                 }
                 // Update sticker.
-                updateLetterPair(this.currentLetterPair);
+                updateLetterPair(uiLetterPair);
                 if (Controller.mode == 2) {
                     Model.updateCornerSticker(letter, 1.0);
                 } else if (Controller.mode == 3) {
