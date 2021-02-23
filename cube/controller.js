@@ -449,7 +449,13 @@ class BLDPracticeInputHanler {
             this.currentAlgorithm.push(this.invertSequence(setup));
         }
 
+        console.log("decomposed algorithm: ");
+        console.log(JSON.stringify(this.currentAlgorithm, null, 2));
+
         this.simplifyCurrentAlgorithm();
+
+        console.log("simplified algorithm: ");
+        console.log(JSON.stringify(this.currentAlgorithm, null, 2));
 
         for (var i = this.currentAlgorithm.length - 1; i >= 0; i--) {
             Animation.applySequenceWithoutAnimation(this.invertSequence(this.currentAlgorithm[i]));
@@ -519,13 +525,13 @@ class BLDPracticeInputHanler {
                     sequence_1.pop();
                     sequence_2.shift();
                     // Invert last move of sequence_2.
-                    let move = sequence_2[sequence_2.length - 1];
+                    let move = sequence_2[0];
                     if (move.charAt(move.length - 1) == "'") {
                         move = move.slice(0, -1);
                     } else {
                         move += "'";
                     }
-                    sequence_2[sequence_2.length - 1] = move;
+                    sequence_2[0] = move;
                 } else {
                     break;
                 }
