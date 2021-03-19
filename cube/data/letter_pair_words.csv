@@ -12,7 +12,7 @@ A,M,âme
 A,N,Anne
 A,O,草
 A,P,app
-A,Q,bac
+A,Q,arc
 A,R,art
 A,S,As (carte)
 A,T,at
@@ -29,7 +29,7 @@ B,H,bash
 B,I,bi
 B,J,badge
 B,K,book
-B,L,ball
+B,L,balle
 B,M,bam
 B,N,bon
 B,O,Bo
@@ -43,19 +43,19 @@ B,V,bave
 B,W,bow
 B,X,box
 D,A,da
-D,B,dab
-D,E,deaf
+D,B,dub
+D,E,deux
 D,F,duff
 D,G,dog
 D,H,dash
 D,J,dodge
-D,K,duck
+D,K,deck
 D,L,doll
 D,M,dame
 D,N,dune
 D,O,do
 D,P,deep
-D,Q,dac
+D,Q,duck
 D,R,drap
 D,S,diss
 D,T,dot
@@ -69,7 +69,7 @@ E,D,Ed
 E,F,elf
 E,G,egg
 E,H,Eche
-E,I,hey
+E,I,ein
 E,J,edge
 E,K,heck
 E,L,elle
@@ -98,8 +98,8 @@ F,M,fam
 F,N,fun
 F,O,faux 
 F,P,flip
-F,Q,FAQ
-F,R,frais
+F,Q,fac
+F,R,Fer (F1 Ferrari)
 F,S,fuse
 F,T,foot
 F,U,fus
@@ -123,7 +123,7 @@ G,P,gap
 G,Q,gleek
 G,R,gris
 G,S,Gus (Cinderella)
-G,T,gut
+G,T,git
 G,U,谷 (谷歌)
 G,V,gave
 G,W,glow
@@ -153,17 +153,17 @@ H,X,haze
 I,A,Mia
 I,B,lib
 I,E,ice
-I,G,gig
+I,G,big
 I,H,ich
 I,K,ink
 I,L,il
 I,N,in
 I,O,yo
 I,P,imp
-I,Q,ike
+I,Q,ike (like)
 I,R,cire
 I,S,is
-I,T,it
+I,T,eat
 I,U,yuh
 I,V,Yves
 I,W,yaw
@@ -191,19 +191,19 @@ J,X,jazz
 K,A,Kah
 K,B,knob
 K,D,kid
-K,E,key
-K,F,kraft
+K,E,Ken
+K,F,cliff
 K,G,Kong
-K,H,quiche
+K,H,Khan
 K,I,kite
 K,J,Kedge
 K,L,Kyle
 K,M,came
 K,N,knight
-K,O,Ko
+K,O,KO
 K,P,keep
 K,Q,clic
-K,R,krist
+K,R,Krist
 K,S,kiss
 K,T,kate
 K,U,cup
@@ -304,7 +304,7 @@ P,F,puff
 P,G,page
 P,H,phi
 P,I,pi
-P,K,peak
+P,K,Peak
 P,L,pole
 P,M,Pam
 P,N,pan
@@ -312,7 +312,7 @@ P,O,pot
 P,Q,pack
 P,R,pro
 P,S,psi
-P,T,pâte
+P,T,pot
 P,U,pu
 P,V,pave
 P,W,pow
@@ -323,7 +323,7 @@ Q,D,quid
 Q,E,que
 Q,F,kiff
 Q,G,quag
-Q,H,quaich
+Q,H,quiche
 Q,I,qui
 Q,J,squeedge
 Q,K,quick
@@ -340,11 +340,11 @@ Q,V,quiv
 Q,W,cow
 Q,X,quiz
 R,A,rat
-R,B,rib
+R,B,Reb (F1 Red Bull)
 R,D,red
 R,E,ré
 R,F,Raf
-R,G,rug
+R,G,rage
 R,H,riche
 R,I,riz
 R,J,Raj
@@ -356,7 +356,7 @@ R,O,rhô
 R,P,rap
 R,Q,rack
 R,S,Ross
-R,T,rut
+R,T,route
 R,U,rue
 R,V,rive
 R,W,row
@@ -390,7 +390,7 @@ T,E,te
 T,F,taf
 T,G,桐
 T,H,tâche
-T,I,ti
+T,I,tea
 T,J,Taj (Mahal)
 T,K,take
 T,L,tool

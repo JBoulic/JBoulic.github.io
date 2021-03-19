@@ -449,13 +449,7 @@ class BLDPracticeInputHanler {
             this.currentAlgorithm.push(this.invertSequence(setup));
         }
 
-        console.log("decomposed algorithm: ");
-        console.log(JSON.stringify(this.currentAlgorithm, null, 2));
-
         this.simplifyCurrentAlgorithm();
-
-        console.log("simplified algorithm: ");
-        console.log(JSON.stringify(this.currentAlgorithm, null, 2));
 
         for (var i = this.currentAlgorithm.length - 1; i >= 0; i--) {
             Animation.applySequenceWithoutAnimation(this.invertSequence(this.currentAlgorithm[i]));
@@ -467,7 +461,7 @@ class BLDPracticeInputHanler {
         let decomposedSequence = [];
         for (var i in sequence) {
             // Decompose half turns.
-            if (sequence[i].length > 1 && sequence[i].charAt(1) == "2") {
+            if (sequence[i].length > 1 && sequence[i].charAt(1) === "2") {
                 let turn = sequence[i].replace("2", "");
                 decomposedSequence.push(turn);
                 decomposedSequence.push(turn);
@@ -504,12 +498,12 @@ class BLDPracticeInputHanler {
         for (var i = 1; i < this.currentAlgorithm.length; i++) {
             let sequence_1 = this.currentAlgorithm[i - 1];
             let sequence_2 = this.currentAlgorithm[i];
-            while (sequence_1[sequence_1.length - 1].charAt(0) == sequence_2[0].charAt(0)) {
-                if (sequence_1[sequence_1.length - 1].length != sequence_2[0].length) {
+            while (sequence_1[sequence_1.length - 1].charAt(0) === sequence_2[0].charAt(0)) {
+                if (sequence_1[sequence_1.length - 1].length !== sequence_2[0].length) {
                     // Moves that cancel each other (e.g. U and U').
                     sequence_1.pop();
                     sequence_2.shift();
-                } else if (sequence_1.length > 1 && sequence_1[sequence_1.length - 2].charAt(0) == sequence_1[sequence_1.length - 1].charAt(0)) {
+                } else if (sequence_1.length > 1 && sequence_1[sequence_1.length - 2] === sequence_1[sequence_1.length - 1]) {
                     // 3 times the same turn (e.g. U, U, U becomes U').
                     sequence_1.pop();
                     sequence_2.shift();
@@ -521,7 +515,7 @@ class BLDPracticeInputHanler {
                         move += "'";
                     }
                     sequence_1[sequence_1.length - 1] = move;
-                } else if (sequence_2.length > 1 && sequence_2[sequence_2.length - 2].charAt(0) == sequence_2[sequence_2.length - 1].charAt(0)) {
+                } else if (sequence_2.length > 1 && sequence_2[0] === sequence_2[1]) {
                     sequence_1.pop();
                     sequence_2.shift();
                     // Invert last move of sequence_2.
