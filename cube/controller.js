@@ -220,6 +220,7 @@ class BLDPracticeInputHanler {
 
     static ALGORITHM_TYPES = ["Corners", "Corner twist", "No corner alg", "Edges", "Edge flip", "No edge alg"];
     static algorithmType = "";
+    static shouldInvert = false;
     static currentAlgorithm = [];
     static currentAlgorithmIndex = -1;
 
@@ -290,14 +291,16 @@ class BLDPracticeInputHanler {
                 if (Controller.mode == 2) {
                     if ("corner_alg" in currentLetterPairData) {
                         this.algorithmType = this.ALGORITHM_TYPES[0];
-                        updateAlgorithm(currentLetterPairData["corner_alg"]);
-                        this.processAlg(currentLetterPairData["corner_alg"]);
+                        const algorithm = this.getAlgorithm(currentLetterPairData["corner_alg"]);
+                        updateAlgorithm(algorithm);
+                        this.processAlg(algorithm);
                     } else if ("corner_twist_alg" in currentLetterPairData) {
                         this.algorithmType = this.ALGORITHM_TYPES[1];
                         updateLetterPairWord(this.algorithmType);
-                        updateAlgorithm(currentLetterPairData["corner_twist_alg"]);
+                        const algorithm = this.getAlgorithm(currentLetterPairData["corner_twist_alg"]);
+                        updateAlgorithm(algorithm);
                         Model.displayCornerWhiteYellowSticker(this.currentLetterPair.charAt(0));
-                        this.processAlg(currentLetterPairData["corner_twist_alg"]);
+                        this.processAlg(algorithm);
                     } else {
                         this.algorithmType = this.ALGORITHM_TYPES[2];
                         updateLetterPairWord(this.algorithmType);
@@ -306,13 +309,15 @@ class BLDPracticeInputHanler {
                 } else if (Controller.mode == 3) {
                     if ("edge_alg" in currentLetterPairData) {
                         this.algorithmType = this.ALGORITHM_TYPES[3];
-                        updateAlgorithm(currentLetterPairData["edge_alg"]);
-                        this.processAlg(currentLetterPairData["edge_alg"]);
+                        const algorithm = this.getAlgorithm(currentLetterPairData["edge_alg"]);
+                        updateAlgorithm(algorithm);
+                        this.processAlg(algorithm);
                     } else if ("edge_flip_alg" in currentLetterPairData) {
                         this.algorithmType = this.ALGORITHM_TYPES[4];
                         updateLetterPairWord(this.algorithmType);
-                        updateAlgorithm(currentLetterPairData["edge_flip_alg"]);
-                        this.processAlg(currentLetterPairData["edge_flip_alg"]);
+                        const algorithm = this.getAlgorithm(currentLetterPairData["edge_flip_alg"]);
+                        updateAlgorithm(algorithm);
+                        this.processAlg(algorithm);
                     } else {
                         this.algorithmType = this.ALGORITHM_TYPES[5];
                         updateLetterPairWord(this.algorithmType);
@@ -320,6 +325,19 @@ class BLDPracticeInputHanler {
                 }
                 break;
         }
+    }
+
+    static getAlgorithm(alg) {
+        this.shouldInvert = this.currentLetterPair.charAt(0) > this.currentLetterPair.charAt(1);
+        // algorithms written like "U M' U' M U2 M U M' U|U M U M' U2 M' U' M U" specify 2 different execution for one permutation and its inverse.
+        if (!alg.includes('|')) {
+            return alg;
+        }
+        if (!this.shouldInvert) {
+            return alg.split('|')[0];
+        }
+        this.shouldInvert = false;
+        return alg.split('|')[1];
     }
 
     static selectRandomAlgorithm() {
@@ -426,12 +444,12 @@ class BLDPracticeInputHanler {
                 return;
             }
             // Edge flip algorithms do not need to be inverted
-            this.currentAlgorithm.push(this.algorithmType == this.ALGORITHM_TYPES[4] || this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1) ? this.decomposeSequence(permutation_1) : this.invertSequence(permutation_1));
+            this.currentAlgorithm.push(this.algorithmType == this.ALGORITHM_TYPES[4] || !this.shouldInvert ? this.decomposeSequence(permutation_1) : this.invertSequence(permutation_1));
         } else {
             let sequence_1;
             let sequence_2;
             // Corner twists already predefine cw and ccw algorithms
-            if (this.algorithmType == this.ALGORITHM_TYPES[1] || this.currentLetterPair.charAt(0) < this.currentLetterPair.charAt(1)) {
+            if (this.algorithmType == this.ALGORITHM_TYPES[1] || !this.shouldInvert) {
                 sequence_1 = permutation_1;
                 sequence_2 = permutation_2;
             } else {
