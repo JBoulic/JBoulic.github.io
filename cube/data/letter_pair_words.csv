@@ -29,7 +29,7 @@ B,H,bûche (de Noël)
 B,I,bee
 B,J,bridge
 B,K,book
-B,L,bell (church)
+B,L,blood
 B,N,Ben
 B,O,boom
 B,P,blop (Dofus)
@@ -39,7 +39,7 @@ B,S,boss (Time Crisis)
 B,T,Bot (Bottas)
 B,U,bus
 B,V,bave
-B,W,bow (cello)
+B,W,bow
 B,X,box
 D,A,Dan (DanDan)
 D,B,dab (dabbing)
@@ -71,7 +71,7 @@ E,H,Eche
 E,I,Ein (Einstein)
 E,J,edge (of a cliff)
 E,K,Ec (Ecaflip)
-E,L,ailes (Maleficent)
+E,L,El (Elsa - Frozen)
 E,M,Em
 E,N,En (Eniripsa)
 E,O,feoff
@@ -79,17 +79,17 @@ E,P,help (drowning)
 E,Q,cheek (red)
 E,R,Merc (F1)
 E,S,Es (Esteban Ocon)
-E,T,eat (Mortal Kombat)
+E,T,eat
 E,U,Eur (drapeau européen)
 E,V,Eve (Wall-E)
 E,W,meow
 E,X,ex
 F,A,fan
 F,B,fab
-F,D,food
+F,D,flood
 F,E,feu (bâtiment)
 F,G,fige (Piper)
-F,H,Flash
+F,H,flash
 F,J,Fudge (Cornelius)
 F,K,fork
 F,L,fly
@@ -102,11 +102,11 @@ F,R,Ferr (F1 Ferrari)
 F,S,fish
 F,T,flûte
 F,U,fugue (Bach - organ)
-F,V,fauve (tiger)
+F,V,fauve (tigre)
 F,W,flow (river)
-F,X,freeze (waterbending)
+F,X,freeze
 G,A,Gad (Elmaleh)
-G,B,Gab
+G,B,grab
 G,D,God
 G,E,gel
 G,F,gaffe (Lagaffe)
@@ -182,7 +182,7 @@ J,O,Joe
 J,Q,Jack
 J,R,jar
 J,S,Jess
-J,T,jet (flying man)
+J,T,jet
 J,U,Ju (Julia)
 J,V,jive
 J,W,Jaws (shark)
@@ -234,12 +234,12 @@ L,X,Liz
 M,A,man
 M,D,mad
 M,E,meat
-M,F,Maaf
+M,F,maf (mafia)
 M,G,mag
 M,H,mâche
 M,J,Mahj (Mahjong)
 M,K,Mick (Mickey)
-M,L,mal
+M,L,Mal (Maleficent)
 M,N,moon
 M,O,mom
 M,P,Maps
@@ -249,7 +249,7 @@ M,S,Muse
 M,T,mate
 M,U,mute
 M,V,morve
-M,W,mow (grass)
+M,W,mow
 M,X,Maz (Mazepin)
 N,A,Na (Selina)
 N,B,Nab (Nabilla)
@@ -267,8 +267,8 @@ N,O,Noel
 N,P,nap (student)
 N,Q,knock (Sheldon)
 N,R,Nor (Norris)
-N,S,noose (put a noose on)
-N,T,knit
+N,S,noose
+N,T,Nat
 N,U,nuke
 N,V,nerve (piano performance)
 N,W,news
@@ -285,8 +285,8 @@ O,J,Moj (Mojo - drink)
 O,K,oak
 O,L,old
 O,M,Om
-O,N,son (Jesus)
-O,P,Op (Opal tap on)
+O,N,onion
+O,P,cop
 O,Q,orc (Lord of the Rings)
 O,R,or
 O,S,os
@@ -314,11 +314,11 @@ P,S,Pas (Pascal)
 P,T,Pot (Potter)
 P,U,puke
 P,V,poivre
-P,W,pawn
+P,W,pow (superpowers)
 P,X,prize (trophy)
 Q,A,quartz
 Q,B,cube
-Q,D,quad
+Q,D,quid (quiddich)
 Q,E,quench (extinguish fire)
 Q,F,quiff
 Q,G,quag
@@ -331,7 +331,7 @@ Q,M,cam
 Q,N,queen
 Q,O,quote (dinner quote)
 Q,P,cape
-Q,R,queer (colorful flag)
+Q,R,queer (rainbow flag)
 Q,S,quest (map)
 Q,T,quilt (blanket)
 Q,U,quai (Paris)
@@ -340,7 +340,7 @@ Q,W,Crow
 Q,X,quiz (trivia time)
 R,A,rat
 R,B,Reb (F1 Red Bull)
-R,D,red (painting)
+R,D,red
 R,E,rêve
 R,F,Raf
 R,G,rug (flying carpet)
@@ -353,24 +353,24 @@ R,M,rhum
 R,N,rain
 R,O,Ron
 R,P,rap (Eminem)
-R,Q,rook (chess)
+R,Q,rack
 R,S,Ross
 R,T,route
 R,U,run
 R,V,rive
 R,W,row (boat)
-R,X,Raxxx
+R,X,Rax
 S,A,Sainz
 S,B,Seb
 S,D,Sad (Sadida)
 S,E,sel
 S,F,Smurf
-S,G,singe
+S,G,Seg (Segway)
 S,H,Schu (Schumacher)
 S,I,sea
 S,J,sledge
 S,K,ski
-S,L,sleigh (Santa)
+S,L,slay
 S,M,Sam
 S,N,snow
 S,O,soy (sauce)
@@ -400,14 +400,14 @@ T,P,trap
 T,Q,tac (tic tac)
 T,R,tard
 T,S,toss
-T,U,tunes (liasses the billets)
+T,U,tunes (billets)
 T,V,twelve (apostles)
 T,W,twins (Pascal and Paul)
 T,X,taz (tazer)
 U,A,瓜
 U,B,Scrub (Killa)
 U,D,mud
-U,E,blue (painting)
+U,E,blue
 U,F,muff
 U,G,mug
 U,H,ruche
@@ -431,7 +431,7 @@ V,B,vob (volleyball)
 V,D,vid (video)
 V,E,veste
 V,F,vif (vif d'or)
-V,G,Veg (Vegas casino)
+V,G,Veg (Vegas)
 V,H,vache
 V,I,Vi (Vina)
 V,J,veg (veggie)
@@ -448,13 +448,13 @@ V,T,Vet (Vettel)
 V,U,vue (gratte-ciel)
 V,W,vows (wedding)
 V,X,Vox (reporter)
-W,A,whale
+W,A,Wa (Wabbit)
 W,B,web (spider)
 W,D,weed
 W,E,Wen (Wendy)
 W,F,wife
 W,G,wig
-W,H,whip
+W,H,whale
 W,I,Wii
 W,J,wedge (cheese)
 W,K,wreck
@@ -474,7 +474,7 @@ X,A,za (pizza)
 X,B,zeb (zebra)
 X,D,Zedd
 X,E,zen
-X,F,Zef (Afrikaans counter-culture)
+X,F,Zeph (Zephyr)
 X,G,中
 X,H,Zhao (captain)
 X,I,Zim (Oui-oui)
