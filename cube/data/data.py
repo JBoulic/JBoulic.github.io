@@ -4,7 +4,9 @@ import os
 
 data_dir = os.path.dirname(__file__)
 data = {}
-LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X"]
+LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
+           "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X"]
+
 
 def generate_letter_pair_words():
     print("--Letter pair words started--")
@@ -19,6 +21,7 @@ def generate_letter_pair_words():
             if len(row[2]) == 0:
                 print("Missing letter pair word: " + letter_pair)
     print("--Letter pair words processed--")
+
 
 def generate_corner_algs():
     print("--Corner algs started--")
@@ -36,13 +39,15 @@ def generate_corner_algs():
                     print("Twist: " + letter_pair_1 + " " + letter_pair_2)
                 else:
                     if letter_pair_1 not in data or letter_pair_2 not in data:
-                        print("Creating entry for " + letter_pair_1 + " and " + letter_pair_2 + " (corners)")
+                        print("Creating entry for " + letter_pair_1 +
+                              " and " + letter_pair_2 + " (corners)")
                         data[letter_pair_1] = {}
                         data[letter_pair_2] = {}
                     alg = rows[i][j].replace("'", "\\u0027")
                     data[letter_pair_1]["corner_alg"] = alg
                     data[letter_pair_2]["corner_alg"] = alg
     print("--Corner algs processed--")
+
 
 def generate_corner_twist_algs():
     print("--Corner twist algs started--")
@@ -56,12 +61,16 @@ def generate_corner_twist_algs():
                 letter_pair_2 = letters[(i + 1) % 3] + letters[i]
                 print(letter_pair_1 + " " + letter_pair_2)
                 if letter_pair_1 not in data or letter_pair_2 not in data:
-                    print("Creating entry for " + letter_pair_1 + " and " + letter_pair_2 + " (corner twist)")
+                    print("Creating entry for " + letter_pair_1 +
+                          " and " + letter_pair_2 + " (corner twist)")
                     data[letter_pair_1] = {}
                     data[letter_pair_2] = {}
-                data[letter_pair_1]["corner_twist_alg"] = row[1].replace("'", "\\u0027")
-                data[letter_pair_2]["corner_twist_alg"] = row[2].replace("'", "\\u0027")
+                data[letter_pair_1]["corner_twist_alg"] = row[1].replace(
+                    "'", "\\u0027")
+                data[letter_pair_2]["corner_twist_alg"] = row[2].replace(
+                    "'", "\\u0027")
     print("--Corner twist algs processed--")
+
 
 def generate_edge_algs():
     print("--Edge algs started--")
@@ -79,13 +88,15 @@ def generate_edge_algs():
                     print("Flip: " + letter_pair_1 + " " + letter_pair_2)
                 else:
                     if letter_pair_1 not in data or letter_pair_2 not in data:
-                        print("Creating entry for " + letter_pair_1 + " and " + letter_pair_2 + " (edges)")
+                        print("Creating entry for " + letter_pair_1 +
+                              " and " + letter_pair_2 + " (edges)")
                         data[letter_pair_1] = {}
                         data[letter_pair_2] = {}
                     alg = rows[i][j].replace("'", "\\u0027")
                     data[letter_pair_1]["edge_alg"] = alg
                     data[letter_pair_2]["edge_alg"] = alg
     print("--Edge algs processed--")
+
 
 def generate_edge_flip_algs():
     print("--Edge flip algs started--")
@@ -98,11 +109,14 @@ def generate_edge_flip_algs():
             letter_pair_2 = letters[1] + letters[0]
             print(letter_pair_1 + " " + letter_pair_2)
             if letter_pair_1 not in data or letter_pair_2 not in data:
-                print("Creating entry for " + letter_pair_1 + " and " + letter_pair_2 + " (edge flip)")
+                print("Creating entry for " + letter_pair_1 +
+                      " and " + letter_pair_2 + " (edge flip)")
                 data[letter_pair_1] = {}
                 data[letter_pair_2] = {}
-            data[letter_pair_1]["edge_flip_alg"] = row[1].replace("'", "\\u0027")
-            data[letter_pair_2]["edge_flip_alg"] = row[1].replace("'", "\\u0027")
+            data[letter_pair_1]["edge_flip_alg"] = row[1].replace(
+                "'", "\\u0027")
+            data[letter_pair_2]["edge_flip_alg"] = row[1].replace(
+                "'", "\\u0027")
     print("--Edge flip algs processed--")
 
 

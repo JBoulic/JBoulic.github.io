@@ -5,7 +5,6 @@ ES6 modules are subject to same-origin policy - use a local server for local tes
 
 ### TODO
 
-- Make indentation consistent in code
 - Add app description
 Solving mode:
 - Detect solved state
@@ -15,6 +14,7 @@ Other:
 - Customisable perspective view
 - Customisable appearance (e.g. space between pieces)
 - Customiable letter pair words and algorithms (requires a server)
+- Implement Anki-like memorisation techniques for clicks/touches and algorithms selection
 
 ### DONE
 
@@ -63,6 +63,8 @@ Code:
 - Remove opaque attribute for each piece
 - Create own matrix data types with no dependency on matrix.js
 - Update code to use ES6 classes and modules
+- Make indentation consistent in code
+- Add icon
 Data:
 - Edges data is a mess, clean it up
 - Remove letter pair words for twists and flips
@@ -86,3 +88,4 @@ Bugs:
 - VJ edges: provided algorithm is not right
 - Edges JU, LU: Reimplement alg parsing algorithm for setup + single permutation
 - Corner VQ: fix apostrophe character
+- Fix touch handling
