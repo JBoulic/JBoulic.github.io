@@ -1,34 +1,72 @@
-Refresher on WebGL
-https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
+# Cube
 
-ES6 modules are subject to same-origin policy - use a local server for local testing.
+## DESCRIPTION
+Switch modes by pressing **1**, **2** or **3**
 
-### TODO
+### **1**: Solve mode
+Keys | Actions
+---- | ----
+Space | Scramble
+Esc | Reset cube
+I, K | R, R'
+D, E | L, L'
+J, F | U, U'
+H, G | F, F'
+S, L | D, D'
+W, O | B, B'
+U, M | r, r'
+V, R | l, l'
+T, Y, B, N | x, x, x', x'
+;, A | y, y'
+P, Q | z, z'
 
-- Add app description
+### **2**: BLD - Corners
+- Type 2 letters to display the associated letter pair word and algorithm at the bottom.
+- Corner orientation is supported: type 2 letters that belong to the same piece.
+- Almost all the algorithms are commutators, typically following S, A, B, A', B', S'. Press the left/right arrows to go through/animate these sequences.
+- Press space to generate a random algorithm.
+- Press escape to reset the cube.
+
+### **3**: BLD - Edges
+- Similar to corners.
+
+### Touch devices
+The web contents (page) are divided into 4 parts:
+- Touch the top-left part of the screen to reset the current algorithm to the beginning.
+- Touch the top-right to jump to the end.
+- Touch the bottom-left/right to go backwards/forward in the sequences of the algorithm.
+
+When the actions above are not applicable, a random corner or edge algorithm is selected.
+
+## TODO
+
 Solving mode:
 - Detect solved state
 - Implement timer
 - Save best times
+
 Other:
 - Customisable perspective view
 - Customisable appearance (e.g. space between pieces)
 - Customiable letter pair words and algorithms (requires a server)
 - Implement Anki-like memorisation techniques for clicks/touches and algorithms selection
 
-### DONE
+## DONE
 
 Implement different modes:
 - 1 -> solving mode
 - 2 -> BLD corner practice mode
 - 3 -> BLD edge practice mode
 - Display plain stickers for mode 1
+
 Interface:
 - Indicate different modes, just text
 - Display current mode
 - Apply current mode
 - Make canvas take up entire space available on webpage
 - Handle page resizing
+- Add app description
+
 BLD practice mode:
 - Create a spreadsheet for letter-pair/algorithm
 - Add algoritm info in JSON
@@ -58,6 +96,7 @@ BLD practice mode:
 - For corner twists, only color white sticker
 - Mobile mode: implement actions depending on touch location
 - Mobile mode: add location to go to the end of alg
+
 Code:
 - Create own fps counter
 - Remove opaque attribute for each piece
@@ -65,11 +104,13 @@ Code:
 - Update code to use ES6 classes and modules
 - Make indentation consistent in code
 - Add icon
+
 Data:
 - Edges data is a mess, clean it up
 - Remove letter pair words for twists and flips
 - Delete processing steps for DU, FB etc... and update spreadsheet instead
 - One edge algorithm is broken
+
 Bugs:
 - AW: empty move
 - SA or AN: issue when 2 letters without space (UD and variants). Add space in data processing  
@@ -89,3 +130,10 @@ Bugs:
 - Edges JU, LU: Reimplement alg parsing algorithm for setup + single permutation
 - Corner VQ: fix apostrophe character
 - Fix touch handling
+
+## NOTES
+
+Refresher on WebGL
+https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
+
+ES6 modules are subject to same-origin policy - use a local server for local testing.
