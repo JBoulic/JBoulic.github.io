@@ -1,27 +1,36 @@
+import { Mat4 } from './matrix.js';
+import { DEFAULT_CONTROLLER_MODE } from './constants.js';
+
 // Takes Model data and renders it.
-class Renderer {
-    static buffers = null;  // buffers = { square: positionBuffer, color: colorBuffer, texture: textureBuffer, fillSticker: fillStickerBuffer}
-    static programInfo = null;  // programInfo = {program: ..., attribLocations: ..., uniformLocations: ...}
+export class Renderer {
+    constructor(gl, model) {
+        this.gl_ = gl;
+        this.model_ = model;
+        this.buffers_ = null;  // buffers = { square: positionBuffer, color: colorBuffer, texture: textureBuffer, fillSticker: fillStickerBuffer}
+        this.programInfo_ = null;  // programInfo = {program: ..., attribLocations: ..., uniformLocations: ...}
+    
+        // Positions[piece][square] is a positions list
+        // Colors[piece][square] is a colors list
+        this.positionBufferData = [];  // Modified directly by the animation instance.
+        this.colorBufferData_ = [];
+        this.opaqueBufferData = [];
+    }
 
-    // Positions[piece][square] is a positions list
-    // Colors[piece][square] is a colors list
-    static positionBufferData = [];
-    static colorBufferData = [];
-    static opaqueBufferData = [];
 
-    static loadShader(type, source) {
-        const shader = gl.createShader(type);
-        gl.shaderSource(shader, source);
-        gl.compileShader(shader);
-        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-            alert('An error occurred compiling the shaders: ' + gl.getShaderInfoLog(shader));
-            gl.deleteShader(shader);
+
+    loadShader_(type, source) {
+        const shader = this.gl_.createShader(type);
+        this.gl_.shaderSource(shader, source);
+        this.gl_.compileShader(shader);
+        if (!this.gl_.getShaderParameter(shader, this.gl_.COMPILE_STATUS)) {
+            alert('An error occurred compiling the shaders: ' + this.gl_.getShaderInfoLog(shader));
+            this.gl_.deleteShader(shader);
             return null;
         }
         return shader;
     }
 
-    static initShaderProgram() {
+    initShaderProgram() {
         // Vertex shader and fragment shader program.
         const vsSource = `
             uniform mat4 uModelViewMatrix;
@@ -83,44 +92,44 @@ class Renderer {
             }
         `;
     
-        const vertexShader = this.loadShader(gl.VERTEX_SHADER, vsSource);
-        const fragmentShader = this.loadShader(gl.FRAGMENT_SHADER, fsSource);
+        const vertexShader = this.loadShader_(this.gl_.VERTEX_SHADER, vsSource);
+        const fragmentShader = this.loadShader_(this.gl_.FRAGMENT_SHADER, fsSource);
     
-        const shaderProgram = gl.createProgram();
-        gl.attachShader(shaderProgram, vertexShader);
-        gl.attachShader(shaderProgram, fragmentShader);
-        gl.linkProgram(shaderProgram);
+        const shaderProgram = this.gl_.createProgram();
+        this.gl_.attachShader(shaderProgram, vertexShader);
+        this.gl_.attachShader(shaderProgram, fragmentShader);
+        this.gl_.linkProgram(shaderProgram);
     
         // If creating the shader program failed, alert
-        if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
-            alert('Unable to initialize the shader program: ' + gl.getProgramInfoLog(shaderProgram));
+        if (!this.gl_.getProgramParameter(shaderProgram, this.gl_.LINK_STATUS)) {
+            alert('Unable to initialize the shader program: ' + this.gl_.getProgramInfoLog(shaderProgram));
             return null;
         }
     
         // Collect all the info needed to use the shader program.
-        this.programInfo = {
+        this.programInfo_ = {
             program: shaderProgram,
             attribLocations: {
-                vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition'),
-                vertexColor: gl.getAttribLocation(shaderProgram, 'aVertexColor'),
-                textureCoord: gl.getAttribLocation(shaderProgram, 'aTexCoord'),
-                fillSticker: gl.getAttribLocation(shaderProgram, 'fillSticker'),
+                vertexPosition: this.gl_.getAttribLocation(shaderProgram, 'aVertexPosition'),
+                vertexColor: this.gl_.getAttribLocation(shaderProgram, 'aVertexColor'),
+                textureCoord: this.gl_.getAttribLocation(shaderProgram, 'aTexCoord'),
+                fillSticker: this.gl_.getAttribLocation(shaderProgram, 'fillSticker'),
             },
             uniformLocations: {
-                projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
-                modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
-                solveMode: gl.getUniformLocation(shaderProgram, 'uSolveMode'),
+                projectionMatrix: this.gl_.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
+                modelViewMatrix: this.gl_.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
+                solveMode: this.gl_.getUniformLocation(shaderProgram, 'uSolveMode'),
             },
         };
     }
 
     // Buffers
-    static initBuffers() {
-        var positionBuffer = gl.createBuffer();
-        var colorBuffer = gl.createBuffer();
-        var textureBuffer = gl.createBuffer();
-        var fillStickerBuffer = gl.createBuffer();
-        this.buffers = {
+    initBuffers() {
+        var positionBuffer = this.gl_.createBuffer();
+        var colorBuffer = this.gl_.createBuffer();
+        var textureBuffer = this.gl_.createBuffer();
+        var fillStickerBuffer = this.gl_.createBuffer();
+        this.buffers_ = {
             square: positionBuffer,
             color: colorBuffer,
             texture: textureBuffer,
@@ -129,45 +138,44 @@ class Renderer {
     }
 
     // Draw static elements
-    static initScene() {
-        gl.useProgram(this.programInfo.program);
-        gl.enable(gl.DEPTH_TEST);           // Enable depth testing
-        gl.depthFunc(gl.LEQUAL);            // Near things obscure far things
+    initScene() {
+        this.gl_.useProgram(this.programInfo_.program);
+        this.gl_.enable(this.gl_.DEPTH_TEST);           // Enable depth testing
+        this.gl_.depthFunc(this.gl_.LEQUAL);            // Near things obscure far things
 
         // Camera
         const fieldOfView = 45 * Math.PI / 180;   // in radians
-        const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
+        const aspect = this.gl_.canvas.clientWidth / this.gl_.canvas.clientHeight;
         const zNear = 0.1;
         const zFar = 100.0;
 
-        const projectionMatrix = mat4.create();
-        mat4.perspective(projectionMatrix,
+        const projectionMatrix = Mat4.create();
+        Mat4.perspective(projectionMatrix,
                             fieldOfView,
                             aspect,
                             zNear,
                             zFar);
-        gl.uniformMatrix4fv(this.programInfo.uniformLocations.projectionMatrix, false, projectionMatrix);
+        this.gl_.uniformMatrix4fv(this.programInfo_.uniformLocations.projectionMatrix, false, projectionMatrix);
 
-        const modelViewMatrix = mat4.create();
-        mat4.fromRotation(modelViewMatrix, 25 * Math.PI / 180, [1, 0, 0])
-        mat4.translate(modelViewMatrix,     // destination matrix
-                        modelViewMatrix,     // matrix to translate
+        const modelViewMatrix = Mat4.create();
+        Mat4.fromRotation(modelViewMatrix, 25 * Math.PI / 180, [1, 0, 0])
+        Mat4.translate(modelViewMatrix,     // matrix to translate
                         [0.0, -3.8, -8.0]);  // amount to translate
-        gl.uniformMatrix4fv(this.programInfo.uniformLocations.modelViewMatrix, false, modelViewMatrix);
+        this.gl_.uniformMatrix4fv(this.programInfo_.uniformLocations.modelViewMatrix, false, modelViewMatrix);
 
-        gl.uniform1i(Renderer.programInfo.uniformLocations.solveMode, Controller.mode);
+        this.gl_.uniform1i(this.programInfo_.uniformLocations.solveMode, DEFAULT_CONTROLLER_MODE);
     }
     
-    static initBufferData() {
-        for (var p = 0; p < Model.pieces.length; p++) {
-            let nSquares = Model.pieces[p].squares.length;
+    initBufferData() {
+        for (var p = 0; p < this.model_.pieces.length; p++) {
+            let nSquares = this.model_.pieces[p].squares.length;
             this.positionBufferData.push([]);
-            this.colorBufferData.push([]);
+            this.colorBufferData_.push([]);
             this.opaqueBufferData.push([]);
 
             for (var s = 0; s < nSquares; s++) {
                 this.positionBufferData[p].push(new Float32Array(4 * 3));  // 4 vertices * 3 components
-                this.colorBufferData[p].push(new Float32Array(Model.pieces[p].colors[s]));
+                this.colorBufferData_[p].push(new Float32Array(this.model_.pieces[p].colors[s]));
                 this.opaqueBufferData[p].push(new Float32Array([0.0, 0.0, 0.0, 0.0]));
             }
         }
@@ -175,10 +183,10 @@ class Renderer {
         this.populatePositionBufferData();
     }
 
-    static clearOpaqueBufferData() {
+    clearOpaqueBufferData() {
         this.opaqueBufferData = [];
-        for (var p = 0; p < Model.pieces.length; p++) {
-            let nSquares = Model.pieces[p].squares.length;
+        for (var p = 0; p < this.model_.pieces.length; p++) {
+            let nSquares = this.model_.pieces[p].squares.length;
             this.opaqueBufferData.push([]);
             for (var s = 0; s < nSquares; s++) {
                 this.opaqueBufferData[p].push(new Float32Array([0.0, 0.0, 0.0, 0.0]));
@@ -186,44 +194,48 @@ class Renderer {
         }
     }
 
-    static populatePositionBufferData() {
-        for (var p = 0; p < Model.pieces.length; p++) {
-            let nSquares = Model.pieces[p].squares.length;
+    populatePositionBufferData() {
+        for (var p = 0; p < this.model_.pieces.length; p++) {
+            let nSquares = this.model_.pieces[p].squares.length;
             for (var s = 0; s < nSquares; s++) {  // number of squares per corner/edge/center
                 for (var v = 0; v < 4; v++) {  // 4 vertices per square
                     for (var c = 0; c < 3; c++) {  // 3 components per vertex
-                        this.positionBufferData[p][s][v * 3 + c] = Model.pieces[p].squares[s][v][c];
+                        this.positionBufferData[p][s][v * 3 + c] = this.model_.pieces[p].squares[s][v][c];
                     }
                 }
             }
         }
     }
 
-    // Utility function for udpateScene
-    static setBuffersAndAttributes(buffer, data, numComponents, attribLocation) {
-        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-        gl.bufferData(gl.ARRAY_BUFFER, data, gl.DYNAMIC_DRAW);
+    setSolveMode(mode) {
+        this.gl_.uniform1i(this.programInfo_.uniformLocations.solveMode, mode);
+    }
 
-        const type = gl.FLOAT;
+    // Utility function for udpateScene
+    setBuffersAndAttributes_(buffer, data, numComponents, attribLocation) {
+        this.gl_.bindBuffer(this.gl_.ARRAY_BUFFER, buffer);
+        this.gl_.bufferData(this.gl_.ARRAY_BUFFER, data, this.gl_.DYNAMIC_DRAW);
+
+        const type = this.gl_.FLOAT;
         const normalize = false;
         const stride = 0;
         const offset = 0;
-        gl.vertexAttribPointer(
+        this.gl_.vertexAttribPointer(
             attribLocation,
             numComponents,
             type,
             normalize,
             stride,
             offset);
-        gl.enableVertexAttribArray(
+        this.gl_.enableVertexAttribArray(
             attribLocation);
     }
 
-    static updateScene() {
+    updateScene() {
         // Clear
-        gl.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
-        gl.clearDepth(1.0);                 // Clear
-        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        this.gl_.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
+        this.gl_.clearDepth(1.0);                 // Clear
+        this.gl_.clear(this.gl_.COLOR_BUFFER_BIT | this.gl_.DEPTH_BUFFER_BIT);
 
         const TEXTURE_COORDINATES = new Float32Array([
             0, 0,
@@ -233,25 +245,25 @@ class Renderer {
         ])
 
         // Draw
-        for (var p = 0; p < Model.pieces.length; p++) {
-            let nSquares = Model.pieces[p].squares.length;
+        for (var p = 0; p < this.model_.pieces.length; p++) {
+            let nSquares = this.model_.pieces[p].squares.length;
             for (var s = 0; s < nSquares; s++) {
                 // Positions
-                this.setBuffersAndAttributes(this.buffers.square, this.positionBufferData[p][s], 3, this.programInfo.attribLocations.vertexPosition);
+                this.setBuffersAndAttributes_(this.buffers_.square, this.positionBufferData[p][s], 3, this.programInfo_.attribLocations.vertexPosition);
 
                 // Color
-                this.setBuffersAndAttributes(this.buffers.color, this.colorBufferData[p][s], 4, this.programInfo.attribLocations.vertexColor);
+                this.setBuffersAndAttributes_(this.buffers_.color, this.colorBufferData_[p][s], 4, this.programInfo_.attribLocations.vertexColor);
 
                 // Texture coordinates
-                this.setBuffersAndAttributes(this.buffers.texture, TEXTURE_COORDINATES, 2, this.programInfo.attribLocations.textureCoord);
+                this.setBuffersAndAttributes_(this.buffers_.texture, TEXTURE_COORDINATES, 2, this.programInfo_.attribLocations.textureCoord);
 
                 // Should fill sticker
-                this.setBuffersAndAttributes(this.buffers.fillSticker, this.opaqueBufferData[p][s], 1, this.programInfo.attribLocations.fillSticker);
+                this.setBuffersAndAttributes_(this.buffers_.fillSticker, this.opaqueBufferData[p][s], 1, this.programInfo_.attribLocations.fillSticker);
 
                 // Draw square
                 const offset = 0;
                 const vertexCount = 4;
-                gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
+                this.gl_.drawArrays(this.gl_.TRIANGLE_STRIP, offset, vertexCount);
             }
         }
     }

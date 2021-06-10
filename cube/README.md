@@ -1,18 +1,23 @@
 Refresher on WebGL
 https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
 
+ES6 modules are subject to same-origin policy - use a local server for local testing.
+
 ### TODO
 
+- Make indentation consistent in code
+- Add app description
 Solving mode:
+- Detect solved state
 - Implement timer
 - Save best times
-Code:
-- Create own matrix data types with no dependency on matrix.js
+Other:
+- Customisable perspective view
+- Customisable appearance (e.g. space between pieces)
+- Customiable letter pair words and algorithms (requires a server)
 
 ### DONE
 
-- Update code to use ES6 classes
-- Remove opaque attribute for each piece
 Implement different modes:
 - 1 -> solving mode
 - 2 -> BLD corner practice mode
@@ -23,6 +28,7 @@ Interface:
 - Display current mode
 - Apply current mode
 - Make canvas take up entire space available on webpage
+- Handle page resizing
 BLD practice mode:
 - Create a spreadsheet for letter-pair/algorithm
 - Add algoritm info in JSON
@@ -54,6 +60,9 @@ BLD practice mode:
 - Mobile mode: add location to go to the end of alg
 Code:
 - Create own fps counter
+- Remove opaque attribute for each piece
+- Create own matrix data types with no dependency on matrix.js
+- Update code to use ES6 classes and modules
 Data:
 - Edges data is a mess, clean it up
 - Remove letter pair words for twists and flips

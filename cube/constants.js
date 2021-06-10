@@ -1,0 +1,5 @@
+export const DEFAULT_CONTROLLER_MODE = 2;
+
+export const PIECES_SPACING = 0.01;
+export const SOLVE_MODE_ANIMATION_SPEED = 15;
+export const BLD_MODE_ANIMATION_SPEED = 5;

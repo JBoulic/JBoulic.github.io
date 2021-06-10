@@ -1,185 +1,171 @@
-// This class handles user input 
-class Controller {
-    static mode = 1;
+import { DEFAULT_CONTROLLER_MODE, SOLVE_MODE_ANIMATION_SPEED, BLD_MODE_ANIMATION_SPEED } from './constants.js';
+import { Model } from './model.js';
 
-    static handleKeyDown(event) {
+// This class handles user input 
+export class Controller {
+    constructor(model, animation, renderer) {
+        this.mode_ = null;
+        this.model_ = model;
+        this.animation_ = animation;
+        this.renderer_ = renderer;
+        this.solveInputHandler_ = new SolveInputHandler(this.animation_);
+        this.BLDPracticeInputHandler_ = new BLDPracticeInputHandler(this.animation_, this.renderer_);
+
+        // Add event listener.
+        document.addEventListener("keydown", this.handleKeyDown_, false);
+        document.addEventListener("touchstart", this.handleTouch_, false);
+    }
+
+    initialize() {
+        this.switchMode_(DEFAULT_CONTROLLER_MODE);
+    }
+
+    handleKeyDown_ = (event) => {
         switch(event.key) {
             case "1":
-                Controller.switchMode(1);
+                this.switchMode_(1);
                 break;
             case "2":
-                Controller.switchMode(2);
+                this.switchMode_(2);
                 break;
             case "3":
-                Controller.switchMode(3);
+                this.switchMode_(3);
                 break;
             case "Escape":
-                Animation.resetCube();
+                this.animation_.resetCube();
                 break;
             default:
-                if (Controller.mode == 1) {
-                    SolveInputHandler.handleInput(event.key);
+                if (this.mode_ == 1) {
+                    this.solveInputHandler_.handleInput(event.key);
                 } else {
-                    BLDPracticeInputHanler.handleInput(event.key);
+                    this.BLDPracticeInputHandler_.handleInput(event.key);
                 }
                 break;
         }
     }
 
-    static switchMode(mode) {
+    switchMode_(mode) {
+        this.mode_ = mode;
+        this.BLDPracticeInputHandler_.clearOnScreenData();
+        this.animation_.resetCube();
+        this.renderer_.clearOpaqueBufferData();
+        this.renderer_.setSolveMode(mode);
+        
         switch(mode) {
+            case 1:
+                document.getElementById("mode").innerHTML = "Solve mode";
+                this.animation_.animationSpeed = SOLVE_MODE_ANIMATION_SPEED;
+                break;
             case 2:
-                Controller.mode = 2;
-                Animation.animationSpeed = 5;
                 document.getElementById("mode").innerHTML = "BLD corners";
-                Animation.resetCube();
-                updateLetterPair("");
-                updateLetterPairWord("");
-                updateAlgorithm("");
-                Renderer.clearOpaqueBufferData();
-                Model.updateCornerSticker("C", 1.0);
+                this.animation_.animationSpeed = BLD_MODE_ANIMATION_SPEED;
+                this.BLDPracticeInputHandler_.setMode(mode);
                 break;
             case 3:
-                Controller.mode = 3;
-                Animation.animationSpeed = 5;
                 document.getElementById("mode").innerHTML = "BLD edges";
-                Animation.resetCube();
-                updateLetterPair("");
-                updateLetterPairWord("");
-                updateAlgorithm("");
-                Renderer.clearOpaqueBufferData();
-                Model.updateEdgeSticker("C", 1.0);
+                this.animation_.animationSpeed = BLD_MODE_ANIMATION_SPEED;
+                this.BLDPracticeInputHandler_.setMode(mode);
                 break;
             default:
-                Controller.mode = 1;
-                Animation.animationSpeed = 15;
-                document.getElementById("mode").innerHTML = "Solve mode";
-                updateLetterPair("");
-                updateLetterPairWord("");
-                updateAlgorithm("");
+                console.error("Invalid mode");
                 break;
         }
-        gl.uniform1i(Renderer.programInfo.uniformLocations.solveMode, Controller.mode);
     }
 
-    static handleTouch(event) {
-        let X = event.touches[0].pageX / canvas.offsetWidth;
-        let Y = event.touches[0].pageY / canvas.offsetHeight;
-
-        // Top half: Reset algorithm.
-        // Bottom left corner: reverse previous sequence of current algorithm. If we're at the end of the current one, generate new algorithm.
-        // Bottom right corner: execute next sequence of current algorithm.
-        if ((Controller.mode == 2 || Controller.mode == 3) && BLDPracticeInputHanler.currentAlgorithmIndex != -1) {
-            if (Y < 0.5) {
-                if (X < 0.5) {
-                    BLDPracticeInputHanler.resetAlg();
-                } else {
-                    if (BLDPracticeInputHanler.currentAlgorithmIndex < BLDPracticeInputHanler.currentAlgorithm.length) {
-                        BLDPracticeInputHanler.applyAlg();
-                    } else if (!Animation.busy) {
-                        let mode = Math.random() > 0.5 ? 3 : 2;
-                        Controller.switchMode(mode);
-                        BLDPracticeInputHanler.selectRandomAlgorithm();
-                    }
-                }
-            } else {
-                if (X > 0.5) {
-                    if (BLDPracticeInputHanler.currentAlgorithmIndex < BLDPracticeInputHanler.currentAlgorithm.length) {
-                        BLDPracticeInputHanler.executeNextSequence();
-                    } else if (!Animation.busy) {
-                        let mode = Math.random() > 0.5 ? 3 : 2;
-                        Controller.switchMode(mode);
-                        BLDPracticeInputHanler.selectRandomAlgorithm();
-                    }
-                } else {
-                    BLDPracticeInputHanler.reversePreviousSequence();
-                }
+    handleTouch_(event) {
+        // Switch to mode 2 or 3 if necessary.
+        if (!(this.mode_ === 2 || this.mode_ === 3)) {
+            if (this.animation_.busy) {
+                return;
             }
-        } else if (!Animation.busy) {
             let mode = Math.random() > 0.5 ? 3 : 2;
-            Controller.switchMode(mode);
-            BLDPracticeInputHanler.selectRandomAlgorithm();
+            this.switchMode_(mode);
         }
+
+        this.BLDPracticeInputHandler_.handleTouch(this, event);
     }
 }
 
 
 // Input handling in solve mode
 class SolveInputHandler {
+    constructor(animation) {
+        this.animation_ = animation;
+    }
 
-    static handleInput(key) {
+    handleInput(key) {
         switch(key) {
             case "i":
-                Animation.addMove("R");
+                this.animation_.addMove("R");
                 break;
             case "k":
-                Animation.addMove("R'");
+                this.animation_.addMove("R'");
                 break;
             case "e":
-                Animation.addMove("L'");
+                this.animation_.addMove("L'");
                 break;
             case "d":
-                Animation.addMove("L");
+                this.animation_.addMove("L");
                 break;
             case "j":
-                Animation.addMove("U");
+                this.animation_.addMove("U");
                 break;
             case "f":
-                Animation.addMove("U'");
+                this.animation_.addMove("U'");
                 break;
             case "h":
-                Animation.addMove("F");
+                this.animation_.addMove("F");
                 break;
             case "g":
-                Animation.addMove("F'");
+                this.animation_.addMove("F'");
                 break;
             case "l":
-                Animation.addMove("D'");
+                this.animation_.addMove("D'");
                 break;
             case "s":
-                Animation.addMove("D");
+                this.animation_.addMove("D");
                 break;
             case "o":
-                Animation.addMove("B'");
+                this.animation_.addMove("B'");
                 break;
             case "w":
-                Animation.addMove("B");
+                this.animation_.addMove("B");
                 break;
             case "u":
-                Animation.addMove("r");
+                this.animation_.addMove("r");
                 break;
             case "m":
-                Animation.addMove("r'");
+                this.animation_.addMove("r'");
                 break;
             case "r":
-                Animation.addMove("l'");
+                this.animation_.addMove("l'");
                 break;
             case "v":
-                Animation.addMove("l");
+                this.animation_.addMove("l");
                 break;
             case "t":
-                Animation.addMove("x");
+                this.animation_.addMove("x");
                 break;
             case "y":
-                Animation.addMove("x");
+                this.animation_.addMove("x");
                 break;
             case "b":
-                Animation.addMove("x'");
+                this.animation_.addMove("x'");
                 break;
             case "n":
-                Animation.addMove("x'");
+                this.animation_.addMove("x'");
                 break;
             case ";":
-                Animation.addMove("y");
+                this.animation_.addMove("y");
                 break;
             case "a":
-                Animation.addMove("y'");
+                this.animation_.addMove("y'");
                 break;
             case "p":
-                Animation.addMove("z");
+                this.animation_.addMove("z");
                 break;
             case "q":
-                Animation.addMove("z'");
+                this.animation_.addMove("z'");
                 break;
             case " ":
                 this.scramble();
@@ -189,7 +175,7 @@ class SolveInputHandler {
         }
     }
 
-    static scramble() {
+    scramble() {
         const MOVES = [
             ["U", "U'"],
             ["D", "D'"],
@@ -198,14 +184,14 @@ class SolveInputHandler {
             ["F", "F'"],
             ["B", "B'"],
         ];
-        Animation.resetCube();
+        this.animation_.resetCube();
         // God's number is 20. Choosing 35 because, with my scrambling algorithm, some configurations
         // may be more likely than others, and because double turns are not supported.
         const nScrambleMoves = 35;
         // Random index between 0 and 5.
         let nextMoveIndex = Math.floor(Math.random() * 6);
         for (var i = 0; i < nScrambleMoves; i++) {
-            Animation.addMove(MOVES[nextMoveIndex][Math.floor(Math.random() * 2)]);
+            this.animation_.addMove(MOVES[nextMoveIndex][Math.floor(Math.random() * 2)]);
             // (nextMove + Random index between 1 and 5) % 6 to ensure that the same face is not selected 2 times.
             nextMoveIndex = (nextMoveIndex + 1 + Math.floor(Math.random() * 4)) % 6;
         }
@@ -214,152 +200,252 @@ class SolveInputHandler {
 
 
 // Input handling in BLD practice mode
-class BLDPracticeInputHanler {
-    static currentLetterPair = "";
-    static letterPairData = JSON.parse(json_data);
+class BLDPracticeInputHandler {
+    constructor(animation, renderer) {
+        this.animation_ = animation;
+        this.renderer_ = renderer;
+        this.mode_ = 2;
+        this.letterPairData_ = JSON.parse(json_data);
+        this.currentLetterPair_ = "";
+        this.algorithmType_ = "";
+        this.shouldInvert_ = false;
 
+        this.currentAlgorithm_ = [];
+        this.currentAlgorithmIndex_ = -1;
+    }
+    
     static ALGORITHM_TYPES = ["Corners", "Corner twist", "No corner alg", "Edges", "Edge flip", "No edge alg"];
-    static algorithmType = "";
-    static shouldInvert = false;
-    static currentAlgorithm = [];
-    static currentAlgorithmIndex = -1;
 
-    static handleInput(key) {
+    setMode(mode) {
+        this.mode_ = mode;
+        this.currentLetterPair_ = "";
+        if (mode === 2) {
+            this.updateCornerSticker_("C", 1.0);
+        } else if (mode === 3) {
+            this.updateEdgeSticker_("C", 1.0);
+        }
+    }
+
+    clearOnScreenData() {
+        this.updateLetterPair_("");
+        this.updateLetterPairWord_("");
+        this.updateAlgorithm_("");
+    }
+
+    
+    updateLetterPair_(text) {
+        const letterPair = document.querySelector('#letterPair');
+        letterPair.innerHTML = text;
+        letterPair.style.left = (window.innerWidth - letterPair.offsetWidth) / 2;
+    }
+    
+    updateLetterPairWord_(text) {
+        const letterPairWord = document.getElementById("letterPairWord");
+        letterPairWord.innerHTML = text;
+        letterPairWord.style.left = (window.innerWidth - letterPairWord.offsetWidth) / 2;
+    }
+    
+    updateAlgorithm_(text) {
+        const algorithm = document.getElementById("algorithm");
+        algorithm.innerHTML = text;
+        algorithm.style.left = (window.innerWidth - algorithm.offsetWidth) / 2;
+    }
+
+    updateCornerSticker_(sticker, value) {
+        // This is dependent on the order the pieces have been intialized.
+        const position = Model.CORNER_NAME_TO_POSITION[sticker];
+        this.renderer_.opaqueBufferData[position[0]][position[1]] = new Float32Array([value, value, value, value]);
+    }
+
+    updateEdgeSticker_(sticker, value) {
+        // This is dependent on the order the pieces have been intialized.
+        const position = Model.EDGE_NAME_TO_POSITION[sticker];
+        this.renderer_.opaqueBufferData[position[0]][position[1]] = new Float32Array([value, value, value, value]);
+    }
+
+    displayCornerWhiteYellowSticker_(sticker) {
+        const position = Model.CORNER_NAME_TO_POSITION[sticker];
+        this.renderer_.opaqueBufferData[position[0]][0] = new Float32Array([1.0, 1.0, 1.0, 1.0]);
+        this.renderer_.opaqueBufferData[position[0]][1] = new Float32Array([0.0, 0.0, 0.0, 0.0]);
+        this.renderer_.opaqueBufferData[position[0]][2] = new Float32Array([0.0, 0.0, 0.0, 0.0]);
+    }
+
+    handleInput(key) {
         switch(key) {
             case " ":
-                this.selectRandomAlgorithm();
+                this.selectRandomAlgorithm_();
                 break;
             case "ArrowRight":
-                this.executeNextSequence();
+                this.executeNextSequence_();
                 break;
             case "ArrowLeft":
-                this.reversePreviousSequence();
+                this.reversePreviousSequence_();
                 break;
             case "Backspace":
-                this.resetAlg();
+                this.resetAlg_();
                 break;
             default:
                 if (key.length != 1 || !/[a-zA-Z]/.test(key)) {
                     break;
                 }
-                if (this.currentAlgorithmIndex != -1) {
-                    Animation.resetCube();
-                    this.currentAlgorithmIndex = -1;
+                if (this.currentAlgorithmIndex_ != -1) {
+                    this.animation_.resetCube();
+                    this.currentAlgorithmIndex_ = -1;
                 }
                 // Clear letter pair word and algorithm.
-                updateLetterPairWord("");
-                updateAlgorithm("");
+                this.updateLetterPairWord_("");
+                this.updateAlgorithm_("");
                 let letter = key.toUpperCase();
                 // Update letterPair.
-                if (this.currentLetterPair.length < 2) {
-                    this.currentLetterPair += letter;
+                if (this.currentLetterPair_.length < 2) {
+                    this.currentLetterPair_ += letter;
                 } else {
-                    this.currentLetterPair = letter;
-                    Renderer.clearOpaqueBufferData();
-                    if (Controller.mode == 2) {
-                        Model.updateCornerSticker("C", 1.0);
-                    } else if (Controller.mode == 3) {
-                        Model.updateEdgeSticker("C", 1.0);
+                    this.currentLetterPair_ = letter;
+                    this.renderer_.clearOpaqueBufferData();
+                    if (this.mode_ == 2) {
+                        this.updateCornerSticker_("C", 1.0);
+                    } else if (this.mode_ == 3) {
+                        this.updateEdgeSticker_("C", 1.0);
                     }
                 }
                 // Save user input for UI display.
-                let uiLetterPair = this.currentLetterPair
+                let uiLetterPair = this.currentLetterPair_;
                 // Replace Z with X when relevant.
-                letter = letter.replace('Z', 'X')
-                if (this.currentLetterPair.length == 2) {
-                    this.currentLetterPair = this.currentLetterPair.replace('Z', 'X')
+                letter = letter.replace('Z', 'X');
+                if (this.currentLetterPair_.length == 2) {
+                    this.currentLetterPair_ = this.currentLetterPair_.replace('Z', 'X');
                 }
                 // Reject invalid input if we have a pair of letters.
-                if (this.currentLetterPair.length == 2 && this.currentLetterPair in this.letterPairData == false) {
-                    updateLetterPair(uiLetterPair + ": invalid input");
+                if (this.currentLetterPair_.length == 2 && this.currentLetterPair_ in this.letterPairData_ == false) {
+                    this.updateLetterPair_(uiLetterPair + ": invalid input");
                     break;
                 }
                 // Update sticker.
-                updateLetterPair(uiLetterPair);
-                if (Controller.mode == 2) {
-                    Model.updateCornerSticker(letter, 1.0);
-                } else if (Controller.mode == 3) {
-                    Model.updateEdgeSticker(letter, 1.0);
+                this.updateLetterPair_(uiLetterPair);
+                if (this.mode_ == 2) {
+                    this.updateCornerSticker_(letter, 1.0);
+                } else if (this.mode_ == 3) {
+                    this.updateEdgeSticker_(letter, 1.0);
                 }
                 // Continue only if we have a valid letter pair word.
-                if (this.currentLetterPair.length != 2) break;
+                if (this.currentLetterPair_.length != 2) break;
                 // Update UI.
-                let currentLetterPairData = this.letterPairData[this.currentLetterPair];
+                let currentLetterPairData = this.letterPairData_[this.currentLetterPair_];
                 if (currentLetterPairData.hasOwnProperty("word") && currentLetterPairData["word"].length > 0) {
-                    updateLetterPairWord(currentLetterPairData["word"]);
+                    this.updateLetterPairWord_(currentLetterPairData["word"]);
                 }
-                if (Controller.mode == 2) {
+                if (this.mode_ == 2) {
                     if ("corner_alg" in currentLetterPairData) {
-                        this.algorithmType = this.ALGORITHM_TYPES[0];
-                        const algorithm = this.getAlgorithm(currentLetterPairData["corner_alg"]);
-                        updateAlgorithm(algorithm);
-                        this.processAlg(algorithm);
+                        this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[0];
+                        const algorithm = this.getAlgorithm_(currentLetterPairData["corner_alg"]);
+                        this.updateAlgorithm_(algorithm);
+                        this.processAlg_(algorithm);
                     } else if ("corner_twist_alg" in currentLetterPairData) {
-                        this.algorithmType = this.ALGORITHM_TYPES[1];
-                        updateLetterPairWord(this.algorithmType);
-                        const algorithm = this.getAlgorithm(currentLetterPairData["corner_twist_alg"]);
-                        updateAlgorithm(algorithm);
-                        Model.displayCornerWhiteYellowSticker(this.currentLetterPair.charAt(0));
-                        this.processAlg(algorithm);
+                        this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[1];
+                        this.updateLetterPairWord_(this.algorithmType_);
+                        const algorithm = this.getAlgorithm_(currentLetterPairData["corner_twist_alg"]);
+                        this.updateAlgorithm_(algorithm);
+                        this.displayCornerWhiteYellowSticker_(this.currentLetterPair_.charAt(0));
+                        this.processAlg_(algorithm);
                     } else {
-                        this.algorithmType = this.ALGORITHM_TYPES[2];
-                        updateLetterPairWord(this.algorithmType);
-                        updateAlgorithm("");
+                        this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[2];
+                        this.updateLetterPairWord_(this.algorithmType_);
+                        this.updateAlgorithm_("");
                     }
-                } else if (Controller.mode == 3) {
+                } else if (this.mode_ == 3) {
                     if ("edge_alg" in currentLetterPairData) {
-                        this.algorithmType = this.ALGORITHM_TYPES[3];
-                        const algorithm = this.getAlgorithm(currentLetterPairData["edge_alg"]);
-                        updateAlgorithm(algorithm);
-                        this.processAlg(algorithm);
+                        this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[3];
+                        const algorithm = this.getAlgorithm_(currentLetterPairData["edge_alg"]);
+                        this.updateAlgorithm_(algorithm);
+                        this.processAlg_(algorithm);
                     } else if ("edge_flip_alg" in currentLetterPairData) {
-                        this.algorithmType = this.ALGORITHM_TYPES[4];
-                        updateLetterPairWord(this.algorithmType);
-                        const algorithm = this.getAlgorithm(currentLetterPairData["edge_flip_alg"]);
-                        updateAlgorithm(algorithm);
-                        this.processAlg(algorithm);
+                        this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[4];
+                        this.updateLetterPairWord_(this.algorithmType_);
+                        const algorithm = this.getAlgorithm_(currentLetterPairData["edge_flip_alg"]);
+                        this.updateAlgorithm_(algorithm);
+                        this.processAlg_(algorithm);
                     } else {
-                        this.algorithmType = this.ALGORITHM_TYPES[5];
-                        updateLetterPairWord(this.algorithmType);
+                        this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[5];
+                        this.updateLetterPairWord_(this.algorithmType_);
                     }
                 }
                 break;
         }
     }
 
-    static getAlgorithm(alg) {
-        this.shouldInvert = this.currentLetterPair.charAt(0) > this.currentLetterPair.charAt(1);
+    handleTouch(controller, event) {
+        let X = event.touches[0].pageX / window.innerWidth;
+        let Y = event.touches[0].pageY / window.innerHeight;
+
+        // Top half: Reset algorithm.
+        // Bottom left corner: reverse previous sequence of current algorithm. If we're at the end of the current one, generate new algorithm.
+        // Bottom right corner: execute next sequence of current algorithm.
+        if (this.currentAlgorithmIndex_ != -1) {
+            if (Y < 0.5) {
+                if (X < 0.5) {
+                    this.resetAlg_();
+                } else {
+                    if (this.currentAlgorithmIndex_ < this.currentAlgorithm_.length) {
+                        this.applyAlg_();
+                    } else if (!this.animation_.busy) {
+                        let mode = Math.random() > 0.5 ? 3 : 2;
+                        controller.switchMode_(mode);
+                        this.selectRandomAlgorithm_();
+                    }
+                }
+            } else {
+                if (X > 0.5) {
+                    if (this.currentAlgorithmIndex_ < this.currentAlgorithm_.length) {
+                        this.executeNextSequence_();
+                    } else if (!this.animation_.busy) {
+                        let mode = Math.random() > 0.5 ? 3 : 2;
+                        controller.switchMode_(mode);
+                        this.selectRandomAlgorithm_();
+                    }
+                } else {
+                    this.reversePreviousSequence_();
+                }
+            }
+        } else if (!this.animation_.busy) {
+            let mode = Math.random() > 0.5 ? 3 : 2;
+            controller.switchMode_(mode);
+            this.selectRandomAlgorithm_();
+        }
+    }
+
+    getAlgorithm_(alg) {
+        this.shouldInvert_ = this.currentLetterPair_.charAt(0) > this.currentLetterPair_.charAt(1);
         // algorithms written like "U M' U' M U2 M U M' U|U M U M' U2 M' U' M U" specify 2 different execution for one permutation and its inverse.
         if (!alg.includes('|')) {
             return alg;
         }
-        if (!this.shouldInvert) {
+        if (!this.shouldInvert_) {
             return alg.split('|')[0];
         }
-        this.shouldInvert = false;
+        this.shouldInvert_ = false;
         return alg.split('|')[1];
     }
 
-    static selectRandomAlgorithm() {
-        let keys = Object.keys(this.letterPairData);
+    selectRandomAlgorithm_() {
+        let keys = Object.keys(this.letterPairData_);
         let letterPair = keys[Math.floor(Math.random() * keys.length)];
-        let data = this.letterPairData[letterPair];
-        if (Controller.mode == 2 && !data.hasOwnProperty("corner_alg") && !data.hasOwnProperty("corner_twist_alg") ||
-            Controller.mode == 3 && !data.hasOwnProperty("edge_alg") && !data.hasOwnProperty("edge_flip_alg")) {
-                return this.selectRandomAlgorithm();
+        let data = this.letterPairData_[letterPair];
+        if (this.mode_ == 2 && !data.hasOwnProperty("corner_alg") && !data.hasOwnProperty("corner_twist_alg") ||
+            this.mode_ == 3 && !data.hasOwnProperty("edge_alg") && !data.hasOwnProperty("edge_flip_alg")) {
+                return this.selectRandomAlgorithm_();
         }
-        this.currentLetterPair = "";
-        Renderer.clearOpaqueBufferData();
-        if (Controller.mode == 2) {
-            Model.updateCornerSticker("C", 1.0);
-        } else if (Controller.mode == 3) {
-            Model.updateEdgeSticker("C", 1.0);
+        this.currentLetterPair_ = "";
+        this.renderer_.clearOpaqueBufferData();
+        if (this.mode_ == 2) {
+            this.updateCornerSticker_("C", 1.0);
+        } else if (this.mode_ == 3) {
+            this.updateEdgeSticker_("C", 1.0);
         }
         this.handleInput(letterPair.charAt(0));
         this.handleInput(letterPair.charAt(1));
     }
 
-    static processAlg(algorithm) {
+    processAlg_(algorithm) {
         // Create groups of letters.
         let setup = null;
         let permutation_1 = null;
@@ -430,11 +516,11 @@ class BLDPracticeInputHanler {
         }
         
         // Decompose algorithm
-        this.currentAlgorithm = [];
+        this.currentAlgorithm_ = [];
 
         // Apply setup if applicable
         if (setup) {
-            this.currentAlgorithm.push(this.decomposeSequence(setup));
+            this.currentAlgorithm_.push(this.decomposeSequence_(setup));
         }
 
         // Apply permutations
@@ -444,38 +530,38 @@ class BLDPracticeInputHanler {
                 return;
             }
             // Edge flip algorithms do not need to be inverted
-            this.currentAlgorithm.push(this.algorithmType == this.ALGORITHM_TYPES[4] || !this.shouldInvert ? this.decomposeSequence(permutation_1) : this.invertSequence(permutation_1));
+            this.currentAlgorithm_.push(this.algorithmType_ == BLDPracticeInputHandler.ALGORITHM_TYPES[4] || !this.shouldInvert_ ? this.decomposeSequence_(permutation_1) : this.invertSequence_(permutation_1));
         } else {
             let sequence_1;
             let sequence_2;
             // Corner twists already predefine cw and ccw algorithms
-            if (this.algorithmType == this.ALGORITHM_TYPES[1] || !this.shouldInvert) {
+            if (this.algorithmType_ == BLDPracticeInputHandler.ALGORITHM_TYPES[1] || !this.shouldInvert_) {
                 sequence_1 = permutation_1;
                 sequence_2 = permutation_2;
             } else {
                 sequence_1 = permutation_2;
                 sequence_2 = permutation_1;
             }
-            this.currentAlgorithm.push(this.decomposeSequence(sequence_1));
-            this.currentAlgorithm.push(this.decomposeSequence(sequence_2));
-            this.currentAlgorithm.push(this.invertSequence(sequence_1));
-            this.currentAlgorithm.push(this.invertSequence(sequence_2));
+            this.currentAlgorithm_.push(this.decomposeSequence_(sequence_1));
+            this.currentAlgorithm_.push(this.decomposeSequence_(sequence_2));
+            this.currentAlgorithm_.push(this.invertSequence_(sequence_1));
+            this.currentAlgorithm_.push(this.invertSequence_(sequence_2));
         }
 
         // Cancel setup if applicable
         if (setup) {
-            this.currentAlgorithm.push(this.invertSequence(setup));
+            this.currentAlgorithm_.push(this.invertSequence_(setup));
         }
 
-        this.simplifyCurrentAlgorithm();
+        this.simplifyCurrentAlgorithm_();
 
-        for (var i = this.currentAlgorithm.length - 1; i >= 0; i--) {
-            Animation.applySequenceWithoutAnimation(this.invertSequence(this.currentAlgorithm[i]));
+        for (var i = this.currentAlgorithm_.length - 1; i >= 0; i--) {
+            this.animation_.applySequenceWithoutAnimation(this.invertSequence_(this.currentAlgorithm_[i]));
         }
-        this.currentAlgorithmIndex = 0;
+        this.currentAlgorithmIndex_ = 0;
     }
 
-    static decomposeSequence(sequence) {
+    decomposeSequence_(sequence) {
         let decomposedSequence = [];
         for (var i in sequence) {
             // Decompose half turns.
@@ -490,7 +576,7 @@ class BLDPracticeInputHanler {
         return decomposedSequence;
     }
 
-    static invertSequence(sequence) {
+    invertSequence_(sequence) {
         let invertedSequence = []
         for (var i = sequence.length - 1; i >= 0; i--) {
             let invertedMove = sequence[i];
@@ -512,10 +598,10 @@ class BLDPracticeInputHanler {
         return invertedSequence;
     }
 
-    static simplifyCurrentAlgorithm() {
-        for (var i = 1; i < this.currentAlgorithm.length; i++) {
-            let sequence_1 = this.currentAlgorithm[i - 1];
-            let sequence_2 = this.currentAlgorithm[i];
+    simplifyCurrentAlgorithm_() {
+        for (var i = 1; i < this.currentAlgorithm_.length; i++) {
+            let sequence_1 = this.currentAlgorithm_[i - 1];
+            let sequence_2 = this.currentAlgorithm_[i];
             while (sequence_1[sequence_1.length - 1].charAt(0) === sequence_2[0].charAt(0)) {
                 if (sequence_1[sequence_1.length - 1].length !== sequence_2[0].length) {
                     // Moves that cancel each other (e.g. U and U').
@@ -553,11 +639,11 @@ class BLDPracticeInputHanler {
             }
             // Remove empty sequences.
             if (sequence_1.length == 0) {
-                this.currentAlgorithm.splice(i - 1, 1);
+                this.currentAlgorithm_.splice(i - 1, 1);
                 i--;
             }
             if (sequence_2.length == 0) {
-                this.currentAlgorithm.splice(i, 1);
+                this.currentAlgorithm_.splice(i, 1);
                 i--;
             }
             if (sequence_1.length == 0 && sequence_2.length == 0) {
@@ -567,45 +653,45 @@ class BLDPracticeInputHanler {
         }
     }
 
-    static executeNextSequence() {
-        if (this.currentAlgorithmIndex == -1 || this.currentAlgorithmIndex == this.currentAlgorithm.length) {
+    executeNextSequence_() {
+        if (this.currentAlgorithmIndex_ == -1 || this.currentAlgorithmIndex_ == this.currentAlgorithm_.length) {
             return;
         }
-        // Execute sequence and increment currentAlgorithmIndex.
-        let sequence = this.currentAlgorithm[this.currentAlgorithmIndex];
+        // Execute sequence and increment currentAlgorithmIndex_.
+        let sequence = this.currentAlgorithm_[this.currentAlgorithmIndex_];
         for (var i in sequence) {
-            Animation.addMove(sequence[i]);
+            this.animation_.addMove(sequence[i]);
         }
-        this.currentAlgorithmIndex++;
+        this.currentAlgorithmIndex_++;
     }
 
-    static reversePreviousSequence() {
-        if (this.currentAlgorithmIndex <= 0) {
+    reversePreviousSequence_() {
+        if (this.currentAlgorithmIndex_ <= 0) {
             return;
         }
-        this.currentAlgorithmIndex--;
-        // Decrement currentAlgorithmIndex and execute inverted sequence.
-        let sequence = this.invertSequence(this.currentAlgorithm[this.currentAlgorithmIndex]);
+        this.currentAlgorithmIndex_--;
+        // Decrement currentAlgorithmIndex_ and execute inverted sequence.
+        let sequence = this.invertSequence_(this.currentAlgorithm_[this.currentAlgorithmIndex_]);
         for (var i in sequence) {
-            Animation.addMove(sequence[i]);
+            this.animation_.addMove(sequence[i]);
         }
     }
 
-    static resetAlg() {
-        if (this.currentAlgorithmIndex == -1 || Animation.busy) return;
-        while (this.currentAlgorithmIndex > 0) {
-            this.currentAlgorithmIndex--;
-            let sequence = this.invertSequence(this.currentAlgorithm[this.currentAlgorithmIndex]);
-            Animation.applySequenceWithoutAnimation(sequence);
+    resetAlg_() {
+        if (this.currentAlgorithmIndex_ == -1 || this.animation_.busy) return;
+        while (this.currentAlgorithmIndex_ > 0) {
+            this.currentAlgorithmIndex_--;
+            let sequence = this.invertSequence_(this.currentAlgorithm_[this.currentAlgorithmIndex_]);
+            this.animation_.applySequenceWithoutAnimation(sequence);
         }
     }
 
-    static applyAlg() {
-        if (this.currentAlgorithmIndex == -1 || Animation.busy) return;
-        while (this.currentAlgorithmIndex < this.currentAlgorithm.length) {
-            let sequence = this.currentAlgorithm[this.currentAlgorithmIndex];
-            Animation.applySequenceWithoutAnimation(sequence);
-            this.currentAlgorithmIndex++;
+    applyAlg_() {
+        if (this.currentAlgorithmIndex_ == -1 || this.animation_.busy) return;
+        while (this.currentAlgorithmIndex_ < this.currentAlgorithm_.length) {
+            let sequence = this.currentAlgorithm_[this.currentAlgorithmIndex_];
+            this.animation_.applySequenceWithoutAnimation(sequence);
+            this.currentAlgorithmIndex_++;
         }
     }
 }

@@ -1,34 +1,37 @@
+import { PIECES_SPACING } from './constants.js';
+
 // Defines the positions of all elements in the scene
 // The positions are updated in the Animation class
 // The Scene renders the model
-class Model {
-    static spacing = 0.01;
-    static pieces = [];
-    // {
-    //     squares: squares,  --> Vertices of the square of the piece
-    //     colors: colors,  --> Color of each square
-    //     position: position,   --> Which layer (1, 0 or -1), according to each component (ex: [0, 0, 1] for the front face)
-    // }
+export class Model {
+    constructor() {
+        this.pieces = [];
+        // {
+        //     squares: squares,  --> Vertices of the square of the piece
+        //     colors: colors,  --> Color of each square
+        //     position: position,   --> Which layer (1, 0 or -1), according to each component (ex: [0, 0, 1] for the front face)
+        // }
+    }
 
     static CORNER_SQUARE_PATTERN = [
-        [0.5 + this.spacing, 0.5 + this.spacing],
-        [0.5 + this.spacing, 1.5 - this.spacing],
-        [1.5 - this.spacing, 0.5 + this.spacing],
-        [1.5 - this.spacing, 1.5 - this.spacing],
+        [0.5 + PIECES_SPACING, 0.5 + PIECES_SPACING],
+        [0.5 + PIECES_SPACING, 1.5 - PIECES_SPACING],
+        [1.5 - PIECES_SPACING, 0.5 + PIECES_SPACING],
+        [1.5 - PIECES_SPACING, 1.5 - PIECES_SPACING],
     ];
     
     static EDGE_SQUARE_PATTERN = [
-        [0.5 + this.spacing, -0.5 + this.spacing],
-        [0.5 + this.spacing, 0.5 - this.spacing],
-        [1.5 - this.spacing, -0.5 + this.spacing],
-        [1.5 - this.spacing, 0.5 - this.spacing],
+        [0.5 + PIECES_SPACING, -0.5 + PIECES_SPACING],
+        [0.5 + PIECES_SPACING, 0.5 - PIECES_SPACING],
+        [1.5 - PIECES_SPACING, -0.5 + PIECES_SPACING],
+        [1.5 - PIECES_SPACING, 0.5 - PIECES_SPACING],
     ];
     
     static CENTER_SQUARE_PATTERN = [
-        [-0.5 + this.spacing, -0.5 + this.spacing],
-        [-0.5 + this.spacing, 0.5 - this.spacing],
-        [0.5 - this.spacing, -0.5 + this.spacing],
-        [0.5 - this.spacing, 0.5 - this.spacing],
+        [-0.5 + PIECES_SPACING, -0.5 + PIECES_SPACING],
+        [-0.5 + PIECES_SPACING, 0.5 - PIECES_SPACING],
+        [0.5 - PIECES_SPACING, -0.5 + PIECES_SPACING],
+        [0.5 - PIECES_SPACING, 0.5 - PIECES_SPACING],
     ];
     
     static COLORS = {
@@ -44,48 +47,48 @@ class Model {
         U: {
             component: 1,
             layer: 1,
-            color: this.COLORS.white,
+            color: Model.COLORS.white,
         },
         D: {
             component: 1,
             layer: -1,
-            color: this.COLORS.yellow,
+            color: Model.COLORS.yellow,
         },
         R: {
             component: 0,
             layer: 1,
-            color: this.COLORS.red,
+            color: Model.COLORS.red,
         },
         L: {
             component: 0,
             layer: -1,
-            color: this.COLORS.orange,
+            color: Model.COLORS.orange,
         },
         F: {
             component: 2,
             layer: 1,
-            color: this.COLORS.green,
+            color: Model.COLORS.green,
         },
         B: {
             component: 2,
             layer: -1,
-            color: this.COLORS.blue,
+            color: Model.COLORS.blue,
         },
     };
 
-    static createCorner(faces) {
+    static createCorner_(faces) {
         // Corner defined by 3 faces.
         let squares = [];
         let colors = [];
-        let position = vec3.create();
+        let position = new Float32Array(3);
     
         for (var i = 0; i < 3; i++) {
             // Coordinates of the vertices of each square.
-            let vertices = [vec3.create(), vec3.create(), vec3.create(), vec3.create()];
+            let vertices = [new Float32Array(3), new Float32Array(3), new Float32Array(3), new Float32Array(3)];
             for (var j = 0; j < 4; j++) {
                 vertices[j][faces[i].component] = 1.5 * faces[i].layer;
-                vertices[j][faces[(i + 1) % 3].component] = this.CORNER_SQUARE_PATTERN[j][0] * faces[(i + 1) % 3].layer;
-                vertices[j][faces[(i + 2) % 3].component] = this.CORNER_SQUARE_PATTERN[j][1] * faces[(i + 2) % 3].layer;
+                vertices[j][faces[(i + 1) % 3].component] = Model.CORNER_SQUARE_PATTERN[j][0] * faces[(i + 1) % 3].layer;
+                vertices[j][faces[(i + 2) % 3].component] = Model.CORNER_SQUARE_PATTERN[j][1] * faces[(i + 2) % 3].layer;
             }
             squares.push(vertices);
             colors.push(faces[i].color);
@@ -100,17 +103,17 @@ class Model {
         };
     }
 
-    static createEdge(faces) {
+    static createEdge_(faces) {
         let squares = [];
         let colors = [];
-        let position = vec3.create();
+        let position = new Float32Array(3);
     
         for (var i = 0; i < 2; i++) {
-            let vertices = [vec3.create(), vec3.create(), vec3.create(), vec3.create()];
+            let vertices = [new Float32Array(3), new Float32Array(3), new Float32Array(3), new Float32Array(3)];
             for (var j = 0; j < 4; j++) {
                 vertices[j][faces[i].component] = 1.5 * faces[i].layer;
-                vertices[j][faces[(i + 1) % 2].component] = this.EDGE_SQUARE_PATTERN[j][0] * faces[(i + 1) % 2].layer;
-                vertices[j][3 - faces[0].component - faces[1].component] = this.EDGE_SQUARE_PATTERN[j][1];  // The 3 components always add up to 0 + 1 + 2 = 3
+                vertices[j][faces[(i + 1) % 2].component] = Model.EDGE_SQUARE_PATTERN[j][0] * faces[(i + 1) % 2].layer;
+                vertices[j][3 - faces[0].component - faces[1].component] = Model.EDGE_SQUARE_PATTERN[j][1];  // The 3 components always add up to 0 + 1 + 2 = 3
             }
             squares.push(vertices);
             colors.push(faces[i].color);
@@ -125,16 +128,16 @@ class Model {
         };
     }
 
-    static createCenter(face) {
+    static createCenter_(face) {
         let squares = [];
         let colors = [];
-        let position = vec3.create();
+        let position = new Float32Array(3);
     
-        let vertices = [vec3.create(), vec3.create(), vec3.create(), vec3.create()];
+        let vertices = [new Float32Array(3), new Float32Array(3), new Float32Array(3), new Float32Array(3)];
         for (var j = 0; j < 4; j++) {
             vertices[j][face.component] = 1.5 * face.layer;
-            vertices[j][(face.component + 1) % 3] = this.CENTER_SQUARE_PATTERN[j][0];
-            vertices[j][(face.component + 2) % 3] = this.CENTER_SQUARE_PATTERN[j][1];  // The 3 components always add up to 0 + 1 + 2 = 3
+            vertices[j][(face.component + 1) % 3] = Model.CENTER_SQUARE_PATTERN[j][0];
+            vertices[j][(face.component + 2) % 3] = Model.CENTER_SQUARE_PATTERN[j][1];  // The 3 components always add up to 0 + 1 + 2 = 3
         }
         squares.push(vertices);
         colors.push(face.color);
@@ -148,34 +151,34 @@ class Model {
         };
     }
 
-    static init() {
+    init() {
         this.pieces = [
-            this.createCorner([this.FACES.U, this.FACES.F, this.FACES.R]),
-            this.createCorner([this.FACES.U, this.FACES.B, this.FACES.R]),
-            this.createCorner([this.FACES.U, this.FACES.B, this.FACES.L]),
-            this.createCorner([this.FACES.U, this.FACES.F, this.FACES.L]),
-            this.createCorner([this.FACES.D, this.FACES.F, this.FACES.R]),
-            this.createCorner([this.FACES.D, this.FACES.B, this.FACES.R]),
-            this.createCorner([this.FACES.D, this.FACES.B, this.FACES.L]),
-            this.createCorner([this.FACES.D, this.FACES.F, this.FACES.L]),
-            this.createEdge([this.FACES.U, this.FACES.F]),
-            this.createEdge([this.FACES.U, this.FACES.R]),
-            this.createEdge([this.FACES.U, this.FACES.B]),
-            this.createEdge([this.FACES.U, this.FACES.L]),
-            this.createEdge([this.FACES.F, this.FACES.R]),
-            this.createEdge([this.FACES.B, this.FACES.R]),
-            this.createEdge([this.FACES.B, this.FACES.L]),
-            this.createEdge([this.FACES.F, this.FACES.L]),
-            this.createEdge([this.FACES.D, this.FACES.F]),
-            this.createEdge([this.FACES.D, this.FACES.R]),
-            this.createEdge([this.FACES.D, this.FACES.B]),
-            this.createEdge([this.FACES.D, this.FACES.L]),
-            this.createCenter(this.FACES.U),
-            this.createCenter(this.FACES.F),
-            this.createCenter(this.FACES.R),
-            this.createCenter(this.FACES.B),
-            this.createCenter(this.FACES.L),
-            this.createCenter(this.FACES.D),
+            Model.createCorner_([Model.FACES.U, Model.FACES.F, Model.FACES.R]),
+            Model.createCorner_([Model.FACES.U, Model.FACES.B, Model.FACES.R]),
+            Model.createCorner_([Model.FACES.U, Model.FACES.B, Model.FACES.L]),
+            Model.createCorner_([Model.FACES.U, Model.FACES.F, Model.FACES.L]),
+            Model.createCorner_([Model.FACES.D, Model.FACES.F, Model.FACES.R]),
+            Model.createCorner_([Model.FACES.D, Model.FACES.B, Model.FACES.R]),
+            Model.createCorner_([Model.FACES.D, Model.FACES.B, Model.FACES.L]),
+            Model.createCorner_([Model.FACES.D, Model.FACES.F, Model.FACES.L]),
+            Model.createEdge_([Model.FACES.U, Model.FACES.F]),
+            Model.createEdge_([Model.FACES.U, Model.FACES.R]),
+            Model.createEdge_([Model.FACES.U, Model.FACES.B]),
+            Model.createEdge_([Model.FACES.U, Model.FACES.L]),
+            Model.createEdge_([Model.FACES.F, Model.FACES.R]),
+            Model.createEdge_([Model.FACES.B, Model.FACES.R]),
+            Model.createEdge_([Model.FACES.B, Model.FACES.L]),
+            Model.createEdge_([Model.FACES.F, Model.FACES.L]),
+            Model.createEdge_([Model.FACES.D, Model.FACES.F]),
+            Model.createEdge_([Model.FACES.D, Model.FACES.R]),
+            Model.createEdge_([Model.FACES.D, Model.FACES.B]),
+            Model.createEdge_([Model.FACES.D, Model.FACES.L]),
+            Model.createCenter_(Model.FACES.U),
+            Model.createCenter_(Model.FACES.F),
+            Model.createCenter_(Model.FACES.R),
+            Model.createCenter_(Model.FACES.B),
+            Model.createCenter_(Model.FACES.L),
+            Model.createCenter_(Model.FACES.D),
         ];
     }
 
@@ -232,23 +235,4 @@ class Model {
         "X": [19, 0],
         "G": [19, 1],
     };
-
-    static updateCornerSticker(sticker, value) {
-        // This is dependant on the order the pieces have been intialized.
-        const position = this.CORNER_NAME_TO_POSITION[sticker];
-        Renderer.opaqueBufferData[position[0]][position[1]] = new Float32Array([value, value, value, value]);
-    }
-
-    static updateEdgeSticker(sticker, value) {
-        // This is dependant on the order the pieces have been intialized.
-        const position = this.EDGE_NAME_TO_POSITION[sticker];
-        Renderer.opaqueBufferData[position[0]][position[1]] = new Float32Array([value, value, value, value]);
-    }
-
-    static displayCornerWhiteYellowSticker(sticker) {
-        const position = this.CORNER_NAME_TO_POSITION[sticker];
-        Renderer.opaqueBufferData[position[0]][0] = new Float32Array([1.0, 1.0, 1.0, 1.0]);
-        Renderer.opaqueBufferData[position[0]][1] = new Float32Array([0.0, 0.0, 0.0, 0.0]);
-        Renderer.opaqueBufferData[position[0]][2] = new Float32Array([0.0, 0.0, 0.0, 0.0]);
-    }
 }
