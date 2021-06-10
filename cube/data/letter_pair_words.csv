@@ -80,21 +80,21 @@ E,Q,cheek (red)
 E,R,Merc (F1)
 E,S,Es (Esteban Ocon)
 E,T,eat
-E,U,Eur (drapeau européen)
+E,U,Eur
 E,V,Eve (Wall-E)
 E,W,meow
 E,X,ex
 F,A,fan
 F,B,fab
 F,D,flood
-F,E,feu (bâtiment)
+F,E,feu
 F,G,fige (Piper)
 F,H,flash
 F,J,Fudge (Cornelius)
 F,K,fork
 F,L,fly
 F,M,flame (Olympic)
-F,N,fun (children playing)
+F,N,fun
 F,O,pho
 F,P,flip (car)
 F,Q,Fec (Feca)
@@ -117,23 +117,23 @@ G,K,Greek (statue)
 G,L,globe
 G,M,game
 G,N,gun
-G,O,Go (game)
+G,O,Go
 G,P,gap (hole)
-G,Q,glock (handgun)
+G,Q,glock
 G,R,Grace
 G,S,Gus (Cinderella)
 G,T,Gates
 G,U,谷 (谷歌)
 G,V,Giov (Giovinazzi)
 G,W,glow
-G,X,gaz (grenade)
+G,X,gaz
 H,A,hat
 H,B,Hob (Hobbit)
 H,D,hide (Nala)
 H,E,hell
 H,F,Huff (Hufflepuff)
 H,G,hug
-H,I,Hi (Hitomi)
+H,I,Hi
 H,J,hedge (bushes)
 H,K,hike
 H,L,hole (black hole)
@@ -153,7 +153,7 @@ I,A,Mia
 I,B,lib (book shelves)
 I,E,ice
 I,G,Yog (Yoggy)
-I,H,inch (inch ruler)
+I,H,inch (ruler)
 I,K,ink
 I,L,île
 I,N,Inn (holiday)
@@ -161,7 +161,7 @@ I,O,Iop
 I,P,imp (Game of Thrones)
 I,Q,sick
 I,R,Sir (knight)
-I,S,IS (space station)
+I,S,IS
 I,T,IT (horror)
 I,U,IU
 I,V,IV (intravenous)
@@ -200,7 +200,7 @@ K,L,Kyle
 K,M,Kim
 K,N,Ken
 K,O,ko (koala)
-K,P,kelp (seaweed)
+K,P,kelp
 K,Q,clic (close a box)
 K,R,Krist
 K,S,kiss
@@ -217,7 +217,7 @@ L,F,leaf
 L,G,Leg (Lego)
 L,H,light
 L,I,Li
-L,J,ledge (of building)
+L,J,ledge (of a building)
 L,K,lake
 L,M,lamp (Aladdin)
 L,N,Lune (croissanterie)
@@ -264,7 +264,7 @@ N,K,Nick
 N,L,Nil
 N,M,nem
 N,O,Noel
-N,P,nap (student)
+N,P,nap
 N,Q,knock (Sheldon)
 N,R,Nor (Norris)
 N,S,noose
@@ -273,7 +273,7 @@ N,U,nuke
 N,V,nerve (piano performance)
 N,W,news
 N,X,Niz (Nizami)
-O,A,oat (breakfast)
+O,A,oat
 O,B,mob (flashmob)
 O,D,Aude
 O,E,œuf
@@ -314,7 +314,7 @@ P,S,Pas (Pascal)
 P,T,Pot (Potter)
 P,U,puke
 P,V,poivre
-P,W,pow (superpowers)
+P,W,pow
 P,X,prize (trophy)
 Q,A,quartz
 Q,B,cube
@@ -397,7 +397,7 @@ T,M,Tom
 T,N,Tron
 T,O,tôt
 T,P,trap
-T,Q,tac (tic tac)
+T,Q,tac (alarm clock)
 T,R,tard
 T,S,toss
 T,U,tunes (billets)
@@ -489,6 +489,6 @@ X,Q,Zack
 X,R,Zerg
 X,S,zest (lemon)
 X,T,zit
-X,U,zut (knock over a cup)
+X,U,zut (renverser une tasse)
 X,V,Xev
 X,W,Zoe
