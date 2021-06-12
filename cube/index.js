@@ -51,9 +51,6 @@ function main() {
 
   canvas.addEventListener('webglcontextlost', handleContextLost, false);
   canvas.addEventListener('webglcontextrestored', handleContextRestored, false);
-
-  // Update letter Pair Word position relative to letter pair.
-  document.getElementById("letterPairWord").style.top = document.getElementById("letterPair").style.top + 130;
 }
 
 window.addEventListener("load", function() {

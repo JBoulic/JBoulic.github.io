@@ -24,6 +24,7 @@ P, Q | z, z'
 - Type 2 letters to display the associated letter pair word and algorithm at the bottom.
 - Corner orientation is supported: type 2 letters that belong to the same piece.
 - Almost all the algorithms are commutators, typically following S, A, B, A', B', S'. Press the left/right arrows to go through/animate these sequences.
+- Press backspace to reset the cube.
 - Press space to generate a random algorithm.
 - Press escape to reset the cube.
 
@@ -130,6 +131,9 @@ Bugs:
 - Edges JU, LU: Reimplement alg parsing algorithm for setup + single permutation
 - Corner VQ: fix apostrophe character
 - Fix touch handling
+- Escape key in BLD mode doesn't reset the on screen data and opaque buffer
+- Inconsistent letter pair word positioning across devices
+- Invalid input: Still light up all selected stickers
 
 ## NOTES
 

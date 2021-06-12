@@ -31,9 +31,6 @@ export class Controller {
       case "3":
         this.switchMode_(3);
         break;
-      case "Escape":
-        this.animation_.resetCube();
-        break;
       default:
         if (this.mode_ == 1) {
           this.solveInputHandler_.handleInput(event.key);
@@ -170,6 +167,9 @@ class SolveInputHandler {
       case " ":
         this.scramble();
         break;
+      case "Escape":
+        this.animation_.resetCube();
+        break;
       default:
         break;
     }
@@ -214,11 +214,13 @@ class BLDPracticeInputHandler {
     this.currentAlgorithmIndex_ = -1;
   }
 
-  static ALGORITHM_TYPES = ["Corners", "Corner twist", "No corner alg", "Edges", "Edge flip", "No edge alg"];
+  static ALGORITHM_TYPES = ["Corners", "Corner twist", "Edges", "Edge flip"];
 
   setMode(mode) {
     this.mode_ = mode;
     this.currentLetterPair_ = "";
+    this.currentAlgorithm_ = [];
+    this.currentAlgorithmIndex_ = -1;
     if (mode === 2) {
       this.updateCornerSticker_("C", 1.0);
     } else if (mode === 3) {
@@ -243,6 +245,10 @@ class BLDPracticeInputHandler {
     const letterPairWord = document.getElementById("letterPairWord");
     letterPairWord.innerHTML = text;
     letterPairWord.style.left = (window.innerWidth - letterPairWord.offsetWidth) / 2;
+
+    // Update letter Pair Word position relative to letter pair.
+    const letterPairStyle = window.getComputedStyle(document.getElementById("letterPair"));
+    letterPairWord.style.top = parseInt(letterPairStyle.top) + parseInt(letterPairStyle.height);
   }
 
   updateAlgorithm_(text) {
@@ -275,6 +281,12 @@ class BLDPracticeInputHandler {
       case " ":
         this.selectRandomAlgorithm_();
         break;
+      case "Escape":
+        this.animation_.resetCube();
+        this.renderer_.clearOpaqueBufferData();
+        this.clearOnScreenData();
+        this.setMode(this.mode_);
+        break;
       case "ArrowRight":
         this.executeNextSequence_();
         break;
@@ -285,11 +297,13 @@ class BLDPracticeInputHandler {
         this.resetAlg_();
         break;
       default:
+        // Letters.
         if (key.length != 1 || !/[a-zA-Z]/.test(key)) {
           break;
         }
         if (this.currentAlgorithmIndex_ != -1) {
           this.animation_.resetCube();
+          this.currentAlgorithm_ = [];
           this.currentAlgorithmIndex_ = -1;
         }
         // Clear letter pair word and algorithm.
@@ -315,28 +329,26 @@ class BLDPracticeInputHandler {
         if (this.currentLetterPair_.length == 2) {
           this.currentLetterPair_ = this.currentLetterPair_.replace('Z', 'X');
         }
-        // Reject invalid input if we have a pair of letters.
-        if (this.currentLetterPair_.length == 2 && this.currentLetterPair_ in this.letterPairData_ == false) {
-          this.updateLetterPair_(uiLetterPair + ": invalid input");
-          break;
-        }
         // Update sticker.
-        this.updateLetterPair_(uiLetterPair);
         if (this.mode_ == 2) {
           this.updateCornerSticker_(letter, 1.0);
         } else if (this.mode_ == 3) {
           this.updateEdgeSticker_(letter, 1.0);
         }
-        // Continue only if we have a valid letter pair word.
-        if (this.currentLetterPair_.length != 2) break;
-        // Update UI.
-        let currentLetterPairData = this.letterPairData_[this.currentLetterPair_];
-        if (currentLetterPairData.hasOwnProperty("word") && currentLetterPairData["word"].length > 0) {
-          this.updateLetterPairWord_(currentLetterPairData["word"]);
+        // Update UI letter pair.
+        this.updateLetterPair_(uiLetterPair);
+        if (this.currentLetterPair_.length == 2 && this.currentLetterPair_ in this.letterPairData_ == false) {
+          this.updateLetterPairWord_("Invalid pair");
+          break;
         }
+        // Continue only if we have a pair of letters.
+        if (this.currentLetterPair_.length != 2) break;
+        // Update UI algorithm and process it.
+        let currentLetterPairData = this.letterPairData_[this.currentLetterPair_];
         if (this.mode_ == 2) {
           if ("corner_alg" in currentLetterPairData) {
             this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[0];
+            this.updateLetterPairWord_(currentLetterPairData["word"]);
             const algorithm = this.getAlgorithm_(currentLetterPairData["corner_alg"]);
             this.updateAlgorithm_(algorithm);
             this.processAlg_(algorithm);
@@ -348,25 +360,23 @@ class BLDPracticeInputHandler {
             this.displayCornerWhiteYellowSticker_(this.currentLetterPair_.charAt(0));
             this.processAlg_(algorithm);
           } else {
-            this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[2];
-            this.updateLetterPairWord_(this.algorithmType_);
-            this.updateAlgorithm_("");
+            this.updateLetterPairWord_("Invalid pair");
           }
         } else if (this.mode_ == 3) {
           if ("edge_alg" in currentLetterPairData) {
-            this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[3];
+            this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[2];
+            this.updateLetterPairWord_(currentLetterPairData["word"]);
             const algorithm = this.getAlgorithm_(currentLetterPairData["edge_alg"]);
             this.updateAlgorithm_(algorithm);
             this.processAlg_(algorithm);
           } else if ("edge_flip_alg" in currentLetterPairData) {
-            this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[4];
+            this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[3];
             this.updateLetterPairWord_(this.algorithmType_);
             const algorithm = this.getAlgorithm_(currentLetterPairData["edge_flip_alg"]);
             this.updateAlgorithm_(algorithm);
             this.processAlg_(algorithm);
           } else {
-            this.algorithmType_ = BLDPracticeInputHandler.ALGORITHM_TYPES[5];
-            this.updateLetterPairWord_(this.algorithmType_);
+            this.updateLetterPairWord_("Invalid pair");
           }
         }
         break;
@@ -530,7 +540,7 @@ class BLDPracticeInputHandler {
         return;
       }
       // Edge flip algorithms do not need to be inverted
-      this.currentAlgorithm_.push(this.algorithmType_ == BLDPracticeInputHandler.ALGORITHM_TYPES[4] || !this.shouldInvert_ ? this.decomposeSequence_(permutation_1) : this.invertSequence_(permutation_1));
+      this.currentAlgorithm_.push(this.algorithmType_ == BLDPracticeInputHandler.ALGORITHM_TYPES[3] || !this.shouldInvert_ ? this.decomposeSequence_(permutation_1) : this.invertSequence_(permutation_1));
     } else {
       let sequence_1;
       let sequence_2;
