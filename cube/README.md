@@ -32,10 +32,23 @@ P, Q | z, z'
 - Similar to corners.
 
 ### Touch devices
-The web contents (page) are divided into 4 parts:
-- Touch the top-left part of the screen to reset the current algorithm to the beginning.
-- Touch the top-right to jump to the end.
-- Touch the bottom-left/right to go backwards/forward in the sequences of the algorithm.
+
+Touch controls are used for BLD mode.
+
+The height of the screen is divided in 3.
+
+Top:
+- Left side: switch between corners and edges.
+- Right side: select algorithm.
+- Middle: generate random algorithm in the current mode (corners or edges).
+
+Middle:
+- Left: Reset the current algorithm to the beginning.
+- Right: Jump to the end of the current algorithm.
+
+Bottom:
+- Left: go forward in the sequences of the current algorithm.
+- Right: go backwards.
 
 When the actions above are not applicable, a random corner or edge algorithm is selected.
 
@@ -97,6 +110,7 @@ BLD practice mode:
 - For corner twists, only color white sticker
 - Mobile mode: implement actions depending on touch location
 - Mobile mode: add location to go to the end of alg
+- Mobile mode: Add user input to select algorithm
 
 Code:
 - Create own fps counter

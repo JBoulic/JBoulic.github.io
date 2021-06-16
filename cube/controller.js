@@ -12,8 +12,8 @@ export class Controller {
     this.BLDPracticeInputHandler_ = new BLDPracticeInputHandler(this.animation_, this.renderer_);
 
     // Add event listener.
-    document.addEventListener("keydown", this.handleKeyDown_, false);
-    document.addEventListener("touchstart", this.handleTouch_, false);
+    document.addEventListener("keydown", this.handleKeyDown_);
+    document.addEventListener("touchstart", this.handleTouch_);
   }
 
   initialize() {
@@ -70,16 +70,39 @@ export class Controller {
   }
 
   handleTouch_ = (event) => {
+    let X = event.touches[0].pageX / window.innerWidth;
+    let Y = event.touches[0].pageY / window.innerHeight;
+
     // Switch to mode 2 or 3 if necessary.
     if (!(this.mode_ === 2 || this.mode_ === 3)) {
-      if (this.animation_.busy) {
-        return;
-      }
-      let mode = Math.random() > 0.5 ? 3 : 2;
-      this.switchMode_(mode);
+      this.switchMode_(2);
     }
 
-    this.BLDPracticeInputHandler_.handleTouch(this, event);
+    if (Y < 0.33) {
+      // Change mode.
+      if (X < 0.33) {
+        if (this.mode_ === 3) {
+          this.switchMode_(2);
+          return;
+        }
+        this.switchMode_(3);
+        return;
+      }
+      // Select letter pair.
+      if (X > 0.66) {
+        const letterPair = window.prompt("Select letter pair (2 letters)").replace(/\s+/g, '').toUpperCase();
+        if (letterPair.length === 2 && /[A-Z]/.test(letterPair[0]) && /[A-Z]/.test(letterPair[1])) {
+          this.BLDPracticeInputHandler_.handleInput(letterPair[0]);
+          this.BLDPracticeInputHandler_.handleInput(letterPair[1]);
+        }
+        return;
+      }
+      // Change algorithm.
+      this.BLDPracticeInputHandler_.selectRandomAlgorithm();
+      return;
+    }
+
+    this.BLDPracticeInputHandler_.handleTouch(X, Y);
   }
 }
 
@@ -279,7 +302,7 @@ class BLDPracticeInputHandler {
   handleInput(key) {
     switch (key) {
       case " ":
-        this.selectRandomAlgorithm_();
+        this.selectRandomAlgorithm();
         break;
       case "Escape":
         this.animation_.resetCube();
@@ -383,24 +406,19 @@ class BLDPracticeInputHandler {
     }
   }
 
-  handleTouch(controller, event) {
-    let X = event.touches[0].pageX / window.innerWidth;
-    let Y = event.touches[0].pageY / window.innerHeight;
-
-    // Top half: Reset algorithm.
+  handleTouch(X, Y) {
+    // Middle part of the screen: Jump to the start or the end of the current algorithm.
     // Bottom left corner: reverse previous sequence of current algorithm. If we're at the end of the current one, generate new algorithm.
     // Bottom right corner: execute next sequence of current algorithm.
     if (this.currentAlgorithmIndex_ != -1) {
-      if (Y < 0.5) {
+      if (Y < 0.66) {
         if (X < 0.5) {
           this.resetAlg_();
         } else {
           if (this.currentAlgorithmIndex_ < this.currentAlgorithm_.length) {
             this.applyAlg_();
           } else if (!this.animation_.busy) {
-            let mode = Math.random() > 0.5 ? 3 : 2;
-            controller.switchMode_(mode);
-            this.selectRandomAlgorithm_();
+            this.selectRandomAlgorithm();
           }
         }
       } else {
@@ -408,18 +426,14 @@ class BLDPracticeInputHandler {
           if (this.currentAlgorithmIndex_ < this.currentAlgorithm_.length) {
             this.executeNextSequence_();
           } else if (!this.animation_.busy) {
-            let mode = Math.random() > 0.5 ? 3 : 2;
-            controller.switchMode_(mode);
-            this.selectRandomAlgorithm_();
+            this.selectRandomAlgorithm();
           }
         } else {
           this.reversePreviousSequence_();
         }
       }
     } else if (!this.animation_.busy) {
-      let mode = Math.random() > 0.5 ? 3 : 2;
-      controller.switchMode_(mode);
-      this.selectRandomAlgorithm_();
+      this.selectRandomAlgorithm();
     }
   }
 
@@ -436,13 +450,13 @@ class BLDPracticeInputHandler {
     return alg.split('|')[1];
   }
 
-  selectRandomAlgorithm_() {
+  selectRandomAlgorithm() {
     let keys = Object.keys(this.letterPairData_);
     let letterPair = keys[Math.floor(Math.random() * keys.length)];
     let data = this.letterPairData_[letterPair];
     if (this.mode_ == 2 && !data.hasOwnProperty("corner_alg") && !data.hasOwnProperty("corner_twist_alg") ||
       this.mode_ == 3 && !data.hasOwnProperty("edge_alg") && !data.hasOwnProperty("edge_flip_alg")) {
-      return this.selectRandomAlgorithm_();
+      return this.selectRandomAlgorithm();
     }
     this.currentLetterPair_ = "";
     this.renderer_.clearOpaqueBufferData();

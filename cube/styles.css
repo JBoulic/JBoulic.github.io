@@ -1,6 +1,8 @@
 body {
   border: 0px;
   margin: 0px;
+  touch-action: pan-down;
+  user-select: none;
 }
 
 .container {
