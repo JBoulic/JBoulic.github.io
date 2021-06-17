@@ -52,6 +52,8 @@ Bottom:
 
 When the actions above are not applicable, a random corner or edge algorithm is selected.
 
+Note: Save the page as a webapp (using Chrome on Android or Safari on iOS) to launch the page in fullscreen.
+
 ## TODO
 
 Solving mode:
