@@ -156,4 +156,5 @@ Bugs:
 Refresher on WebGL
 https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html
 
-ES6 modules are subject to same-origin policy - use a local server for local testing.
+ES6 modules are subject to the same-origin policy - run a local server for local testing:
+`python -m http.server 8000`
