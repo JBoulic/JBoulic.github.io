@@ -1,0 +1,32 @@
+body {
+  border: 0px;
+  margin: 0px;
+  touch-action: pan-down;
+  user-select: none;
+  background-color: black;
+}
+
+.container {
+  position: relative;
+}
+
+#letterPair {
+  position: absolute;
+  top: 35vh;
+  color: white;
+  font-size: 120;
+}
+
+#algorithm {
+  position: absolute;
+  top: 60vh;
+  color: white;
+  font-size: 60;
+}
+
+#mode {
+  position: absolute;
+  top: 20vh;
+  color: white;
+  font-size: 80;
+}
