@@ -27,7 +27,7 @@ export class ScreenDataHandler {
     this.mode_ = mode;
     switch(mode) {
       case 1:
-        document.getElementById("mode").innerHTML = "4x4 BLD centers";
+        this.updateMode_("4x4 BLD centers");
         break;
       default:
         console.log("Invalid mode");
@@ -103,14 +103,18 @@ export class ScreenDataHandler {
         }
         // Update UI letter pair.
         this.updateLetterPair_(uiLetterPair);
-        if (this.currentLetterPair_.length == 2 && this.currentLetterPair_ in this.letterPairData_ == false) {
+        // Continue only if we have a pair of letters.
+        if (this.currentLetterPair_.length != 2) break;
+        // Get data.
+        let currentLetterPairData = this.letterPairData_[this.currentLetterPair_];
+        if (!(this.currentLetterPair_ in this.letterPairData_)) {
+          this.updateLetterPairWord_("No word found");
           this.updateAlgorithm_("No algorithm");
           break;
         }
-        // Continue only if we have a pair of letters.
-        if (this.currentLetterPair_.length != 2) break;
+        // Update word.
+        this.updateLetterPairWord_(currentLetterPairData["word"]);
         // Update UI algorithm.
-        let currentLetterPairData = this.letterPairData_[this.currentLetterPair_];
         if (this.mode_ == 1) {
           if (!("4x4_bld_center_algs" in currentLetterPairData)) {
             this.updateAlgorithm_("No algorithm");
@@ -125,13 +129,26 @@ export class ScreenDataHandler {
 
   clearOnScreenData_ = () => {
     this.updateLetterPair_("");
+    this.updateLetterPairWord_("");
     this.updateAlgorithm_("");
+  }
+  
+  updateMode_ = (text) => {
+    const mode = document.querySelector('#mode');
+    mode.innerHTML = text;
+    mode.style.left = (window.innerWidth - letterPair.offsetWidth) / 2;
   }
 
   updateLetterPair_ = (text) => {
     const letterPair = document.querySelector('#letterPair');
     letterPair.innerHTML = text;
     letterPair.style.left = (window.innerWidth - letterPair.offsetWidth) / 2;
+  }
+
+  updateLetterPairWord_ = (text) => {
+    const word = document.querySelector('#letterPairWord');
+    word.innerHTML = text;
+    word.style.left = (window.innerWidth - word.offsetWidth) / 2;
   }
 
   updateAlgorithm_ = (text) => {

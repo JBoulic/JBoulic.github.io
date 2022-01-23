@@ -12,9 +12,16 @@ body {
 
 #letterPair {
   position: absolute;
-  top: 35vh;
+  top: 30vh;
   color: white;
   font-size: 120;
+}
+
+#letterPairWord {
+  position: absolute;
+  top: 45vh;
+  color: white;
+  font-size: 30;
 }
 
 #algorithm {
