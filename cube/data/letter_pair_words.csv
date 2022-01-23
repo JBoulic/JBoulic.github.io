@@ -1,66 +1,68 @@
-﻿A,B,abs
-A,D,ad (Chromebooks ad)
+﻿A,B,ab (abacus)
+A,D,Ad (Aladdin)
 A,E,ale
 A,F,Af (African - Black Panther)
-A,G,Aang (Avatar)
-A,H,ash (fire)
+A,G,Aang
+A,H,ash
 A,I,Räi (Räikkönen)
 A,J,Aj
-A,K,cake / ack
+A,K,arc (Oliver - Arrow) / ak
 A,L,Al (Alexis)
-A,M,âme
+A,M,arm / am
 A,N,Anne
-A,O,草
+A,O,草（草莓）
 A,P,Alp (Alpine) / app
-A,Q,arc (Oliver - Arrow) / aq
+A,Q,aq (aquarium) / aq
 A,R,art (Mona Lisa)
 A,S,As (Aston Martin)
 A,T,ant / at
-A,U,Yau (Toby)
+A,U,Yau (Toby) / au
 A,V,Av (Avril)
 A,W,Hawk (Tony) / aw
 A,X,axe / az
 B,A,Ba (Babar)
 B,D,bed
 B,E,Beach / be
-B,F,beef
-B,G,bag
+B,F,beef (steak)
+B,G,bag (trash)
 B,H,bûche (de Noël)
 B,I,bee
-B,J,bridge / baj
+B,J,badge / baj
 B,K,book
 B,L,blood / bol
+B,M,boom
 B,N,Ben
-B,O,boom / bo
+B,O,Bo
 B,P,blop (Dofus)
-B,Q,banque
-B,R,bar
+B,Q,banque (lingot d'or)
+B,R,Brew (Brewer)
 B,S,boss (Time Crisis)
 B,T,Bot (Bottas)
 B,U,bus / bu
 B,V,bave
 B,W,bow
-B,X,box
+B,X,box (open)
 D,A,Dan (DanDan) / da
-D,B,dab (Usain?)
+D,B,dab (Usain)
 D,E,death (Grim Reaper) / de
-D,F,Delphes / Duff
+D,F,Duff
 D,G,dog
 D,H,douche
-D,J,dodge (Neo dodge bullets) / doj
+D,I,di (dino)
+D,J,dij (moutarde de Dijon)
 D,K,deck
-D,L,doll (Barbie)
+D,L,doll (scary)
 D,M,dame (Poppins)
 D,N,dune (Aladdin)
 D,O,Doom / do
 D,P,Dop (Dopeul)
-D,Q,duck
+D,Q,duck (rubber)
 D,R,deer (Bambi)
-D,S,danse
+D,S,dress / des
 D,T,dirt / dot
 D,U,Dum (Dumbledore) / du
-D,V,drive / dov
-D,W,dawn
+D,V,Dove (shampoo)
+D,W,Dwayne (Johnson)
 D,X,doze (Totoro)
 E,A,head (Ned)
 E,B,eb (eyeball)
@@ -69,54 +71,55 @@ E,F,elf
 E,G,egg
 E,H,Eche
 E,I,Ein (Einstein)
-E,J,edge (of a cliff) / ej
+E,J,ej (ejection seat)
 E,K,Ec (Ecaflip)
 E,L,El (Elsa - Frozen)
-E,M,Em
+E,M,em (emerald)
 E,N,En (Eniripsa)
 E,O,feoff
-E,P,help (drowning) / hep
-E,Q,cheek (red)
+E,P,ep (épée)
+E,Q,cheek (Katara)
 E,R,Mer (F1 Mercedes) / er
-E,S,Es (Esteban Ocon)
+E,S,Es (Ocon)
 E,T,Fett (Boba) / et
-E,U,Eur / eu
+E,U,Eur (pièce) / eu
 E,V,Eve (Wall-E)
 E,W,meow
 E,X,ex
 F,A,fan / fa
-F,B,fab
-F,D,food
+F,B,Fab (Bartez)
+F,D,flood
 F,E,feu
 F,G,fige (Piper)
-F,H,flash
+F,H,Flash
+F,I,Fiat
 F,J,Fudge (Cornelius) / fej
 F,K,fork / fok
 F,L,fly
-F,M,flame (Olympic) / fam
-F,N,fun
+F,M,flamme (Olympic) / fam
+F,N,fun (kids)
 F,O,pho
-F,P,flip (car) / fap
+F,P,flip (Octane) / fap
 F,Q,Fec (Feca)
-F,R,Ferr (F1 Ferrari)
+F,R,Ferr (Ferrari)
 F,S,fish
 F,T,foot
-F,U,fugue (Bach - organ) / fu
+F,U,fugue (orgue) / fu
 F,V,fauve (tigre)
-F,W,flow (river) / few
+F,W,flow (flower) / few
 F,X,freeze / fuzz
 G,A,Gad (Elmaleh) / ga
-G,B,grab / gab
-G,D,God
+G,B,Gob (Goblin - Kim Shin)
+G,D,God (or Jesus)
 G,E,gel
 G,F,gaffe (Lagaffe)
 G,H,glyphe / gâche
 G,I,Gin (Ginny)
-G,J,gorge (canyon) / goj
+G,J,gauge
 G,K,Greek (statue) / geek
 G,L,Gilles
-G,M,game
-G,N,gun
+G,M,gomme
+G,N,gnome (garden) / gun
 G,O,Go
 G,P,gap (hole)
 G,Q,glock
@@ -125,21 +128,21 @@ G,S,Gus (Cinderella)
 G,T,Gates / gut
 G,U,谷 (谷歌)
 G,V,Giov (Giovinazzi) / gov
-G,W,glow
+G,W,glow (Harry Potter wand)
 G,X,Gas (Gasly)
-H,A,hat
+H,A,hat / ha
 H,B,Hob (Hobbit)
-H,D,hide (Nala)
-H,E,hell
+H,D,hood (Robin)
+H,E,hell (Satan)
 H,F,Huff (Hufflepuff)
-H,G,hug
+H,G,Hugh (Jackman) / hug
 H,I,Hi
 H,J,hedge (bushes) / hej
-H,K,hike
+H,K,hike (Etienne)
 H,L,hole (black hole)
 H,M,Ham (Hamilton)
 H,N,hon (honey)
-H,O,hose / ho
+H,O,Ho (Santa)
 H,P,harp / hip
 H,Q,Hulk / hook
 H,R,Her (Hermione)
@@ -151,57 +154,63 @@ H,W,Howl (moving castle) / how
 H,X,haze (from bushfire)
 I,A,Mia
 I,B,lib (book shelves)
+I,D,ID (passport)
 I,E,ice
+I,F,if (Hi-Fi speakers)
 I,G,Yog (Yoggy)
 I,H,inch (ruler) / ich
+I,J,midge (giant)
 I,K,ink
 I,L,île
-I,N,Inn (holiday)
+I,M,image
+I,N,in (inert - body)
 I,O,Iop
 I,P,imp (Game of Thrones)
-I,Q,sick
+I,Q,sick (green)
 I,R,Sir (knight)
 I,S,IS
 I,T,eat
 I,U,IU
 I,V,Yves (perfume)
-I,W,yew
-I,X,Ritz
+I,W,yew (Japanese)
+I,X,Ritz (luxurious table)
 J,A,Jeanne / ja
 J,B,Jumb (Jumbo) / jab
 J,D,Jed (Jedi)
 J,E,Jean / je
 J,F,Jeff
-J,G,jug
+J,G,Jag (Jaguar)
 J,H,Josh
+J,I,Jim (Carrey)
 J,K,Jake
 J,L,Jules (Ceasar)
 J,M,jam
 J,N,June
-J,O,Joe
-J,Q,Jack
-J,R,jar
+J,O,Joe (Biden)
+J,P,Jeep
+J,Q,Jack (Nightmare before Christmas)
+J,R,jar (glass)
 J,S,Jess
 J,T,jet
 J,U,Ju (Julia)
-J,V,jive / jav
+J,V,jav
 J,W,Jaws (shark)
-J,X,jazz
+J,X,jazz (group)
 K,A,Kah
-K,B,kerbs (track) / keb
-K,D,kid
+K,B,keb (kebab)
+K,D,kid (karate)
 K,E,key
 K,F,kiff
-K,G,king
+K,G,king (crown)
 K,H,Khan
 K,I,kite
-K,J,Kedge / kej
+K,J,Kedge (Lila) / kej
 K,L,Kyle
 K,M,Kim
 K,N,Ken
 K,O,ko (koala)
 K,P,kelp / keep
-K,Q,clic (close a box)
+K,Q,clic (box with lock)
 K,R,Krist / kri
 K,S,kiss
 K,T,Kate
@@ -215,51 +224,52 @@ L,D,lead (Napoléon)
 L,E,Le (Leclerc)
 L,F,leaf
 L,G,Leg (Lego)
-L,H,light / lâche
+L,H,leech / lâche
 L,I,Li
-L,J,ledge (of a building) / lej
+L,J,loj (Logitech wheel)
 L,K,lake
 L,M,lamp (Aladdin) / lame
-L,N,Lune (croissanterie)
+L,N,Lune (croissant)
 L,O,Loh
-L,P,lap 
+L,P,lep (lépreux)
 L,Q,liq (liquor)
 L,R,Lar (McLaren)
-L,S,Los (Los Angeles)
+L,S,les (girls kissing)
 L,T,Lat (Latifi)
 L,U,Lu (biscuit)
 L,V,lave
-L,W,lawn / low
+L,W,lawn (mower) / low
 L,X,Liz
 M,A,马
-M,D,mad
-M,E,meat / me
-M,F,maf (mafia)
+M,D,med (medicine)
+M,E,meat (dead bird) / me
+M,F,muff (muffin)
 M,G,mag
 M,H,mâche
+M,I,mirror
 M,J,Mahj (Mahjong) / maj
 M,K,Mick (Mickey)
 M,L,Mal (Maleficent)
 M,N,moon
 M,O,mom / mo
-M,P,map
+M,P,map (Game of Thrones)
 M,Q,Mac
-M,R,mur
-M,S,Muse / miss
-M,T,mate / mat
-M,U,mute / mu
+M,R,mûres
+M,S,Muse (album) / miss
+M,T,mat (mattress)
+M,U,mue (de serpent)
 M,V,morve / mauve
-M,W,mow
+M,W,maw (purple jaws)
 M,X,Maz (Mazepin)
 N,A,Na (Selina)
 N,B,Nab (Nabilla)
 N,D,nerd / need
 N,E,net / ne
 N,F,knife
-N,G,nage
+N,G,nug (nuggets)
 N,H,niche
-N,I,Nice / ni
-N,J,ninj (Japanese Ninja) / nij
+N,I,Nice (palmier) / ni
+N,J,ninj (Ninja) / nij
 N,K,Nick
 N,L,Nil
 N,M,nem
@@ -270,25 +280,25 @@ N,R,Nor (Norris)
 N,S,noose
 N,T,Nat
 N,U,nuke / nu
-N,V,nerve (piano performance) / nev
-N,W,news / now
+N,V,nerve (piano) / nev
+N,W,news (newspaper) / now
 N,X,Niz (Nizami)
 O,A,oat
-O,B,mob (flashmob)
+O,B,Ob (Obi-Wan)
 O,D,Aude
 O,E,œuf
 O,F,Croft (Lara) / off
 O,G,ogre (Shrek) / log
 O,H,moche (Quasimodo) / osh
-O,I,noix
-O,J,Moj (Mojo - drink) / oj
+O,I,oy (oysters)
+O,J,Moj (Mojo drink) / oj
 O,K,oak
 O,L,old / ol
-O,M,Om
+O,M,Om (Vimon)
 O,N,on (onion)
 O,P,cop / op
 O,Q,orc (Lord of the Rings) / oq
-O,R,or
+O,R,or (sac d'or)
 O,S,os
 O,T,hot
 O,U,Oug (Ouginak) / ou
@@ -300,48 +310,49 @@ P,B,peab (peanut butter)
 P,D,pod (sleeping)
 P,E,pen / pe
 P,F,puff
-P,G,Page (Elliot)
-P,H,Phi (Philadelphia)
+P,G,pog (children game)
+P,H,phone
 P,I,pie
+P,J,Page (Elliot)
 P,K,Peak (building)
-P,L,pole
+P,L,pole (tyre)
 P,M,Pam
 P,N,Pan (Pandawa)
 P,O,poop / po
 P,Q,Pâques
 P,R,Per (Perez)
-P,S,Pas (Pascal)
+P,S,Pas (Pascal) / psi
 P,T,Pot (Potter)
 P,U,puke / pu
 P,V,poivre / pov
-P,W,pawn / pow
+P,W,pawn
 P,X,prize (trophy) / poz
-Q,A,quartz / qua
+Q,A,quartz
 Q,B,cube
 Q,D,quid (quiddich)
 Q,E,quench (extinguish fire) / que
 Q,F,quiff
-Q,G,quag
+Q,G,quag (Quag Vampires Magic card)
 Q,H,quiche
 Q,I,quill (Harry Potter)
 Q,J,squeedge (squeedgee) / qij
-Q,K,quack
-Q,L,quel
+Q,K,quack (duck)
+Q,L,quail / quel
 Q,M,cam
 Q,N,queen
 Q,O,quote (dinner quote) / quo
 Q,P,cape
 Q,R,queer (rainbow flag)
 Q,S,quest (map) / ques
-Q,T,quilt (blanket) / quit
-Q,U,quai (Paris)
+Q,T,quilt / quit
+Q,U,quad / quai
 Q,V,quiv
 Q,W,Crow / qow
 Q,X,Cruise / quiz
 R,A,rat
 R,B,Reb (F1 Red Bull)
 R,D,red
-R,E,rêve / re
+R,E,rev (révolver) / re
 R,F,Raf
 R,G,rug (flying carpet)
 R,H,riche
@@ -350,14 +361,14 @@ R,J,Raj
 R,K,rock
 R,L,rail / rôle
 R,M,rhum
-R,N,rain
+R,N,rain (raining cloud) / rune
 R,O,Ron / ro
 R,P,rap (Eminem)
-R,Q,rack
+R,Q,rook (chess)
 R,S,Ross
-R,T,route
-R,U,run / ru
-R,V,rive
+R,T,rust (anchor) / route
+R,U,ru (ruby)
+R,V,Rav
 R,W,row (boat)
 R,X,Rax / raz
 S,A,Sainz / sa
@@ -367,26 +378,26 @@ S,E,sel / se
 S,F,Smurf / safe
 S,G,Seg (Segway)
 S,H,Schu (Schumacher)
-S,I,sea
+S,I,seal
 S,J,sledge / sage
-S,K,ski
+S,K,skull
 S,L,slay
 S,M,Sam
 S,N,snow
 S,O,soy (sauce) / so
-S,P,soap
+S,P,soap / spa
 S,Q,squash
 S,R,Sram / sur
 S,T,Stroll / sit
 S,U,sun / su
-S,V,Steve / suv
+S,V,SUV (Tesla)
 S,W,Saw (horror)
-S,X,Sizz
+S,X,sex
 T,A,tan (young Michael Jackson) / ta
 T,B,tab (taboulet)
 T,D,Toad
 T,E,thé / te
-T,F,truffe / taf
+T,F,Toph (Avatar)
 T,G,桐
 T,H,Thor
 T,I,tir
@@ -395,61 +406,61 @@ T,K,truck / take
 T,L,troll (Harry Potter) / tool
 T,M,Tom
 T,N,Tron
-T,O,tôt
+T,O,to (tonneau)
 T,P,trap / tap
 T,Q,tac (alarm clock)
-T,R,tard
+T,R,Tour (Eiffel)
 T,S,toss
 T,U,tunes (billets) / tu
-T,V,twelve (apostles) / tev
-T,W,twins (Pascal and Paul) / tow
+T,V,twelve (Olsen) / tev
+T,W,twins (Olsen) / tow
 T,X,taz (tazer)
 U,A,瓜
 U,B,Scrub (Killa) / sub
 U,D,mud
 U,E,blue
-U,F,muff
+U,F,truffe
 U,G,mug
 U,H,ruche
 U,I,Louis (XIV)
 U,J,Burj (Khalifa) / buj
 U,K,uke (ukulele)
 U,L,bulle
-U,M,Ulm
+U,M,ULM
 U,N,Unn
 U,O,Rouault / 错
-U,P,Up (movie)
-U,Q,Chuck
+U,P,Up (balloons)
+U,Q,Chuck / euq
 U,R,urne (crémation)
 U,S,Russ (Russel) / us
 U,T,ute (pickup truck)
 U,V,move
-U,W,jew (jewels)
+U,W,jew (jewels - diamond)
 U,X,buzz (golden buzzer)
 V,A,van / va
 V,B,vob (volleyball)
-V,D,vid (video)
+V,D,Vad (Dark Vador)
 V,E,veste / ve
-V,F,vif (vif d'or)
-V,G,Veg (Vegas)
+V,F,vif (d'or)
+V,G,Veg (Vegas casino chips)
 V,H,vache
 V,I,Vi (Vina)
-V,J,veg (veggie) / vej
+V,J,vej (veggie)
 V,K,Vik (Viking)
 V,L,Vol (Voldemort)
-V,M,vroom (F1) / vim
+V,M,vroom (Koenigsegg) / vim
 V,N,vin
 V,O,veau
 V,P,vamp (vampire)
-V,Q,vrac
+V,Q,vrac (livres en vrac) / vaq
 V,R,Ver (Verstappen)
 V,S,vase
 V,T,Vet (Vettel)
-V,U,vue (gratte-ciel)
+V,U,vue (gratte-ciel OWTC)
 V,W,vow (wedding)
 V,X,Vox (reporter) / voz
 W,A,Wa (Wabbit)
-W,B,web (spider)
+W,B,web (spider-man)
 W,D,weed
 W,E,Wen (Wendy)
 W,F,wife
@@ -460,35 +471,35 @@ W,J,wedge (cheese) / wej
 W,K,wreck / weak
 W,L,Will (Williams)
 W,M,worm / whim
-W,N,win (window)
+W,N,win (floating window)
 W,O,Wolff (Toto) / wo
-W,P,weep
+W,P,warp (time-space) / weep
 W,Q,Wok (ewok)
-W,R,war
+W,R,war (Star Wars ship)
 W,S,wash (dishes)
-W,T,wet
+W,T,Wat (Angkor)
 W,U,Wu (Oliver)
 W,V,wave
 W,X,wiz (wizard)
 X,A,za (pizza)
 X,B,zeb (zebra)
 X,D,Zedd
-X,E,zen
-X,F,Zeph (Zephyr)
+X,E,zen (buddhist meditation)
+X,F,Zeph (Zephyr in knight)
 X,G,中
 X,H,Zhao (captain)
 X,I,Zim (Oui-oui)
-X,J,jerk / zej
-X,K,zouk
+X,J,jizz / zej
+X,K,zouk (dancer)
 X,L,Zul (Azul)
-X,M,Zoom
+X,M,zoom (binoculars)
 X,N,Zinn
-X,O,zoo
-X,P,zip (zip bag an go)
-X,Q,Zack
+X,O,zo (zombie)
+X,P,zip (bag with zipper)
+X,Q,Zack (Final Fantasy)
 X,R,Zerg / zur
-X,S,zest (lemon)
-X,T,zit
-X,U,zut (renverser une tasse)
+X,S,zest (lemon) / zes
+X,T,zit (magic exit door)
+X,U,zut (tasse renversée)
 X,V,Xev / zev
 X,W,Zoe
