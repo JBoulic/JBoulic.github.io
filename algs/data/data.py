@@ -7,9 +7,9 @@ data = {}
 LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
            "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X"]
 
-def generate_letter_pair_words():
+def generate_words():
     print("--Letter pair words started--")
-    with open(os.path.join(data_dir, 'letter_pair_words.csv'), encoding="utf8", mode='r') as csv_file:
+    with open(os.path.join(data_dir, 'words.csv'), encoding="utf8", mode='r') as csv_file:
         letter_1_row = None
         for row in csv.reader(csv_file):
             if letter_1_row == None:
@@ -19,14 +19,13 @@ def generate_letter_pair_words():
                     if letter_1_row[i] == row[0]:
                         continue
                     letter_pair = letter_1_row[i] + row[0]
-                    data[letter_pair] = row[i]
                     data[letter_pair] = {}
                     data[letter_pair]["word"] = row[i].replace("'", "\\u0027")
     print("--Letter pair words processed--")
 
-def generate_4x4_bld_algs():
-    print("--4x4 bld center algs started--")
-    with open(os.path.join(data_dir, '4x4_bld_center_algs.csv'), encoding="utf8", mode='r') as csv_file:
+def generate_x_centers():
+    print("--X center algs started--")
+    with open(os.path.join(data_dir, 'x_centers.csv'), encoding="utf8", mode='r') as csv_file:
         rows = [row for row in csv.reader(csv_file)]
         for i in range(len(rows)):
             for j in range(len(rows[i])):
@@ -39,15 +38,39 @@ def generate_4x4_bld_algs():
                 elif rows[i][j] == "twist":
                     print("Twist: " + letter_pair_1 + " " + letter_pair_2)
                 else:
-                    if letter_pair_1 not in data or letter_pair_2 not in data:
-                        print("MISSING LETTER PAIR: " + letter_pair_1 + " OR " + letter_pair_2)
+                    if letter_pair_1 not in data:
+                        print("MISSING LETTER PAIR: " + letter_pair_1)
+                        continue
+                    elif letter_pair_2 not in data:
+                        print("MISSING LETTER PAIR: " + letter_pair_2)
+                        continue
                     alg = rows[i][j].replace("'", "\\u0027")
-                    data[letter_pair_1]["4x4_bld_center_algs"] = alg
-                    data[letter_pair_2]["4x4_bld_center_algs"] = alg
-    print("--4x4 bld center algs processed--")
+                    data[letter_pair_1]["x_center_alg"] = alg
+                    data[letter_pair_2]["x_center_alg"] = alg
+    print("--X center algs processed--")
 
-generate_letter_pair_words()
-generate_4x4_bld_algs()
+def generate_wings():
+    print("--Wings algs started--")
+    with open(os.path.join(data_dir, 'wings.csv'), encoding="utf8", mode='r') as csv_file:
+        letter_1_row = None
+        for row in csv.reader(csv_file):
+            if letter_1_row == None:
+                letter_1_row = row
+            else:
+                for i in range(1, len(row)):
+                    if letter_1_row[i] == row[0]:
+                        continue
+                    letter_pair = letter_1_row[i] + row[0]
+                    alg = row[i].replace("'", "\\u0027")
+                    if letter_pair not in data:
+                        print("MISSING LETTER PAIR: " + letter_pair)
+                        continue
+                    data[letter_pair]["wing_alg"] = alg
+    print("--Wings algs processed--")
+
+generate_words()
+generate_x_centers()
+generate_wings()
 
 # Dump json
 json_dump = json.dumps(data)

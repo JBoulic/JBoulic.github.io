@@ -10,30 +10,30 @@ body {
   position: relative;
 }
 
+#mode {
+  position: absolute;
+  top: 20vh;
+  color: white;
+  font-size: 8vh;
+}
+
 #letterPair {
   position: absolute;
-  top: 30vh;
+  top: 35vh;
   color: white;
-  font-size: 120;
+  font-size: 12vh;
 }
 
 #letterPairWord {
   position: absolute;
-  top: 45vh;
+  top: 50vh;
   color: white;
-  font-size: 30;
+  font-size: 2vh;
 }
 
 #algorithm {
   position: absolute;
   top: 60vh;
   color: white;
-  font-size: 60;
-}
-
-#mode {
-  position: absolute;
-  top: 20vh;
-  color: white;
-  font-size: 80;
+  font-size: 4vh;
 }

@@ -14,20 +14,27 @@ export class ScreenDataHandler {
 
   // Automatically reposition on screen data.
   resize_ = () => {
-    // Resize on screen data.
-    const mode = document.getElementById("mode");
-    mode.style.left = (window.innerWidth - mode.offsetWidth) / 2;
-    const letterPair = document.getElementById('letterPair');
-    letterPair.style.left = (window.innerWidth - letterPair.offsetWidth) / 2;
-    const algorithm = document.getElementById("algorithm");
-    algorithm.style.left = (window.innerWidth - algorithm.offsetWidth) / 2;
+    window.requestAnimationFrame(() => {
+      // Resize on screen data.
+      const mode = document.getElementById("mode");
+      mode.style.left = (window.innerWidth - mode.offsetWidth) / 2;
+      const letterPair = document.getElementById('letterPair');
+      letterPair.style.left = (window.innerWidth - letterPair.offsetWidth) / 2;
+      const algorithm = document.getElementById("algorithm");
+      algorithm.style.left = (window.innerWidth - algorithm.offsetWidth) / 2;
+      const letterPairWord = document.getElementById("letterPairWord");
+      letterPairWord.style.left = (window.innerWidth - letterPairWord.offsetWidth) / 2;
+    });
   }
 
   initializeMode = (mode) => {
     this.mode_ = mode;
     switch(mode) {
       case 1:
-        this.updateMode_("4x4 BLD centers");
+        this.updateMode_("X centers");
+        break;
+      case 2:
+        this.updateMode_("Wings");
         break;
       default:
         console.log("Invalid mode");
@@ -38,10 +45,13 @@ export class ScreenDataHandler {
   handleKeyDown_ = (event) => {
     switch (event.key) {
       case "1":
-        initializeMode(1);
+        this.initializeMode(1);
+        break;
+      case "2":
+        this.initializeMode(2);
         break;
       default:
-        if (this.mode_ == 1) {
+        if (this.mode_ == 1 || this.mode_ == 2) {
           this.handleInput_(event.key);
         }
         break;
@@ -55,6 +65,16 @@ export class ScreenDataHandler {
     if (Y < 0.5) {
       if (X < 0.5) {
         // Switch mode (top left).
+        switch (this.mode_) {
+          case 1:
+            this.initializeMode(2);
+            break;
+          case 2:
+            this.initializeMode(1);
+            break;
+          default:
+            this.initializeMode(1);
+        }
         return;
       }
       // Select letter pair (top right).
@@ -86,7 +106,7 @@ export class ScreenDataHandler {
 
         // Clear algorithm.
         this.updateAlgorithm_("");
-        
+        this.updateLetterPairWord_("");
 
         // Update letterPair.
         if (this.currentLetterPair_.length < 2) {
@@ -115,13 +135,26 @@ export class ScreenDataHandler {
         // Update word.
         this.updateLetterPairWord_(currentLetterPairData["word"]);
         // Update UI algorithm.
-        if (this.mode_ == 1) {
-          if (!("4x4_bld_center_algs" in currentLetterPairData)) {
-            this.updateAlgorithm_("No algorithm");
+        switch(this.mode_) {
+          case 1:
+            if (!("x_center_alg" in currentLetterPairData)) {
+              this.updateAlgorithm_("No algorithm");
+              break;
+            }
+            const x_center_alg = currentLetterPairData["x_center_alg"];
+            this.updateAlgorithm_(x_center_alg);
             break;
-          }
-          const algorithm = currentLetterPairData["4x4_bld_center_algs"];
-          this.updateAlgorithm_(algorithm);
+          case 2:
+            if (!("wing_alg" in currentLetterPairData)) {
+              this.updateAlgorithm_("No algorithm");
+              break;
+            }
+            const wing_alg = currentLetterPairData["wing_alg"];
+            this.updateAlgorithm_(wing_alg);
+            break;
+          default:
+            console.log("Invalid mode");
+            return
         }
         break;
     }
@@ -134,27 +167,36 @@ export class ScreenDataHandler {
   }
   
   updateMode_ = (text) => {
+    this.clearOnScreenData_();
     const mode = document.querySelector('#mode');
     mode.innerHTML = text;
-    mode.style.left = (window.innerWidth - letterPair.offsetWidth) / 2;
+    window.requestAnimationFrame(() => {
+      mode.style.left = (window.innerWidth - letterPair.offsetWidth) / 2;
+    });
   }
 
   updateLetterPair_ = (text) => {
     const letterPair = document.querySelector('#letterPair');
     letterPair.innerHTML = text;
-    letterPair.style.left = (window.innerWidth - letterPair.offsetWidth) / 2;
+    window.requestAnimationFrame(() => {
+      letterPair.style.left = (window.innerWidth - letterPair.offsetWidth) / 2;
+    });
   }
 
   updateLetterPairWord_ = (text) => {
     const word = document.querySelector('#letterPairWord');
     word.innerHTML = text;
-    word.style.left = (window.innerWidth - word.offsetWidth) / 2;
+    window.requestAnimationFrame(() => {
+      word.style.left = (window.innerWidth - word.offsetWidth) / 2;
+    });
   }
 
   updateAlgorithm_ = (text) => {
     const algorithm = document.getElementById("algorithm");
     algorithm.innerHTML = text;
-    algorithm.style.left = (window.innerWidth - algorithm.offsetWidth) / 2;
+    window.requestAnimationFrame(() => {
+      algorithm.style.left = (window.innerWidth - algorithm.offsetWidth) / 2;
+    });
   }
 
   displayRandomAlgorithm_ = (attempt = 0) => {
@@ -166,8 +208,21 @@ export class ScreenDataHandler {
     const keys = Object.keys(this.letterPairData_);
     let letterPair = keys[Math.floor(Math.random() * keys.length)];
     let data = this.letterPairData_[letterPair];
-    if (this.mode_ == 1 && !data.hasOwnProperty("4x4_bld_center_algs") || this.mode_ > 1) {
-      return this.displayRandomAlgorithm_(attempt + 1);
+
+    switch(mode) {
+      case 1:
+        if (!data.hasOwnProperty("x_center_alg")) {
+          return this.displayRandomAlgorithm_(attempt + 1);
+        }
+        break;
+      case 2:
+        if (!data.hasOwnProperty("wing_alg")) {
+          return this.displayRandomAlgorithm_(attempt + 1);
+        }
+        break;
+      default:
+        console.log("Invalid mode");
+        return
     }
 
     this.currentLetterPair_ = "";

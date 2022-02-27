@@ -268,10 +268,6 @@ class BLDPracticeInputHandler {
     const letterPairWord = document.getElementById("letterPairWord");
     letterPairWord.innerHTML = text;
     letterPairWord.style.left = (window.innerWidth - letterPairWord.offsetWidth) / 2;
-
-    // Update letter Pair Word position relative to letter pair.
-    const letterPairStyle = window.getComputedStyle(document.getElementById("letterPair"));
-    letterPairWord.style.top = parseInt(letterPairStyle.top) + parseInt(letterPairStyle.height);
   }
 
   updateAlgorithm_(text) {

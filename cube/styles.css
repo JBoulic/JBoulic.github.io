@@ -11,22 +11,23 @@ body {
 
 #letterPair {
   position: absolute;
-  top: 3vh;
+  top: 5vh;
   color: white;
-  font-size: 100;
+  font-size: 10vh;
 }
 
 #letterPairWord {
   position: absolute;
+  top: 17vh;
   color: white;
-  font-size: 15;
+  font-size: 2vh;
 }
 
 #algorithm {
   position: absolute;
   top: 85vh;
   color: white;
-  font-size: 40;
+  font-size: 4vh;
 }
 
 #mode {
@@ -34,7 +35,7 @@ body {
   left: 10px;
   top: 10px;
   color: white;
-  font-size: 20;
+  font-size: 2vh;
 }
 
 #fps {
@@ -42,7 +43,7 @@ body {
   left: 10px;
   top: 30px;
   color: white;
-  font-size: 20;
+  font-size: 2vh;
 }
 
 canvas {
