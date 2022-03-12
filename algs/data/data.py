@@ -58,14 +58,19 @@ def generate_wings():
                 letter_1_row = row
             else:
                 for i in range(1, len(row)):
-                    if letter_1_row[i] == row[0]:
+                    if letter_1_row[i] >= row[0]:
+                        break
+                    letter_pair_1 = letter_1_row[i] + row[0]
+                    letter_pair_2 = row[0] + letter_1_row[i]
+                    if letter_pair_1 not in data:
+                        print("MISSING LETTER PAIR: " + letter_pair_1)
                         continue
-                    letter_pair = letter_1_row[i] + row[0]
+                    elif letter_pair_2 not in data:
+                        print("MISSING LETTER PAIR: " + letter_pair_2)
+                        continue
                     alg = row[i].replace("'", "\\u0027")
-                    if letter_pair not in data:
-                        print("MISSING LETTER PAIR: " + letter_pair)
-                        continue
-                    data[letter_pair]["wing_alg"] = alg
+                    data[letter_pair_1]["wing_alg"] = alg
+                    data[letter_pair_2]["wing_alg"] = alg
     print("--Wings algs processed--")
 
 generate_words()

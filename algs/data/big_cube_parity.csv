@@ -1,0 +1,25 @@
+A,Lw' U2 l2 U2 M U2 l U2 l' U2 r U2 l' U2 l' U2 Lw,[Lw' D2 Lw: [K]]
+B,S D' 3Rw' Rw2 U2' r' U2 l U2 l' U2 M' U2 l' U2 Rw' D S',[x' R U : [K]]
+D,3Rw' U' Rw2 3Rw' U2 r' U2 l U2 l' U2 M' U2 l' U2 Rw' U 3Rw,[x' L' U' : [K]]
+E,3Rw2 U Rw' U2 l' U2 M' U2 l' U2 l U2 r' U2 3Rw' Rw2 U' 3Rw2',[L2 D : [K]]
+F,L D 3Rw' Rw2 U2' r' U2 l U2 l' U2 M' U2 l' U2 Rw' D' L',[L D : [K]]
+G,D 3Rw' Rw2 U2' r' U2 l U2 l' U2 M' U2 l' U2 Rw' D',[D : [K]]
+H,L' D 3Rw' Rw2 U2' r' U2 l U2 l' U2 M' U2 l' U2 Rw' D' L,[L' D : [K]]
+I,Rw2 U2 3Rw' U2 r' U2 l U2 l' U2 M' U2 l' U2 Rw U2 Rw2,Setup easy to learn [I] = Rw2 U2 3Rw' [Core alg that includes l'] Rw U2 Rw2
+J,U' F U Rw2 3Rw' U2 r' U2 l U2 l' U2 M' U2 l' U2 Rw' U' F' U,[U' F U : [K]]
+K,3Rw' Rw2 U2' r' U2 l U2 l' U2 M' U2 l' U2 Rw',[K] = 3Rw' Rw2 [Core alg that includes l'] Rw'
+L,3Rw'L' U' Rw2 3Rw' U2 r' U2 l U2 l' U2 M' U2 l' U2 Rw' U 3RwL,[3Rw' L' U' : [K]
+M,R2' D' Rw2 3Rw' U2 r' U2 l U2 l' U2 M' U2 l' U2 Rw' D R2,[R2' D' : [K]]
+N,R D' 3Rw' Rw2 U2' r' U2 l U2 l' U2 M' U2 l' U2 Rw' D R',[R D' : [K]]
+O,D' 3Rw' Rw2 U2' r' U2 l U2 l' U2 M' U2 l' U2 Rw' D,[D' : [K]]
+P,R' D' Rw2 3Rw' U2 r' U2 l U2 l' U2 M' U2 l' U2 Rw' D R,[R' D' : [K]]
+Q,l' U2 l' U2 M' U2 l' U2 l U2 r' U2 l2,[x' : [K]]
+R,B' Lw2 L' U2 r' U2 l U2 l' U2 M' U2 l' U2 Lw' B,[x' U' : [K]]
+S,U2' Lw U2' r U2' M' U2' r U2' r' U2' l U2' 3Lw Lw2' U2,[x' U2 : [K]]
+T,3Rw' U Rw2 3Rw' U2 r' U2 l U2 l' U2 M' U2 l' U2 Rw' U' 3Rw,[3Rw' U : [K]]
+U,Lw U2 3Lw U2' r U2' M' U2' r U2' r' U2' l U2' Lw' U2 Lw',"I don't know, just execute UK or setup y' U l D' l' U' y"
+V,S D 3Rw' Rw2 U2' r' U2 l U2 l' U2 M' U2 l' U2 Rw' D' S',[x' R' U : [K]]
+W,r U2 l' U2 r U2 M U2 l U2 l U2 l' U2 r U2 r2,[Lw' B2 Lw: [K]]
+X,3Rw D' Rw' U2 l' U2 M' U2 l' U2 l U2 r' U2 3Rw' Rw2 D 3Rw',[x' L U' : [K]]
+,,
+,Note: these algs just mess up the front center,
