@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>中央 - Chinese Deck & Characters</title>
-  
-  <!-- Mobile & PWA meta -->
+  <title>中央</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="mobile-web-app-capable" content="yes">
@@ -17,219 +15,174 @@
 </head>
 <body>
 
-  <!-- Loading Screen -->
   <div id="loading-screen" class="loading-screen">
     <div class="spinner"></div>
-    <div id="loading-text" style="font-size: 0.95rem; color: var(--text-secondary); font-weight: 500;">
-      Loading Chinese Character Database...
-    </div>
+    <div id="loading-text" style="font-size:.95rem;color:var(--text-secondary);font-weight:500">Loading…</div>
   </div>
 
   <div class="app-container">
-    <!-- Top Header -->
+
+    <!-- Header -->
     <header class="app-header">
       <div class="header-inner">
-        <a href="#" class="brand" onclick="switchView('cards'); return false;">
-          <span style="font-family: var(--font-hanzi); font-size: 1.6rem; color: var(--accent-gold);">中央</span>
-          <span class="brand-badge">8,140 cards</span>
+        <a href="#" class="brand" onclick="switchView('cards');return false;">
+          <span style="font-family:var(--font-hanzi);font-size:1.6rem;color:var(--accent-gold)">中央</span>
         </a>
 
-        <!-- Desktop Navigation Tabs -->
         <nav class="desktop-nav">
-          <button class="nav-tab active" data-view="cards">
-            <span>🗂️</span><span>Study Cards</span>
-          </button>
-          <button class="nav-tab" data-view="chars">
-            <span>🀄</span><span>2,812 Characters</span>
-          </button>
-          <button class="nav-tab" data-view="slang">
-            <span>💬</span><span>Common & Slang</span>
-          </button>
+          <button class="nav-tab active" data-view="cards">Cards</button>
+          <button class="nav-tab" data-view="chars">Characters</button>
+          <button class="nav-tab" data-view="slang">Spoken &amp; Slang</button>
         </nav>
 
-        <div class="header-actions">
-          <button class="btn-icon" onclick="document.body.dataset.theme = document.body.dataset.theme === 'light' ? 'dark' : 'light'" title="Toggle Theme">
-            🌓
-          </button>
-        </div>
+        <button class="btn-icon" onclick="document.body.dataset.theme=document.body.dataset.theme==='light'?'dark':'light'" title="Toggle theme">🌓</button>
       </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="main-content">
 
-      <!-- ============================================== -->
-      <!-- VIEW 1: Card Practice / Reading View           -->
-      <!-- ============================================== -->
+      <!-- ── VIEW: CARDS ─────────────────────────────────────────────────────── -->
       <section id="view-cards" class="view-panel active">
         <div class="card-study-container">
-          
+
           <div class="study-progress-bar">
-            <span id="card-counter">Card #1 / 8,140</span>
-            <div style="flex: 1; margin: 0 1rem; height: 4px; background: var(--border-color); border-radius: 999px; overflow: hidden;">
-              <div id="card-progress-bar" style="height: 100%; width: 0.1%; background: var(--accent-gold); transition: width 0.2s;"></div>
+            <span id="card-counter" style="font-size:.8rem;color:var(--text-muted)"></span>
+            <div style="flex:1;margin:0 1rem;height:3px;background:var(--border-color);border-radius:999px;overflow:hidden">
+              <div id="card-progress-bar" style="height:100%;width:.1%;background:var(--accent-gold);transition:width .2s"></div>
             </div>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">(Space to reveal / next)</span>
           </div>
 
-          <!-- Flashcard Container -->
-          <div class="flashcard" onclick="if (!state.cardRevealed) revealCard();">
+          <div class="flashcard" id="flashcard-body">
             <div id="card-hanzi" class="card-hanzi"></div>
             <div id="card-pinyin" class="card-pinyin card-blurred"></div>
             <div id="card-english" class="card-english card-blurred"></div>
-            
-            <button id="card-reveal-btn" class="reveal-btn">Reveal Answer (Space)</button>
+            <button id="card-reveal-btn" class="reveal-btn">Reveal</button>
           </div>
 
-          <!-- Controls -->
           <div class="card-controls">
-            <button id="prev-card-btn" class="btn-ctrl">← Previous</button>
-            <button id="random-card-btn" class="btn-ctrl">🎲 Random</button>
+            <button id="prev-card-btn" class="btn-ctrl">← Prev</button>
+            <button id="random-card-btn" class="btn-ctrl">🎲</button>
             <button id="next-card-btn" class="btn-ctrl btn-primary">Next →</button>
           </div>
 
         </div>
       </section>
 
-      <!-- ============================================== -->
-      <!-- VIEW 2: Character Directory & Integrated Search-->
-      <!-- ============================================== -->
+      <!-- ── VIEW: CHARACTERS ───────────────────────────────────────────────── -->
       <section id="view-chars" class="view-panel">
+
         <div class="char-directory-header">
-          
-          <!-- Unified Search Input -->
+
+          <!-- Search -->
           <div class="search-input-wrapper">
             <span class="search-icon">🔍</span>
-            <input type="text" id="char-search-input" class="search-input" 
-              placeholder="Search sound (wu, de, ming), meaning (water), or type/paste characters (房屋)..." 
+            <input type="text" id="char-search-input" class="search-input"
+              placeholder="Pinyin (wode jia, dianying), English (water, love), or paste characters (房屋)…"
               autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-            <button id="char-search-clear-btn" class="search-clear-btn" style="display: none;">✕</button>
+            <button id="char-search-clear-btn" class="search-clear-btn" style="display:none">✕</button>
           </div>
 
-          <!-- Filters & Sorting Bar -->
-          <div class="char-filter-bar">
-            <div class="char-filter-tabs">
-              <button class="filter-pill active" data-filter="freq">Most Frequent</button>
-              <button class="filter-pill" data-filter="least">Least Frequent ↕</button>
-              <button class="filter-pill" data-filter="top100">Top 100</button>
-              <button class="filter-pill" data-filter="top500">Top 500</button>
-              <button class="filter-pill" data-filter="pinyin">Pinyin (A-Z)</button>
+          <!-- Feedback + controls row -->
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap">
+            <span id="char-search-feedback" style="font-size:.8rem;font-family:var(--font-sans)"></span>
+            <div style="display:flex;align-items:center;gap:.75rem">
+              <span id="char-result-info" style="font-size:.8rem;color:var(--text-muted)"></span>
+              <button id="freq-toggle-btn" class="filter-pill active">↓ Most frequent</button>
             </div>
-            <span id="char-result-info" class="char-result-info"></span>
           </div>
 
         </div>
 
-        <!-- Grid of characters -->
         <div id="char-grid" class="char-grid"></div>
+        <div id="char-pagination" class="pagination-bar"></div>
 
-        <!-- Load More Button for Infinite Smooth Scrolling -->
-        <button id="load-more-chars-btn" class="load-more-btn" style="display: none;">
-          Load More Characters
-        </button>
       </section>
 
-      <!-- ============================================== -->
-      <!-- VIEW 3: Common Words & Modern Slang            -->
-      <!-- ============================================== -->
+      <!-- ── VIEW: SLANG ────────────────────────────────────────────────────── -->
       <section id="view-slang" class="view-panel">
         <div class="slang-container">
-          
-          <!-- Intro Card -->
+
           <div class="slang-intro-card">
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-              <h2 style="font-size: 1.15rem; font-weight: 700; color: var(--accent-gold);">💬 Everyday Spoken Chinese & Modern Slang</h2>
-              <span id="slang-count" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;"></span>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <h2 style="font-size:1.1rem;font-weight:700;color:var(--accent-gold)">💬 Spoken Chinese &amp; Modern Slang</h2>
+              <span id="slang-count" style="font-size:.8rem;color:var(--text-muted)"></span>
             </div>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">
-              High-frequency words and authentic spoken language missing from traditional sentence decks (including modern slang, colloquial reactions, and everyday objects).
+            <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.45">
+              High-frequency real-life language missing from traditional decks — colloquial expressions, internet slang, everyday objects, and more.
             </p>
-
-            <!-- Search inside slang -->
-            <div class="search-input-wrapper" style="margin-top: 0.25rem;">
+            <div class="search-input-wrapper">
               <span class="search-icon">🔍</span>
-              <input type="text" id="slang-search-input" class="search-input" 
-                placeholder="Search slang, pinyin, or English (e.g. wocao, cool, takeout, taxi)...">
+              <input type="text" id="slang-search-input" class="search-input"
+                placeholder="Search (wocao, taxi, awkward, takeout…)">
             </div>
-
-            <!-- Category Pills -->
-            <div class="char-filter-tabs">
+            <div class="char-filter-tabs" style="flex-wrap:wrap">
               <button class="filter-pill slang-filter-pill active" data-filter="all">All</button>
-              <button class="filter-pill slang-filter-pill" data-filter="slang">Slang & Exclamations</button>
-              <button class="filter-pill slang-filter-pill" data-filter="everyday">Everyday Spoken</button>
+              <button class="filter-pill slang-filter-pill" data-filter="essential">Essential</button>
+              <button class="filter-pill slang-filter-pill" data-filter="everyday">Everyday</button>
               <button class="filter-pill slang-filter-pill" data-filter="modern">Modern Life</button>
-              <button class="filter-pill slang-filter-pill" data-filter="food">Food & Health</button>
+              <button class="filter-pill slang-filter-pill" data-filter="slang">Slang</button>
+              <button class="filter-pill slang-filter-pill" data-filter="colloquial">Colloquial</button>
             </div>
           </div>
 
-          <!-- Slang Grid -->
           <div id="slang-grid" class="slang-grid"></div>
-
         </div>
       </section>
 
     </main>
 
-    <!-- ============================================== -->
-    <!-- Centered Full-Screen Character Overlay Modal   -->
-    <!-- ============================================== -->
+    <!-- ── MODAL: CHARACTER INSPECTOR ──────────────────────────────────────── -->
     <div id="char-modal-backdrop" class="modal-backdrop">
       <div class="char-modal">
-        
-        <!-- Header -->
+
         <div class="modal-header">
-          <span style="font-weight: 600; font-size: 0.95rem; color: var(--text-secondary);">Character Insight</span>
+          <span style="font-weight:600;font-size:.9rem;color:var(--text-secondary)">Character</span>
           <button id="modal-close-btn" class="modal-close-btn" title="Close (Esc)">✕</button>
         </div>
 
-        <!-- Body -->
         <div class="modal-body">
-          
-          <!-- Character Hero -->
+
+          <!-- Hero -->
           <div class="char-hero-section">
             <div class="char-hero-left">
-              <div id="hero-hz" class="hero-hz">学</div>
+              <div id="hero-hz" class="hero-hz"></div>
               <div>
-                <div id="hero-py" class="hero-py">xué</div>
-                <div id="hero-def" class="hero-def">to study, to learn, knowledge; -ology</div>
+                <div id="hero-py" class="hero-py"></div>
+                <div id="hero-def" class="hero-def"></div>
               </div>
             </div>
             <div class="hero-badges">
-              <span id="hero-freq" class="badge-pill badge-freq">317 cards</span>
-              <span id="hero-rad" class="badge-pill badge-rad">Radical: 子</span>
+              <span id="hero-freq" class="badge-pill badge-freq"></span>
+              <span id="hero-rad"  class="badge-pill badge-rad"></span>
             </div>
           </div>
 
-          <!-- Decomposition & Etymology -->
+          <!-- Anatomy & Origin -->
           <div class="modal-section">
             <div class="section-title">
-              <span>Anatomy & Origin</span>
-              <span id="hero-decomp" style="font-family: var(--font-hanzi); font-size: 1.05rem; color: var(--accent-gold);"></span>
+              <span>Anatomy &amp; Origin</span>
+              <span id="hero-decomp" style="font-family:var(--font-hanzi);font-size:1.05rem;color:var(--accent-gold)"></span>
             </div>
             <p id="hero-etym" class="section-desc"></p>
           </div>
 
-          <!-- Compound Word Usage in Deck -->
+          <!-- Compounds -->
           <div class="modal-section">
             <div class="section-title">
-              <span>Compound Words in Your Deck</span>
-              <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">(click a pill to filter cards below)</span>
+              <span>Compounds in Deck</span>
+              <span style="font-size:.72rem;color:var(--text-muted);font-weight:400">tap to filter cards</span>
             </div>
-            
-            <!-- Active Compound Filter Bar -->
-            <div id="active-filter-bar" class="active-compound-filter-bar" style="display: none;">
+            <div id="active-filter-bar" class="active-compound-filter-bar" style="display:none">
               <span id="active-filter-text"></span>
-              <button id="reset-filter-btn" class="reset-filter-btn">✕ Show All Cards</button>
+              <button id="reset-filter-btn" class="reset-filter-btn">✕ all cards</button>
             </div>
-
             <div id="compound-pills" class="compound-pills-wrap"></div>
           </div>
 
-          <!-- Cross-Deck Cards -->
-          <div class="modal-section" style="flex: 1; display: flex; flex-direction: column;">
+          <!-- Cross-deck cards -->
+          <div class="modal-section" style="flex:1;display:flex;flex-direction:column">
             <div class="section-title">
-              <span id="cross-cards-count">All Cards with this Character</span>
-              <button id="cross-sort-btn" class="sort-toggle-btn">Shortest first ↕</button>
+              <span id="cross-cards-count">Cards</span>
             </div>
             <div id="cross-cards-list" class="cross-cards-list"></div>
           </div>
@@ -238,24 +191,21 @@
       </div>
     </div>
 
-    <!-- Mobile Bottom Navigation Bar -->
+    <!-- Bottom Nav (mobile) -->
     <nav class="bottom-nav">
       <button class="bottom-nav-item active" data-view="cards">
-        <span class="icon">🗂️</span>
-        <span>Study</span>
+        <span class="icon">🗂️</span><span>Cards</span>
       </button>
       <button class="bottom-nav-item" data-view="chars">
-        <span class="icon">🀄</span>
-        <span>Characters</span>
+        <span class="icon">🀄</span><span>Characters</span>
       </button>
       <button class="bottom-nav-item" data-view="slang">
-        <span class="icon">💬</span>
-        <span>Slang</span>
+        <span class="icon">💬</span><span>Slang</span>
       </button>
     </nav>
-  </div>
 
-  <!-- Data Script Bundles (for instantaneous zero-server offline loading) -->
+  </div><!-- /app-container -->
+
   <script src="data/cards.js"></script>
   <script src="data/characters.js"></script>
   <script src="data/common_missing.js"></script>
