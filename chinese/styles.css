@@ -50,9 +50,23 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   transition: background .2s, color .2s;
+  user-select: none;
+  -webkit-user-select: none;
 }
-a { color: inherit; text-decoration: none; }
-button { cursor: pointer; border: none; background: none; font: inherit; color: inherit; }
+input, textarea {
+  user-select: text;
+  -webkit-user-select: text;
+}
+a { color: inherit; text-decoration: none; cursor: pointer; user-select: none; -webkit-user-select: none; }
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  user-select: none;
+  -webkit-user-select: none;
+}
 
 /* ── Loading ─────────────────────────────────────────────────────────────── */
 .loading-screen {
@@ -217,9 +231,18 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
   border: 1px solid var(--border-color); color: var(--text-secondary);
   background: var(--bg-elevated);
   transition: all .15s;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .filter-pill:hover { border-color: var(--border-light); color: var(--text-primary); }
 .filter-pill.active { background: var(--accent-gold); color: #0f172a; border-color: var(--accent-gold); }
+
+#char-result-info, #char-search-feedback, .study-progress-bar, .char-group-heading {
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+}
 
 /* Char Grid */
 .char-grid {

@@ -17,6 +17,6 @@ Contents:
   - if some translations aren't accurate, translate, I trust LLMs for these. Feel free to add some notes (as part of the translation) to explain nuances. 8000 cards to go through seems like a lot but it's probably fine with an LLM even with a 200K context window. Otherwise do it iteratively, by batches across multiple prompts 
 
 Features:
-- Maybe there could be a search feature with english words? Like, does "print" show up anywhere? I want to see which cards.
 - Audio
 - 成语, how about a tab to list them, and add common ones that don't show up. I want at least 500 total (how many do natives know)
+- "back" button in characters, so that when I navigate from character page to character page, I can go back to the original one.
