@@ -58,6 +58,44 @@ function parsePinyinQuery(q) {
   return all.length ? all : null;
 }
 
+// Inverted index for exact whole-word English definition matching
+const englishIndex = new Map();
+
+function buildEnglishIndex() {
+  englishIndex.clear();
+  for (const [ch, info] of Object.entries(state.characters)) {
+    const def = (info.d || '').toLowerCase();
+    const tokens = def.match(/[a-z0-9]+(?:'[a-z0-9]+)?/g) || [];
+    for (const token of tokens) {
+      if (token.length < 2) continue;
+      let set = englishIndex.get(token);
+      if (!set) {
+        set = new Set();
+        englishIndex.set(token, set);
+      }
+      set.add(ch);
+    }
+  }
+}
+
+function searchEnglishIndex(q) {
+  const words = q.toLowerCase().match(/[a-z0-9]+(?:'[a-z0-9]+)?/g) || [];
+  if (!words.length) return [];
+  let common = null;
+  for (const w of words) {
+    const set = englishIndex.get(w);
+    if (!set) return [];
+    if (common === null) {
+      common = new Set(set);
+    } else {
+      for (const item of common) {
+        if (!set.has(item)) common.delete(item);
+      }
+    }
+  }
+  return common ? [...common] : [];
+}
+
 // Strip tone marks: wǒ → wo, nǐ → ni, nǚ → nv, lǜ → lv
 function stripTones(s) {
   return (s || '')
@@ -175,6 +213,7 @@ async function loadData() {
     state.cards        = window.CARDS_DATA;
     state.characters   = window.CHARS_DATA;
     state.commonMissing = window.COMMON_MISSING || [];
+    buildEnglishIndex();
     return;
   }
   const [cr, chr, sr] = await Promise.all([
@@ -186,6 +225,7 @@ async function loadData() {
   state.cards        = await cr.json();
   state.characters   = await chr.json();
   if (sr && sr.ok) state.commonMissing = await sr.json();
+  buildEnglishIndex();
 }
 
 function hideLoading() {
@@ -257,48 +297,81 @@ function getFilteredCharList() {
   // 1. Chinese characters pasted/typed → show those chars in order they appear
   const hanziInQ = rawQ.match(/[\u4e00-\u9fff]/g);
   if (hanziInQ) {
-    return [...new Set(hanziInQ)].filter(ch => state.characters[ch]);
+    const list = [...new Set(hanziInQ)].filter(ch => state.characters[ch]);
+    return { type: 'hanzi', list, pinyinList: [], englishList: [] };
   }
 
   // 2. Pure latin / text query
   if (rawQ) {
-    const lowerQ = rawQ.toLowerCase();
+    // Ignore pure numeric noise (e.g. "1")
+    if (/^\d+$/.test(rawQ)) {
+      return { type: 'empty', list: [], pinyinList: [], englishList: [] };
+    }
 
-    // Check if query is composed of letters and spaces (candidate for pinyin)
     const looksLikePinyin = /^[a-z\s]+$/i.test(rawQ);
-
-    if (looksLikePinyin) {
-      // Must fully segment into valid syllables
-      const syllables = parsePinyinQuery(rawQ);
-      if (!syllables) {
-        // Invalid pinyin sequence (e.g. "wde", "wde jia", "wodej ia") → show nothing
-        return [];
-      }
-      // Valid pinyin sequence: match characters whose pinyin matches any of the typed syllables
+    const syllables = looksLikePinyin ? parsePinyinQuery(rawQ) : null;
+    let pinyinList = [];
+    if (syllables) {
       const sylSet = new Set(syllables);
-      const matched = allChars.filter(ch => {
+      pinyinList = allChars.filter(ch => {
         const info = state.characters[ch];
         return (info.p || []).some(p => sylSet.has(stripTones(p)));
       });
-      return sortChars(matched);
+      pinyinList = sortChars(pinyinList);
     }
 
-    // Do not match lone digits (e.g. "1") as substrings in dictionary definitions
-    if (/^\d+$/.test(rawQ)) {
-      return [];
+    // English whole-word exact matching via inverted index
+    const engMatches = searchEnglishIndex(rawQ);
+    let englishList = sortChars(engMatches);
+
+    // If both matched, remove duplicate characters from englishList so each appears once
+    if (pinyinList.length && englishList.length) {
+      const pinyinSet = new Set(pinyinList);
+      englishList = englishList.filter(ch => !pinyinSet.has(ch));
     }
 
-    // English / meaning search for words
-    const matched = allChars.filter(ch => {
-      const info = state.characters[ch];
-      return (info.d || '').toLowerCase().includes(lowerQ);
-    });
+    if (pinyinList.length && englishList.length) {
+      return {
+        type: 'grouped',
+        pinyinList,
+        englishList,
+        syllables,
+        list: [...pinyinList, ...englishList]
+      };
+    } else if (pinyinList.length) {
+      return {
+        type: 'pinyin',
+        list: pinyinList,
+        pinyinList,
+        englishList: [],
+        syllables
+      };
+    } else if (englishList.length) {
+      return {
+        type: 'english',
+        list: englishList,
+        pinyinList: [],
+        englishList
+      };
+    }
 
-    return sortChars(matched);
+    // Neither matched
+    return {
+      type: 'none',
+      list: [],
+      pinyinList: [],
+      englishList: [],
+      invalidPinyin: looksLikePinyin && !syllables
+    };
   }
 
-  // 3. No query — sort all
-  return sortChars(allChars);
+  // 3. No query — show all
+  return {
+    type: 'all',
+    list: sortChars(allChars),
+    pinyinList: [],
+    englishList: []
+  };
 }
 
 function sortChars(list) {
@@ -309,7 +382,8 @@ function sortChars(list) {
 }
 
 function renderCharDirectory() {
-  const list = getFilteredCharList();
+  const result = getFilteredCharList();
+  const list = result.list;
   const total = list.length;
   const ps = state.charPageSize;
   const totalPages = Math.max(1, Math.ceil(total / ps));
@@ -322,25 +396,29 @@ function renderCharDirectory() {
   if (!rawQ) {
     DOM.charResultInfo.textContent =
       state.charFilter === 'least' ? 'Rarest first' : 'Most frequent first';
+    DOM.charSearchFeedback.textContent = '';
   } else if (total === 0) {
-    DOM.charResultInfo.textContent = 'No match — invalid pinyin or not in deck';
-  } else {
-    DOM.charResultInfo.textContent = `${total} character${total === 1 ? '' : 's'} found`;
-  }
-
-  // Feedback on query validity
-  const onlyLatin = rawQ && /^[a-z\s]+$/i.test(rawQ);
-  if (onlyLatin) {
-    const syls = parsePinyinQuery(rawQ);
-    if (!syls) {
-      DOM.charSearchFeedback.textContent = '✕ Invalid pinyin syllable(s)';
+    DOM.charResultInfo.textContent = 'No match found';
+    if (result.invalidPinyin) {
+      DOM.charSearchFeedback.textContent = '✕ Invalid pinyin syllable(s) & no English match';
       DOM.charSearchFeedback.style.color = 'var(--danger)';
     } else {
-      DOM.charSearchFeedback.textContent = '✓ ' + syls.join(' · ');
-      DOM.charSearchFeedback.style.color = 'var(--accent-emerald)';
+      DOM.charSearchFeedback.textContent = '✕ Not found in pinyin or English definitions';
+      DOM.charSearchFeedback.style.color = 'var(--danger)';
     }
   } else {
-    DOM.charSearchFeedback.textContent = '';
+    DOM.charResultInfo.textContent = `${total} character${total === 1 ? '' : 's'} found`;
+    if (result.type === 'grouped') {
+      DOM.charSearchFeedback.innerHTML = `<span style="color:var(--accent-emerald)">✓ Pinyin (${result.pinyinList.length})</span> &nbsp;·&nbsp; <span style="color:var(--accent-blue)">Meaning "${rawQ}" (${result.englishList.length})</span>`;
+    } else if (result.type === 'pinyin') {
+      DOM.charSearchFeedback.textContent = '✓ Pinyin: ' + result.syllables.join(' · ');
+      DOM.charSearchFeedback.style.color = 'var(--accent-emerald)';
+    } else if (result.type === 'english') {
+      DOM.charSearchFeedback.textContent = `✓ English meaning: "${rawQ}"`;
+      DOM.charSearchFeedback.style.color = 'var(--accent-blue)';
+    } else {
+      DOM.charSearchFeedback.textContent = '';
+    }
   }
 
   // Grid
@@ -348,20 +426,43 @@ function renderCharDirectory() {
   if (slice.length === 0) {
     DOM.charGrid.innerHTML =
       '<div style="grid-column:1/-1;text-align:center;padding:2.5rem;color:var(--text-muted);font-size:0.9rem;">No characters match.</div>';
+  } else if (result.type === 'grouped') {
+    // Show grouped sections with distinct headings
+    const pinyinSet = new Set(result.pinyinList);
+    const pinyinSlice = slice.filter(ch => pinyinSet.has(ch));
+    const englishSlice = slice.filter(ch => !pinyinSet.has(ch));
+
+    if (pinyinSlice.length) {
+      const h = document.createElement('div');
+      h.className = 'char-group-heading';
+      h.textContent = `Pinyin match (${result.pinyinList.length})`;
+      DOM.charGrid.appendChild(h);
+      pinyinSlice.forEach(ch => renderCharTile(ch, DOM.charGrid));
+    }
+
+    if (englishSlice.length) {
+      const h = document.createElement('div');
+      h.className = 'char-group-heading english-heading';
+      h.textContent = `English meaning "${rawQ}" (${result.englishList.length})`;
+      DOM.charGrid.appendChild(h);
+      englishSlice.forEach(ch => renderCharTile(ch, DOM.charGrid));
+    }
   } else {
-    slice.forEach(ch => {
-      const info = state.characters[ch];
-      const py   = (info.p || [])[0] || '';
-      const tile = document.createElement('div');
-      tile.className = 'char-tile';
-      tile.innerHTML = `<div class="tile-hz">${ch}</div><div class="tile-py">${py}</div><div class="tile-freq">${info.f}</div>`;
-      tile.onclick = () => openCharModal(ch);
-      DOM.charGrid.appendChild(tile);
-    });
+    slice.forEach(ch => renderCharTile(ch, DOM.charGrid));
   }
 
   // Pagination
   renderPagination(page, totalPages);
+}
+
+function renderCharTile(ch, container) {
+  const info = state.characters[ch];
+  const py   = (info.p || [])[0] || '';
+  const tile = document.createElement('div');
+  tile.className = 'char-tile';
+  tile.innerHTML = `<div class="tile-hz">${ch}</div><div class="tile-py">${py}</div><div class="tile-freq">${info.f}</div>`;
+  tile.onclick = () => openCharModal(ch);
+  container.appendChild(tile);
 }
 
 function renderPagination(current, total) {

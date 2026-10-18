@@ -240,6 +240,24 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 .tile-py   { font-size: .62rem; color: var(--accent-gold); margin-top: .15rem; font-weight: 500; }
 .tile-freq { font-size: .55rem; color: var(--text-muted); margin-top: .05rem; }
 
+/* Group headings inside grid */
+.char-group-heading {
+  grid-column: 1 / -1;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--accent-emerald);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: .5rem 0 .25rem;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.25);
+  margin-top: .25rem;
+}
+.char-group-heading.english-heading {
+  color: var(--accent-blue);
+  border-bottom-color: rgba(59, 130, 246, 0.25);
+  margin-top: .75rem;
+}
+
 /* Pagination */
 .pagination-bar {
   display: flex; align-items: center; justify-content: center;
