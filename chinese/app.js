@@ -58,9 +58,14 @@ function parsePinyinQuery(q) {
   return all.length ? all : null;
 }
 
-// Strip tone marks: wǒ → wo, nǐ → ni
+// Strip tone marks: wǒ → wo, nǐ → ni, nǚ → nv, lǜ → lv
 function stripTones(s) {
-  return (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/ü/g,'v');
+  return (s || '')
+    .toLowerCase()
+    .replace(/[üǖǘǚǜ]/g, 'v')
+    .replace(/u:/g, 'v')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
 }
 
 // App State
@@ -255,37 +260,40 @@ function getFilteredCharList() {
     return [...new Set(hanziInQ)].filter(ch => state.characters[ch]);
   }
 
-  // 2. Pure latin query
+  // 2. Pure latin / text query
   if (rawQ) {
-    const normQ = stripTones(rawQ);
     const lowerQ = rawQ.toLowerCase();
 
-    // Try as pinyin if it parses cleanly
-    const syllables = parsePinyinQuery(rawQ);
+    // Check if query is composed of letters and spaces (candidate for pinyin)
+    const looksLikePinyin = /^[a-z\s]+$/i.test(rawQ);
 
-    let matched;
-    if (syllables) {
-      // Match any character whose pinyin, when stripped of tones, contains all typed syllables
-      const sylStr = syllables.join('');
-      matched = allChars.filter(ch => {
-        const info = state.characters[ch];
-        return (info.p || []).some(p => stripTones(p).includes(sylStr));
-      });
-    } else {
-      // English/meaning search (only if not a broken pinyin attempt)
-      // "wde" → nothing; "water" → 水 etc.
-      const looksLikePinyin = /^[a-z\s]+$/i.test(rawQ);
-      if (looksLikePinyin) {
-        // Looks like they tried pinyin but it's invalid — show nothing
+    if (looksLikePinyin) {
+      // Must fully segment into valid syllables
+      const syllables = parsePinyinQuery(rawQ);
+      if (!syllables) {
+        // Invalid pinyin sequence (e.g. "wde", "wde jia", "wodej ia") → show nothing
         return [];
       }
-      matched = allChars.filter(ch => {
+      // Valid pinyin sequence: match characters whose pinyin matches any of the typed syllables
+      const sylSet = new Set(syllables);
+      const matched = allChars.filter(ch => {
         const info = state.characters[ch];
-        return (info.d || '').toLowerCase().includes(lowerQ);
+        return (info.p || []).some(p => sylSet.has(stripTones(p)));
       });
+      return sortChars(matched);
     }
 
-    // Sort the matches
+    // Do not match lone digits (e.g. "1") as substrings in dictionary definitions
+    if (/^\d+$/.test(rawQ)) {
+      return [];
+    }
+
+    // English / meaning search for words
+    const matched = allChars.filter(ch => {
+      const info = state.characters[ch];
+      return (info.d || '').toLowerCase().includes(lowerQ);
+    });
+
     return sortChars(matched);
   }
 
@@ -322,13 +330,15 @@ function renderCharDirectory() {
 
   // Feedback on query validity
   const onlyLatin = rawQ && /^[a-z\s]+$/i.test(rawQ);
-  if (onlyLatin && total === 0) {
-    DOM.charSearchFeedback.textContent = '✕ Invalid — not valid pinyin syllables';
-    DOM.charSearchFeedback.style.color = 'var(--danger)';
-  } else if (onlyLatin && parsePinyinQuery(rawQ)) {
+  if (onlyLatin) {
     const syls = parsePinyinQuery(rawQ);
-    DOM.charSearchFeedback.textContent = '✓ ' + syls.join(' · ');
-    DOM.charSearchFeedback.style.color = 'var(--accent-emerald)';
+    if (!syls) {
+      DOM.charSearchFeedback.textContent = '✕ Invalid pinyin syllable(s)';
+      DOM.charSearchFeedback.style.color = 'var(--danger)';
+    } else {
+      DOM.charSearchFeedback.textContent = '✓ ' + syls.join(' · ');
+      DOM.charSearchFeedback.style.color = 'var(--accent-emerald)';
+    }
   } else {
     DOM.charSearchFeedback.textContent = '';
   }
@@ -397,6 +407,27 @@ function renderPagination(current, total) {
   DOM.charPagination.appendChild(btn('›', current + 1, current === total));
 }
 
+// Render text with clickable hanzi links if character exists in deck
+function renderLinkedHanziText(container, text) {
+  container.innerHTML = '';
+  if (!text) return;
+  for (const ch of text) {
+    if (/[\u4e00-\u9fff]/.test(ch) && state.characters[ch]) {
+      const span = document.createElement('span');
+      span.className = 'hanzi-char';
+      span.textContent = ch;
+      span.title = (state.characters[ch].p || []).join(', ') + ': ' + (state.characters[ch].d || '');
+      span.onclick = e => {
+        e.stopPropagation();
+        openCharModal(ch);
+      };
+      container.appendChild(span);
+    } else {
+      container.appendChild(document.createTextNode(ch));
+    }
+  }
+}
+
 // ── CHARACTER MODAL ────────────────────────────────────────────────────────────
 function openCharModal(ch) {
   state.selectedChar = ch;
@@ -409,8 +440,14 @@ function openCharModal(ch) {
   DOM.heroDef.textContent   = info.d || '';
   DOM.heroFreq.textContent  = `${info.f} cards`;
   DOM.heroRad.textContent   = `Radical: ${info.r || '?'}`;
-  DOM.heroDecomp.textContent = info.dec || '';
-  DOM.heroEtym.textContent  = info.e || 'No etymology note available.';
+  
+  // Render decomposition and etymology with clickable links for characters in the deck
+  renderLinkedHanziText(DOM.heroDecomp, info.dec || '');
+  if (info.e) {
+    renderLinkedHanziText(DOM.heroEtym, info.e);
+  } else {
+    DOM.heroEtym.textContent = 'No etymology note available.';
+  }
 
   DOM.activeFilterBar.style.display = 'none';
   renderCompoundPills(info.w || [], ch);

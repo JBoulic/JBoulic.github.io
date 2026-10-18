@@ -1,14 +1,5 @@
 TODO: order prompts by priority order, in case I run out.
 
-The character search feature doesn't work properly, maybe I ran out of tokens during the implementation. Should allow for "wode", or "wo de" but not "wde", it needs to be all valid, "wde jia" would show nothing, but "wode jia" would, and "wodej ia" wouldn't
-pinyin need to all be in the deck I guess? Up to you, are there sounds that NEVER show up in the deck at all? Also why "1" shows some characters? And other numbers apart from 9, interesting.
-
-Code improvement: Can you look at the cube/ app? I have data.json whcih I'm somehow able to load without issue, can't we do the same here? If you have JSON files can you format them so I can read them instead of one single line? Minimum indentation though.
-Add all relevant links in the README.md, especially cube --> 3x3 BLD algs
-algs --> 4x4 BLD algs"
-
-I like characdter links wherever possible, for example in the character decomposition, when the character compound is in the deck, add a link to it too.
-
 Style:
 - Character view - can we make it on phone same as laptop, always a card at the moddle of the screen, if scrolling, scrolling happens inside the card, but the card fits on the screen. Also there's a bug where sometimes that margins around the card seem to be 0, seemes to only happen on phone? But sometimes the margins are there.
 - Especiallly in light mode, the backgroudn is too dark (I mean what's behind the card itself). It's a bit odd, like a dark grey color, I want to keep the whole page lighter. Just a details otherwise I do like the colors.
