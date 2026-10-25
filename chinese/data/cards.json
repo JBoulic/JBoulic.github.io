@@ -301,7 +301,7 @@
  ],
  [
   "Why don't you come visit us?",
-  "Wèishénme nǐ bù lái kàn wǒmen? (also ni first)<div>(no mei... mei is like you said you'd come but didn't)</div><div>(kan is long timeframe no visit, jian ok for short timeframe no visit)</div>",
+  "Wèishénme nǐ bù lái kàn wǒmen? (also ni first) (no mei... mei is like you said you'd come but didn't) (kan is long timeframe no visit, jian ok for short timeframe no visit)",
   "为什么你不来看我们？"
  ],
  [
@@ -425,7 +425,7 @@
   "我是美国人。"
  ],
  [
-  "He is American. <br /> He is an American.",
+  "He is American. / He is an American.",
   "Tā shì Měiguórén.",
   "他是美国人。"
  ],
@@ -525,9 +525,9 @@
   "我跟他一起工作。"
  ],
  [
-  "I also want to.<br />Then go with us!",
-  "Wǒ yě xiǎng.<br />Nà gēn wǒmen yī qǐ qù ba!",
-  "A我也想。<br/>B那跟我们一起去吧！"
+  "\"I also want to.\" \"Then go with us!\"",
+  "\"Wǒ yě xiǎng.\" \"Nà gēn wǒmen yī qǐ qù ba!\"",
+  "“我也想。” “那跟我们一起去吧！”"
  ],
  [
   "Sit down, Kate.",
@@ -725,9 +725,9 @@
   "最后她没有来。"
  ],
  [
-  "What about at home?<br />I don't have one at home.",
-  "Jiālǐ yǒu ma?<br />Méi yǒu.",
-  "A家里有吗？<br/>B没有。"
+  "\"What about at home?\" \"I don't have one at home.\"",
+  "\"Jiālǐ yǒu ma?\" \"Méi yǒu.\"",
+  "“家里有吗？” “没有。”"
  ],
  [
   "Is there anything I should do?",
@@ -835,7 +835,7 @@
   "他们在读一本书。"
  ],
  [
-  "I find this book is very difficult to read. <br /> I found it difficult to read the book.",
+  "I find this book is very difficult to read. / I found it difficult to read the book.",
   "Wǒ fāxiàn dú zhè běn shū hěn nán.",
   "我发现读这本书很难。"
  ],
@@ -890,9 +890,9 @@
   "我去不了，也不想去。"
  ],
  [
-  "&quot;Why aren't you going?&quot; &quot;Because I don't want to.&quot;",
-  "&quot; nǐ wèishénme bù qù?&quot;&quot; yīnwèi wǒ bù xiǎng qù.&quot;",
-  "&quot；你为什么不去？&quot；&quot；因为我不想去。&quot；"
+  "\"Why aren't you going?\" \"Because I don't want to.\"",
+  "\"Nǐ wèishénme bù qù?\" \"Yīnwèi wǒ bù xiǎng qù.\"",
+  "“你为什么不去？”“因为我不想去。”"
  ],
  [
   "I would like to drink something.",
@@ -910,7 +910,7 @@
   "我想吃一点东西。"
  ],
  [
-  "I am a man. <br /> I'm a man.",
+  "I am a man. / I'm a man.",
   "Wǒ shì ge nánrén.",
   "我是个男人。"
  ],
@@ -955,7 +955,7 @@
   "我们看见孩子上了车。"
  ],
  [
-  "Are these cars yours? \"Yes, they are mine.\" <br /> \"Are these your cars?\" \"Yes, they are.\"",
+  "Are these cars yours? \"Yes, they are mine.\" / \"Are these your cars?\" \"Yes, they are.\"",
   "Zhè xiē chē shì nǐ de ma?\" shì de, shì wǒ de.",
   "“这些车是你的吗？”“是的，是我的。”"
  ],
@@ -970,7 +970,7 @@
   "这对他没有影响。"
  ],
  [
-  "I don't love you anymore. <br /> I don't like you anymore.",
+  "I don't love you anymore. / I don't like you anymore.",
   "Wǒ bù zài ài nǐ le.",
   "我不再爱你了。"
  ],
@@ -1005,9 +1005,9 @@
   "你为什么想学中国历史？"
  ],
  [
-  "Will you study them?<br />Of course I will study them.",
-  "Nǐ yào xué ma?<br />Dāngrán yào xué.",
-  "A你要学吗？<br/>B当然要学。"
+  "\"Will you study them?\" \"Of course I will study them.\"",
+  "\"Nǐ yào xué ma?\" \"Dāngrán yào xué.\"",
+  "“你要学吗？” “当然要学。”"
  ],
  [
   "What time do the students start school?",
@@ -1155,12 +1155,12 @@
   "我认识她两年了。"
  ],
  [
-  "Oh, I know this man! <br /> Oh! I know the man.",
+  "Oh, I know this man! / Oh! I know the man.",
   "Ā, wǒ rènshi zhège nánrén!",
   "啊，我认识这个男人！"
  ],
  [
-  "He knows a lot of people. <br /> He has a lot of acquaintances.",
+  "He knows a lot of people. / He has a lot of acquaintances.",
   "Tā rènshi hěn duō rén.",
   "他认识很多人。"
  ],
@@ -1195,9 +1195,9 @@
   "你认识他吗？"
  ],
  [
-  "How do you know him?<br />He is my classmate.",
-  "Nǐ zěnme rènshi tā?<br />Tā shì wǒ de tóngxué.",
-  "A你怎么认识他？<br/>B他是我的同学。"
+  "\"How do you know him?\" \"He is my classmate.\"",
+  "\"Nǐ zěnme rènshi tā?\" \"Tā shì wǒ de tóngxué.\"",
+  "“你怎么认识他？” “他是我的同学。”"
  ],
  [
   "Today, I made a new friend.",
@@ -1300,19 +1300,19 @@
   "你回答了什么？"
  ],
  [
-  "Do you like music? <br /> Do you love music?",
+  "Do you like music? / Do you love music?",
   "Nǐ xǐhuān yīnyuè ma?",
   "你喜欢音乐吗？"
  ],
  [
-  "&quot;She likes music.&quot; &quot;So do I.&quot;",
+  "\"She likes music.\" \"So do I.\"",
   "\" tā xǐhuān yīnyuè.\"\" wǒ yě shì.\"",
   "“她喜欢音乐。”“我也是。”"
  ],
  [
-  "Is speaking also difficult?<br />Speaking is not too difficult.",
-  "Shuō yě nán ma?<br />Shuō bú tài nán.",
-  "A说也难吗？<br/>B说不太难。"
+  "\"Is speaking also difficult?\" \"Speaking is not too difficult.\"",
+  "\"Shuō yě nán ma?\" \"Shuō bú tài nán.\"",
+  "“说也难吗？” “说不太难。”"
  ],
  [
   "Believe me he said.",
@@ -1325,9 +1325,9 @@
   "他的英语说得很好。"
  ],
  [
-  "I don't speak English very well.<br />I also don't speak it very well.",
-  "Wǒ Yīngyǔ shuō de bú tài hǎo.<br />Wǒ yě shuō de bú tài hǎo.",
-  "A我英语说得不太好。<br/>B我也说得不太好。"
+  "\"I don't speak English very well.\" \"I also don't speak it very well.\"",
+  "\"Wǒ Yīngyǔ shuō de bú tài hǎo.\" \"Wǒ yě shuō de bú tài hǎo.\"",
+  "“我英语说得不太好。” “我也说得不太好。”"
  ],
  [
   "You speak English really well.",
@@ -1381,7 +1381,7 @@
  ],
  [
   "The music is very good.",
-  "Yīnyuè hěn hǎo tīng.<div>(Also ting hao ting) (Ting hao le means you listened well)</div>",
+  "Yīnyuè hěn hǎo tīng. (Also ting hao ting) (Ting hao le means you listened well)",
   "音乐很好听。"
  ],
  [
@@ -1566,7 +1566,7 @@
  ],
  [
   "He will be back very soon.",
-  "Tā hěn kuài jiù huì huílai. (also de)&nbsp;(also no jiu)",
+  "Tā hěn kuài jiù huì huílai. (also de) (also no jiu)",
   "他很快就会回来。"
  ],
  [
@@ -1766,7 +1766,7 @@
  ],
  [
   "He and you both come from China.",
-  "Tā hé nǐ yīyàng lái zì Zhōngguó. (also yiyang-&gt;liang ge dou)",
+  "Tā hé nǐ yīyàng lái zì Zhōngguó. (also yiyang->liang ge dou)",
   "他和你一样来自中国。"
  ],
  [
@@ -1776,7 +1776,7 @@
  ],
  [
   "He is the best student in our class.",
-  "Tā shì wǒmen bān zuì hǎode xuésheng.<div>(Also zai) (Also shang or li)</div>",
+  "Tā shì wǒmen bān zuì hǎode xuésheng. (Also zai) (Also shang or li)",
   "他是我们班最好的学生。"
  ],
  [
@@ -1801,7 +1801,7 @@
  ],
  [
   "Elsewhere, it's not that simple.",
-  "Chúle zhèli, méi nàme jiǎndān.<div>(also mei you)</div>",
+  "Chúle zhèli, méi nàme jiǎndān. (also mei you)",
   "除了这里，没那么简单。"
  ],
  [
@@ -2000,9 +2000,9 @@
   "我再也不知道该做什么了。"
  ],
  [
-  "Will you come to China again?<br />Maybe.",
-  "Nǐ huì zài lái Zhōngguó ma?<br />Kěnéng.",
-  "A你会再来中国吗？<br/>B可能。"
+  "\"Will you come to China again?\" \"Maybe.\"",
+  "\"Nǐ huì zài lái Zhōngguó ma?\" \"Kěnéng.\"",
+  "“你会再来中国吗？” “可能。”"
  ],
  [
   "If he put in just a little more effort, he might have already succeeded.",
@@ -2136,7 +2136,7 @@
  ],
  [
   "I have several dozens of them.",
-  "Wǒ yǒu hǎojǐ dá&nbsp;ne.",
+  "Wǒ yǒu hǎojǐ dá ne.",
   "我有好几打呢。"
  ],
  [
@@ -2205,7 +2205,7 @@
   "我不喜欢看电视。"
  ],
  [
-  "Nobody believes what I say. <br /> Nobody believed what I said.",
+  "Nobody believes what I say. / Nobody believed what I said.",
   "Méiyǒurén xiāngxìn wǒ shuō dehuà.",
   "没有人相信我说的话。"
  ],
@@ -2230,9 +2230,9 @@
   "她是医生。"
  ],
  [
-  "Are you a doctor?<br />No, I'm not. I'm a teacher.",
-  "Nǐ shì yīshēng ma?<br />Bú shì. Wǒ shì lǎoshī.",
-  "A你是医生吗？<br/>B不是。我是老师。"
+  "\"Are you a doctor?\" \"No, I'm not. I'm a teacher.\"",
+  "\"Nǐ shì yīshēng ma?\" \"Bú shì. Wǒ shì lǎoshī.\"",
+  "“你是医生吗？” “不是。我是老师。”"
  ],
  [
   "We arrived here fast, didn't we?",
@@ -2246,7 +2246,7 @@
  ],
  [
   "If I had known sooner that were you here, I would have come at once.",
-  "Rúguǒ wǒ zǎo zhīdào nǐ zài zhèr dehuà, wǒ mǎshàng jiù lái le.<div>(also wo jiu mashang...)</div>",
+  "Rúguǒ wǒ zǎo zhīdào nǐ zài zhèr dehuà, wǒ mǎshàng jiù lái le. (also wo jiu mashang...)",
   "如果我早知道你在这儿的话，我马上就来了。"
  ],
  [
@@ -2545,7 +2545,7 @@
   "你怕高吗？"
  ],
  [
-  "He's afraid of dogs. <br /> He is afraid of dogs.",
+  "He's afraid of dogs. / He is afraid of dogs.",
   "Tā pà gǒu.",
   "他怕狗。"
  ],
@@ -2570,13 +2570,13 @@
   "你回来之前我已经走了。"
  ],
  [
-  "It won't start before eight-thirty. <br /> It doesn't start before eight thirty.",
+  "It won't start before eight-thirty. / It doesn't start before eight thirty.",
   "8 diǎn bàn zhīqián bùhuì kāishǐ.",
   "8点半之前不会开始。"
  ],
  [
   "What do you think I've been doing?",
-  "Nǐ juéde wǒ zhīqián zài zuò shénme? &nbsp;(also shi4 zai4..)",
+  "Nǐ juéde wǒ zhīqián zài zuò shénme? (also shi4 zai4..)",
   "你觉得我之前在做什么？"
  ],
  [
@@ -2595,9 +2595,9 @@
   "我们正在开会。"
  ],
  [
-  "Are you coming to the meeting?<br />I'm coming.",
-  "Nǐ yào lái kāihuì ma?<br />Lái.",
-  "A你要来开会吗？<br/>B来。"
+  "\"Are you coming to the meeting?\" \"I'm coming.\"",
+  "\"Nǐ yào lái kāihuì ma?\" \"Lái.\"",
+  "“你要来开会吗？” “来。”"
  ],
  [
   "There's a policeman over there.",
@@ -2646,7 +2646,7 @@
  ],
  [
   "When he gets back, shall I have him call you? Yes, thanks.",
-  "Děng tā huílai, wǒ yào ràng tā gěi nǐ dǎ diànhuà ma? shì de, xièxie.<div>(also ta huilai de shihou)</div>",
+  "Děng tā huílai, wǒ yào ràng tā gěi nǐ dǎ diànhuà ma? shì de, xièxie. (also ta huilai de shihou)",
   "“等他回来，我要让他给你打电话吗？”“是的，谢谢。”"
  ],
  [
@@ -2655,9 +2655,9 @@
   "我应该给她打电话。"
  ],
  [
-  "Did you call me yesterday?<br />Yes. You didn't answer the phone.",
-  "Nǐ zuótiān gěi wǒ dǎ diànhuà le ma?<br />Duì à. Nǐ bù jiē diànhuà.",
-  "A你昨天给我打电话了吗？<br/>B对啊。你不接电话。"
+  "\"Did you call me yesterday?\" \"Yes. You didn't answer the phone.\"",
+  "\"Nǐ zuótiān gěi wǒ dǎ diànhuà le ma?\" \"Duì à. Nǐ bù jiē diànhuà.\"",
+  "“你昨天给我打电话了吗？” “对啊。你不接电话。”"
  ],
  [
   "She had just arrived home when I called.",
@@ -2806,7 +2806,7 @@
  ],
  [
   "When you're young, reading many good books is a good thing.",
-  "Niánqīng de shíhou duō kàn diǎn hǎo shū shì jiàn hǎo shì.<div>(also kan yi dian) &nbsp;(no kan hen dou hao shu... means few is bad)</div>",
+  "Niánqīng de shíhou duō kàn diǎn hǎo shū shì jiàn hǎo shì. (also kan yi dian) (no kan hen dou hao shu... means few is bad)",
   "年轻的时候多看点好书是件好事。"
  ],
  [
@@ -2890,9 +2890,9 @@
   "我永远爱我的父母。"
  ],
  [
-  "What is your work?<br />I am a journalist.",
-  "Nǐde gōngzuò shì shénme?<br />Wǒ shì jìzhě.",
-  "A你的工作是什么？<br/>B我是记者。"
+  "\"What is your work?\" \"I am a journalist.\"",
+  "\"Nǐde gōngzuò shì shénme?\" \"Wǒ shì jìzhě.\"",
+  "“你的工作是什么？” “我是记者。”"
  ],
  [
   "I live next to school.",
@@ -3030,7 +3030,7 @@
   "我爸爸坚持要我去那地方看看。"
  ],
  [
-  "He still insists he is correct.&nbsp;(formal)",
+  "He still insists he is correct. (formal)",
   "Tā réngrán jiānchí tā shì duì de.",
   "他仍然坚持他是对的。"
  ],
@@ -3125,7 +3125,7 @@
   "我们在这里下车吧。"
  ],
  [
-  "I'll get off at the next station. <br /> I'm getting off at the next station. <br /> I am getting off at the next station.",
+  "I'll get off at the next station. / I'm getting off at the next station. / I am getting off at the next station.",
   "Wǒ zài xià yī zhàn xiàchē.",
   "我在下一站下车。"
  ],
@@ -3155,7 +3155,7 @@
   "雪很白。"
  ],
  [
-  "I can teach you how to drive. <br /> I'll teach you how to drive a car.",
+  "I can teach you how to drive. / I'll teach you how to drive a car.",
   "Wǒ huì jiāo nǐ zěnme kāichē.",
   "我会教你怎么开车。"
  ],
@@ -3166,7 +3166,7 @@
  ],
  [
   "We should tell children how to protect themselves.",
-  "Wǒmen yīnggāi gàosu háizi zěnme bǎohù zìjǐ.<div>(also ruhe) (no ziji baohu)</div>",
+  "Wǒmen yīnggāi gàosu háizi zěnme bǎohù zìjǐ. (also ruhe) (no ziji baohu)",
   "我们应该告诉孩子怎么保护自己。"
  ],
  [
@@ -3350,7 +3350,7 @@
   "房子前面有一辆车。"
  ],
  [
-  "He has no house to live in. <br /> He has no house in which to live.",
+  "He has no house to live in. / He has no house in which to live.",
   "Tā méiyǒu fángzi zhù.",
   "他没有房子住。"
  ],
@@ -3415,7 +3415,7 @@
   "我感到很担心。"
  ],
  [
-  "The mother worried about her children. <br /> Mother was anxious about the children.",
+  "The mother worried about her children. / Mother was anxious about the children.",
   "Mǔqīn hěn dānxīn háizi.",
   "母亲很担心孩子。"
  ],
@@ -3555,12 +3555,12 @@
   "明天下午之前我将把它完成。"
  ],
  [
-  "She'll give her photo to whoever wants it. <br /> She will give her picture to whoever wants it.",
+  "She'll give her photo to whoever wants it. / She will give her picture to whoever wants it.",
   "Tā huì bǎ tā de zhàopiàn gěi xiǎng yào de rén.",
   "她会把她的照片给想要的人。"
  ],
  [
-  "These pictures are really very beautiful. <br /> These pictures are beautiful.",
+  "These pictures are really very beautiful. / These pictures are beautiful.",
   "Zhè xiē zhàopiàn Zhēnměi.",
   "这些照片真美。"
  ],
@@ -3635,7 +3635,7 @@
   "他很容易觉得累。"
  ],
  [
-  "I am already very tired&nbsp;☺.",
+  "I am already very tired ☺.",
   "Wǒ yǐjīng hěn lèi le.",
   "我已经很累了。"
  ],
@@ -3660,7 +3660,7 @@
   "今天的工作特别累。"
  ],
  [
-  "I'm not tired at all. <br /> I'm not at all tired.",
+  "I'm not tired at all. / I'm not at all tired.",
   "Wǒ gēnběn bù lèi.",
   "我根本不累。"
  ],
@@ -3695,9 +3695,9 @@
   "我去过德国。"
  ],
  [
-  "Is he an American?<br />No, he's not. He's German.",
-  "Tā shì Měiguórén ma?<br />Bú shì. Shì Déguórén.",
-  "A他是美国人吗？<br/>B不是。是德国人。"
+  "\"Is he an American?\" \"No, he's not. He's German.\"",
+  "\"Tā shì Měiguórén ma?\" \"Bú shì. Shì Déguórén.\"",
+  "“他是美国人吗？” “不是。是德国人。”"
  ],
  [
   "This matter is his responsibility.",
@@ -3790,7 +3790,7 @@
   "美国是个多民族的国家。"
  ],
  [
-  "Compared to yours, my car is small. <br /> Compared with your, my car is small.",
+  "Compared to yours, my car is small. / Compared with your, my car is small.",
   "Hé nǐ de chē bǐqǐ lái, wǒ de chē hěn xiǎo.",
   "和你的车比起来，我的车很小。"
  ],
@@ -3821,7 +3821,7 @@
  ],
  [
   "She is my household tutor.",
-  "Tā shì wǒ de jiātíng jiàoshī.&nbsp;(jiàoshī for occupation)",
+  "Tā shì wǒ de jiātíng jiàoshī. (jiàoshī for occupation)",
   "她是我的家庭教师。"
  ],
  [
@@ -3920,9 +3920,9 @@
   "她提了许多问题。"
  ],
  [
-  "What time do you start the lesson?<br />Ten thirty.",
-  "Nǐ jǐ diǎn shàngkè?<br />Shí diǎn bàn.",
-  "A你几点上课？<br/>B十点半。"
+  "\"What time do you start the lesson?\" \"Ten thirty.\"",
+  "\"Nǐ jǐ diǎn shàngkè?\" \"Shí diǎn bàn.\"",
+  "“你几点上课？” “十点半。”"
  ],
  [
   "I have ten U.S. dollars.",
@@ -3966,7 +3966,7 @@
  ],
  [
   "I need more sleep.",
-  "Wǒ xūyào duō shuìjiào.<div>(Also&nbsp;Wo xuyao shui geng duo de jiao)</div><div>(Also wǒ xuyao shuì de geng duō.)</div>",
+  "Wǒ xūyào duō shuìjiào. (Also Wo xuyao shui geng duo de jiao) (Also wǒ xuyao shuì de geng duō.)",
   "我需要多睡觉。"
  ],
  [
@@ -4070,7 +4070,7 @@
   "休息了一会儿，我们继续工作了。"
  ],
  [
-  "Can I rest a bit? <br /> May I take a rest for a while?",
+  "Can I rest a bit? / May I take a rest for a while?",
   "Wǒ néng xiūxi yīhuìr ma?",
   "我能休息一会儿吗？"
  ],
@@ -4091,13 +4091,13 @@
  ],
  [
   "There are approximately forty students in her class.",
-  "Tā bān shàng dàyuē yǒu 40 ge xuésheng. (also shang -&gt; li) (you dayue, bad)",
+  "Tā bān shàng dàyuē yǒu 40 ge xuésheng. (also shang -> li) (you dayue, bad)",
   "她班上大约有40个学生。"
  ],
  [
-  "What time do you start work?<br />I start work at around 8:30.",
-  "Nǐ jǐ diǎn shàngbān?<br />Wǒ dàyuē bā diǎn bàn shàngbān.",
-  "A你几点上班？<br/>B我大约八点半上班。"
+  "\"What time do you start work?\" \"I start work at around 8:30.\"",
+  "\"Nǐ jǐ diǎn shàngbān?\" \"Wǒ dàyuē bā diǎn bàn shàngbān.\"",
+  "“你几点上班？” “我大约八点半上班。”"
  ],
  [
   "There are many foreign students.",
@@ -4146,7 +4146,7 @@
  ],
  [
   "He studies at this school.",
-  "Tā zài zhè suǒ xuéxiào dúshū.<div>(Also ta dushu zai zhe...) (also just du, but not as clear)</div><div>(Also ta nian zhe...) (nian is dialect)&nbsp;</div>",
+  "Tā zài zhè suǒ xuéxiào dúshū. (Also ta dushu zai zhe...) (also just du, but not as clear) (Also ta nian zhe...) (nian is dialect)",
   "他在这所学校读书。"
  ],
  [
@@ -4186,7 +4186,7 @@
  ],
  [
   "She doesn't know how to choose.",
-  "Tā bùzhī rúhé xuǎnzé.&nbsp;(also zhidao) (also zenme)",
+  "Tā bùzhī rúhé xuǎnzé. (also zhidao) (also zenme)",
   "她不知如何选择。"
  ],
  [
@@ -4231,7 +4231,7 @@
  ],
  [
   "If I were you, under such a difficult situation I would do the same kind of thing.",
-  "Rúguǒ wǒ shì nǐ, wǒ huì zài zhèzhǒng kùnnan de qíngkuàng xià zuò tóngyàng de shì.<div>(tongyang / tongyiyang / yiyang)</div>",
+  "Rúguǒ wǒ shì nǐ, wǒ huì zài zhèzhǒng kùnnan de qíngkuàng xià zuò tóngyàng de shì. (tongyang / tongyiyang / yiyang)",
   "如果我是你，我会在这种困难的情况下做同样的事。"
  ],
  [
@@ -4300,9 +4300,9 @@
   "你朋友要去办公室吗？"
  ],
  [
-  "Do you have a computer?<br />I have one at the office.",
-  "Nǐ yǒu diànnǎo ma?<br />Wǒ zài bàngōngshì yǒu yī gè.",
-  "A你有电脑吗？<br/>B我在办公室有一个。"
+  "\"Do you have a computer?\" \"I have one at the office.\"",
+  "\"Nǐ yǒu diànnǎo ma?\" \"Wǒ zài bàngōngshì yǒu yī gè.\"",
+  "“你有电脑吗？” “我在办公室有一个。”"
  ],
  [
   "I'm not going to the office.",
@@ -4351,7 +4351,7 @@
  ],
  [
   "Nothing is more beautiful than the truth.",
-  "Méiyǒu shénme bǐ zhēnshí gèng měi le. (also meili)<div>(also no geng or le, but weaker)</div>",
+  "Méiyǒu shénme bǐ zhēnshí gèng měi le. (also meili) (also no geng or le, but weaker)",
   "没有什么比真实更美了。"
  ],
  [
@@ -4366,7 +4366,7 @@
  ],
  [
   "She is both pretty and has money. (formal)",
-  "Tā jì piàoliang, yòu yǒu qián. (first you4 -&gt; ji4 is formal)",
+  "Tā jì piàoliang, yòu yǒu qián. (first you4 -> ji4 is formal)",
   "她既漂亮，又有钱。"
  ],
  [
@@ -4395,12 +4395,12 @@
   "Jack买不起新自行车。"
  ],
  [
-  "Whose bike is this? <br /> Whose bicycle is this?",
+  "Whose bike is this? / Whose bicycle is this?",
   "Zhè liàng zìxíngchē shì shéi de?",
   "这辆自行车是谁的？"
  ],
  [
-  "This is my bike. <br /> This is my bicycle.",
+  "This is my bike. / This is my bicycle.",
   "Zhè shì wǒ de zìxíngchē.",
   "这是我的自行车。"
  ],
@@ -4431,7 +4431,7 @@
  ],
  [
   "He at last reached his goal.",
-  "Tā zhōngyú wánchéng le tā de mùbiāo.<div>(also daodi) (no zuodao, zuodao only at the end)</div>",
+  "Tā zhōngyú wánchéng le tā de mùbiāo. (also daodi) (no zuodao, zuodao only at the end)",
   "他终于完成了他的目标。"
  ],
  [
@@ -4461,13 +4461,13 @@
  ],
  [
   "He parked his car in front of the (big) building.",
-  "Tā bǎ chē tíng zài dàlóu qián.&nbsp;",
+  "Tā bǎ chē tíng zài dàlóu qián.",
   "他把车停在大楼前。"
  ],
  [
-  "Would your older brother want to go?<br />It's difficult to say.",
-  "Nǐ gēgē xiǎng qù ma?<br />Hěn nán shuō.",
-  "A你哥哥想去吗？<br/>B很难说。"
+  "\"Would your older brother want to go?\" \"It's difficult to say.\"",
+  "\"Nǐ gēgē xiǎng qù ma?\" \"Hěn nán shuō.\"",
+  "“你哥哥想去吗？” “很难说。”"
  ],
  [
   "Don't cry like a child.",
@@ -4585,13 +4585,13 @@
   "不要再让这种事发生了！"
  ],
  [
-  "I don't want something like this to happen. <br /> I didn't want this to happen.",
+  "I don't want something like this to happen. / I didn't want this to happen.",
   "Wǒ bù xiǎng zhèzhǒng shì fāshēng.",
   "我不想这种事发生。"
  ],
  [
   "We live in the same world.",
-  "Wǒmen shēnghuó zài tóng yī gè shìjiè.<div>(Also dou or dajia dou)</div>",
+  "Wǒmen shēnghuó zài tóng yī gè shìjiè. (Also dou or dajia dou)",
   "我们生活在同一个世界。"
  ],
  [
@@ -4860,9 +4860,9 @@
   "我不喜欢茶。"
  ],
  [
-  "Does your friend like tea?<br />Not that much. Do you like tea?",
-  "Nǐ péngyou xǐhuan chá ma?<br />Bú tài xǐhuan. Nǐ xǐhuan chá ma?",
-  "A你朋友喜欢茶吗？<br/>B不太喜欢。你喜欢茶吗？"
+  "\"Does your friend like tea?\" \"Not that much. Do you like tea?\"",
+  "\"Nǐ péngyou xǐhuan chá ma?\" \"Bú tài xǐhuan. Nǐ xǐhuan chá ma?\"",
+  "“你朋友喜欢茶吗？” “不太喜欢。你喜欢茶吗？”"
  ],
  [
   "Do you like tea?",
@@ -5061,7 +5061,7 @@
  ],
  [
   "My kid is in the third year of elementary school.",
-  "Wǒ de háizi xiǎoxué sān niánjí.&nbsp;(also shi/zai/nian/du)",
+  "Wǒ de háizi xiǎoxué sān niánjí. (also shi/zai/nian/du)",
   "我的孩子小学三年级。"
  ],
  [
@@ -5185,7 +5185,7 @@
   "今天的天气好极了。"
  ],
  [
-  "It's hard to say what the weather will be like tomorrow. <br /> It's hard to predict what the weather will be like tomorrow.",
+  "It's hard to say what the weather will be like tomorrow. / It's hard to predict what the weather will be like tomorrow.",
   "Hěn nánshuō míngtiān de tiānqì jiāng huì zěnyàng.",
   "很难说明天的天气将会怎样。"
  ],
@@ -5226,7 +5226,7 @@
  ],
  [
   "I did as good as possible.",
-  "Wǒ zuò de hǎo dào bù néng zài hǎo le. (also dao -&gt; de)",
+  "Wǒ zuò de hǎo dào bù néng zài hǎo le. (also dao -> de)",
   "我做得好到不能再好了。"
  ],
  [
@@ -5336,7 +5336,7 @@
  ],
  [
   "I'm in the fifth grade in elementary school.",
-  "Wǒ niàn xiǎoxué wǔ niánjí. (Also nian (dialect) -&gt; du)",
+  "Wǒ niàn xiǎoxué wǔ niánjí. (Also nian (dialect) -> du)",
   "我念小学五年级。"
  ],
  [
@@ -5395,7 +5395,7 @@
   "他的能力有限。"
  ],
  [
-  "I received your letter. &nbsp;(polite)",
+  "I received your letter. (polite)",
   "Wǒ shōudào le nín de xìn.",
   "我收到了您的信。"
  ],
@@ -5425,9 +5425,9 @@
   "妈妈去市场了。"
  ],
  [
-  "Do you want to go there?<br />I don't want to. I want to go to the market.",
-  "Nǐ xiǎng bù xiǎng qù nàlǐ?<br />Bù xiǎng. Wǒ xiǎng qù shìchǎng.",
-  "A你想不想去那里？<br/>B不想。我想去市场。"
+  "\"Do you want to go there?\" \"I don't want to. I want to go to the market.\"",
+  "\"Nǐ xiǎng bù xiǎng qù nàlǐ?\" \"Bù xiǎng. Wǒ xiǎng qù shìchǎng.\"",
+  "“你想不想去那里？” “不想。我想去市场。”"
  ],
  [
   "What time do you finish work?",
@@ -5435,9 +5435,9 @@
   "你几点下班？"
  ],
  [
-  "What time do you finish work?<br />Ordinarily at five o'clock in the afternoon.",
-  "Nǐ jǐ diǎn xiàbān.<br />Yìbān xiàwǔ wǔ diǎn.",
-  "A你几点下班？<br/>B一般下午五点。"
+  "\"What time do you finish work?\" \"Ordinarily at five o'clock in the afternoon.\"",
+  "\"Nǐ jǐ diǎn xiàbān.\" \"Yìbān xiàwǔ wǔ diǎn.\"",
+  "“你几点下班？” “一般下午五点。”"
  ],
  [
   "I don't remember when he gets off work.",
@@ -5485,8 +5485,8 @@
   "天空很蓝。"
  ],
  [
-  "Having such a nice house, they were very satisfied&nbsp;☺.",
-  "Yǒu zhème hǎo de fángzi, tāmen hěn mǎnzú le.&nbsp;(also manyi)",
+  "Having such a nice house, they were very satisfied ☺.",
+  "Yǒu zhème hǎo de fángzi, tāmen hěn mǎnzú le. (also manyi)",
   "有这么好的房子，他们很满足了。"
  ],
  [
@@ -5655,7 +5655,7 @@
   "他准备到中国投资。"
  ],
  [
-  "What a pity! <br /> What a pity.",
+  "What a pity! / What a pity.",
   "Tài kěxī le!",
   "太可惜了！"
  ],
@@ -5681,7 +5681,7 @@
  ],
  [
   "He suspects something went wrong.",
-  "Tā huáiyí shìqing chūle wèntí.<div>(No fasheng, fasheng only for shiqings)</div>",
+  "Tā huáiyí shìqing chūle wèntí. (No fasheng, fasheng only for shiqings)",
   "他怀疑事情出了问题。"
  ],
  [
@@ -5911,7 +5911,7 @@
  ],
  [
   "Although he's old, his health is nevertheless very very good.",
-  "Suīrán tā lǎo, kěshì shēntǐ què fēicháng hǎo.<div>(Also suiran hen lao... keshi ta...)</div>",
+  "Suīrán tā lǎo, kěshì shēntǐ què fēicháng hǎo. (Also suiran hen lao... keshi ta...)",
   "虽然他老，可是身体却非常好。"
  ],
  [
@@ -5930,13 +5930,13 @@
   "她的头发很黑。"
  ],
  [
-  "Hair is dry&nbsp;☺.",
+  "Hair is dry ☺.",
   "Tóufa gān le.",
   "头发干了。"
  ],
  [
   "I saw a schoolgirl with long hair.",
-  "Wǒ kànjiàn yī gè&nbsp;cháng tóufà de nǚshēng.",
+  "Wǒ kànjiàn yī gè cháng tóufà de nǚshēng.",
   "我看见一个长头发的女生。"
  ],
  [
@@ -5986,7 +5986,7 @@
  ],
  [
   "The two countries communicate with each other.",
-  "Liǎng guó hùxiāng jiāoliú.&nbsp;(also liang ge guojia)",
+  "Liǎng guó hùxiāng jiāoliú. (also liang ge guojia)",
   "两国互相交流。"
  ],
  [
@@ -6015,7 +6015,7 @@
   "儿童是国家的未来。"
  ],
  [
-  "Allow me to introduce you, this is my  principal.",
+  "Allow me to introduce you, this is my principal.",
   "Ràng wǒ lái jièshào yī xià zhè shì wǒde xiàozhǎng.",
   "让我来介绍一下，这是我的校长。"
  ],
@@ -6040,9 +6040,9 @@
   "这显然是今年出版的最好的小说。"
  ],
  [
-  "Is the director coming?<br />Regrettably, he can't come.",
-  "Zhǔrèn lái ma?<br />Kěxī, tā bù huì lái.",
-  "A主任来吗？<br/>B可惜，他不会来。"
+  "\"Is the director coming?\" \"Regrettably, he can't come.\"",
+  "\"Zhǔrèn lái ma?\" \"Kěxī, tā bù huì lái.\"",
+  "“主任来吗？” “可惜，他不会来。”"
  ],
  [
   "Please give me a piece of paper.",
@@ -6050,9 +6050,9 @@
   "请给我一张纸。"
  ],
  [
-  "Can you speak Chinese?<br />Yes, I can speak it.",
-  "Nín huì shuō Zhōngwén ma?<br />Huì, wǒ huì shuō.",
-  "A您会说中文吗？<br/>B会，我会说。"
+  "\"Can you speak Chinese?\" \"Yes, I can speak it.\"",
+  "\"Nín huì shuō Zhōngwén ma?\" \"Huì, wǒ huì shuō.\"",
+  "“您会说中文吗？” “会，我会说。”"
  ],
  [
   "She's writing an essay.",
@@ -6096,7 +6096,7 @@
  ],
  [
   "Germany is a nation in Europe.",
-  "Déguó shì Ōuzhōu de yī gè&nbsp;guójiā.&nbsp;(also shi yi ge...)",
+  "Déguó shì Ōuzhōu de yī gè guójiā. (also shi yi ge...)",
   "德国是欧洲的一个国家。"
  ],
  [
@@ -6141,7 +6141,7 @@
  ],
  [
   "I don't care what your names are. Once the work is done, I'm leaving here.",
-  "Wǒ bùguǎn nǐmen de míngzi jiào shénme.<div>yīdàn gōngzuò wánchéng, wǒ jiù cóng zhèr líkāi.<div>(also bu zaihu) (also wanyi)</div></div>",
+  "Wǒ bùguǎn nǐmen de míngzi jiào shénme. yīdàn gōngzuò wánchéng, wǒ jiù cóng zhèr líkāi. (also bu zaihu) (also wanyi)",
   "我不管你们的名字叫什么。一旦工作完成，我就从这儿离开。"
  ],
  [
@@ -6240,7 +6240,7 @@
   "这没有任何区别。"
  ],
  [
-  "Don't tell anyone our plan. <br /> Don't mention our plan to anybody.",
+  "Don't tell anyone our plan. / Don't mention our plan to anybody.",
   "Bùyào bǎ wǒmen de jìhuà gàosu rènhérén.",
   "不要把我们的计划告诉任何人。"
  ],
@@ -6345,7 +6345,7 @@
   "车子坏了，他很急。"
  ],
  [
-  "This matter is very&nbsp;worrisome.",
+  "This matter is very worrisome.",
   "Zhè jiàn shìqing hěn jí.",
   "这件事情很急。"
  ],
@@ -6380,7 +6380,7 @@
   "我每天经过这家店。"
  ],
  [
-  "This shop is open from 9 to 6 o'clock. <br /> This shop is open from 9am to 6pm.",
+  "This shop is open from 9 to 6 o'clock. / This shop is open from 9am to 6pm.",
   "Zhè jiā diàn cóng 9 diǎn kāi dào 18 diǎn.",
   "这家店从9点开到18点。"
  ],
@@ -6515,7 +6515,7 @@
   "他们有一个儿子。"
  ],
  [
-  "He has one son and two daughters. <br /> She has a son and two daughters.",
+  "He has one son and two daughters. / She has a son and two daughters.",
   "Tā yǒu yī gèr zǐ hé liǎng ge nǚér.",
   "她有一个儿子和两个女儿。"
  ],
@@ -6576,7 +6576,7 @@
  ],
  [
   "I cannot stop thinking about the stolen money.",
-  "Wǒ wúfǎ bù qù xiǎng bèi tōu diào de qián.<div>(wúfǎ bù qù, mei you banfa bu qu = cannot stop)</div>",
+  "Wǒ wúfǎ bù qù xiǎng bèi tōu diào de qián. (wúfǎ bù qù, mei you banfa bu qu = cannot stop)",
   "我无法不去想被偷掉的钱。"
  ],
  [
@@ -6676,7 +6676,7 @@
  ],
  [
   "I gave up the opportunity to study for a doctorate.",
-  "Wǒ fàngqì dú bóshì de jīhuì. (also du -&gt; nian (dialect))",
+  "Wǒ fàngqì dú bóshì de jīhuì. (also du -> nian (dialect))",
   "我放弃读博士的机会。"
  ],
  [
@@ -6701,12 +6701,12 @@
  ],
  [
   "Regarding him, we will deal with it again tomorrow.",
-  "Zhìyú tā, wǒmen míngtiān zài chǔlǐ.&nbsp;(also duiyu, but zhiyu says contrast)",
+  "Zhìyú tā, wǒmen míngtiān zài chǔlǐ. (also duiyu, but zhiyu says contrast)",
   "至于他，我们明天再处理。"
  ],
  [
   "Regarding this last issue, I definitely don't understand.",
-  "Zhìyú zuìhòu zhè gè wèntí, wǒ bìng bù liǎojiě.&nbsp;(also duiyu, but zhiyu&nbsp;says contrast)",
+  "Zhìyú zuìhòu zhè gè wèntí, wǒ bìng bù liǎojiě. (also duiyu, but zhiyu says contrast)",
   "至于最后这个问题，我并不了解。"
  ],
  [
@@ -6785,7 +6785,7 @@
   "广场很大。"
  ],
  [
-  "He rode his bicycle there. <br /> He went by bicycle.",
+  "He rode his bicycle there. / He went by bicycle.",
   "Tā qí zìxíngchē qù de.",
   "他骑自行车去的。"
  ],
@@ -6816,7 +6816,7 @@
  ],
  [
   "Sorry to bother you, help me open the door? (polite)",
-  "Máfan nín, bāng wǒ kāi xià mén.&nbsp;(xia short for yixia)",
+  "Máfan nín, bāng wǒ kāi xià mén. (xia short for yixia)",
   "麻烦您帮我开下门。"
  ],
  [
@@ -6826,7 +6826,7 @@
  ],
  [
   "This letter was sent to the wrong place.",
-  "Zhè fēng xìn jì cuò dìfang le.&nbsp;",
+  "Zhè fēng xìn jì cuò dìfang le.",
   "这封信寄错地方了。"
  ],
  [
@@ -6936,7 +6936,7 @@
  ],
  [
   "He looks a bit silly.",
-  "Tā kànqǐlái&nbsp;yǒudiǎn shǎ.",
+  "Tā kànqǐlái yǒudiǎn shǎ.",
   "他看起来有点傻。"
  ],
  [
@@ -6990,9 +6990,9 @@
   "他什么时候回国？"
  ],
  [
-  "When will you return to your country?<br />Next month.",
-  "Nǐ shénmeshíhou huíguó?<br />Xià gè yuè.",
-  "A你什么时候回国？<br/>B下个月。"
+  "\"When will you return to your country?\" \"Next month.\"",
+  "\"Nǐ shénmeshíhou huíguó?\" \"Xià gè yuè.\"",
+  "“你什么时候回国？” “下个月。”"
  ],
  [
   "We've been waiting a long time.",
@@ -7095,7 +7095,7 @@
   "请拉开门。"
  ],
  [
-  "They are peace-loving people. <br /> They are a peace-loving people.",
+  "They are peace-loving people. / They are a peace-loving people.",
   "Tāmen shì rèài hépíng de rén.",
   "他们是热爱和平的人。"
  ],
@@ -7200,7 +7200,7 @@
   "中国的经济发展迅速。"
  ],
  [
-  "Science&amp;technology advances very rapidly.",
+  "Science&technology advances very rapidly.",
   "Kējì fāzhǎn de hěn xùnsù.",
   "科技发展得很迅速。"
  ],
@@ -7541,12 +7541,12 @@
  ],
  [
   "His daughter is both smart and pretty. (formal)",
-  "Tāde nǚér jì cōngmíng yòu piàoliang. (First you4 -&gt; ji4 is formal)",
+  "Tāde nǚér jì cōngmíng yòu piàoliang. (First you4 -> ji4 is formal)",
   "他的女儿既聪明又漂亮。"
  ],
  [
   "She is both pretty and smart. (formal)",
-  "Tā jì piàoliang yòu cōngmíng. (First you4 -&gt; ji4 is formal)",
+  "Tā jì piàoliang yòu cōngmíng. (First you4 -> ji4 is formal)",
   "她既漂亮又聪明。"
  ],
  [
@@ -7806,7 +7806,7 @@
  ],
  [
   "When I was studying in college, I lived in the school dormitory.",
-  "Niàn dàxué de shíhou, wǒ zhù zài xuéxiào sùshè. (also nian (dialect) -&gt; du)",
+  "Niàn dàxué de shíhou, wǒ zhù zài xuéxiào sùshè. (also nian (dialect) -> du)",
   "念大学的时候，我住在学校宿舍。"
  ],
  [
@@ -8006,7 +8006,7 @@
  ],
  [
   "They have the same kind of notions.",
-  "Tāmen yǒu tóngyàng de guānniàn.&nbsp;(tongyang / tongyiyang / yiyang)",
+  "Tāmen yǒu tóngyàng de guānniàn. (tongyang / tongyiyang / yiyang)",
   "他们有同样的观念。"
  ],
  [
@@ -8015,8 +8015,8 @@
   "他做法的背后，别有目的。"
  ],
  [
-  "I believe that behind every thing we should do,<div>there's always something we want to do.</div>",
-  "Wǒ rènwéi wǒmen gāi zuò de měi jiàn shì bèihòu,<div>zǒng yǒu shénme wǒmen xiǎng zuò de.</div>",
+  "I believe that behind every thing we should do, there's always something we want to do.",
+  "Wǒ rènwéi wǒmen gāi zuò de měi jiàn shì bèihòu, zǒng yǒu shénme wǒmen xiǎng zuò de.",
   "我认为我们该做的每件事背后，总有什么我们想做的..."
  ],
  [
@@ -8031,7 +8031,7 @@
  ],
  [
   "There is contradiction between his wording.",
-  "Tā de shuōfǎ zhījiān hěn máodùn.<div>(also hen you maodun) (also no zhijian) (zhong1 is wrong)</div>",
+  "Tā de shuōfǎ zhījiān hěn máodùn. (also hen you maodun) (also no zhijian) (zhong1 is wrong)",
   "他的说法之间很矛盾。"
  ],
  [
@@ -8111,7 +8111,7 @@
  ],
  [
   "Two people are in the room.",
-  "Wūzi lǐmiàn yǒu liǎng gè&nbsp;rén.",
+  "Wūzi lǐmiàn yǒu liǎng gè rén.",
   "屋子里面有两个人。"
  ],
  [
@@ -8296,7 +8296,7 @@
  ],
  [
   "Through thinking deeply, I solved this tough problem.",
-  "Jīngguò sīkǎo, wǒ jiějué le zhè dào nántí.<div>(Jīngguò active \"through\", tongguo passive \"through\")</div>",
+  "Jīngguò sīkǎo, wǒ jiějué le zhè dào nántí. (Jīngguò active \"through\", tongguo passive \"through\")",
   "经过思考，我解决了这道难题。"
  ],
  [
@@ -8316,7 +8316,7 @@
  ],
  [
   "She kept crying all night long.",
-  "Tā yī zhěng wǎn dōu zài kū.<br />(Also no yi, yi like one time) (Also zheng ge wanshang)",
+  "Tā yī zhěng wǎn dōu zài kū. (Also no yi, yi like one time) (Also zheng ge wanshang)",
   "她一整晚都在哭。"
  ],
  [
@@ -8356,7 +8356,7 @@
  ],
  [
   "He's an non-traditional man.",
-  "Tā shì gè fǎn chuántǒng de rén.&nbsp;(also fandui = disagree/less deep)",
+  "Tā shì gè fǎn chuántǒng de rén. (also fandui = disagree/less deep)",
   "他是个反传统的人。"
  ],
  [
@@ -8365,9 +8365,9 @@
   "我的同学没有课本。"
  ],
  [
-  "Is this a textbook?<br />No, it's not. It's a novel.",
-  "Zhè shì kè běn ma?<br />Bú shì. Shì xiǎoshuō.",
-  "A这是课本吗？<br/>B不是。是小说。"
+  "\"Is this a textbook?\" \"No, it's not. It's a novel.\"",
+  "\"Zhè shì kè běn ma?\" \"Bú shì. Shì xiǎoshuō.\"",
+  "“这是课本吗？” “不是。是小说。”"
  ],
  [
   "Does he have a textbook?",
@@ -8550,7 +8550,7 @@
   "我说了可能要下雨。"
  ],
  [
-  "If it rains tomorrow, I'll just stay at home. <br /> If it rains tomorrow, I'll stay at home.",
+  "If it rains tomorrow, I'll just stay at home. / If it rains tomorrow, I'll stay at home.",
   "Rúguǒ míngtiān xiàyǔ, wǒ jiù dāi zài jiā.",
   "如果明天下雨，我就待在家。"
  ],
@@ -8566,7 +8566,7 @@
  ],
  [
   "He put out his views on this matter.",
-  "Tā zhēnduì zhè jiàn shì fābiǎo kànfǎ.<div>(no ba3, it's about this, not to this)</div><div>(dui = duiyu = zhendui (pinpoints))</div>",
+  "Tā zhēnduì zhè jiàn shì fābiǎo kànfǎ. (no ba3, it's about this, not to this) (dui = duiyu = zhendui (pinpoints))",
   "他针对这件事发表看法。"
  ],
  [
@@ -8641,7 +8641,7 @@
  ],
  [
   "We need to keep quiet in hospitals.",
-  "Wǒmen zài yīyuàn lǐ&nbsp;yào bǎochí ānjìng.",
+  "Wǒmen zài yīyuàn lǐ yào bǎochí ānjìng.",
   "我们在医院里要保持安静。"
  ],
  [
@@ -8800,7 +8800,7 @@
   "我听懂了。"
  ],
  [
-  "Without water, we cannot exist. <br /> If it were not for water, we could not live.",
+  "Without water, we cannot exist. / If it were not for water, we could not live.",
   "Méiyǒu shuǐ, wǒmen wúfǎ shēngcún.",
   "没有水，我们无法生存。"
  ],
@@ -8826,7 +8826,7 @@
  ],
  [
   "She fell asleep leaning on a chair.",
-  "Tā kào zhe yǐzi shuì zháo le.<div>(kao is leaning head/back, pa is supported underneath)</div>",
+  "Tā kào zhe yǐzi shuì zháo le. (kao is leaning head/back, pa is supported underneath)",
   "她靠着椅子睡着了。"
  ],
  [
@@ -8925,7 +8925,7 @@
   "他在信上说什么？"
  ],
  [
-  "In China, doctors are also called &quot;daifu&quot;.",
+  "In China, doctors are also called \"daifu\".",
   "Zài Zhōngguó, yīshēng yě jiào dàifu.",
   "在中国，医生也叫大夫。"
  ],
@@ -8995,7 +8995,7 @@
   "他出国留学了。"
  ],
  [
-  "She'll leave the country in six months&nbsp;☺.",
+  "She'll leave the country in six months ☺.",
   "Tā bàn nián hòu jiù yào chūguó le.",
   "她半年后就要出国了。"
  ],
@@ -9220,7 +9220,7 @@
   "我家附近有个漂亮的公园。"
  ],
  [
-  "There are many people in the park. <br /> There were a lot of people in the park.",
+  "There are many people in the park. / There were a lot of people in the park.",
   "Gōngyuán lǐ yǒu hěn duō rén.",
   "公园里有很多人。"
  ],
@@ -9255,9 +9255,9 @@
   "这个故事真有趣呀。"
  ],
  [
-  "Do you like your work?<br />Yeah. It's really fun.",
-  "Nǐ xǐhuān nǐde gōngzuò ma?<br />Shìde. Hěn yǒu qù.",
-  "A你喜欢你的工作吗？<br/>B是的。很有趣。"
+  "\"Do you like your work?\" \"Yeah. It's really fun.\"",
+  "\"Nǐ xǐhuān nǐde gōngzuò ma?\" \"Shìde. Hěn yǒu qù.\"",
+  "“你喜欢你的工作吗？” “是的。很有趣。”"
  ],
  [
   "He read a most interesting novel yesterday.",
@@ -9485,7 +9485,7 @@
   "医生告诉她要静养。"
  ],
  [
-  "When will you come back? \"It all depends on the weather.\" <br /> \"When will you be back?\" \"It all depends on the weather.\"",
+  "When will you come back? \"It all depends on the weather.\" / \"When will you be back?\" \"It all depends on the weather.\"",
   "Nǐ shénme shíhou huílai?\" zhè dōu yào kàn tiānqì.",
   "“你什么时候回来？”“这都要看天气。”"
  ],
@@ -9736,7 +9736,7 @@
  ],
  [
   "The things that we don't obtain, we most want to obtain.",
-  "Dé&nbsp;bù dào de dōngxi, jiù zuì xiǎng dédào.",
+  "Dé bù dào de dōngxi, jiù zuì xiǎng dédào.",
   "得不到的东西就最想得到。"
  ],
  [
@@ -9755,14 +9755,14 @@
   "他每个月平均要花掉五百元。"
  ],
  [
-  "Do you want to drink some White liquor?<br />I don't want to.",
-  "Nǐ xiǎng bù xiǎng hē báijiǔ?<br />Bù xiǎng.",
-  "A你想不想喝白酒？<br/>B不想。"
+  "\"Do you want to drink some White liquor?\" \"I don't want to.\"",
+  "\"Nǐ xiǎng bù xiǎng hē báijiǔ?\" \"Bù xiǎng.\"",
+  "“你想不想喝白酒？” “不想。”"
  ],
  [
-  "Do you not like to drink White liquor?<br />I don't like to drink it that much.",
-  "Nǐ bù xǐhuan hē báijiǔ ma?<br />Wǒ bú tài xǐhuan hē.",
-  "A你不喜欢喝白酒吗？<br/>B我不太喜欢喝。"
+  "\"Do you not like to drink White liquor?\" \"I don't like to drink it that much.\"",
+  "\"Nǐ bù xǐhuan hē báijiǔ ma?\" \"Wǒ bú tài xǐhuan hē.\"",
+  "“你不喜欢喝白酒吗？” “我不太喜欢喝。”"
  ],
  [
   "When work is letting out, there are super many people in the subway.",
@@ -9855,7 +9855,7 @@
   "走着去火车站要多久？"
  ],
  [
-  "How long does it take to get to the train station? <br /> How long does it take to get to the station?",
+  "How long does it take to get to the train station? / How long does it take to get to the station?",
   "Qù huǒchēzhàn yào duōjiǔ?",
   "去火车站要多久？"
  ],
@@ -9965,7 +9965,7 @@
   "哪里可以买英语课本？"
  ],
  [
-  "She's memorizing vocabulary words.  ((or:  She's writing down words.))",
+  "She's memorizing vocabulary words. ((or: She's writing down words.))",
   "Tā zài jì dāncí.",
   "她在记单词。"
  ],
@@ -10440,7 +10440,7 @@
   "很难在2、3年内掌握法语。"
  ],
  [
-  "I need it as quickly as possible. <br /> I need it ASAP.",
+  "I need it as quickly as possible. / I need it ASAP.",
   "Wǒ jǐnkuài xūyào.",
   "我尽快需要。"
  ],
@@ -10520,7 +10520,7 @@
   "他感到非常孤独。"
  ],
  [
-  "I felt lonely. <br /> I'm lonely.",
+  "I felt lonely. / I'm lonely.",
   "Wǒ juéde hěn gūdú.",
   "我觉得很孤独。"
  ],
@@ -10565,7 +10565,7 @@
   "没人知道那机器长什么样子。"
  ],
  [
-  "Computers are complicated machines. <br /> A computer is a complex machine.",
+  "Computers are complicated machines. / A computer is a complex machine.",
   "Diànnǎo shì ge fùzá de jīqì.",
   "电脑是个复杂的机器。"
  ],
@@ -10625,7 +10625,7 @@
   "孩子都很信任父母。"
  ],
  [
-  "She has a lot of charm.  ((She has a great deal of charm.))",
+  "She has a lot of charm. ((She has a great deal of charm.))",
   "Tā hěn yǒu mèilì.",
   "她很有魅力。"
  ],
@@ -10670,7 +10670,7 @@
   "你乘飞机还是乘火车去？"
  ],
  [
-  "The fastest way to travel is by plane. <br /> The quickest means of travel is by plane.",
+  "The fastest way to travel is by plane. / The quickest means of travel is by plane.",
   "Lǚxíng zuìkuài de fāngshì shì chéngfēijī.",
   "旅行最快的方式是乘飞机。"
  ],
@@ -10965,7 +10965,7 @@
   "我们明天去爬长城。"
  ],
  [
-  "She likes cooking for her family. <br /> She likes to cook for her family.",
+  "She likes cooking for her family. / She likes to cook for her family.",
   "Tā xǐhuān wéi tā de jiārén zuòfàn.",
   "她喜欢为她的家人做饭。"
  ],
@@ -11060,7 +11060,7 @@
   "我今天很伤心。"
  ],
  [
-  "She looked sad. <br /> She looks lonesome.",
+  "She looked sad. / She looks lonesome.",
   "Tā kànshangqu hěn shāngxīn.",
   "她看上去很伤心。"
  ],
@@ -11190,7 +11190,7 @@
   "你犯了个错误。"
  ],
  [
-  "Science&amp;technology can promote economical development.",
+  "Science&technology can promote economical development.",
   "Kējì kěyǐ tuīdòng jīngjì fāzhǎn.",
   "科技可以推动经济发展。"
  ],
@@ -11405,7 +11405,7 @@
   "看你并不感到惊讶，你肯定已经知道了。"
  ],
  [
-  "Foreigners astound me. <br /> Foreign people intrigue me.",
+  "Foreigners astound me. / Foreign people intrigue me.",
   "Wàiguórén shì wǒ jīngyà.",
   "外国人是我惊讶。"
  ],
@@ -11535,9 +11535,9 @@
   "你的朋友很有意思。"
  ],
  [
-  "Is it interesting?<br />No, it's not interesting.",
-  "Yǒu yìsi ma?<br />Méi yǒu yìsi.",
-  "A有意思吗？<br/>B没有意思。"
+  "\"Is it interesting?\" \"No, it's not interesting.\"",
+  "\"Yǒu yìsi ma?\" \"Méi yǒu yìsi.\"",
+  "“有意思吗？” “没有意思。”"
  ],
  [
   "My work is interesting.",
@@ -11955,14 +11955,14 @@
   "他会写汉字。"
  ],
  [
-  "Can you read Chinese characters?<br />I can't read them.",
-  "Nǐ rènshi hànzì ma?<br />Wǒ bú rènshi.",
-  "A你认识汉字吗？<br/>B我不认识。"
+  "\"Can you read Chinese characters?\" \"I can't read them.\"",
+  "\"Nǐ rènshi hànzì ma?\" \"Wǒ bú rènshi.\"",
+  "“你认识汉字吗？” “我不认识。”"
  ],
  [
-  "Is it difficult to write Chinese characters?<br />Yes, it's very difficult. I can't make out Chinese characters.",
-  "Xiě hànzì nán ma?<br />Hěn nán. Wǒ bú rènshí hànzì.",
-  "A写汉字难吗？<br/>B很难。我不认识汉字。"
+  "\"Is it difficult to write Chinese characters?\" \"Yes, it's very difficult. I can't make out Chinese characters.\"",
+  "\"Xiě hànzì nán ma?\" \"Hěn nán. Wǒ bú rènshí hànzì.\"",
+  "“写汉字难吗？” “很难。我不认识汉字。”"
  ],
  [
   "My coworker knows how to write Chinese.",
@@ -11970,14 +11970,14 @@
   "我的同事会写汉字。"
  ],
  [
-  "Can you write Chinese?<br />No, I can't. I can't write it.",
-  "Nín huì xiě hànzì ma?<br />Bú huì, wǒ bú huì xiě.",
-  "A您会写汉字吗？<br/>B不会，我不会写。"
+  "\"Can you write Chinese?\" \"No, I can't. I can't write it.\"",
+  "\"Nín huì xiě hànzì ma?\" \"Bú huì, wǒ bú huì xiě.\"",
+  "“您会写汉字吗？” “不会，我不会写。”"
  ],
  [
-  "Maybe, but I think spoken Chinese is really easy.<br />But Chinese characters are too difficult.",
-  "Kěnéng, búguò wǒ juéde Hànyǔ kǒuyǔ bú tài nán.<br />Dànshì rènshi Hànzì tài nán le.",
-  "A可能，不过我觉得汉语口语不太难。<br/>B但是认识汉字太难了。"
+  "\"Maybe, but I think spoken Chinese is really easy.\" \"But Chinese characters are too difficult.\"",
+  "\"Kěnéng, búguò wǒ juéde Hànyǔ kǒuyǔ bú tài nán.\" \"Dànshì rènshi Hànzì tài nán le.\"",
+  "“可能，不过我觉得汉语口语不太难。” “但是认识汉字太难了。”"
  ],
  [
   "He's a car thief.",
@@ -12185,9 +12185,9 @@
   "孩子们在玩玩具。"
  ],
  [
-  "Where does your little sister want to go?<br />She wants to go to the toy store.",
-  "Nǐ mèimèi xiǎng qù nǎlǐ?<br />Tā xiǎng qù wánjùdiàn.<br />",
-  "A你妹妹想去哪里？<br/>B她想去玩具店。"
+  "\"Where does your little sister want to go?\" \"She wants to go to the toy store.\"",
+  "\"Nǐ mèimèi xiǎng qù nǎlǐ?\" \"Tā xiǎng qù wánjùdiàn.\"",
+  "“你妹妹想去哪里？” “她想去玩具店。”"
  ],
  [
   "The kids are playing with children's toys.",
@@ -12275,7 +12275,7 @@
   "前方有一座雪山。"
  ],
  [
-  "3 cubed is 27. <br /> 3 to the third power is 27.",
+  "3 cubed is 27. / 3 to the third power is 27.",
   "3 de sān cì fāng děngyú 27.",
   "3的三次方等于27。"
  ],
@@ -12435,7 +12435,7 @@
   "他喜欢看足球吗？"
  ],
  [
-  "My Dad doesn't like soccer. <br /> My father doesn't like soccer.",
+  "My Dad doesn't like soccer. / My father doesn't like soccer.",
   "Wǒ bàba bù xǐhuān zúqiú.",
   "我爸爸不喜欢足球。"
  ],
@@ -12630,9 +12630,9 @@
   "她要找公寓。"
  ],
  [
-  "Does he like his new apartment?<br />He likes it.",
-  "Tā xǐhuan tāde xīn gōngyù ma?<br />Xǐhuan.",
-  "A他喜欢他的新公寓吗？<br/>B喜欢。"
+  "\"Does he like his new apartment?\" \"He likes it.\"",
+  "\"Tā xǐhuan tāde xīn gōngyù ma?\" \"Xǐhuan.\"",
+  "“他喜欢他的新公寓吗？” “喜欢。”"
  ],
  [
   "My new apartment is on the 13th floor.",
@@ -12910,7 +12910,7 @@
   "他躺在床上睡着了。"
  ],
  [
-  "I'm really tired. <br /> I'm exhausted. <br /> I'm very tired.",
+  "I'm really tired. / I'm exhausted. / I'm very tired.",
   "Wǒ lèi sǐ le.",
   "我累死了。"
  ],
@@ -12975,9 +12975,9 @@
   "人民有出版的自由。"
  ],
  [
-  "Where is your new apartment?<br />On Freedom Road.",
-  "Nǐ de xīn gōngyù zài nǎli?<br />Zài Zìyóu dàlùshang.",
-  "A你的新公寓在哪里？<br/>B在自由大路上。"
+  "\"Where is your new apartment?\" \"On Freedom Road.\"",
+  "\"Nǐ de xīn gōngyù zài nǎli?\" \"Zài Zìyóu dàlùshang.\"",
+  "“你的新公寓在哪里？” “在自由大路上。”"
  ],
  [
   "The lives of people are very tough.",
@@ -13115,9 +13115,9 @@
   "八点一刻，他来到了公司。"
  ],
  [
-  "What time does the lesson end?<br />A quarter to one.",
-  "Jǐ diǎn xiàkè?<br />Chā yī kè yī diǎn.",
-  "A几点下课？<br/>B差一刻一点。"
+  "\"What time does the lesson end?\" \"A quarter to one.\"",
+  "\"Jǐ diǎn xiàkè?\" \"Chā yī kè yī diǎn.\"",
+  "“几点下课？” “差一刻一点。”"
  ],
  [
   "It's a quarter past nine.",
@@ -13315,7 +13315,7 @@
   "我跟他不熟。"
  ],
  [
-  "I'm very bored.  ((I'm very annoyed.))",
+  "I'm very bored. ((I'm very annoyed.))",
   "Wǒ hěn fán.",
   "我很烦。"
  ],
@@ -13330,7 +13330,7 @@
   "他受伤了，我代替他参加比赛。"
  ],
  [
-  "I saw it in the newspaper. <br /> I read about it in the newspaper.",
+  "I saw it in the newspaper. / I read about it in the newspaper.",
   "Wǒ zài bàozhǐ shàng kàn dào le tā.",
   "我在报纸上看到了它。"
  ],
@@ -13355,9 +13355,9 @@
   "他用枪逼她拿出钱包。"
  ],
  [
-  "I'm going to the library. Goodbye.<br />Goodbye.",
-  "Wǒ qù túshūguǎn. Zàijiàn.<br />Zàijiàn.",
-  "A我去图书馆。再见。<br/>B再见。"
+  "\"I'm going to the library. Goodbye.\" \"Goodbye.\"",
+  "\"Wǒ qù túshūguǎn. Zàijiàn.\" \"Zàijiàn.\"",
+  "“我去图书馆。再见。” “再见。”"
  ],
  [
   "The restaurant's service is very good.",
@@ -13500,7 +13500,7 @@
   "她在给大象洗澡。"
  ],
  [
-  "The masses demand that the government  reform.",
+  "The masses demand that the government reform.",
   "Qúnzhòng yāoqiú zhèngfǔ jìnxíng gǎigé.",
   "群众要求政府进行改革。"
  ],
@@ -13711,7 +13711,7 @@
  ],
  [
   "I want the same jacket as you are wearing.",
-  "Wǒ yě xiǎng yào hé nǐ shēn shàng nà jiàn tóngyàng de wàitào.&nbsp;(tongyang / tongyiyang / yiyang)",
+  "Wǒ yě xiǎng yào hé nǐ shēn shàng nà jiàn tóngyàng de wàitào. (tongyang / tongyiyang / yiyang)",
   "我也想要和你身上那件同样的外套。"
  ],
  [
@@ -13875,7 +13875,7 @@
   "我欠她10美元。"
  ],
  [
-  "My period hasn't come. <br /> I don't menstruate.",
+  "My period hasn't come. / I don't menstruate.",
   "Wǒ de yuè jīng méilái.",
   "我的月经没来。"
  ],
@@ -14030,7 +14030,7 @@
   "日本人放弃了战争。"
  ],
  [
-  "A million people lost their live during the war. <br /> One million people lost their lives in the war.",
+  "A million people lost their live during the war. / One million people lost their lives in the war.",
   "100 wàn rén zài zhànzhēng zhōng shīqù le shēngmìng.",
   "100万人在战争中失去了生命。"
  ],
@@ -14085,7 +14085,7 @@
   "她邀请我们去她的生日派对。"
  ],
  [
-  "We've sent the invitations yesterday. <br /> We sent out the invitations yesterday.",
+  "We've sent the invitations yesterday. / We sent out the invitations yesterday.",
   "Wǒmen zuótiān fāchū le yāoqǐng.",
   "我们昨天发出了邀请。"
  ],
@@ -14255,7 +14255,7 @@
   "男孩跟随着父亲。"
  ],
  [
-  "You're good with women. <br /> You have a way with women.",
+  "You're good with women. / You have a way with women.",
   "Nǐ duì nǚrén yǒu yī tào.",
   "你对女人有一套。"
  ],
@@ -14505,7 +14505,7 @@
   "他的亲人都在美国。"
  ],
  [
-  "He has a lot of books on history. <br /> He has many history books.",
+  "He has a lot of books on history. / He has many history books.",
   "Tā yǒu hěn duō lìshǐ shūjí.",
   "他有很多历史书籍。"
  ],
@@ -14730,9 +14730,9 @@
   "这个博物馆每天都开放。"
  ],
  [
-  "Do you want to go to the museum with me?<br />It's not possible. I am very busy.",
-  "Nǐ xiǎng bù xiǎng gēn wǒ yī qǐ qù bówùguǎn?<br />Bù xíng. Wǒ hěn máng.",
-  "A你想不想跟我一起去博物馆？<br/>B不行。我很忙。"
+  "\"Do you want to go to the museum with me?\" \"It's not possible. I am very busy.\"",
+  "\"Nǐ xiǎng bù xiǎng gēn wǒ yī qǐ qù bówùguǎn?\" \"Bù xíng. Wǒ hěn máng.\"",
+  "“你想不想跟我一起去博物馆？” “不行。我很忙。”"
  ],
  [
   "You have to get on that bus to go to the museum.",
@@ -14775,9 +14775,9 @@
   "我爸爸是商人。"
  ],
  [
-  "Is your father a businessperson?<br />No, he's not. My father is a doctor.",
-  "Nǐ bà shì shāngrén ma?<br />Bú shì. Shì yīshēng.",
-  "A你爸是商人吗？<br/>B不是。是医生。"
+  "\"Is your father a businessperson?\" \"No, he's not. My father is a doctor.\"",
+  "\"Nǐ bà shì shāngrén ma?\" \"Bú shì. Shì yīshēng.\"",
+  "“你爸是商人吗？” “不是。是医生。”"
  ],
  [
   "The scene on the mountain top is very beautiful.",
@@ -15120,9 +15120,9 @@
   "她在录音。"
  ],
  [
-  "How is his pronunciation?<br />It is good. He studied in England for a few years so he has an English accent.",
-  "Tā de fāyīn zěnmeyàng?<br />Hǎo. Tā zài Yīngguó xuéxí guò, suóyǐ tā yǒu Yīngguó kǒuyīn.",
-  "A他的发音怎么样？<br/>B好。他在英国学习过，所以他有英国口音。"
+  "\"How is his pronunciation?\" \"It is good. He studied in England for a few years so he has an English accent.\"",
+  "\"Tā de fāyīn zěnmeyàng?\" \"Hǎo. Tā zài Yīngguó xuéxí guò, suóyǐ tā yǒu Yīngguó kǒuyīn.\"",
+  "“他的发音怎么样？” “好。他在英国学习过，所以他有英国口音。”"
  ],
  [
   "I like drinking strong coffee.",
@@ -15435,7 +15435,7 @@
   "我今天早上不想散步。"
  ],
  [
-  "Every morning he leaves to take a walk. <br /> He has a walk every morning.",
+  "Every morning he leaves to take a walk. / He has a walk every morning.",
   "Tā měi tiān zǎoshang dōu sànbù.",
   "他每天早上都散步。"
  ],
@@ -15595,7 +15595,7 @@
   "他还没来。他肯定错过公交车了。"
  ],
  [
-  "Capital of Japan is Tokyo. <br /> The capital of Japan is Tokyo.",
+  "Capital of Japan is Tokyo. / The capital of Japan is Tokyo.",
   "Rìběn de shǒudū shì Dōngjīng.",
   "日本的首都是东京。"
  ],
@@ -16100,7 +16100,7 @@
   "我明早八点来接你。"
  ],
  [
-  "Are you picking me up at 7 tomorrow morning? <br /> Will you pick me up at seven tomorrow morning?",
+  "Are you picking me up at 7 tomorrow morning? / Will you pick me up at seven tomorrow morning?",
   "Nǐ míng zǎo 7 diǎn lái jiē wǒ ma?",
   "你明早7点来接我吗？"
  ],
@@ -16365,9 +16365,9 @@
   "青岛是个大地方吗？"
  ],
  [
-  "Do you like your apartment?<br />It's alright, but there isn't enough space.",
-  "Nǐ xǐhuan nǐde gōngyù ma?<br />Hái xíng, dànshì méi duō dà dìfāng.",
-  "A你喜欢你的公寓吗？<br/>B还行，但是没多大地方。"
+  "\"Do you like your apartment?\" \"It's alright, but there isn't enough space.\"",
+  "\"Nǐ xǐhuan nǐde gōngyù ma?\" \"Hái xíng, dànshì méi duō dà dìfāng.\"",
+  "“你喜欢你的公寓吗？” “还行，但是没多大地方。”"
  ],
  [
   "This building was newly built last year.",
@@ -16375,7 +16375,7 @@
   "这座大厦是去年新建的。"
  ],
  [
-  "She feels very wronged.<br>屈服",
+  "She feels very wronged. (屈服)",
   "Tā juéde hěn wěiqu.",
   "她觉得很委屈。"
  ],
@@ -16435,7 +16435,7 @@
   "他击中了球。"
  ],
  [
-  "He can play tennis very well. <br /> He was very good at playing tennis.",
+  "He can play tennis very well. / He was very good at playing tennis.",
   "Tā wǎngqiú dǎ děi hěn hǎo.",
   "他网球打得很好。"
  ],
@@ -16485,7 +16485,7 @@
   "据最少的估计，也要花3000日元。"
  ],
  [
-  "I always enjoy listening to classical music in my free time. <br /> I always enjoy listening to classical music when I have some free time.",
+  "I always enjoy listening to classical music in my free time. / I always enjoy listening to classical music when I have some free time.",
   "Yǒu kōng de shíhou, wǒ zǒng xǐhuān tīng gǔdiǎnyīnyuè.",
   "有空的时候，我总喜欢听古典音乐。"
  ],
@@ -16495,12 +16495,12 @@
   "他去过一次伦敦。"
  ],
  [
-  "When I am in London, I will most probably go catch a few performances. <br /> As long as I'm going to be in London, I ought to see a play or two.",
+  "When I am in London, I will most probably go catch a few performances. / As long as I'm going to be in London, I ought to see a play or two.",
   "Wǒ zài Lúndūn de shíhou, yīnggāi huì qù kàn yī liǎng chǎng yǎnchū.",
   "我在伦敦的时候，应该会去看一两场演出。"
  ],
  [
-  "Are you really going to London to study? <br /> It is true that you are going to study in London?",
+  "Are you really going to London to study? / It is true that you are going to study in London?",
   "Nǐ yào qù Lúndūn dúshū shì zhēnde ma?",
   "你要去伦敦读书是真的吗？"
  ],
@@ -16535,7 +16535,7 @@
   "你什么时候去伦敦的？"
  ],
  [
-  "I'd like to go to London. <br /> I'd like to visit London.",
+  "I'd like to go to London. / I'd like to visit London.",
   "Wǒ xiǎng yào qù Lúndūn.",
   "我想要去伦敦。"
  ],
@@ -16620,7 +16620,7 @@
   "妈妈在哄孩子。"
  ],
  [
-  "Are you lying to me?  You obviously know her.",
+  "Are you lying to me? You obviously know her.",
   "Nǐ hǒng wǒ? Nǐ míngmíng rènshi tā.",
   "你哄我？你明明认识她。"
  ],
@@ -16720,9 +16720,9 @@
   "这是谁的护照？"
  ],
  [
-  "Is this your passport?<br />No it isn't, it's his.",
-  "Zhè shì nǐ de hùzhào ma?<br />Bú shì, shì tā de.",
-  "A这是你的护照吗？<br/>B不是，是他的。"
+  "\"Is this your passport?\" \"No it isn't, it's his.\"",
+  "\"Zhè shì nǐ de hùzhào ma?\" \"Bú shì, shì tā de.\"",
+  "“这是你的护照吗？” “不是，是他的。”"
  ],
  [
   "This is Ms. Zhou's passport.",
@@ -16730,9 +16730,9 @@
   "这是周小姐的护照。"
  ],
  [
-  "Where is your passport?<br />At home.",
-  "Nǐ de hùzhào zài nǎlǐ?<br />Zài jiā.",
-  "A你的护照在哪里？<br/>B在家。"
+  "\"Where is your passport?\" \"At home.\"",
+  "\"Nǐ de hùzhào zài nǎlǐ?\" \"Zài jiā.\"",
+  "“你的护照在哪里？” “在家。”"
  ],
  [
   "I need your passport and three pictures.",
@@ -16915,7 +16915,7 @@
   "一尾鱼多少钱？"
  ],
  [
-  "The little dog is shaking its head and wagging its tail at  me.",
+  "The little dog is shaking its head and wagging its tail at me.",
   "Xiǎo gǒu duì wǒ yáotóu-bǎiwěi.",
   "小狗对我摇头摆尾。"
  ],
@@ -17140,7 +17140,7 @@
   "为什么你昨晚睡不着？"
  ],
  [
-  "My bike was stolen last night. <br /> I had my bicycle stolen last night.",
+  "My bike was stolen last night. / I had my bicycle stolen last night.",
   "Zuówǎn wǒ de zìxíngchē bèi tōu le.",
   "昨晚我的自行车被偷了。"
  ],
@@ -17535,9 +17535,9 @@
   "看电视没有趣。"
  ],
  [
-  "Do you want to go see a movie?<br />I don't want to. Watching movies is not interesting.",
-  "Nǐ xiǎng qù kàn diànyǐng ma?<br />Bù xiǎng. Kàn diànyǐng méi yǒu qù.",
-  "A你想去看电影吗？<br/>B不想。看电影没有趣。"
+  "\"Do you want to go see a movie?\" \"I don't want to. Watching movies is not interesting.\"",
+  "\"Nǐ xiǎng qù kàn diànyǐng ma?\" \"Bù xiǎng. Kàn diànyǐng méi yǒu qù.\"",
+  "“你想去看电影吗？” “不想。看电影没有趣。”"
  ],
  [
   "He's composing a poem.",
@@ -17625,7 +17625,7 @@
   "发达国家的社会福利很好。"
  ],
  [
-  "Hey, look!  What's that?",
+  "Hey, look! What's that?",
   "Āiyā, nǐ kàn nà shì shénme?",
   "哎呀，你看那是什么？"
  ],
@@ -17680,7 +17680,7 @@
   "小毛喜欢打篮球。"
  ],
  [
-  "The living conditions in this village are still very primitive.&nbsp;(formal)",
+  "The living conditions in this village are still very primitive. (formal)",
   "Zhè gè cūnzi de shēnghuó tiáojiàn réngrán hěn yuánshǐ.",
   "这个村子的生活条件仍然很原始。"
  ],
@@ -17700,7 +17700,7 @@
   "她害怕怀孕。"
  ],
  [
-  "I'm pregnant. <br /> I am pregnant.",
+  "I'm pregnant. / I am pregnant.",
   "Wǒ huáiyùn le.",
   "我怀孕了。"
  ],
@@ -18395,7 +18395,7 @@
   "我今天头痛，不想去上学了。"
  ],
  [
-  "I have a headache. <br /> I've got a headache. <br /> My head aches.",
+  "I have a headache. / I've got a headache. / My head aches.",
   "Wǒ tóutòng.",
   "我头痛。"
  ],
@@ -18515,7 +18515,7 @@
   "这小女孩如果没人关心的话，就要走上歪路了。"
  ],
  [
-  "The police maintain social order.  ((Police maintain the social order.))",
+  "The police maintain social order. ((Police maintain the social order.))",
   "Jǐngchá wéichí shèhuì zhì'ān.",
   "警察维持社会治安。"
  ],
@@ -18590,7 +18590,7 @@
   "长城是七大奇迹之一。"
  ],
  [
-  "I don't think she takes after her mother. <br /> I don't think that she looks like her mother.",
+  "I don't think she takes after her mother. / I don't think that she looks like her mother.",
   "Wǒ bùjué děi tā xiàng tā māma.",
   "我不觉得她像她妈妈。"
  ],
@@ -18755,7 +18755,7 @@
   "他在修理他的自行车。"
  ],
  [
-  "This bike needs to be repaired. <br /> This bicycle needs repairing.",
+  "This bike needs to be repaired. / This bicycle needs repairing.",
   "Zhè liàng zìxíngchē xūyào xiūlǐ.",
   "这辆自行车需要修理。"
  ],
@@ -18785,7 +18785,7 @@
   "政府资助了他们的研究。"
  ],
  [
-  "She turned down the subsidy that I offered. <br> She turned down my offer.",
+  "She turned down the subsidy that I offered. / She turned down my offer.",
   "Tā jùjué le wǒ de zīzhù.",
   "她拒绝了我的资助。"
  ],
@@ -18800,7 +18800,7 @@
   "大家在等公车。"
  ],
  [
-  "A stranger spoke to me in the bus. <br /> A stranger spoke to me on the bus.",
+  "A stranger spoke to me in the bus. / A stranger spoke to me on the bus.",
   "Zài gōng chē shàng, yī ge mòshēngrén hé wǒ shuō le huà.",
   "在公车上，一个陌生人和我说了话。"
  ],
@@ -19220,8 +19220,8 @@
   "您贵姓？"
  ],
  [
-  "When Chinese people meet, they often ask &quot;What is your surname?&quot;",
-  "Zhōngguó rén jiànmiàn cháng wèn &quot;nǐ guìxìng&quot;？",
+  "When Chinese people meet, they often ask \"What is your surname?\"",
+  "Zhōngguó rén jiànmiàn cháng wèn \"nǐ guìxìng\"？",
   "中国人见面常问“你贵姓”？"
  ],
  [
@@ -19255,9 +19255,9 @@
   "这家商店正在营业中。"
  ],
  [
-  "I don't teach. I'm a business consultant.<br />Is that so?",
-  "Bù jiāo. Wŏ shì yíngyègùwèn.<br />Shì ma?",
-  "A不教。我是营业顾问。<br/>B是吗？"
+  "\"I don't teach. I'm a business consultant.\" \"Is that so?\"",
+  "\"Bù jiāo. Wŏ shì yíngyègùwèn.\" \"Shì ma?\"",
+  "“不教。我是营业顾问。” “是吗？”"
  ],
  [
   "It's very foggy today.",
@@ -19415,7 +19415,7 @@
   "草地上有一群牛。"
  ],
  [
-  "He's antisocial. <br /> He is unsociable.",
+  "He's antisocial. / He is unsociable.",
   "Tā tài bùhé qún.",
   "他太不合群。"
  ],
@@ -19575,7 +19575,7 @@
   "他的情绪很激动。"
  ],
  [
-  "Music is a common speech for humanity. <br /> Music is the universal language.",
+  "Music is a common speech for humanity. / Music is the universal language.",
   "Yīnyuè shì rénlèi gòng tōng de yǔyán.",
   "音乐是人类共通的语言。"
  ],
@@ -19895,9 +19895,9 @@
   "妈妈把门关严了。"
  ],
  [
-  "Who is he talking to?<br />Our teacher.<br />Is she strict?<br />Yes.",
-  "Tā zài gēn shéi shuōhuà?<br />Wǒmen de lǎoshī.<br />Tā yán ma?<br />Shì de.",
-  "A他在跟谁说话？<br/>B我们的老师。<br/>A她严吗？<br/>B是的。"
+  "\"Who is he talking to?\" \"Our teacher.\" \"Is she strict?\" \"Yes.\"",
+  "\"Tā zài gēn shéi shuōhuà?\" \"Wǒmen de lǎoshī.\" \"Tā yán ma?\" \"Shì de.\"",
+  "“他在跟谁说话？” “我们的老师。” “她严吗？” “是的。”"
  ],
  [
   "All kinds of vegetables are sold in the market.",
@@ -20155,9 +20155,9 @@
   "我们准备搬家到北京。"
  ],
  [
-  "When will you move?<br />March 15th.",
-  "Nǐ shénmeshíhou bānjiā?<br />Sān yuè shíwǔ hào.",
-  "A你什么时候搬家？<br/>B三月15号。"
+  "\"When will you move?\" \"March 15th.\"",
+  "\"Nǐ shénmeshíhou bānjiā?\" \"Sān yuè shíwǔ hào.\"",
+  "“你什么时候搬家？” “三月15号。”"
  ],
  [
   "He really cares about how teacher views him.",
@@ -20571,7 +20571,7 @@
  ],
  [
   "If we did the same thing, we should receive punishment.",
-  "Yàoshi wǒmen zuò le tóngyàng de shì, wǒmen jiāng huì shòudào chéngfá.&nbsp;(tongyang / tongyiyang / yiyang)",
+  "Yàoshi wǒmen zuò le tóngyàng de shì, wǒmen jiāng huì shòudào chéngfá. (tongyang / tongyiyang / yiyang)",
   "要是我们做了同样的事，我们将会受到惩罚。"
  ],
  [
@@ -21105,9 +21105,9 @@
   "陈先生在商店。"
  ],
  [
-  "Mr. Chen, are you going to school?<br />Yes, I am going to school. And you?",
-  "Chén xiānsheng, nín qù xuéxiào ma?<br />Shì, wǒ qù xuéxiào. Nǐ ne?",
-  "A陈先生，您去学校吗？<br/>B是，我去学校。你呢？"
+  "\"Mr. Chen, are you going to school?\" \"Yes, I am going to school. And you?\"",
+  "\"Chén xiānsheng, nín qù xuéxiào ma?\" \"Shì, wǒ qù xuéxiào. Nǐ ne?\"",
+  "“陈先生，您去学校吗？” “是，我去学校。你呢？”"
  ],
  [
   "How do you know Mr. Chen?",
@@ -21175,9 +21175,9 @@
   "陈先生不喜欢喝可乐。"
  ],
  [
-  "Mr. Chen speaks English really well.<br />Yes, he lived in Canada for three years.",
-  "Chén xiānsheng Yīngyǔ shuōde hěn hǎo.<br />Shì, tā zài Jiānádà zhùguò sān nián.",
-  "A陈先生英语说得很好。<br/>B是，他在加拿大住过三年。"
+  "\"Mr. Chen speaks English really well.\" \"Yes, he lived in Canada for three years.\"",
+  "\"Chén xiānsheng Yīngyǔ shuōde hěn hǎo.\" \"Shì, tā zài Jiānádà zhùguò sān nián.\"",
+  "“陈先生英语说得很好。” “是，他在加拿大住过三年。”"
  ],
  [
   "Mr. Chen's hobby is calligraphy.",
@@ -21320,7 +21320,7 @@
   "京都有很多所大学。"
  ],
  [
-  "Have you ever been to Kyoto? <br /> Have you ever visited Kyoto?",
+  "Have you ever been to Kyoto? / Have you ever visited Kyoto?",
   "Nǐ qù guò jīngdū ma?",
   "你去过京都吗？"
  ],
@@ -21580,14 +21580,14 @@
   "下个星期我要去沈阳。"
  ],
  [
-  "Where do your parents live?<br />My parents live in Shenyang.<br />",
-  "Nǐ fùmǔ zhùzài nǎli?<br />Wǒ fùmǔ zhùzài Shěnyáng.<br />",
-  "A你父母住在哪里？<br/>B我父母住在沈阳。"
+  "\"Where do your parents live?\" \"My parents live in Shenyang.\"",
+  "\"Nǐ fùmǔ zhùzài nǎli?\" \"Wǒ fùmǔ zhùzài Shěnyáng.\"",
+  "“你父母住在哪里？” “我父母住在沈阳。”"
  ],
  [
-  "Do they like Shenyang?<br />Not that much.",
-  "Tāmen xǐhuan Shěnyáng ma?<br />Bú tài xǐhuan.",
-  "A他们喜欢沈阳吗？<br/>B不太喜欢。"
+  "\"Do they like Shenyang?\" \"Not that much.\"",
+  "\"Tāmen xǐhuan Shěnyáng ma?\" \"Bú tài xǐhuan.\"",
+  "“他们喜欢沈阳吗？” “不太喜欢。”"
  ],
  [
   "Shenyang is an ancient city.",
@@ -21715,7 +21715,7 @@
   "他爱好收集模型。"
  ],
  [
-  "She's collecting material for a book. <br /> She is collecting material for a book.",
+  "She's collecting material for a book. / She is collecting material for a book.",
   "Tā wéi yī běn shū shōují cáiliào.",
   "她为一本书收集材料。"
  ],
@@ -21850,9 +21850,9 @@
   "他向警方投降了。"
  ],
  [
-  "Excuse me, where is the restroom?<br />It's there.<br />Thank you.<br />No need to thank me.",
-  "Qǐngwèn, cèsuǒ zài nǎlǐ?<br />Zài nàlǐ.<br />Xièxiè nǐ.<br />Bù yòng xiè.",
-  "A请问，厕所在哪里？<br/>B在那里。<br/>A谢谢你。<br/>B不用谢。"
+  "\"Excuse me, where is the restroom?\" \"It's there.\" \"Thank you.\" \"No need to thank me.\"",
+  "\"Qǐngwèn, cèsuǒ zài nǎlǐ?\" \"Zài nàlǐ.\" \"Xièxiè nǐ.\" \"Bù yòng xiè.\"",
+  "“请问，厕所在哪里？” “在那里。” “谢谢你。” “不用谢。”"
  ],
  [
   "Seawater is salty.",
@@ -21865,7 +21865,7 @@
   "海水是很咸的。"
  ],
  [
-  "You can't drink seawater because it is too salty. <br /> You can not drink the seawater for it is too salty.",
+  "You can't drink seawater because it is too salty. / You can not drink the seawater for it is too salty.",
   "Nǐ bù néng hē hǎishuǐ, yīnwèi tā tài xián le.",
   "你不能喝海水，因为它太咸了。"
  ],
@@ -21895,9 +21895,9 @@
   "我爸爸退休了，以便为更年轻的人让路。"
  ],
  [
-  "I want to sign up for a Chinese course.<br />Really? I think it's too difficult for foreigners to learn Chinese.",
-  "Wǒ xiǎng bào yígè Hànyǔ xuéxíbān.<br />Zhēn de ma? Wǒ juéde, xuéxí Hànyǔ duìyú wàiguórén tài nán le.",
-  "A我想报一个汉语学习班。<br/>B真的吗？我觉得，学习汉语对于外国人太难了。"
+  "\"I want to sign up for a Chinese course.\" \"Really? I think it's too difficult for foreigners to learn Chinese.\"",
+  "\"Wǒ xiǎng bào yígè Hànyǔ xuéxíbān.\" \"Zhēn de ma? Wǒ juéde, xuéxí Hànyǔ duìyú wàiguórén tài nán le.\"",
+  "“我想报一个汉语学习班。” “真的吗？我觉得，学习汉语对于外国人太难了。”"
  ],
  [
   "Robbery is a crime.",
@@ -22065,7 +22065,7 @@
   "周恩来是杰出的政治人物。"
  ],
  [
-  "The church is at the foot of a mountain. <br /> The church stands at the foot of the hill.",
+  "The church is at the foot of a mountain. / The church stands at the foot of the hill.",
   "Jiàotáng wèiyú shānjiǎo.",
   "教堂位于山脚。"
  ],
@@ -22145,7 +22145,7 @@
   "今年物价上涨的比较厉害。"
  ],
  [
-  "Prices are going up. <br /> Prices are rising.",
+  "Prices are going up. / Prices are rising.",
   "Wùjià shàngzhǎng le.",
   "物价上涨了。"
  ],
@@ -22165,9 +22165,9 @@
   "商店里陈列着很多商品。"
  ],
  [
-  "I feel that he is a playboy.<br />Really?",
-  "Wǒ juéde tā shìgè huāhuāgōngzǐ.<br />Zhēnde ma?",
-  "A我觉得他是个花花公子。<br/>B真的吗？"
+  "\"I feel that he is a playboy.\" \"Really?\"",
+  "\"Wǒ juéde tā shìgè huāhuāgōngzǐ.\" \"Zhēnde ma?\"",
+  "“我觉得他是个花花公子。” “真的吗？”"
  ],
  [
   "I like bread spread with butter.",
@@ -22670,7 +22670,7 @@
   "她是这家俱乐部的会员。"
  ],
  [
-  "I am a member of the tennis club. <br /> I belong to a tennis club. <br /> I'm in the tennis club.",
+  "I am a member of the tennis club. / I belong to a tennis club. / I'm in the tennis club.",
   "Wǒ shì wǎngqiú jùlèbù de huìyuán.",
   "我是网球俱乐部的会员。"
  ],
@@ -22880,9 +22880,9 @@
   "祝您万事大吉。"
  ],
  [
-  "Stop seeing me as a &quot;normal&quot; person! <br> Stop thinking of me as just an average person.",
-  "Bùyào zài bǎ wǒ kàn chéng &quot; zhèngcháng &quot; rén!",
-  "不要再把我看成”正常&quot；人！ (or 当成)"
+  "Stop seeing me as a \"normal\" person! / Stop thinking of me as just an average person.",
+  "Bùyào zài bǎ wǒ kàn chéng \"zhèngcháng\" rén!",
+  "不要再把我看成“正常”人！（或 当成）"
  ],
  [
   "He got drunk.",
@@ -23220,7 +23220,7 @@
   "他们吵得很凶。"
  ],
  [
-  "He is mean. <br /> He is nasty.",
+  "He is mean. / He is nasty.",
   "Tā hěn xiōng.",
   "他很凶。"
  ],
@@ -23455,9 +23455,9 @@
   "我们在茶馆。"
  ],
  [
-  "Then how about we go to a tea house?<br />Alright.",
-  "Nà wǒmen qù cháguǎn ba?<br />Hǎo de.",
-  "A那我们去茶馆吧？<br/>B好的。"
+  "\"Then how about we go to a tea house?\" \"Alright.\"",
+  "\"Nà wǒmen qù cháguǎn ba?\" \"Hǎo de.\"",
+  "“那我们去茶馆吧？” “好的。”"
  ],
  [
   "I want to go to Lhasa.",
@@ -23480,7 +23480,7 @@
   "这位年长的女士是我的奶奶。"
  ],
  [
-  "He said hello to the woman. <br /> He saluted the lady.",
+  "He said hello to the woman. / He saluted the lady.",
   "Tā xiàngnà wèi nǚshì wènhǎo.",
   "他向那位女士问好。"
  ],
@@ -23705,7 +23705,7 @@
   "圣诞节快到了。"
  ],
  [
-  "I hope I can see you at Christmas. <br /> I look forward to seeing you at Christmas.",
+  "I hope I can see you at Christmas. / I look forward to seeing you at Christmas.",
   "Wǒ qīwàng néng zài shèngdàn jié jiàn dào nǐ.",
   "我期望能在圣诞节见到你。"
  ],
@@ -24210,9 +24210,9 @@
   "王小姐不在宾馆。"
  ],
  [
-  "Is Ms. Wang in the classroom?<br />No, she isn't. Ms. Wang is not at school.",
-  "Wáng xiǎojiě zài jiàoshì ma?<br />Bú zài. Wáng xiǎojiě bú zài xuéxiào.",
-  "A王小姐在教室吗？<br/>B不在。王小姐不在学校。"
+  "\"Is Ms. Wang in the classroom?\" \"No, she isn't. Ms. Wang is not at school.\"",
+  "\"Wáng xiǎojiě zài jiàoshì ma?\" \"Bú zài. Wáng xiǎojiě bú zài xuéxiào.\"",
+  "“王小姐在教室吗？” “不在。王小姐不在学校。”"
  ],
  [
   "Ms. Wang is at the subway station.",
@@ -24340,9 +24340,9 @@
   "王小姐的工作是什么？"
  ],
  [
-  "Is Ms. Wang at home?<br />No, she isn't. (She) is at the hospital.",
-  "Wáng xiǎojiě zài jiā ma?<br />Bú zài. Zài yīyuàn.",
-  "A王小姐在家吗？<br/>B不在。在医院。"
+  "\"Is Ms. Wang at home?\" \"No, she isn't. (She) is at the hospital.\"",
+  "\"Wáng xiǎojiě zài jiā ma?\" \"Bú zài. Zài yīyuàn.\"",
+  "“王小姐在家吗？” “不在。在医院。”"
  ],
  [
   "Ms. Wang likes to watch basketball.",
@@ -24520,7 +24520,7 @@
   "有些植物无法适应寒冷。"
  ],
  [
-  "Our eyes take time to adjust to the dark. <br /> Our eyes take time to adjust to the darkness.",
+  "Our eyes take time to adjust to the dark. / Our eyes take time to adjust to the darkness.",
   "Wǒmen de yǎnjīng xūyào shíjiān lái shìyìng hēiàn.",
   "我们的眼睛需要时间来适应黑暗。"
  ],
@@ -24980,7 +24980,7 @@
   "一个人必须诚实。"
  ],
  [
-  "I'm already full, thank you. <br /> I've had enough, thank you.",
+  "I'm already full, thank you. / I've had enough, thank you.",
   "Wǒ yǐjīng chībǎo le, xièxie.",
   "我已经吃饱了，谢谢。"
  ],
@@ -25016,7 +25016,7 @@
  ],
  [
   "He is leaning his head on his girlfriend's shoulder.",
-  "Tā bǎ tóu kào zài nǚpéngyou de jiānshang.<div>(kao is leaning head/back, pa is supported underneath)</div>",
+  "Tā bǎ tóu kào zài nǚpéngyou de jiānshang. (kao is leaning head/back, pa is supported underneath)",
   "他把头靠在女朋友的肩上。"
  ],
  [
@@ -25310,7 +25310,7 @@
   "他擅长足球运动。"
  ],
  [
-  "He is not a good driver. <br /> He is bad at driving.",
+  "He is not a good driver. / He is bad at driving.",
   "Tā bù shàncháng kāichē.",
   "他不擅长开车。"
  ],
@@ -25536,21 +25536,21 @@
  ],
  [
   "My vision is getting worse these days.",
-  "Zhè xiē tiān wǒ de shìlì zhèngzài biàn chà&nbsp;.",
+  "Zhè xiē tiān wǒ de shìlì zhèngzài biàn chà .",
   "这些天我的视力正在变差。"
  ],
  [
-  "Though he is rich, he is not happy. <br /> He is rich but he is not happy.",
+  "Though he is rich, he is not happy. / He is rich but he is not happy.",
   "Suīrán tā hěn yǒu qián, dàn tā bùxìngfú.",
   "虽然他很有钱，但他不幸福。"
  ],
  [
   "I have two sons; one is in Tokyo, and the other in Nagoya.",
-  "Wǒ yǒu liǎng gèr zǐ, yī gè&nbsp;zài Dōngjīng, lìngyī ge zài mínggǔwū.",
+  "Wǒ yǒu liǎng gèr zǐ, yī gè zài Dōngjīng, lìngyī ge zài mínggǔwū.",
   "我有两个儿子，一个在东京，另一个在名古屋。"
  ],
  [
-  "I lived in Nagoya for over a month. <br /> I lived for more than a month in Nagoya.",
+  "I lived in Nagoya for over a month. / I lived for more than a month in Nagoya.",
   "Wǒ zài mínggǔwū shēnghuó le 1 ge duō yuè.",
   "我在名古屋生活了1个多月。"
  ],
@@ -26295,7 +26295,7 @@
   "他讨厌洗衣服。"
  ],
  [
-  "I see a woman wearing black. <br /> I saw a woman in black.",
+  "I see a woman wearing black. / I saw a woman in black.",
   "Wǒ kànjiàn yī ge chuān hēi yīfu de nǚrén.",
   "我看见一个穿黑衣服的女人。"
  ],
@@ -26486,7 +26486,7 @@
  ],
  [
   "That's a conspiracy.",
-  "Nà shì yī gè&nbsp;yīnmóu.",
+  "Nà shì yī gè yīnmóu.",
   "那是一个阴谋。"
  ],
  [
@@ -26590,7 +26590,7 @@
   "他不惜用私人时间来工作。"
  ],
  [
-  "You shouldn't read other people's private letters without permission. <br /> You shouldn't read people's private letters without permission.",
+  "You shouldn't read other people's private letters without permission. / You shouldn't read people's private letters without permission.",
   "Nǐ bù néng wèi jīng yǔnxǔ jiù kàn biérén de sīrénxìnjiàn.",
   "你不能未经允许就看别人的私人信件。"
  ],
@@ -26800,7 +26800,7 @@
   "小乐计划去学习武术。"
  ],
  [
-  "The character 丙 (&quot;bing&quot;) denotes the idea of &quot;Number 3.&quot;",
+  "The character 丙 (\"bing\") denotes the idea of \"Number 3.\"",
   "Bǐng biǎoshì “dì-sān” de yìsi.",
   "丙表示“第三”的意思。"
  ],
@@ -26920,7 +26920,7 @@
   "地方政府配合中央政府的政策。"
  ],
  [
-  "He lives an extravagant life.  ((He leads a sumptuous life.))",
+  "He lives an extravagant life. ((He leads a sumptuous life.))",
   "Tā de shēnghuó hěn shēchǐ.",
   "他的生活很奢侈。"
  ],
@@ -27195,7 +27195,7 @@
   "我需要购买新的镜架。"
  ],
  [
-  "It is very dangerous to jump aboard the train when it is moving. <br /> It is dangerous to jump onto a moving train.",
+  "It is very dangerous to jump aboard the train when it is moving. / It is dangerous to jump onto a moving train.",
   "Tiào shàngyīliè zhèngzài kāi de huǒchē shì hěn wēixiǎn de.",
   "跳上一列正在开的火车是很危险的。"
  ],
@@ -27830,9 +27830,9 @@
   "他被蚊子咬了。"
  ],
  [
-  "What does your older brother want to do today?<br />He wants to go to Wangfujing street.",
-  "Nǐ gēgē jīntiān xiǎng zuò shénme?<br />Tā xiǎng qù wángfǔjǐng dàjiē.",
-  "A你哥哥今天想做什么？<br/>B他想去王府井大街。"
+  "\"What does your older brother want to do today?\" \"He wants to go to Wangfujing street.\"",
+  "\"Nǐ gēgē jīntiān xiǎng zuò shénme?\" \"Tā xiǎng qù wángfǔjǐng dàjiē.\"",
+  "“你哥哥今天想做什么？” “他想去王府井大街。”"
  ],
  [
   "It's New Year's day tomorrow.",
@@ -27920,9 +27920,9 @@
   "你备课要多长时间？"
  ],
  [
-  "What did you do yesterday?<br />I prepared lessons. And you?",
-  "Nǐ zuótiān zuò le Shénme?<br />Wǒ bèikè le. Nǐ ne?",
-  "A你昨天做了什么？<br/>B我备课了。你呢？"
+  "\"What did you do yesterday?\" \"I prepared lessons. And you?\"",
+  "\"Nǐ zuótiān zuò le Shénme?\" \"Wǒ bèikè le. Nǐ ne?\"",
+  "“你昨天做了什么？” “我备课了。你呢？”"
  ],
  [
   "Chen teacher should prepare a lesson.",
@@ -28085,7 +28085,7 @@
   "学生们看起来很害羞。"
  ],
  [
-  "She  appears to be really shy.",
+  "She appears to be really shy.",
   "Tā kànqǐlái hěn hàixiū.",
   "她看起来很害羞。"
  ],
@@ -28270,14 +28270,14 @@
   "大家认为桂林是个漂亮的地方。"
  ],
  [
-  "Have you been to Guilin?<br />Yes, I have been there.",
-  "Nǐ qùguò Guìlín ma?<br />Shì, wǒ qùguò.",
-  "A你去过桂林吗？<br/>B是，我去过。"
+  "\"Have you been to Guilin?\" \"Yes, I have been there.\"",
+  "\"Nǐ qùguò Guìlín ma?\" \"Shì, wǒ qùguò.\"",
+  "“你去过桂林吗？” “是，我去过。”"
  ],
  [
-  "Did you like it?<br />I liked it a lot. Guilin is very pretty.",
-  "Nǐ xǐhuan ma?<br />Hěn xǐhuan. Guìlín hěn piàoliang.",
-  "A你喜欢吗？<br/>B很喜欢。桂林很漂亮。"
+  "\"Did you like it?\" \"I liked it a lot. Guilin is very pretty.\"",
+  "\"Nǐ xǐhuan ma?\" \"Hěn xǐhuan. Guìlín hěn piàoliang.\"",
+  "“你喜欢吗？” “很喜欢。桂林很漂亮。”"
  ],
  [
   "That discovery was quite (absolutely) accidental.",
@@ -28345,7 +28345,7 @@
   "这种台湾水果是免税的。"
  ],
  [
-  "Like me, Lucy has many friends. <br> Lucy has as many friends as I do.",
+  "Like me, Lucy has many friends. / Lucy has as many friends as I do.",
   "Lòu（/lù） xīhé wǒ yīyàng yǒu hěn duō péngyou.",
   "露西和我一样有很多朋友。"
  ],
@@ -28635,7 +28635,7 @@
   "她要删除电脑上的档案。"
  ],
  [
-  "A lot of archives are kept here.  ((A large numbers of files are stored here.))",
+  "A lot of archives are kept here. ((A large numbers of files are stored here.))",
   "Zhèli cúnfàngle hěn duō dàng'àn.",
   "这里存放了很多档案。"
  ],
@@ -28671,7 +28671,7 @@
  ],
  [
   "Zhou Jun has devoted herself to working as a teacher.",
-  "Zhōu Jùn cóngshì jiàoshī gōngzuò.&nbsp;(jiàoshī for occupation)",
+  "Zhōu Jùn cóngshì jiàoshī gōngzuò. (jiàoshī for occupation)",
   "周俊从事教师工作。"
  ],
  [
@@ -28690,7 +28690,7 @@
   "我喜欢吃炸鸡。"
  ],
  [
-  "This bomb can kill a lot of people. <br> This bomb can kill many people.",
+  "This bomb can kill a lot of people. / This bomb can kill many people.",
   "Zhège zhàdàn kěyǐ zhàsǐ hěn duō rén.",
   "这个炸弹可以炸死很多人。"
  ],
@@ -28860,7 +28860,7 @@
   "他在刮胡须。"
  ],
  [
-  "I respect elderly people. <br /> I respect the elderly.",
+  "I respect elderly people. / I respect the elderly.",
   "Wǒ zūnjìng zhǎngbèi.",
   "我尊敬长辈。"
  ],
@@ -29000,7 +29000,7 @@
   "我在抄笔记。"
  ],
  [
-  "Acid will create a chemical reaction with metal<br>Substances.",
+  "Acid will create a chemical reaction with metal / Substances.",
   "Suān huì hé jīnshǔwùzhì qǐ huàxué fǎnyìng.",
   "酸会和金属物质起化学反应。"
  ],
@@ -29220,7 +29220,7 @@
   "我想偷懒。"
  ],
  [
-  "The child is leaning against the railing.<div>(kao is leaning head/back, pa is supported underneath)</div>",
+  "The child is leaning against the railing. (kao is leaning head/back, pa is supported underneath)",
   "Xiǎohái kào zài lángān shàng.",
   "小孩靠在栏杆上。"
  ],
@@ -29400,7 +29400,7 @@
   "球被压扁了。"
  ],
  [
-  "Mankind has entered (lit. has strided towards) an era of science&amp;technology.",
+  "Mankind has entered (lit. has strided towards) an era of science&technology.",
   "Rénlèi yǐjīng mài xiàng le kējì shídài.",
   "人类已经迈向了科技时代。"
  ],
@@ -29425,7 +29425,7 @@
   "董事长召开了董事会。"
  ],
  [
-  "I wish you a pleasant voyage. <br /> Bon voyage. <br /> I hope you have a good trip.",
+  "I wish you a pleasant voyage. / Bon voyage. / I hope you have a good trip.",
   "Zhù nǐ lǚtú yúkuài.",
   "祝你旅途愉快。"
  ],
@@ -30311,7 +30311,7 @@
  ],
  [
   "The 'hollowness' inside bamboo represents modesty and humbleness.",
-  "Zhúzi lǐmiàn de &quot;kōng&quot;, dàibiǎo qiānxū, xūxīn.",
+  "Zhúzi lǐmiàn de \"kōng\", dàibiǎo qiānxū, xūxīn.",
   "竹子里面的“空”，代表谦虚、虚心。"
  ],
  [
@@ -30430,9 +30430,9 @@
   "弹吉他的那个男孩是我弟弟。"
  ],
  [
-  "What do you think of the English accent?<br>I think the English accent sounds really refined (elegant)!",
-  "Nǐ juéde Yīngguó kǒuyīn zěnmeyàng?<br>Wǒ juéde Yīngguó kǒuyīn tīngqǐlái hěn yōuyǎ.",
-  "A你觉得英国口音怎么样？<br>B我觉得英国口音听起来很优雅！"
+  "\"What do you think of the English accent?\" \"I think the English accent sounds really refined (elegant)!\"",
+  "\"Nǐ juéde Yīngguó kǒuyīn zěnmeyàng?\" \"Wǒ juéde Yīngguó kǒuyīn tīngqǐlái hěn yōuyǎ.\"",
+  "“你觉得英国口音怎么样？” “我觉得英国口音听起来很优雅！”"
  ],
  [
   "A true (genuine) gentleman would not betray his friends.",
@@ -30615,9 +30615,9 @@
   "新总裁扭转了这家公司的亏损。"
  ],
  [
-  "What subject do you teach?<br />I teach Chemistry. Do you teach English?",
-  "Nǐ jiāo shénme xuékē?<br />Wǒ jiāo huàxué. Nǐ jiāo Yīngwén ma?",
-  "A你教什么学科？<br/>B我教化学。你教英文吗？"
+  "\"What subject do you teach?\" \"I teach Chemistry. Do you teach English?\"",
+  "\"Nǐ jiāo shénme xuékē?\" \"Wǒ jiāo huàxué. Nǐ jiāo Yīngwén ma?\"",
+  "“你教什么学科？” “我教化学。你教英文吗？”"
  ],
  [
   "He loves smoked meat.",
@@ -31405,7 +31405,7 @@
   "他的容貌改变了许多。"
  ],
  [
-  "Even if they have a good wine menu, I will not want to dine here. <br> Unless (really?) they have a good wine list, I don't want to eat here.",
+  "Even if they have a good wine menu, I will not want to dine here. / Unless (really?) they have a good wine list, I don't want to eat here.",
   "Jíshǐ tāmen yǒu hěn hǎo de jiǔdān, wǒ yě bù xiǎng zài zhèli yòngcān.",
   "即使他们有很好的酒单，我也不想在这里用餐。"
  ],
@@ -31575,9 +31575,9 @@
   "她支付了汽车的租金。"
  ],
  [
-  "Yes. I like perfume tea.<br />I also like perfume tea.",
-  "Shìde. Wǒ hěn xǐhuan huāchá.<br />Wǒ yě hěn xǐhuan huāchá.",
-  "A是的。我很喜欢花茶。<br/>B我也很喜欢花茶。"
+  "\"Yes. I like perfume tea.\" \"I also like perfume tea.\"",
+  "\"Shìde. Wǒ hěn xǐhuan huāchá.\" \"Wǒ yě hěn xǐhuan huāchá.\"",
+  "“是的。我很喜欢花茶。” “我也很喜欢花茶。”"
  ],
  [
   "His yard is very beautiful.",
@@ -31880,7 +31880,7 @@
   "老爷爷长得很慈祥。"
  ],
  [
-  "She's a kindly old lady.<br>吉祥物",
+  "She's a kindly old lady. (吉祥物)",
   "Tā shì yī wèi cíxiáng de lǎopópó.",
   "她是一位慈祥的老婆婆。"
  ],
@@ -31975,7 +31975,7 @@
   "他是我的女婿。"
  ],
  [
-  "Where there is a will, there is a way. <br /> Where there's a will, there's a way.",
+  "Where there is a will, there is a way. / Where there's a will, there's a way.",
   "Yǒuzhìzhěshìjìngcheng.",
   "有志者事竟成。"
  ],
@@ -32086,7 +32086,7 @@
  ],
  [
   "To deal with (in accordance/connection with) the events of September 11 (幺幺), the US Congress passed a special bill.",
-  "Zhēnduì jiǔ yāo yāo shìjiàn, Měiguó guóhuì tōng'guò le tèbié fǎ'àn.<div>(dui = duiyu = zhendui (pinpoints))</div>",
+  "Zhēnduì jiǔ yāo yāo shìjiàn, Měiguó guóhuì tōng'guò le tèbié fǎ'àn. (dui = duiyu = zhendui (pinpoints))",
   "针对911事件，美国国会通过了特别法案。"
  ],
  [
@@ -32320,7 +32320,7 @@
   "这条连衣裙很便宜。"
  ],
  [
-  "My friend revealed a secret to me.<br>泄漏 - leak, xièlòu<br>泄露 - xièlù, also pronounced xièlòu, opposite of 隐瞒",
+  "My friend revealed a secret to me. (泄漏 - leak, xièlòu) (泄露 - xièlù, also pronounced xièlòu, opposite of 隐瞒)",
   "Péngyou xiàng wǒ xièlòule yī gè mìmì.",
   "朋友向我泄露了一个秘密。"
  ],
@@ -32455,7 +32455,7 @@
   "他在敲钉子。"
  ],
  [
-  "The profits from the agricultural industry have reached mega-million&nbsp; US dollars (兆 is mega/million/trillion, 亿 is a hundred million).",
+  "The profits from the agricultural industry have reached mega-million US dollars (兆 is mega/million/trillion, 亿 is a hundred million).",
   "Nóngyè de shōuyì yǐ dá zhàoyì Měijīn.",
   "农业的收益已达兆亿美金。"
  ],
@@ -32480,7 +32480,7 @@
   "两条绳子纠缠在一起。"
  ],
  [
-  "Don't stall&nbsp;for time (拖延&nbsp;delay/procrastinate).",
+  "Don't stall for time (拖延 delay/procrastinate).",
   "Bùyào tuōyán shíjiān!",
   "不要拖延时间！"
  ],
@@ -32530,7 +32530,7 @@
   "我要去看牙医。"
  ],
  [
-  "I wish to become a dentist in future. <br /> I hope I will become a dentist in the future.",
+  "I wish to become a dentist in future. / I hope I will become a dentist in the future.",
   "Wǒ xīwàng jiānglái chéngwéi yī míng yá yī.",
   "我希望将来成为一名牙医。"
  ],
@@ -32575,12 +32575,12 @@
   "他用现金来偿还贷款。"
  ],
  [
-  "Poor countries can't pay back their debts.<br>赔偿",
+  "Poor countries can't pay back their debts. (赔偿)",
   "Qióng guó wúfǎ chánghuán zhàikuǎn.",
   "穷国无法偿还债款。"
  ],
  [
-  "The hair style of the Beatles created a sensation.<br>轰轰",
+  "The hair style of the Beatles created a sensation. (轰轰)",
   "Pī tóu shì de fàxíng yǐnqǐ le hōngdòng.",
   "披头士的发型引起了轰动。"
  ],
@@ -32620,14 +32620,14 @@
   "人群涌入了车站。"
  ],
  [
-  "I hear that the work of a cleaner is difficult.<br />Oh yes, and the salary is also very low.",
-  "Tīngshuō qīnɡjiéɡōnɡ de gōngzuò hěn nán.<br />Duì à, xīnshuǐ yě hěn shǎo.",
-  "A听说清洁工的工作很难。<br/>B对啊，薪水也很少。"
+  "\"I hear that the work of a cleaner is difficult.\" \"Oh yes, and the salary is also very low.\"",
+  "\"Tīngshuō qīnɡjiéɡōnɡ de gōngzuò hěn nán.\" \"Duì à, xīnshuǐ yě hěn shǎo.\"",
+  "“听说清洁工的工作很难。” “对啊，薪水也很少。”"
  ],
  [
-  "I hear that you are a shop assistant, is that right?<br />No, that's not correct. I am a cleaner.",
-  "Tīngshuō nǐ shì shòuhuòyuán, duì ma?<br />Bú duì, wǒ shì qīnɡjiéɡōnɡ.",
-  "A听说你是售货员，对吗？<br/>B不对，我是清洁工。"
+  "\"I hear that you are a shop assistant, is that right?\" \"No, that's not correct. I am a cleaner.\"",
+  "\"Tīngshuō nǐ shì shòuhuòyuán, duì ma?\" \"Bú duì, wǒ shì qīnɡjiéɡōnɡ.\"",
+  "“听说你是售货员，对吗？” “不对，我是清洁工。”"
  ],
  [
   "It was not until I had a baby myself that I knew what mother's love is.",
@@ -32690,7 +32690,7 @@
   "他们的关系很融洽。"
  ],
  [
-  "He's getting along well with all of his classmates. <br /> He is in harmony with all his classmates.",
+  "He's getting along well with all of his classmates. / He is in harmony with all his classmates.",
   "Tā hé tā suǒyǒu de tóngxué xiāngchǔ róngqià.",
   "他和他所有的同学相处融洽。"
  ],
@@ -32860,7 +32860,7 @@
   "他去美国学医了。"
  ],
  [
-  "Who is that woman in the brown coat? <br /> Who is the woman in the brown coat?",
+  "Who is that woman in the brown coat? / Who is the woman in the brown coat?",
   "Nà ge chuān zōngsè dàyī de nǚrén shì shéi?",
   "那个穿棕色大衣的女人是谁？"
  ],
@@ -32986,7 +32986,7 @@
  ],
  [
   "The party was put off for a week.",
-  "Pài duì yánqī&nbsp;le yī zhōu.",
+  "Pài duì yánqī le yī zhōu.",
   "派对延期了一周。"
  ],
  [
@@ -33420,7 +33420,7 @@
   "地震带来了很大的灾害。"
  ],
  [
-  "How could I be a robot? Robots can't dream. <br /> How could I be a robot? Robots don't dream.",
+  "How could I be a robot? Robots can't dream. / How could I be a robot? Robots don't dream.",
   "Wǒ zěnme kěnéng shì jīqìrén ne? jīqìrén bùhuì zuòmèng.",
   "我怎么可能是机器人呢？机器人不会做梦。"
  ],
@@ -33576,7 +33576,7 @@
  ],
  [
   "Teachers deserve to be lauded.",
-  "Jiàoshī zhíde rénmen de gēsòng.&nbsp;(jiàoshī for occupation)",
+  "Jiàoshī zhíde rénmen de gēsòng. (jiàoshī for occupation)",
   "教师值得人们的歌颂。"
  ],
  [
@@ -33601,7 +33601,7 @@
  ],
  [
   "Stand the ladder against the wall.",
-  "Bǎ tī zǐ kào qiáng fàng zhe.<div>(kao is leaning head/back, pa is supported underneath)</div>",
+  "Bǎ tī zǐ kào qiáng fàng zhe. (kao is leaning head/back, pa is supported underneath)",
   "把梯子靠墙放着。"
  ],
  [
@@ -33620,7 +33620,7 @@
   "我捡到一只贝壳。"
  ],
  [
-  "He's working in the foreign trade office.<br>贸易",
+  "He's working in the foreign trade office. (贸易)",
   "Tā zài Wàimàojú gōngzuò.",
   "他在外贸局工作。"
  ],
@@ -33715,9 +33715,9 @@
   "他很快便与小区里新来的男孩交上了朋友。"
  ],
  [
-  "I'm sorry, I was very busy.<br />You are lying!",
-  "Duìbuqǐ, hěn mángde.<br />Nǐ shuōhuǎng!",
-  "A对不起，很忙的。<br/>B你说谎！"
+  "\"I'm sorry, I was very busy.\" \"You are lying!\"",
+  "\"Duìbuqǐ, hěn mángde.\" \"Nǐ shuōhuǎng!\"",
+  "“对不起，很忙的。” “你说谎！”"
  ],
  [
   "Lao Niu suspects that Xiao Ma told a lie.",
@@ -34035,7 +34035,7 @@
   "他这是在耗费时间。"
  ],
  [
-  "She's dolled up gorgeously but coquettishly (dressed up in a seductive way).<br>鲜艳",
+  "She's dolled up gorgeously but coquettishly (dressed up in a seductive way). (鲜艳)",
   "Tā dǎban de hěn yāoyàn.",
   "她打扮得很妖艳。"
  ],
@@ -34175,7 +34175,7 @@
   "我和爸爸去打猎。"
  ],
  [
-  "He likes hunting. <br /> He likes to hunt.",
+  "He likes hunting. / He likes to hunt.",
   "Tā xǐhuān dǎliè.",
   "他喜欢打猎。"
  ],
@@ -34655,7 +34655,7 @@
   "爸爸用工具修好了自行车。"
  ],
  [
-  "He feels ashamed.<br>惭愧",
+  "He feels ashamed. (惭愧)",
   "Tā gǎndào xiūkuì.",
   "他感到羞愧。"
  ],
@@ -34841,7 +34841,7 @@
  ],
  [
   "It is highly probable that the deletion of element C will still yield the same kind of result.",
-  "Hěn yǒu kěnéng qù diào C yuánsù huì déchū tóngyàng de jiéguǒ.&nbsp;(tongyang / tongyiyang / yiyang)",
+  "Hěn yǒu kěnéng qù diào C yuánsù huì déchū tóngyàng de jiéguǒ. (tongyang / tongyiyang / yiyang)",
   "很有可能去掉C元素会得出同样的结果。"
  ],
  [
@@ -35245,9 +35245,9 @@
   "父亲常常在空闲时间读侦探小说。"
  ],
  [
-  "Do you like your roommate?<br>I like him. He is an active/dynamic person and he is very well traveled.",
-  "Nǐ xǐhuan nǐde tóngwū ma?<br>Xǐhuan. Tā shìgè huóyuède rén érqiě tā qùguò xǔduō dìfang.",
-  "A你喜欢你的同屋吗？<br>B喜欢。他是个活跃的人而且他去过许多地方。"
+  "\"Do you like your roommate?\" \"I like him. He is an active/dynamic person and he is very well traveled.\"",
+  "\"Nǐ xǐhuan nǐde tóngwū ma?\" \"Xǐhuan. Tā shìgè huóyuède rén érqiě tā qùguò xǔduō dìfang.\"",
+  "“你喜欢你的同屋吗？” “喜欢。他是个活跃的人而且他去过许多地方。”"
  ],
  [
   "These strawberries are really expensive.",
@@ -35570,7 +35570,7 @@
   "这几个汉字是繁体字。"
  ],
  [
-  "Math is the only subject in which he can't do well.<br>Same as 唯独",
+  "Math is the only subject in which he can't do well. (Same as 唯独)",
   "Wéidú shùxué tā xuébuhǎo.",
   "惟独数学他学不好。"
  ],
@@ -35620,7 +35620,7 @@
   "他们粗心大意，还没意识到危险。"
  ],
  [
-  "Only then did he realize  (become aware that) he had been deceived (duped/scammed).",
+  "Only then did he realize (become aware that) he had been deceived (duped/scammed).",
   "Zhídào nà shí, tā cái yìshì dào tā yǐjīng shàngdàng shòu piàn.",
   "直到那时，他才意识到他已经上当受骗。"
  ],
@@ -35730,7 +35730,7 @@
   "他被称为贤人。"
  ],
  [
-  "She still has a clear memory of the past.<br>犹豫",
+  "She still has a clear memory of the past. (犹豫)",
   "Tā duì guòqù de shì jìyìyóuxīn.",
   "她对过去的事记忆犹新。"
  ],
@@ -36050,7 +36050,7 @@
   "这只猫的爪子是白的。"
  ],
  [
-  "The lost fishing boat made a safe return to harbour. <br /> The fishing boat that had been missing returned to its port safely.",
+  "The lost fishing boat made a safe return to harbour. / The fishing boat that had been missing returned to its port safely.",
   "Mílù de yúchuán ānquándi fǎnhuí le gǎngkǒu.",
   "迷路的渔船安全地返回了港口。"
  ],
@@ -36330,7 +36330,7 @@
   "莎士比亚的麦克白是一部悲剧。"
  ],
  [
-  "He's laying [lit., &quot;sticking on&quot;] ceramic tiles.",
+  "He's laying [lit., \"sticking on\"] ceramic tiles.",
   "Tā zài tiē cízhuān.",
   "他在贴瓷砖。"
  ],
@@ -36460,7 +36460,7 @@
   "柠檬太酸了。"
  ],
  [
-  "She's been humiliated by her classmates.<br>侮辱",
+  "She's been humiliated by her classmates. (侮辱)",
   "Tā shòudàole tóngxué de xiūrǔ.",
   "她受到了同学的羞辱。"
  ],
@@ -36485,7 +36485,7 @@
   "我要去银行注销账户。"
  ],
  [
-  "The weather has become suddenly cold.<br>步骤",
+  "The weather has become suddenly cold. (步骤)",
   "Tiānqì zhòurán biànlěng le.",
   "天气骤然变冷了。"
  ],
@@ -36610,7 +36610,7 @@
   "工厂的废料导致了严重的环境污染。"
  ],
  [
-  "Pingyao is not a big place.<br>遥远",
+  "Pingyao is not a big place. (遥远)",
   "Píngyáo dìfang bú dà.",
   "平遥地方不大。"
  ],
@@ -36630,12 +36630,12 @@
   "车门被撞凹了。"
  ],
  [
-  "A sea separates Ireland and England. <br /> Ireland and England are separated by the sea.",
+  "A sea separates Ireland and England. / Ireland and England are separated by the sea.",
   "Àiěrlán hé yīnggélán bèi hǎi fēngē.",
   "爱尔兰和英格兰被海分割。"
  ],
  [
-  "I feel admiration for his talent.<br>佩带",
+  "I feel admiration for his talent. (佩带)",
   "Wǒ hěn qīnpèi tā de cáigàn.",
   "我很钦佩他的才干。"
  ],
@@ -36670,7 +36670,7 @@
   "他的头发很稀疏。"
  ],
  [
-  "Everybody spoke out freely at the meeting.<br>欲望",
+  "Everybody spoke out freely at the meeting. (欲望)",
   "Zài huìyì shàng dàjiā dōu chàng suǒ yù yán.",
   "在会议上大家都畅所欲言。"
  ],
@@ -36705,7 +36705,7 @@
   "蟑螂真令人讨厌。"
  ],
  [
-  "Cockroaches  are disgusting.",
+  "Cockroaches are disgusting.",
   "Zhāngláng ràng rén yànwù.",
   "蟑螂让人厌恶。"
  ],
@@ -36860,7 +36860,7 @@
   "饭馆在美术馆旁边。"
  ],
  [
-  "The terrorists have taken the building.<br>侵略",
+  "The terrorists have taken the building. (侵略)",
   "Kǒngbùfènzǐ qīnzhànle zhè dòng lóu.",
   "恐怖分子侵占了这栋楼。"
  ],
@@ -36905,7 +36905,7 @@
   "巷子的空间很狭小。"
  ],
  [
-  "They are well-off.<br>富裕",
+  "They are well-off. (富裕)",
   "Tāmen de shēnghuó hěn kuānyù.",
   "他们的生活很宽裕。"
  ],
@@ -37110,7 +37110,7 @@
   "我们是同辈。"
  ],
  [
-  "Do you have any condoms? <br /> Do you have a condom?",
+  "Do you have any condoms? / Do you have a condom?",
   "Nǐ yǒu bìyùntào ma?",
   "你有避孕套吗？"
  ],
@@ -37210,7 +37210,7 @@
   "江西景德镇的瓷器品质很好。"
  ],
  [
-  "[Doesn't make sense?] Wish you good luck in the business trip.<br>捷运 - rapid transit system, especially in Taiwan",
+  "[Doesn't make sense?] Wish you good luck in the business trip. (捷运 - rapid transit system, especially in Taiwan)",
   "Zhù nǐ zhècì chūchāi yǒu jiéyùn.",
   "祝你这次出差有捷运。"
  ],
@@ -37315,9 +37315,9 @@
   "她的头发光泽亮丽。"
  ],
  [
-  "I got drunk.<br />My goodness! You are an alcoholic.",
-  "Wǒ hē zuì le.<br />Āiyō! Nǐ shìgè jiǔguǐ.",
-  "A我喝醉了。<br/>B哎哟！你是个酒鬼。"
+  "\"I got drunk.\" \"My goodness! You are an alcoholic.\"",
+  "\"Wǒ hē zuì le.\" \"Āiyō! Nǐ shìgè jiǔguǐ.\"",
+  "“我喝醉了。” “哎哟！你是个酒鬼。”"
  ],
  [
   "After buying the things, he paid by credit.",
@@ -37485,7 +37485,7 @@
   "赛车呼啸而过。"
  ],
  [
-  "In an instant, the race cars came speeding towards us.<br>Same character as 刹车",
+  "In an instant, the race cars came speeding towards us. (Same character as 刹车)",
   "Yīchànà, sàichē jiù chōng guòlái le.",
   "一刹那，赛车就冲过来了。"
  ],
@@ -37545,7 +37545,7 @@
   "她在玩滑梯。"
  ],
  [
-  "They're holding the funeral ceremony in the church.<br>Same character as 沮丧",
+  "They're holding the funeral ceremony in the church. (Same character as 沮丧)",
   "Tāmen zài jiàotáng lǐ bàn sāngshì.",
   "他们在教堂里办丧事。"
  ],
@@ -37655,7 +37655,7 @@
   "薰衣草是紫色的。"
  ],
  [
-  "The teacher is indignant at her behavior.<br>气愤，慷慨",
+  "The teacher is indignant at her behavior. (气愤，慷慨)",
   "Lǎoshī duì tā de xíngwéi gǎndào fènkǎi.",
   "老师对她的行为感到愤慨。"
  ],
@@ -37715,12 +37715,12 @@
   "她在查看邮箱的附件。"
  ],
  [
-  "Grapes can be used to make wine (or brew beer).<br>酝酿",
+  "Grapes can be used to make wine (or brew beer). (酝酿)",
   "Pútao kěyǐ yònglái niàngjiǔ.",
   "葡萄可以用来酿酒。"
  ],
  [
-  "Grapes can be used to make wine.<br>酝酿",
+  "Grapes can be used to make wine. (酝酿)",
   "Pútao kěyǐ niàngjiǔ.",
   "葡萄可以酿酒。"
  ],
@@ -37730,7 +37730,7 @@
   "据说《哈姆雷特》是写出来的最有意思的剧本。"
  ],
  [
-  "Olivier acted the part of Hamlet.<br>装饰",
+  "Olivier acted the part of Hamlet. (装饰)",
   "Olivier shìyǎn le hā mǔ léi tè yī jué.",
   "Olivier饰演了哈姆雷特一角。"
  ],
@@ -37795,7 +37795,7 @@
   "塞外风光优美。"
  ],
  [
-  "I am amazed at your audacity (shamelessness).<br>羞耻",
+  "I am amazed at your audacity (shamelessness). (羞耻)",
   "Wǒ duì nǐ de hòuyánwúchǐ gǎndào jīngyà.",
   "我对你的厚颜无耻感到惊讶。"
  ],
@@ -37840,7 +37840,7 @@
   "他们在加利福尼亚种橙子。"
  ],
  [
-  "The globe is similar in shape to an orange. <br /> The earth is similar to an orange in shape.",
+  "The globe is similar in shape to an orange. / The earth is similar to an orange in shape.",
   "Dìqiú de wàixíng hé chéngzi xiāngsì.",
   "地球的外形和橙子相似。"
  ],
@@ -37970,7 +37970,7 @@
   "宋先生穿褐色的皮鞋。"
  ],
  [
-  "He abuses children.<br>肆虐",
+  "He abuses children. (肆虐)",
   "Tā nüèdài yòu'ér.",
   "他虐待幼儿。"
  ],
@@ -37990,7 +37990,7 @@
   "老师在为孩子讲谚语故事。"
  ],
  [
-  "A rolling stone gathers no moss is a saying. <br /> \"A rolling stone gathers no moss\" is a proverb.",
+  "A rolling stone gathers no moss is a saying. / \"A rolling stone gathers no moss\" is a proverb.",
   "Gǔn shí bù shēngtái shì yī jù yànyǔ.",
   "“滚石不生苔”是一句谚语。"
  ],
@@ -38035,7 +38035,7 @@
   "购买指定商品还有赠品。"
  ],
  [
-  "The noises he made disturbed Lao Xie's nap.<br>搅拌",
+  "The noises he made disturbed Lao Xie's nap. (搅拌)",
   "Tāde shēngyīn dǎjiǎo le Lǎo Xiè de wǔshuì.",
   "他的声音打搅了老谢的午睡。"
  ],
@@ -38085,7 +38085,7 @@
   "农民在田里辛苦地耕耘。"
  ],
  [
-  "This fruit is shaped like an orange and tastes like a pineapple. <br /> The fruit is similar to an orange in shape and to a pineapple in taste.",
+  "This fruit is shaped like an orange and tastes like a pineapple. / The fruit is similar to an orange in shape and to a pineapple in taste.",
   "Zhèzhǒng shuǐguǒ xíngzhuàng xiàng chéngzi, wèidao xiàng bōluó.",
   "这种水果形状像橙子，味道像菠萝。"
  ],
@@ -38110,7 +38110,7 @@
   "希望人类远离瘟疫。"
  ],
  [
-  "He got everyone's praise.<br>荣誉",
+  "He got everyone's praise. (荣誉)",
   "Tā huòdéle dàjiā de zànyù.",
   "他获得了大家的赞誉。"
  ],
@@ -38160,7 +38160,7 @@
   "我喜欢打乒乓。"
  ],
  [
-  "In Mainland China, there are lots of fake goods.<br>Like 伪造?",
+  "In Mainland China, there are lots of fake goods. (Like 伪造?)",
   "Zài dàlù, fǎngmào pǐn tèbié duō.",
   "在大陆，仿冒品特别多。"
  ],
@@ -38195,7 +38195,7 @@
   "农民正在收割甘蔗。"
  ],
  [
-  "There's a traffic jam (the traffic is blocked).<br>Same character as 塞车",
+  "There's a traffic jam (the traffic is blocked). (Same character as 塞车)",
   "Jiāotōng zǔsè le.",
   "交通阻塞了。"
  ],
@@ -38255,7 +38255,7 @@
   "他英勇的行为带给了他光荣。"
  ],
  [
-  "He met a friend whom he hasn't seen for a long time.<br>违反",
+  "He met a friend whom he hasn't seen for a long time. (违反)",
   "Tā yùjiànle jiǔwéi de péngyou.",
   "他遇见了久违的朋友。"
  ],
@@ -38270,7 +38270,7 @@
   "我们不应该盗拷学习资料。"
  ],
  [
-  "The reservoir has stored as much water as it can hold.<br>仓库",
+  "The reservoir has stored as much water as it can hold. (仓库)",
   "Shuǐkù lǐ túnmǎnle shuǐ.",
   "水库里屯满了水。"
  ],
@@ -38295,7 +38295,7 @@
   "小提琴的韵律十分动听。"
  ],
  [
-  "Orange juice, please. <br /> I'd like orange juice.",
+  "Orange juice, please. / I'd like orange juice.",
   "Wǒ xiǎng yào chéngzhī.",
   "我想要橙汁。"
  ],
@@ -38325,7 +38325,7 @@
   "布什继里根之后当上了总统。"
  ],
  [
-  "She's pouring a cup of tea for her friend.<br>斟酌",
+  "She's pouring a cup of tea for her friend. (斟酌)",
   "Tā gěi péngyou zhēnchá.",
   "她给朋友斟茶。"
  ],
@@ -38350,7 +38350,7 @@
   "我爱吃杏仁。"
  ],
  [
-  "Without studying, one will end up stupid and ignorant.<br>愚蠢",
+  "Without studying, one will end up stupid and ignorant. (愚蠢)",
   "Bù xuéxí jiù huì yúmèi-wúzhī.",
   "不学习就会愚昧无知。"
  ],
@@ -38360,7 +38360,7 @@
   "他为债务发愁。"
  ],
  [
-  "The destructive power of a tsunami is enormous.<br>呼啸",
+  "The destructive power of a tsunami is enormous. (呼啸)",
   "Hǎixiào de pòhuàilì hěn dà.",
   "海啸的破坏力很大。"
  ],
@@ -38420,7 +38420,7 @@
   "我的计划是参观苏格兰的古堡。"
  ],
  [
-  "That secret was revealed (曝露 also pronounced pùlù).<br>曝光",
+  "That secret was revealed (曝露 also pronounced pùlù). (曝光)",
   "Nàge mìmì bèi bàolù le.",
   "那个秘密被曝露了。"
  ],
@@ -38505,7 +38505,7 @@
   "细菌繁衍的速度很快。"
  ],
  [
-  "He slandered me (similar to 诽谤?)<br>轻蔑",
+  "He slandered me (similar to 诽谤?) (轻蔑)",
   "Tā wūmiè wǒ.",
   "他诬蔑我。"
  ],
@@ -38585,7 +38585,7 @@
   "这条小路凹凸不平。"
  ],
  [
-  "There's a lot of wine stored here.<br>储蓄",
+  "There's a lot of wine stored here. (储蓄)",
   "Zhèli chǔcángzhe hěn duō jiǔ.",
   "这里储藏着很多酒。"
  ],
@@ -38610,7 +38610,7 @@
   "他的工作态度很松懈。"
  ],
  [
-  "She's sitting under the awning.<br>车棚",
+  "She's sitting under the awning. (车棚)",
   "Tā zuò zài liángpéng xiàmiàn.",
   "她坐在凉棚下面。"
  ],
@@ -38695,7 +38695,7 @@
   "我老板把艰巨的任务指派给了我。"
  ],
  [
-  "Frogs feed on insects (hunts/catches insects to feed themselves).<br>逮捕，捉到",
+  "Frogs feed on insects (hunts/catches insects to feed themselves). (逮捕，捉到)",
   "Qīngwā yǐ bǔzhuō kūnchóng wéi shí.",
   "青蛙以捕捉昆虫为食。"
  ],
@@ -38716,7 +38716,7 @@
  ],
  [
   "It is important for me to read The Outlaws of the Marsh (one of the four classic novels, early 明朝)",
-  "Duìyú wǒ lái shuō, dú Shuǐhǔzhuàn hěn zhòngyào.<div>(dui = duiyu = zhendui (pinpoints))</div>",
+  "Duìyú wǒ lái shuō, dú Shuǐhǔzhuàn hěn zhòngyào. (dui = duiyu = zhendui (pinpoints))",
   "对于我来说，读《水浒传》很重要。"
  ],
  [
@@ -38760,7 +38760,7 @@
   "广州是广东省的首府。"
  ],
  [
-  "Guangzhou is under the jurisdiction of Guangdong province.<br>辖区",
+  "Guangzhou is under the jurisdiction of Guangdong province. (辖区)",
   "Guǎngzhōu Shì guī Guǎngdōng Shěng guǎnxiá.",
   "广州市归广东省管辖。"
  ],
@@ -38835,7 +38835,7 @@
   "他在向上司求饶。"
  ],
  [
-  "Ice melts into water.<br>Similar to 融化",
+  "Ice melts into water. (Similar to 融化)",
   "Bīng rónghuà chéng shuǐ.",
   "冰溶化成水。"
  ],
@@ -38925,7 +38925,7 @@
   "在韩国，每个男子必须服兵役。"
  ],
  [
-  "He is picking his teeth.<br>挑剔",
+  "He is picking his teeth. (挑剔)",
   "Tā zài tīyá.",
   "他在剔牙。"
  ],
@@ -38951,11 +38951,11 @@
  ],
  [
   "The throne is passed down from father to son.",
-  "Wángwèi shì shìxí de.<br>袭击",
+  "Wángwèi shì shìxí de. 袭击",
   "王位是世袭的。"
  ],
  [
-  "The trees in this place are lush and verdant.<br>洋葱",
+  "The trees in this place are lush and verdant. (洋葱)",
   "Zhèli de shùmù yùyùcōngcōng.",
   "这里的树木郁郁葱葱。"
  ],
@@ -38970,7 +38970,7 @@
   "厄运降临了。"
  ],
  [
-  "I advise you never to live beyond your income.<br>敷药",
+  "I advise you never to live beyond your income. (敷药)",
   "Wǒ jiànyì nǐ yǒngyuǎn bùyào rùbùfūchū.",
   "我建议你永远不要入不敷出。"
  ],
@@ -38980,7 +38980,7 @@
   "他们争得面红耳赤。"
  ],
  [
-  "The river water is very dirty/muddy.<br>浑浊",
+  "The river water is very dirty/muddy. (浑浊)",
   "Zhè tiáo hé shuǐ hěn wūzhuó.",
   "这条河水很污浊。"
  ],
@@ -39000,7 +39000,7 @@
   "朋友们一起来拜祭故人。"
  ],
  [
-  "There is a stretch of swampland/everglade in the forest.<br>光泽",
+  "There is a stretch of swampland/everglade in the forest. (光泽)",
   "Shùlín lǐ yǒu yī piàn zhǎozédì.",
   "树林里有一片沼泽地。"
  ],
@@ -39025,12 +39025,12 @@
   "我们纷纷向灾区捐献物品。"
  ],
  [
-  "We're trying to raise funds for the disaster area.<br>筹备",
+  "We're trying to raise funds for the disaster area. (筹备)",
   "Wǒmen zhèngzài wèi zāiqū chóukuǎn.",
   "我们正在为灾区筹款。"
  ],
  [
-  "There was a quarrel between them.<br>瓜葛",
+  "There was a quarrel between them. (瓜葛)",
   "Tāmen zhījiān fāshēngle yīdiǎn jiūgé.",
   "他们之间发生了一点纠葛。"
  ],
@@ -39115,7 +39115,7 @@
   "凡尔赛宫金碧辉煌。"
  ],
  [
-  "I feel a little guilty that I didn't invite him to join the celebration. <br /> I didn't invite him to the party. I feel guilty about it.",
+  "I feel a little guilty that I didn't invite him to join the celebration. / I didn't invite him to the party. I feel guilty about it.",
   "Wǒ méi qǐng tā lái cānjiā qìngzhù huì, gǎndào yǒudiǎn nèijiù.",
   "我没请他来参加庆祝会，感到有点内疚。"
  ],
@@ -39145,7 +39145,7 @@
   "夜深了，街上悄然无声。"
  ],
  [
-  "She's got many medals/decorations of honor.<br>赞誉",
+  "She's got many medals/decorations of honor. (赞誉)",
   "Tā huòdéle hěn duō róngyù xūnzhāng.",
   "她获得了很多荣誉勋章。"
  ],
@@ -39165,7 +39165,7 @@
   "渔民每天出海捕鱼。"
  ],
  [
-  "His wife is very kind-hearted/virtuous (of a woman).<br>贤慧",
+  "His wife is very kind-hearted/virtuous (of a woman). (贤慧)",
   "Tā de qīzi hěn xiánshū.",
   "他的妻子很贤淑。"
  ],
@@ -39175,7 +39175,7 @@
   "活到90岁以上一点都不稀奇。"
  ],
  [
-  "They belong (subordinate/under the jurisdiction) to the personnel/HR department.<br>奴隶",
+  "They belong (subordinate/under the jurisdiction) to the personnel/HR department. (奴隶)",
   "Tāmen lìshǔ yú rénshìbù.",
   "他们隶属于人事部。"
  ],
@@ -39215,7 +39215,7 @@
   "拐角处有一个电话亭。"
  ],
  [
-  "He's confused by the formula.<div>(no zhiyu, zhiyu says contrast)&nbsp;(dui = duiyu = zhendui (pinpoints))</div>",
+  "He's confused by the formula. (no zhiyu, zhiyu says contrast) (dui = duiyu = zhendui (pinpoints))",
   "Tā duìyú gōngshì hùnxiáo bùqīng.",
   "他对于公式混淆不清。"
  ],
@@ -39250,7 +39250,7 @@
   "柳树枝垂在水面上。"
  ],
  [
-  "The ship is being jolted around on the turbulent sea.<br>颠覆",
+  "The ship is being jolted around on the turbulent sea. (颠覆)",
   "Chuán zài xiōngyǒng de hǎilàng zhōng diānbǒ.",
   "船在汹涌的海浪中颠簸。"
  ],
@@ -39335,7 +39335,7 @@
   "我等不及想要和我爸爸去狩猎。"
  ],
  [
-  "The martyrs are buried in this cemetery.<br>坟墓",
+  "The martyrs are buried in this cemetery. (坟墓)",
   "Lièshì zàng zài zhè kuài mùdì lǐ.",
   "烈士葬在这块墓地里。"
  ],
@@ -39350,7 +39350,7 @@
   "叭的一声，吉他弦断了。"
  ],
  [
-  "He ruthlessly defeated his opponent.<br>挫折",
+  "He ruthlessly defeated his opponent. (挫折)",
   "Tā hěnhěn de cuòbàile duìshǒu.",
   "他狠狠地挫败了对手。"
  ],
@@ -39380,7 +39380,7 @@
   "摩托车在汽车中迂回前进。"
  ],
  [
-  "He is in animal husbandry.<br>牧场",
+  "He is in animal husbandry. (牧场)",
   "Tā cóngshì xùmùyè.",
   "他从事畜牧业。"
  ],
@@ -39430,7 +39430,7 @@
   "他很讨厌吃椰菜花。"
  ],
  [
-  "Earth's resources are being gradually exhausted/depleted.<br>枯萎",
+  "Earth's resources are being gradually exhausted/depleted. (枯萎)",
   "Dìqiú shàng de zīyuán zhèngzài mànmàn kūjié.",
   "地球上的资源正在慢慢枯竭。"
  ],
@@ -39440,7 +39440,7 @@
   "他们结成同盟。"
  ],
  [
-  "They're partners at work.<br>Like 伙伴",
+  "They're partners at work. (Like 伙伴)",
   "Tāmen shì gōngzuò huǒ bàn.",
   "他们是工作夥伴。"
  ],
@@ -39480,7 +39480,7 @@
   "人们相信鲸有他们自己的语言。"
  ],
  [
-  "The temperature will drop tomorrow, so please be ready for the cold.<br>防御",
+  "The temperature will drop tomorrow, so please be ready for the cold. (防御)",
   "Míngtiān jiàngwēn, qǐng dàjiā zuòhǎo yùhán de zhǔnbèi.",
   "明天降温，请大家做好御寒的准备。"
  ],
@@ -39490,7 +39490,7 @@
   "他们不畏艰难向前走。"
  ],
  [
-  "No words can express her deep sorrow.<br>比喻",
+  "No words can express her deep sorrow. (比喻)",
   "Tā de bēishāng wúfǎ yán yù.",
   "她的悲伤无法言喻。"
  ],
@@ -39525,12 +39525,12 @@
   "瓢虫是益虫。"
  ],
  [
-  "She's removing her make-up.<br>拆卸",
+  "She's removing her make-up. (拆卸)",
   "Tā zài xièzhuāng.",
   "她在卸妆。"
  ],
  [
-  "The bug fell into the trap.<br>陷入",
+  "The bug fell into the trap. (陷入)",
   "Chóngzi luòrùle xiànjǐng.",
   "虫子落入了陷阱。"
  ],
@@ -39540,7 +39540,7 @@
   "大猩猩在吃树叶。"
  ],
  [
-  "The mother is singing nursery rhymes to her baby.<br>谣言",
+  "The mother is singing nursery rhymes to her baby. (谣言)",
   "Māma gěi bǎobao chàng tóngyáo.",
   "妈妈给宝宝唱童谣。"
  ],
@@ -39590,7 +39590,7 @@
   "水沸腾后变为蒸汽。"
  ],
  [
-  "Gambling has made him lose everything he ever had.<br>倾斜",
+  "Gambling has made him lose everything he ever had. (倾斜)",
   "Tā dǔbó dǔ de qīngjiā-dàngchǎn.",
   "他赌博赌得倾家荡产。"
  ],
@@ -39600,7 +39600,7 @@
   "他怂恿他们赌博。"
  ],
  [
-  "The oil is polluting the coast and causing an environmental disaster.<br>声势浩大",
+  "The oil is polluting the coast and causing an environmental disaster. (声势浩大)",
   "Shíyóu wūrǎn hǎi'àn, zàochéng huánjìng hàojié.",
   "石油污染海岸，造成环境浩劫。"
  ],
@@ -39675,12 +39675,12 @@
   "她赡养父母。"
  ],
  [
-  "He's very honest and sincere.<br>伦敦",
+  "He's very honest and sincere. (伦敦)",
   "Tā hěn dūnhòu lǎoshi.",
   "他很敦厚老实。"
  ],
  [
-  "These cars are poor sellers.<br>停滞",
+  "These cars are poor sellers. (停滞)",
   "Zhèxiē qìchē shì zhìxiāopǐn.",
   "这些汽车是滞销品。"
  ],
@@ -39715,7 +39715,7 @@
   "她在清理灶台。"
  ],
  [
-  "The setting sun shone on the sea's surface, turning it golden.<br>The surface of the sea is illuminated into a golden color",
+  "The setting sun shone on the sea's surface, turning it golden. / The surface of the sea is illuminated into a golden color",
   "Hǎimiàn bèi luòrì yìngzhào chéng jīnsè.",
   "海面被落日映照成金色。"
  ],
@@ -39725,7 +39725,7 @@
   "这是花粉过敏的症状。"
  ],
  [
-  "Beijing opera is the quintessence of Chinese culture.<br>纯粹",
+  "Beijing opera is the quintessence of Chinese culture. (纯粹)",
   "Jīngjù shì Zhōngguó de guócuì.",
   "京剧是中国的国粹。"
  ],
@@ -39735,7 +39735,7 @@
   "她在挠痒痒。"
  ],
  [
-  "I bear in mind that misfortunes never come singly.<br>谨慎，车祸",
+  "I bear in mind that misfortunes never come singly. (谨慎，车祸)",
   "Wǒ jǐn jì huòbùdānxíng.",
   "我谨记祸不单行。"
  ],
@@ -39760,7 +39760,7 @@
   "狗具有灵敏的嗅觉。"
  ],
  [
-  "Dogs have a keen sense of smell. <br> A dog is sensitive to smell.",
+  "Dogs have a keen sense of smell. / A dog is sensitive to smell.",
   "Gǒu de xiùjué língmǐn.",
   "狗的嗅觉灵敏。"
  ],
@@ -39785,7 +39785,7 @@
   "短发现在风靡一时。"
  ],
  [
-  "This river/stream flows rapidly. <br> The current of this river is rapid.",
+  "This river/stream flows rapidly. / The current of this river is rapid.",
   "Zhè tiáo héshuǐ liú tuān jí.",
   "这条河水流湍急。"
  ],
@@ -39815,7 +39815,7 @@
   "我买到了两张球赛的入场券。"
  ],
  [
-  "Fine eating habits create healthy lives.<br>取缔",
+  "Fine eating habits create healthy lives. (取缔)",
   "Liánghǎo de yǐnshí xíguàn dìzào jiànkāng de rénshēng.",
   "良好的饮食习惯缔造健康的人生。"
  ],
@@ -39835,12 +39835,12 @@
   "父子俩在河堤上休息。"
  ],
  [
-  "With wine, she drinks only enough to get a taste of it, not to get drunk.<div>(also zhiyu, to say contrast)&nbsp;(dui = duiyu = zhendui (pinpoints))</div>",
+  "With wine, she drinks only enough to get a taste of it, not to get drunk. (also zhiyu, to say contrast) (dui = duiyu = zhendui (pinpoints))",
   "Duìyú jiǔ tā dōu shì qiǎnchángzhézhǐ.",
   "对于酒她都是浅尝辄止。"
  ],
  [
-  "These tulips are very brightly colored.<br>妖艳",
+  "These tulips are very brightly colored. (妖艳)",
   "Zhèxiē yùjīnxiāng de yánsè hěn xiānyàn.",
   "这些郁金香的颜色很鲜艳。"
  ],
@@ -39900,7 +39900,7 @@
   "队员们斗志昂扬。"
  ],
  [
-  "The judge considers the circumstances of the case before rendering a decision.<br>斟酌，情况",
+  "The judge considers the circumstances of the case before rendering a decision. (斟酌，情况)",
   "Fǎguān duì ànjiàn zhuóqíng pànjué.",
   "法官对案件酌情判决。"
  ],
@@ -39960,7 +39960,7 @@
   "流水形成了漩涡。"
  ],
  [
-  "The little girl has dimples in her cheeks.<br>Or 酒窝",
+  "The little girl has dimples in her cheeks. (Or 酒窝)",
   "Xiǎo nǚhái de liǎnshàng yǒu jiǔwō.",
   "小女孩的脸上有酒涡。"
  ],
@@ -40010,17 +40010,17 @@
   "注射疫苗，防止瘟疫。"
  ],
  [
-  "The Great Wall was used to defend against incursions by foreign invaders (dated).<br>侵略",
+  "The Great Wall was used to defend against incursions by foreign invaders (dated). (侵略)",
   "Chángchéng kěyǐ yònglái fángzhǐ wàikòu rùqīn.",
   "长城可以用来防止外寇入侵。"
  ],
  [
-  "The water vat/jar has been filled with water.<br>(Similar to 充满?)",
+  "The water vat/jar has been filled with water. (Similar to 充满?)",
   "Shuǐgāng chéngmǎn shuǐ le.",
   "水缸盛满水了。"
  ],
  [
-  "The rescue worker beat the area, looking for the child.<br>领域",
+  "The rescue worker beat the area, looking for the child. (领域)",
   "Yuán jiùrén yuán wèile zhǎodào háizi, zǐxì sōusuǒ le nà ge qūyù.",
   "援救人员为了找到孩子，仔细搜索了那个区域。"
  ],
@@ -40030,7 +40030,7 @@
   "橡皮筏在河里颠簸着。"
  ],
  [
-  "This set of jewelry is sponsored by the jeweler.<br>装饰",
+  "This set of jewelry is sponsored by the jeweler. (装饰)",
   "Zhè tào shǒushi shì zhūbǎoshāng zànzhù de.",
   "这套首饰是珠宝商赞助的。"
  ],
@@ -40070,12 +40070,12 @@
   "对受灾的人要有怜悯的心。"
  ],
  [
-  "The natural limestone caverns are very very spectacular.<br>灰尘，灰色",
+  "The natural limestone caverns are very very spectacular. (灰尘，灰色)",
   "Tiānrán de shíhuī yándòng fēicháng zhuàngguān.",
   "天然的石灰岩洞非常壮观。"
  ],
  [
-  "Corrupt officials bring disaster to the country and the people.<br>遭殃<br>车祸",
+  "Corrupt officials bring disaster to the country and the people. (遭殃) (车祸)",
   "Tānguān huòguó-yāngmín.",
   "贪官祸国殃民。"
  ],
@@ -40085,7 +40085,7 @@
   "水里含有碱。"
  ],
  [
-  "So far, AIDS remains incurable.<br>Or 艾滋病",
+  "So far, AIDS remains incurable. (Or 艾滋病)",
   "Àizībìng qìjīn hái wúfǎ zhìyù.",
   "爱滋病迄今还无法治愈。"
  ],
@@ -40115,7 +40115,7 @@
   "她洗去盘子上的污垢。"
  ],
  [
-  "The (Chinese) ivy belongs to the rambler/Liana/creeper.  ((Ivy is a kind of creeping plant.))<br>爬山虎 - Boston/Japanese ivy",
+  "The (Chinese) ivy belongs to the rambler/Liana/creeper. ((Ivy is a kind of creeping plant.)) (爬山虎 - Boston/Japanese ivy)",
   "Chángchūnténg shǔyú mànshēngzhíwù.",
   "常春藤属于蔓生植物。"
  ],
@@ -40185,7 +40185,7 @@
   "她在涂抹胭脂。"
  ],
  [
-  "The policeman is patrolling the area/jurisdiction.<br>管辖，巡逻",
+  "The policeman is patrolling the area/jurisdiction. (管辖，巡逻)",
   "Jǐngchá zài xiáqū lǐ xúnshì.",
   "警察在辖区里巡视。"
  ],
@@ -40225,7 +40225,7 @@
   "我们是同僚。"
  ],
  [
-  "The bill hit him like a thunderbolt (/thunderclap).<br>账单，帐单, same",
+  "The bill hit him like a thunderbolt (/thunderclap). (账单，帐单, same)",
   "Zhè fèn zhàngdān yóurú qíngtiān-pīlì.",
   "这份帐单犹如晴天霹雳。"
  ],
@@ -40240,7 +40240,7 @@
   "这里是燕京大学的校园旧址。"
  ],
  [
-  "His words are very sharp.<br>犀牛",
+  "His words are very sharp. (犀牛)",
   "Tā de yáncí hěn xīlì.",
   "他的言辞很犀利。"
  ],
@@ -40250,12 +40250,12 @@
   "政府提供了赈灾援助。"
  ],
  [
-  "This crack has been formed by the movement of the earth's crust.<br>Same character as 贝壳",
+  "This crack has been formed by the movement of the earth's crust. (Same character as 贝壳)",
   "Zhè tiáo lièfèng shì yóu dìqiào yùndòng xíngchéng de.",
   "这条裂缝是由地壳运动形成的。"
  ],
  [
-  "Put the egg into boiling water. <br> Put the eggs into the boiling water.<br>沸腾",
+  "Put the egg into boiling water. / Put the eggs into the boiling water. (沸腾)",
   "Bǎ dàn fàng rù fèi shuǐ zhōng.",
   "把蛋放入沸水中。"
  ],
@@ -40270,17 +40270,17 @@
   "地图上标有经纬度。"
  ],
  [
-  "This pair of pants is too big.<br>Same as 裤子",
+  "This pair of pants is too big. (Same as 裤子)",
   "Zhè tiáo kùzi tài dà le.",
   "这条绔子太大了。"
  ],
  [
-  "He's pleading/praying for God's forgiveness.<br>祈祷",
+  "He's pleading/praying for God's forgiveness. (祈祷)",
   "Tā qíqiú shén de kuānshù.",
   "他祈求神的宽恕。"
  ],
  [
-  "The operation to crack down on drug dealers is about to begin.<br>缉拿",
+  "The operation to crack down on drug dealers is about to begin. (缉拿)",
   "Jīdú xíngdòng jíjiāng zhǎnkāi.",
   "缉毒行动即将展开。"
  ],
@@ -40305,7 +40305,7 @@
   "侍者服侍他们用餐。"
  ],
  [
-  "Oil is extracted (lit. extract and purify, refine) from olives.<br>锻炼",
+  "Oil is extracted (lit. extract and purify, refine) from olives. (锻炼)",
   "Yóu shì cóng gǎnlǎn zhōng tíliàn chūlái de.",
   "油是从橄榄中提炼出来的。"
  ],
@@ -40335,7 +40335,7 @@
   "一个从俄勒冈州来的朋友，布朗先生明天会来拜访我们。"
  ],
  [
-  "Don't falsely accuse me (like 冤枉?).<br>诬蔑，控告",
+  "Don't falsely accuse me (like 冤枉?). (诬蔑，控告)",
   "Nǐ bùyào wūgào wǒ!",
   "你不要诬告我！"
  ],
@@ -40345,7 +40345,7 @@
   "临汾是个脏的城市。"
  ],
  [
-  "What trick is she trying to play?<br>玩耍",
+  "What trick is she trying to play? (玩耍)",
   "Tā xiǎng shuǎ shénme guǐjì?",
   "她想耍什么诡计？"
  ],
@@ -40365,12 +40365,12 @@
   "煎饼上有糖浆。"
  ],
  [
-  "The ship sailed out into the vast sea.<br>汪汪",
+  "The ship sailed out into the vast sea. (汪汪)",
   "Chuán shǐrùle wāngyáng dàhǎi.",
   "船驶入了汪洋大海。"
  ],
  [
-  "This world is just a madman's (prisoner's) cage.<br>囚犯",
+  "This world is just a madman's (prisoner's) cage. (囚犯)",
   "Shìjiè jiùshì yī ge fēngzi de qiú lóng.",
   "世界就是一个疯子的囚笼。"
  ],
@@ -40390,12 +40390,12 @@
   "棉花糖是用蔗糖制作的。"
  ],
  [
-  "The police have apprehended the criminal.<br>缉毒",
+  "The police have apprehended the criminal. (缉毒)",
   "Jǐngchá jīnále zuìfàn.",
   "警察缉拿了罪犯。"
  ],
  [
-  "Salute/pay respect the lofty/sublime/noble guards.<br>崇拜",
+  "Salute/pay respect the lofty/sublime/noble guards. (崇拜)",
   "Xiàng chónggāo de wèishì men zhìjìng.",
   "向崇高的卫士们致敬。"
  ],
@@ -40405,7 +40405,7 @@
   "闰年有366天。"
  ],
  [
-  "He left resentfully.<br>Same as 愤恨",
+  "He left resentfully. (Same as 愤恨)",
   "Tā fènhèn de líkāi le.",
   "他忿恨地离开了。"
  ],
@@ -40430,7 +40430,7 @@
   "妈妈把花苗挪到大花盆里。"
  ],
  [
-  "The honor guard is undergoing review<br>仪式，打仗，阅读",
+  "The honor guard is undergoing review (仪式，打仗，阅读)",
   "Yízhàngduì zhèngzài jiēshòu jiǎnyuè.",
   "仪仗队正在接受检阅。"
  ],
@@ -40470,7 +40470,7 @@
   "她的发言简明扼要。"
  ],
  [
-  "Unsanitary habits can cause germs to multiply.<br>细菌",
+  "Unsanitary habits can cause germs to multiply. (细菌)",
   "Bù wèishēng de xíguàn huì zīshēng bìngjūn.",
   "不卫生的习惯会滋生病菌。"
  ],
@@ -40480,12 +40480,12 @@
   "他们对谈判进行斡旋。"
  ],
  [
-  "Civilians (common people) were tragically massacred.<br>悲惨",
+  "Civilians (common people) were tragically massacred. (悲惨)",
   "Píngmín cǎnzāo shālù.",
   "平民惨遭杀戮。"
  ],
  [
-  "The believers follow the priest's teachings.<br>循环",
+  "The believers follow the priest's teachings. (循环)",
   "Jiàotú zūnxún shénfu de jiàodǎo.",
   "教徒遵循神父的教导。"
  ],
@@ -40560,17 +40560,17 @@
   "铀是放射性金属。"
  ],
  [
-  "He's delivering (reading out) the government's official statement / report on affairs of state.<br>咨询",
+  "He's delivering (reading out) the government's official statement / report on affairs of state. (咨询)",
   "Tā zài xuāndú zhèngfǔ zīwén.",
   "他在宣读政府咨文。"
  ],
  [
-  "The boat is sailing on the boundless ocean.<br>茫然",
+  "The boat is sailing on the boundless ocean. (茫然)",
   "Fānchuán zài mángmáng dàhǎi zhōng hángxíng.",
   "帆船在茫茫大海中航行。"
  ],
  [
-  "All the stolen money has been intercepted.<br>分赃，缴付",
+  "All the stolen money has been intercepted. (分赃，缴付)",
   "Zāngkuǎn quánbù bèi jiǎohuò le.",
   "赃款全部被缴获了。"
  ],
@@ -40610,22 +40610,22 @@
   "东京的纬度是北纬32度。"
  ],
  [
-  "Da Vinci could see farther than others.<br>瞻仰",
+  "Da Vinci could see farther than others. (瞻仰)",
   "Dáfēnqí bǐ biérén gāo zhān yuǎn zhǔ.",
   "达芬奇比别人高瞻远瞩。"
  ],
  [
-  "Tadpoles grow into frogs.<br>蜕皮",
+  "Tadpoles grow into frogs. (蜕皮)",
   "Kēdǒu tuìbiàn chéng qīngwā.",
   "蝌蚪蜕变成青蛙。"
  ],
  [
-  "The athlete is holding the torch high.<br>引擎",
+  "The athlete is holding the torch high. (引擎)",
   "Yùndòngyuán gāoqíngzhe huǒjù.",
   "运动员高擎着火炬。"
  ],
  [
-  "The cherry is blood/scarlet red in color.<br>朱红色",
+  "The cherry is blood/scarlet red in color. (朱红色)",
   "Yīngtáo shì xīnghóngsè de.",
   "樱桃是猩红色的。"
  ],
@@ -40635,12 +40635,12 @@
   "纺纱机在纺线。"
  ],
  [
-  "The enemy was routed and withdrew from the city.<br>崩溃",
+  "The enemy was routed and withdrew from the city. (崩溃)",
   "Díjūn kuìbài chèchūle zhè zuò chéngshì.",
   "敌军溃败撤出了这座城市。"
  ],
  [
-  "The fireplace, lacking firewood, flames already starting to lose their vigour.<br>劈柴",
+  "The fireplace, lacking firewood, flames already starting to lose their vigour. (劈柴)",
   "Yóuyú shǎo le mù chái, yāncong de huǒ miáo yǐjīng kāishǐ hòu jì wúlì le.",
   "由于少了木柴，烟囱的火苗已经开始后继无力了。"
  ],
@@ -40655,12 +40655,12 @@
   "鲸鱼属于哺乳类动物。"
  ],
  [
-  "He reproached him for being pedantic and stubborn.<br>腐烂",
+  "He reproached him for being pedantic and stubborn. (腐烂)",
   "Tā zébèi tā de yūfǔ hé gùzhí.",
   "他责备他的迂腐和固执。"
  ],
  [
-  "Slight inattention can cause a great disaster.<br>荒谬",
+  "Slight inattention can cause a great disaster. (荒谬)",
   "Shī zhī háo lí, miù zhī qiān lǐ.",
   "失之毫厘，谬之千里。"
  ],
@@ -40675,7 +40675,7 @@
   "火灾过后，只剩下颓垣断壁。"
  ],
  [
-  "Suppress the strong and aid the weak.<br>Punish evil-doers and encourage people to do good.",
+  "Suppress the strong and aid the weak. / Punish evil-doers and encourage people to do good.",
   "Chú qiáng fú ruò, chéng è yáng shàn.",
   "锄强扶弱，惩恶扬善。"
  ],
@@ -40685,12 +40685,12 @@
   "硫磺不溶于水。"
  ],
  [
-  "The warships are cruising/patrolling.<br>舰艇",
+  "The warships are cruising/patrolling. (舰艇)",
   "Jūnjiàn zài hǎishàng xúnyì.",
   "军舰在海上巡弋。"
  ],
  [
-  "The hen is sitting on her eggs.  (or The hen is brooding.)",
+  "The hen is sitting on her eggs. (or The hen is brooding.)",
   "Mǔjī zài fūluǎn.",
   "母鸡在孵卵。"
  ],
