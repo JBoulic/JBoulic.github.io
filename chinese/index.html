@@ -32,6 +32,7 @@
         <nav class="desktop-nav">
           <button class="nav-tab active" data-view="cards">Cards</button>
           <button class="nav-tab" data-view="chars">Characters</button>
+          <button class="nav-tab" data-view="chengyu">Idioms (成语)</button>
           <button class="nav-tab" data-view="slang">Spoken &amp; Slang</button>
         </nav>
 
@@ -98,6 +99,41 @@
 
       </section>
 
+      <!-- ── VIEW: CHENGYU ──────────────────────────────────────────────────── -->
+      <section id="view-chengyu" class="view-panel">
+        <div class="chengyu-container">
+
+          <div class="chengyu-intro-card">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <h2 style="font-size:1.1rem;font-weight:700;color:var(--accent-gold)">📜 Chinese Idioms &amp; Wisdom (成语)</h2>
+              <span id="chengyu-count" style="font-size:.8rem;color:var(--text-muted)"></span>
+            </div>
+            <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.45">
+              Classical wisdom, fables, and daily idioms essential for Chinese literacy. Tap characters to inspect their anatomy, or tap 🔊 to hear native pronunciation.
+            </p>
+            <div class="search-input-wrapper">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="chengyu-search-input" class="search-input"
+                placeholder="Search pinyin (sai weng), English (blessing in disguise, horse), or hanzi (塞翁失马)…">
+              <button id="chengyu-search-clear-btn" class="search-clear-btn" style="display:none">✕</button>
+            </div>
+            <div class="char-filter-tabs" id="chengyu-filter-tabs" style="flex-wrap:wrap">
+              <button class="filter-pill chengyu-filter-pill active" data-filter="all">All</button>
+              <button class="filter-pill chengyu-filter-pill" data-filter="Wisdom">Wisdom &amp; Strategy</button>
+              <button class="filter-pill chengyu-filter-pill" data-filter="Determination">Determination</button>
+              <button class="filter-pill chengyu-filter-pill" data-filter="Learning">Learning &amp; Skill</button>
+              <button class="filter-pill chengyu-filter-pill" data-filter="Character">Life &amp; Character</button>
+              <button class="filter-pill chengyu-filter-pill" data-filter="Action">Action &amp; Folly</button>
+              <button class="filter-pill chengyu-filter-pill" data-filter="Emotions">Daily &amp; Emotions</button>
+              <button class="filter-pill chengyu-filter-pill" data-filter="Nature">Nature &amp; Imagery</button>
+              <button class="filter-pill chengyu-filter-pill" data-filter="in_deck">In Deck Cards</button>
+            </div>
+          </div>
+
+          <div id="chengyu-grid" class="chengyu-grid"></div>
+        </div>
+      </section>
+
       <!-- ── VIEW: SLANG ────────────────────────────────────────────────────── -->
       <section id="view-slang" class="view-panel">
         <div class="slang-container">
@@ -136,7 +172,10 @@
       <div class="char-modal">
 
         <div class="modal-header">
-          <span style="font-weight:600;font-size:.9rem;color:var(--text-secondary)">Character</span>
+          <div style="display:flex;align-items:center;gap:.5rem">
+            <button id="modal-back-btn" class="modal-back-btn" title="Back" style="display:none">← Back</button>
+            <span style="font-weight:600;font-size:.9rem;color:var(--text-secondary)">Character</span>
+          </div>
           <button id="modal-close-btn" class="modal-close-btn" title="Close (Esc)">✕</button>
         </div>
 
@@ -147,7 +186,9 @@
             <div class="char-hero-left">
               <div id="hero-hz" class="hero-hz"></div>
               <div>
-                <div id="hero-py" class="hero-py"></div>
+                <div style="display:flex;align-items:center;gap:.55rem">
+                  <div id="hero-py" class="hero-py"></div>
+                </div>
                 <div id="hero-def" class="hero-def"></div>
               </div>
             </div>
@@ -199,6 +240,9 @@
       <button class="bottom-nav-item" data-view="chars">
         <span class="icon">🀄</span><span>Characters</span>
       </button>
+      <button class="bottom-nav-item" data-view="chengyu">
+        <span class="icon">📜</span><span>Idioms</span>
+      </button>
       <button class="bottom-nav-item" data-view="slang">
         <span class="icon">💬</span><span>Slang</span>
       </button>
@@ -208,6 +252,7 @@
 
   <script src="data/cards.js"></script>
   <script src="data/characters.js"></script>
+  <script src="data/chengyu.js"></script>
   <script src="data/common_missing.js"></script>
   <script src="app.js"></script>
 </body>

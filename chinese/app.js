@@ -111,16 +111,20 @@ const state = {
   cards: [],
   characters: {},
   commonMissing: [],
+  chengyu: [],
   currentCardIdx: 0,
   cardRevealed: false,
   activeView: 'cards',
   selectedChar: null,
   modalOpen: false,
+  charModalHistory: [],
   charFilter: 'freq',    // 'freq' | 'least'
   charSearchQuery: '',
   charPage: 1,
   charPageSize: 120,
   activeCompoundFilter: null,
+  chengyuFilter: 'all',
+  chengyuSearchQuery: '',
   slangSearchQuery: '',
   slangFilter: 'all',
 };
@@ -132,11 +136,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   initLocalStorage();
   setupEventListeners();
   setupKeyboardShortcuts();
+  setupResizeHandler();
   try {
     await loadData();
     hideLoading();
+    calculateDynamicCharPageSize();
     renderCardView();
     renderCharDirectory();
+    renderChengyuView();
     renderSlangView();
   } catch (err) {
     console.error(err);
@@ -148,9 +155,10 @@ function cacheDOMElements() {
   DOM.loadingScreen = document.getElementById('loading-screen');
   DOM.loadingText   = document.getElementById('loading-text');
 
-  DOM.viewCards = document.getElementById('view-cards');
-  DOM.viewChars = document.getElementById('view-chars');
-  DOM.viewSlang = document.getElementById('view-slang');
+  DOM.viewCards   = document.getElementById('view-cards');
+  DOM.viewChars   = document.getElementById('view-chars');
+  DOM.viewChengyu = document.getElementById('view-chengyu');
+  DOM.viewSlang   = document.getElementById('view-slang');
 
   DOM.desktopNavTabs  = document.querySelectorAll('.nav-tab');
   DOM.bottomNavItems  = document.querySelectorAll('.bottom-nav-item');
@@ -178,6 +186,7 @@ function cacheDOMElements() {
   // Modal
   DOM.modalBackdrop    = document.getElementById('char-modal-backdrop');
   DOM.modalCloseBtn    = document.getElementById('modal-close-btn');
+  DOM.modalBackBtn     = document.getElementById('modal-back-btn');
   DOM.heroHz           = document.getElementById('hero-hz');
   DOM.heroPy           = document.getElementById('hero-py');
   DOM.heroDef          = document.getElementById('hero-def');
@@ -191,6 +200,13 @@ function cacheDOMElements() {
   DOM.resetFilterBtn   = document.getElementById('reset-filter-btn');
   DOM.crossCardsList   = document.getElementById('cross-cards-list');
   DOM.crossCardsCount  = document.getElementById('cross-cards-count');
+
+  // Chengyu
+  DOM.chengyuSearchInput    = document.getElementById('chengyu-search-input');
+  DOM.chengyuSearchClearBtn = document.getElementById('chengyu-search-clear-btn');
+  DOM.chengyuGrid           = document.getElementById('chengyu-grid');
+  DOM.chengyuCount          = document.getElementById('chengyu-count');
+  DOM.chengyuFilterPills    = document.querySelectorAll('.chengyu-filter-pill');
 
   // Slang
   DOM.slangSearchInput  = document.getElementById('slang-search-input');
@@ -210,20 +226,23 @@ function initLocalStorage() {
 async function loadData() {
   DOM.loadingText.textContent = 'Loading dataset…';
   if (window.CARDS_DATA && window.CHARS_DATA) {
-    state.cards        = window.CARDS_DATA;
-    state.characters   = window.CHARS_DATA;
+    state.cards         = window.CARDS_DATA;
+    state.characters    = window.CHARS_DATA;
     state.commonMissing = window.COMMON_MISSING || [];
+    state.chengyu       = window.CHENGYU_DATA || [];
     buildEnglishIndex();
     return;
   }
-  const [cr, chr, sr] = await Promise.all([
+  const [cr, chr, cy, sr] = await Promise.all([
     fetch('data/cards.json'),
     fetch('data/characters.json'),
+    fetch('data/chengyu.json').catch(() => null),
     fetch('data/common_missing.json').catch(() => null),
   ]);
   if (!cr.ok || !chr.ok) throw new Error('Failed to fetch data files');
   state.cards        = await cr.json();
   state.characters   = await chr.json();
+  if (cy && cy.ok) state.chengyu = await cy.json();
   if (sr && sr.ok) state.commonMissing = await sr.json();
   buildEnglishIndex();
 }
@@ -237,11 +256,17 @@ function switchView(v) {
   state.activeView = v;
   DOM.viewCards.classList.toggle('active', v === 'cards');
   DOM.viewChars.classList.toggle('active', v === 'chars');
+  if (DOM.viewChengyu) DOM.viewChengyu.classList.toggle('active', v === 'chengyu');
   DOM.viewSlang.classList.toggle('active', v === 'slang');
   DOM.desktopNavTabs.forEach(t => t.classList.toggle('active', t.dataset.view === v));
   DOM.bottomNavItems.forEach(t => t.classList.toggle('active', t.dataset.view === v));
   if (v === 'cards') renderCardView();
-  if (v === 'chars') { state.charPage = 1; renderCharDirectory(); }
+  if (v === 'chars') {
+    calculateDynamicCharPageSize();
+    state.charPage = 1;
+    renderCharDirectory();
+  }
+  if (v === 'chengyu') renderChengyuView();
   if (v === 'slang') renderSlangView();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -374,6 +399,46 @@ function getFilteredCharList() {
   };
 }
 
+function calculateDynamicCharPageSize() {
+  const vh = window.innerHeight;
+  const vw = window.innerWidth;
+  const isMobile = vw <= 480;
+
+  const headerH = 56;
+  const bottomNavH = isMobile ? 64 : 0;
+  const controlsH = isMobile ? 125 : 100;
+  const paginationH = 48;
+  const paddings = isMobile ? 24 : 36;
+
+  const availableH = Math.max(160, vh - headerH - bottomNavH - controlsH - paginationH - paddings);
+  const tileH = isMobile ? 68 : 72; // tile height + gap
+  const rows = Math.max(2, Math.floor(availableH / tileH));
+
+  const mainW = Math.min(1200, vw - (isMobile ? 20 : 32));
+  const tileW = isMobile ? 58 : 64; // tile width + gap
+  const cols = Math.max(3, Math.floor(mainW / tileW));
+
+  const calculated = rows * cols;
+  // Bound: floor at 30 so mobile is never just a few characters, upper cap at 180
+  state.charPageSize = Math.max(30, Math.min(180, calculated));
+}
+
+function setupResizeHandler() {
+  let timer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      if (state.activeView === 'chars') {
+        const oldSize = state.charPageSize;
+        calculateDynamicCharPageSize();
+        if (oldSize !== state.charPageSize) {
+          renderCharDirectory();
+        }
+      }
+    }, 150);
+  });
+}
+
 function sortChars(list) {
   if (state.charFilter === 'least') {
     return [...list].sort((a, b) => state.characters[a].f - state.characters[b].f);
@@ -382,6 +447,7 @@ function sortChars(list) {
 }
 
 function renderCharDirectory() {
+  calculateDynamicCharPageSize();
   const result = getFilteredCharList();
   const list = result.list;
   const total = list.length;
@@ -530,9 +596,20 @@ function renderLinkedHanziText(container, text) {
 }
 
 // ── CHARACTER MODAL ────────────────────────────────────────────────────────────
-function openCharModal(ch) {
+function openCharModal(ch, fromHistory = false) {
+  if (!fromHistory) {
+    if (state.selectedChar && state.modalOpen && state.selectedChar !== ch) {
+      state.charModalHistory.push(state.selectedChar);
+    } else if (!state.modalOpen) {
+      state.charModalHistory = [];
+    }
+  }
   state.selectedChar = ch;
   state.activeCompoundFilter = null;
+
+  if (DOM.modalBackBtn) {
+    DOM.modalBackBtn.style.display = state.charModalHistory.length > 0 ? 'inline-flex' : 'none';
+  }
 
   const info = state.characters[ch] || { p:['?'], d:'', r:'', dec:'', e:'', f:0, w:[], c:[] };
 
@@ -541,7 +618,7 @@ function openCharModal(ch) {
   DOM.heroDef.textContent   = info.d || '';
   DOM.heroFreq.textContent  = `${info.f} cards`;
   DOM.heroRad.textContent   = `Radical: ${info.r || '?'}`;
-  
+
   // Render decomposition and etymology with clickable links for characters in the deck
   renderLinkedHanziText(DOM.heroDecomp, info.dec || '');
   if (info.e) {
@@ -558,8 +635,17 @@ function openCharModal(ch) {
   DOM.modalBackdrop.classList.add('open');
 }
 
+function modalGoBack() {
+  if (state.charModalHistory.length > 0) {
+    const prev = state.charModalHistory.pop();
+    openCharModal(prev, true);
+  }
+}
+
 function closeCharModal() {
   state.modalOpen = false;
+  state.charModalHistory = [];
+  if (DOM.modalBackBtn) DOM.modalBackBtn.style.display = 'none';
   DOM.modalBackdrop.classList.remove('open');
 }
 
@@ -658,6 +744,117 @@ function resetCompoundFilter() {
   if (info) { renderCompoundPills(info.w || [], state.selectedChar); renderModalCards(info.c || [], state.selectedChar); }
 }
 
+// ── CHENGYU (IDIOMS) VIEW ─────────────────────────────────────────────────────
+function renderChengyuView() {
+  if (!DOM.chengyuGrid) return;
+  let list = [...(state.chengyu || [])];
+
+  // Category filter
+  if (state.chengyuFilter === 'in_deck') {
+    list = list.filter(item => (item.cards || []).length > 0);
+  } else if (state.chengyuFilter !== 'all') {
+    const f = state.chengyuFilter.toLowerCase();
+    list = list.filter(item => (item.category || '').toLowerCase().includes(f));
+  }
+
+  // Search filter
+  const q = state.chengyuSearchQuery.trim().toLowerCase();
+  if (q) {
+    const qClean = stripTones(q);
+    list = list.filter(item =>
+      item.chengyu.includes(q) ||
+      stripTones(item.pinyin).includes(qClean) ||
+      (item.meaning || '').toLowerCase().includes(q) ||
+      (item.literal || '').toLowerCase().includes(q) ||
+      (item.story || '').toLowerCase().includes(q)
+    );
+  }
+
+  DOM.chengyuCount.textContent = `${list.length} idioms`;
+  DOM.chengyuGrid.innerHTML = '';
+
+  if (!list.length) {
+    DOM.chengyuGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:2.5rem;color:var(--text-muted);">No idioms match your query.</div>';
+    return;
+  }
+
+  list.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'chengyu-card';
+
+    // Header
+    const header = document.createElement('div');
+    header.className = 'chengyu-header';
+
+    const hzWrap = document.createElement('div');
+    hzWrap.className = 'chengyu-hz';
+    for (const ch of item.chengyu) {
+      if (/[\u4e00-\u9fff]/.test(ch)) {
+        const s = document.createElement('span');
+        s.className = 'hanzi-char';
+        s.textContent = ch;
+        s.title = (state.characters[ch] ? (state.characters[ch].p || []).join(', ') + ': ' + (state.characters[ch].d || '') : '');
+        s.onclick = e => { e.stopPropagation(); openCharModal(ch); };
+        hzWrap.appendChild(s);
+      } else {
+        hzWrap.appendChild(document.createTextNode(ch));
+      }
+    }
+
+    const leftCol = document.createElement('div');
+    leftCol.appendChild(hzWrap);
+
+    const pyRow = document.createElement('div');
+    pyRow.style.cssText = 'display:flex;align-items:center;gap:.45rem;';
+    const pyText = document.createElement('div');
+    pyText.className = 'chengyu-py';
+    pyText.textContent = item.pinyin;
+    pyRow.append(pyText);
+    leftCol.appendChild(pyRow);
+
+    const badge = document.createElement('span');
+    badge.className = 'chengyu-badge';
+    badge.textContent = item.category;
+
+    header.append(leftCol, badge);
+
+    // Body
+    const literal = document.createElement('div');
+    literal.className = 'chengyu-literal';
+    literal.textContent = `Lit: "${item.literal}"`;
+
+    const meaning = document.createElement('div');
+    meaning.className = 'chengyu-meaning';
+    meaning.textContent = item.meaning;
+
+    const story = document.createElement('div');
+    story.className = 'chengyu-story';
+    story.innerHTML = `<span style="font-weight:600;color:var(--text-primary)">Origin: </span>`;
+    renderLinkedHanziText(story, item.story);
+
+    card.append(header, literal, meaning, story);
+
+    if (item.cards && item.cards.length > 0) {
+      const deckTag = document.createElement('button');
+      deckTag.className = 'chengyu-deck-tag';
+      deckTag.innerHTML = `<span>✓ in deck (${item.cards.length} card${item.cards.length === 1 ? '' : 's'})</span>`;
+      deckTag.onclick = () => {
+        state.currentCardIdx = item.cards[0];
+        switchView('cards');
+      };
+      card.appendChild(deckTag);
+    }
+
+    DOM.chengyuGrid.appendChild(card);
+  });
+}
+
+function setChengyuFilter(cat) {
+  state.chengyuFilter = cat;
+  DOM.chengyuFilterPills.forEach(p => p.classList.toggle('active', p.dataset.filter === cat));
+  renderChengyuView();
+}
+
 // ── SLANG VIEW ────────────────────────────────────────────────────────────────
 function renderSlangView() {
   let list = [...(state.commonMissing || [])];
@@ -691,6 +888,7 @@ function renderSlangView() {
 
     const exHzEl = document.createElement('div');
     exHzEl.className = 'slang-ex-hz';
+    exHzEl.style.cssText = 'display:flex;align-items:center;flex-wrap:wrap;';
     for (const ch of item.example_hz) {
       if (/[\u4e00-\u9fff]/.test(ch)) {
         const s = document.createElement('span');
@@ -738,10 +936,11 @@ function setupEventListeners() {
   DOM.desktopNavTabs.forEach(t => { t.onclick = () => switchView(t.dataset.view); });
   DOM.bottomNavItems.forEach(t => { t.onclick = () => switchView(t.dataset.view); });
 
-  DOM.revealBtn.onclick    = revealCard;
-  DOM.prevCardBtn.onclick  = prevCard;
-  DOM.nextCardBtn.onclick  = nextCard;
+  DOM.revealBtn.onclick     = revealCard;
+  DOM.prevCardBtn.onclick   = prevCard;
+  DOM.nextCardBtn.onclick   = nextCard;
   DOM.randomCardBtn.onclick = randomCard;
+
   // Tap card body to reveal
   document.getElementById('flashcard-body').onclick = () => { if (!state.cardRevealed) revealCard(); };
 
@@ -771,8 +970,30 @@ function setupEventListeners() {
 
   // Modal
   DOM.modalCloseBtn.onclick = closeCharModal;
+  if (DOM.modalBackBtn) DOM.modalBackBtn.onclick = modalGoBack;
   DOM.modalBackdrop.onclick = e => { if (e.target === DOM.modalBackdrop) closeCharModal(); };
   DOM.resetFilterBtn.onclick = resetCompoundFilter;
+
+  // Chengyu
+  if (DOM.chengyuFilterPills) {
+    DOM.chengyuFilterPills.forEach(p => { p.onclick = () => setChengyuFilter(p.dataset.filter); });
+  }
+  if (DOM.chengyuSearchInput) {
+    DOM.chengyuSearchInput.addEventListener('input', e => {
+      state.chengyuSearchQuery = e.target.value;
+      if (DOM.chengyuSearchClearBtn) DOM.chengyuSearchClearBtn.style.display = e.target.value ? 'block' : 'none';
+      renderChengyuView();
+    });
+  }
+  if (DOM.chengyuSearchClearBtn) {
+    DOM.chengyuSearchClearBtn.onclick = () => {
+      DOM.chengyuSearchInput.value = '';
+      state.chengyuSearchQuery = '';
+      DOM.chengyuSearchClearBtn.style.display = 'none';
+      renderChengyuView();
+      DOM.chengyuSearchInput.focus();
+    };
+  }
 
   // Slang
   DOM.slangFilterPills.forEach(p => { p.onclick = () => setSlangFilter(p.dataset.filter); });
@@ -785,7 +1006,15 @@ function setupKeyboardShortcuts() {
       if (e.key === 'Escape') { e.target.blur(); closeCharModal(); }
       return;
     }
-    if (e.key === 'Escape' && state.modalOpen) closeCharModal();
+    if (e.key === 'Escape' && state.modalOpen) {
+      closeCharModal();
+      return;
+    }
+    if ((e.key === 'Backspace' || (e.altKey && e.key === 'ArrowLeft')) && state.modalOpen) {
+      e.preventDefault();
+      modalGoBack();
+      return;
+    }
     if (e.key === ' ' && state.activeView === 'cards') {
       e.preventDefault();
       state.cardRevealed ? nextCard() : revealCard();

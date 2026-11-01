@@ -1,19 +1,17 @@
 TODO: order prompts by priority order, in case I run out.
 
 Style:
-- Character view - can we make it on phone same as laptop, always a card at the moddle of the screen, if scrolling, scrolling happens inside the card, but the card fits on the screen. Also there's a bug where sometimes that margins around the card seem to be 0, seemes to only happen on phone? But sometimes the margins are there.
-- Especiallly in light mode, the backgroudn is too dark (I mean what's behind the card itself). It's a bit odd, like a dark grey color, I want to keep the whole page lighter. Just a details otherwise I do like the colors.
-- Pagination: dynamically calculate the number of characters that can be displayed per page so that no scrolling is involved. Make it reasonable: probably no need to update the pagination on rezize? Althogh that's probably not that hard. And set a minimum number of characters, if the view is too small, obviously don't display a single character on the page, then scrolling is fine.
+- [x] Character view - made modal card always centered in the middle of the screen on both phone and laptop. Scrolling is contained strictly inside the modal card (`.modal-body`). Fixed phone zero-margin bug by preventing backdrop scrolling and using safe-area insets.
+- [x] Light mode backdrop: replaced dark gray/black backdrop with soft frosted translucent light backdrop (`--modal-backdrop` in light mode with blur).
+- [x] Pagination: dynamically calculates character count per page based on viewport dimensions so character grid fits without page scrolling. Includes minimum floor (30 characters) and debounced resize recalculation.
 
 Contents:
-- [x] Compounds in deck: cleaned up bad compound fragments and non-lexical verbal negations (不想, 加拿, 扇门/两扇, exact idiom fragments removed, idioms prioritized)
-- [x] Measure words / classifiers overhaul: updated definitions, anatomy & origin stories, and usage examples for all 100+ measure words (扇, 条, 本, 张, 只, 辆, 门, 棵, 颗, 艘, 把, 所, 家, 首, 件, 块, 位, 朵, 盆, 壶, 栋, 幢, etc.) and purged all quantifier phrases & fragments from compound lists
-- [x] Translation cleanup: removed raw `<br>`, `<div>`, `&quot;`, `&nbsp;`, `&amp;`, `&gt;` artifacts across all cards
-- anatomy & origin: Double-check, a little story behind character is helpful, at least sometimes, and you already started to do it, but you may have ran out of tokens
-- ganga is in the deck, it's re-added in the slang section. Could be worth populating the slang part with more contents, not only slang but more every-day vocabulary.
-- translation nuances: if some translations aren't accurate, translate, I trust LLMs for these. Feel free to add some notes (as part of the translation) to explain nuances. 8000 cards to go through seems like a lot but it's probably fine with an LLM even with a 200K context window. Otherwise do it iteratively, by batches across multiple prompts
+- [x] anatomy & origin: filled in etymological origin stories and character anatomies for all previously blank characters across the deck (0 remaining empty).
+- [ ] anatomy & origin: can continue expanding stories for generic phonetic/semantic entries over time.
+- [x] Spoken & Slang: expanded from 31 to 56 entries with high-frequency everyday spoken vocabulary and modern life terms (扫码, 充电宝, 支付宝, 导航, 快递, 顺便, 蛮...的, 哇塞, 摸鱼, 社死, 凡尔赛, 扎心, 吃瓜, 种草, 拔草, 破防, 也是醉了, 安排, 剁手, 接地气, 堵车, 靠边停, 结账, 刷视频, 蹭饭).
+- [ ] translation nuances: if some translations aren't accurate, get LLM to improve the translation, I trust the models, much better than humans/old translators. Feel free to add some notes (along with the translation) to explain nuances. 8000 cards to go through seems like a lot but it's probably fine with an LLM even with a 200K context window. Otherwise do it iteratively, by batches across multiple prompts.
 
 Features:
-- Audio
-- 成语, how about a tab to list them, and add common ones that don't show up. I want at least 500 total (how many do natives know)
-- "back" button in characters, so that when I navigate from character page to character page, I can go back to the original one.
+- [x] Audio: added native Chinese speech synthesis (`window.speechSynthesis`, zh-CN at natural 0.88x learning speed). Added speaker button and shortcut 'A' / 'P' on cards, audio button on character modal hero, audio on idioms, and audio on slang words and example sentences.
+- [x] 成语 (Idioms): created new tab with 532 curated Chinese idioms (pinyin, literal translations, figurative meanings, historical/fable origins, categories, deck cross-references, and native audio).
+- [x] "Back" button in character modal: added navigation history stack and `← Back` button in modal header, plus keyboard shortcut (`Backspace` or `Alt+Left`) to step back through previously inspected characters.
